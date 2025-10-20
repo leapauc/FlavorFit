@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from unidecode import unidecode
 import csv
+import os 
 
 # URL du site à scraper (remplacez par la vôtre)
 url_category = "https://www.marmiton.org/recettes/index/categorie/plat-principal/"
@@ -90,18 +91,26 @@ def scraper_recettes(url, list_category):
                     'img_url': img,
                     'category': category
                 })
-
+                idx+=1
             compteur_page += 1
-        idx+=1
     return data_recettes
 
-def create_file(donnees,name_file):
-    # Créer une table Python (DataFrame pandas)
+def create_file(donnees, name_file):
+    # Créer DataFrame
     df = pd.DataFrame(donnees)
 
-    # Exporter vers un fichier CSV
-    df.to_csv(name_file, index=False, encoding='utf-8')
-    print(f'Données exportées dans "{name_file}"')
+    # Chemin vers le dossier data, basé sur l'emplacement du script
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # src/
+    data_dir = os.path.join(script_dir, '..', 'data')        # ../data
+    os.makedirs(data_dir, exist_ok=True)                     # crée si manquant
+
+    # Chemin complet du fichier CSV
+    file_path = os.path.join(data_dir, name_file)
+
+    # Export CSV
+    df.to_csv(file_path, index=False, encoding='utf-8')
+    print(f'Données exportées dans "{file_path}"')
+
     return df
 
 def ingredients_recettes(df):
@@ -134,12 +143,9 @@ def ingredients_recettes(df):
             })
 
         # --- Nb invités ---
-        qt_counter = "N/A"
-        card_counter = soup.find(class_="recipe-ingredients__qt-counter")
-        if card_counter:
-            value = card_counter.find(class_="recipe-ingredients__qt-counter__value")
-            unit = card_counter.find(class_="recipe-ingredients__qt-counter__unit")
-            qt_counter = f"{value.get_text(strip=True) if value else ''} {unit.get_text(strip=True) if unit else ''}".strip()
+        value = soup.find(class_="recipe-ingredients__qt-counter__value")
+        unit = soup.find(class_="recipe-ingredients__qt-counter__unit")    
+        qt_counter = f"{value.get_text(strip=True) if value else ''} {unit.get_text(strip=True) if unit else ''}".strip()
 
         # --- Nutri-score ---
         card_title = soup.find(class_="recipe-header__title")
@@ -147,9 +153,12 @@ def ingredients_recettes(df):
         nutri_score = score_nutri_elem.get('alt') if score_nutri_elem else "N/A"
 
         # --- Infos supplémentaires ---
-        items = soup.find_all(class_="info-item")
-        items_values = [item.find('span').get_text(strip=True) for item in items if item.find('span')]
-
+        items = soup.find_all(class_="recipe-primary__item")
+        items_values = []
+        for item in items:
+            span = item.find('span')
+            value = span.get_text(strip=True) if span else "N/A"
+            items_values.append(value)
         # --- Fusionner dans la recette ---
         recette.update({
             'temps_prepa': items_values[0] if len(items_values) > 0 else "N/A",
