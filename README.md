@@ -23,3 +23,4 @@ Semaine 1 :
 pip install pandas
 pip install bs4
 pip install requests
+pip install unidecode
