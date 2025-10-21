@@ -26,4 +26,11 @@ pip install pandas
 pip install bs4
 pip install requests
 pip install unidecode
+pip install streamlit
+```
+
+## Lancer streamlit
+
+```
+streamlit run streamlit_app.py
 ```

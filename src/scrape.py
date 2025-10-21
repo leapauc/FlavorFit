@@ -89,7 +89,7 @@ def scraper_recettes(url, list_category):
                     'note': rating,
                     'nb_avis': nbreview,
                     'img_url': img,
-                    'category': category
+                    'category': type['category']
                 })
                 idx+=1
             compteur_page += 1
@@ -108,7 +108,7 @@ def create_file(donnees, name_file):
     file_path = os.path.join(data_dir, name_file)
 
     # Export CSV
-    df.to_csv(file_path, index=False, encoding='utf-8')
+    df.to_csv(file_path, index=False, encoding='utf-8-sig')
     print(f'Données exportées dans "{file_path}"')
 
     return df
@@ -135,18 +135,26 @@ def ingredients_recettes(df):
             unit_elem = card.find(class_="unit")
             unit = unit_elem.get_text(strip=True) if unit_elem else ""
             quantity = f'{count} {unit}'.strip()
-
+            cards = soup.find_all(class_="card-ingredient-image")
+            img_tag = card.find('img')
+            img_url = img_tag.get('data-src', 'N/A') if img_tag else 'N/A'
+            
             ingredient_list.append({
                 'id_recette': recette['id_recette'],
                 'ingredient': ingredient,
-                'quantity': quantity
+                'quantity': quantity,
+                'img_url': img_url
             })
 
         # --- Nb invités ---
-        value = soup.find(class_="recipe-ingredients__qt-counter__value")
-        unit = soup.find(class_="recipe-ingredients__qt-counter__unit")    
-        qt_counter = f"{value.get_text(strip=True) if value else ''} {unit.get_text(strip=True) if unit else ''}".strip()
-
+        div = soup.find('div', class_='mrtn-recette_ingredients-counter')
+        if div:
+            servings_nb = div.get('data-servingsnb', 'N/A')
+            servings_unit = div.get('data-servingsunit', 'N/A')
+            qt_counter = f"{servings_nb} {servings_unit}".strip()
+        else:
+            qt_counter = "N/A"
+            print("Div pour portions non trouvé.")
         # --- Nutri-score ---
         card_title = soup.find(class_="recipe-header__title")
         score_nutri_elem = card_title.find(class_="score-img") if card_title else None
@@ -164,7 +172,7 @@ def ingredients_recettes(df):
             'temps_prepa': items_values[0] if len(items_values) > 0 else "N/A",
             'difficulty': items_values[1] if len(items_values) > 1 else "N/A",
             'prix': items_values[2] if len(items_values) > 2 else "N/A",
-            'nb_invite': qt_counter,
+            'proportion': qt_counter,
             'nutri_score': nutri_score
         })
 

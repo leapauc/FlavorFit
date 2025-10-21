@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: write # Donne la permission d’écrire dans le dépôt
 
 jobs:
   build:
@@ -30,8 +32,8 @@ jobs:
 
       - name: Commit & Push CSV
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --local user.name "${{ github.actor }}"
           git add data/ingredient_scrapees.csv
           git add data/recettes_scrapees.csv
           git commit -m "Update CSV automatically" || echo "No changes to commit"
