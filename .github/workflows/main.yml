@@ -11,8 +11,10 @@ permissions:
 
 jobs:
   build:
+    if: |
+      !startsWith(github.event.head_commit.message, 'docs') &&
+      !startsWith(github.event.head_commit.message, 'overview')
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

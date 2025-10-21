@@ -29,6 +29,12 @@ pip install unidecode
 pip install streamlit
 ```
 
+## Générer le fichier requirements.txt
+
+```
+pip freeze -l > requirements.txt
+```
+
 ## Lancer streamlit
 
 ```
