@@ -17,10 +17,13 @@ Semaine 1 :
 - business plan : financement
 
 - filtrage en fonction des habitudes alimentaires
+- proposition de semaine de repas selon habitude alimentaire
 
 ## Prérequis
 
+```
 pip install pandas
 pip install bs4
 pip install requests
 pip install unidecode
+```
