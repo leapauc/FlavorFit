@@ -13,9 +13,7 @@ jobs:
   build:
     if: |
       !startsWith(github.event.head_commit.message, 'docs') &&
-      !startsWith(github.event.head_commit.message, 'overview') &&
-      !startsWith(github.event.head_commit.message, 'overview:docs') &&
-      !startsWith(github.event.head_commit.message, 'docs:overview')
+      !startsWith(github.event.head_commit.message, 'overview')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
