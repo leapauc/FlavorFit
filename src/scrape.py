@@ -5,6 +5,9 @@ from unidecode import unidecode
 import csv
 import os 
 
+from test import calculer_nutrition
+
+
 # URL du site à scraper (remplacez par la vôtre)
 url_category = "https://www.marmiton.org/recettes/index/categorie/plat-principal/"
 url = "https://www.marmiton.org/recettes/index/categorie/"
@@ -115,6 +118,7 @@ def create_file(donnees, name_file):
 
 def ingredients_recettes(df):
     ingredient_list = []
+    ingredients_text_per_recipe = {}  # clé=id_recette, valeur=texte multi-lignes
 
     for recette in df:
         response = requests.get(f'{url_recettes}{recette["lien"]}', headers=headers)
@@ -123,6 +127,7 @@ def ingredients_recettes(df):
             continue
         
         soup = BeautifulSoup(response.content, 'html.parser')
+        ingredients_lines = []
 
         # --- Ingrédients ---
         cards = soup.find_all(class_="card-ingredient")
@@ -135,16 +140,33 @@ def ingredients_recettes(df):
             unit_elem = card.find(class_="unit")
             unit = unit_elem.get_text(strip=True) if unit_elem else ""
             quantity = f'{count} {unit}'.strip()
-            cards = soup.find_all(class_="card-ingredient-image")
+
+            # Ligne complète pour le bloc texte
+            line = f"{quantity} {ingredient}".strip() if quantity else ingredient
+            ingredients_lines.append(line)
+
+            # Stockage pour le CSV ingrédient (inchangé)
             img_tag = card.find('img')
             img_url = img_tag.get('data-src', 'N/A') if img_tag else 'N/A'
-            
             ingredient_list.append({
                 'id_recette': recette['id_recette'],
                 'ingredient': ingredient,
                 'quantity': quantity,
                 'img_url': img_url
             })
+
+        # Stocker le bloc texte multi-lignes pour la recette
+        ingredients_text_per_recipe[recette['id_recette']] = "\n".join(ingredients_lines)
+        #print("\n".join(ingredients_lines))
+        nutrition = calculer_nutrition("\n".join(ingredients_lines), headless=True)
+        print(f"=== Valeurs nutritionnelles {recette['id_recette']} ===")
+        # Ajouter directement les valeurs nutritionnelles dans la recette
+        recette['Kcal']      = nutrition.get('Kcal', 'N/A')
+        recette['IG']        = nutrition.get('IG', 'N/A')
+        recette['Proteines'] = nutrition.get('Protéines', 'N/A')
+        recette['Lipides']   = nutrition.get('Lipides', 'N/A')
+        recette['Glucides']  = nutrition.get('Glucides', 'N/A')
+        recette['Portions']  = nutrition.get('Portions', 'N/A')
 
         # --- Nb invités ---
         div = soup.find('div', class_='mrtn-recette_ingredients-counter')
@@ -154,26 +176,21 @@ def ingredients_recettes(df):
             qt_counter = f"{servings_nb} {servings_unit}".strip()
         else:
             qt_counter = "N/A"
-            print("Div pour portions non trouvé.")
-        # --- Nutri-score ---
-        card_title = soup.find(class_="recipe-header__title")
-        score_nutri_elem = card_title.find(class_="score-img") if card_title else None
-        nutri_score = score_nutri_elem.get('alt') if score_nutri_elem else "N/A"
 
-        # --- Infos supplémentaires ---
+        # --- Fusionner infos dans la recette ---
+        card_title = soup.find(class_="recipe-header__title")
+        score_eco_elem = card_title.find(class_="score-img") if card_title else None
+        eco_score = score_eco_elem.get('alt') if score_eco_elem else "N/A"
+
         items = soup.find_all(class_="recipe-primary__item")
-        items_values = []
-        for item in items:
-            span = item.find('span')
-            value = span.get_text(strip=True) if span else "N/A"
-            items_values.append(value)
-        # --- Fusionner dans la recette ---
+        items_values = [item.find('span').get_text(strip=True) if item.find('span') else "N/A" for item in items]
+
         recette.update({
             'temps_prepa': items_values[0] if len(items_values) > 0 else "N/A",
             'difficulty': items_values[1] if len(items_values) > 1 else "N/A",
             'prix': items_values[2] if len(items_values) > 2 else "N/A",
             'proportion': qt_counter,
-            'nutri_score': nutri_score
+            'eco_score': eco_score,
         })
 
     return ingredient_list, df
