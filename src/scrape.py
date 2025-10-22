@@ -5,7 +5,7 @@ from unidecode import unidecode
 import csv
 import os 
 
-from test import calculer_nutrition
+from scrape_nutrition_stats import calculer_nutrition
 
 
 # URL du site à scraper (remplacez par la vôtre)
