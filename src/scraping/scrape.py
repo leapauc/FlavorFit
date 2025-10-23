@@ -175,13 +175,13 @@ def ingredients_recettes(df):
         if servings_nb:
             if servings_nb!='N/A':
                 if kcal != 'N/A':
-                    kcal=round(float(unidecode(kcal).replace(' ',''))/float(servings_nb))
+                    kcal=round(float(unidecode(kcal).strip().replace(' ',''))/float(servings_nb))
                 if prot != 'N/A':
-                    prot=round(float(unidecode(prot).replace(' ','').replace('gr',''))/float(servings_nb))
+                    prot=round(float(unidecode(prot).strip().replace(' ','').replace('gr',''))/float(servings_nb))
                 if lipide != 'N/A':
-                    lipide=round(float(unidecode(lipide).replace(' ','').replace('gr',''))/float(servings_nb))
+                    lipide=round(float(unidecode(lipide).strip().replace(' ','').replace('gr',''))/float(servings_nb))
                 if glucide != 'N/A':
-                    glucide=round(float(unidecode(glucide).replace(' ','').replace('gr',''))/float(servings_nb))
+                    glucide=round(float(unidecode(glucide).strip().replace(' ','').replace('gr',''))/float(servings_nb))
                 
         recette['Kcal']      = kcal
         recette['IG']        = nutrition.get('IG', 'N/A')
