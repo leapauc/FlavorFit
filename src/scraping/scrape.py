@@ -27,6 +27,28 @@ def format_category(category):
     formated_category = unidecode(formated_category)
     return formated_category
 
+def safe_float(value):
+    """Convertit une chaîne contenant des chiffres FR ou EN en float."""
+    if not value or value == 'N/A':
+        return None
+
+    v = unidecode(value).strip().lower()
+    v = v.replace('gr', '').replace('g', '').replace(' ', '')
+
+    # Si contient une virgule mais pas de point → virgule = séparateur décimal
+    if ',' in v and '.' not in v:
+        v = v.replace(',', '.')
+    # Si contient à la fois virgule et point → on suppose virgule = séparateur de milliers
+    elif ',' in v and '.' in v:
+        v = v.replace(',', '')
+
+    try:
+        return float(v)
+    except ValueError:
+        print(f"[WARN] Valeur non convertible en float: '{value}' (nettoyé: '{v}')")
+        return None
+
+
 def scraper_type(url_category):
     response = requests.get(f'{url_category}', headers=headers)
     if response.status_code != 200:
@@ -175,13 +197,13 @@ def ingredients_recettes(df):
         if servings_nb:
             if servings_nb!='N/A':
                 if kcal != 'N/A':
-                    kcal=round(float(unidecode(kcal).strip().replace(' ',''))/float(servings_nb))
+                    kcal=round(safe_float(kcal)/float(servings_nb))
                 if prot != 'N/A':
-                    prot=round(float(unidecode(prot).strip().replace(' ','').replace('gr',''))/float(servings_nb))
+                    prot=round(safe_float(prot)/float(servings_nb))
                 if lipide != 'N/A':
-                    lipide=round(float(unidecode(lipide).strip().replace(' ','').replace('gr',''))/float(servings_nb))
+                    lipide=round(safe_float(lipide)/float(servings_nb))
                 if glucide != 'N/A':
-                    glucide=round(float(unidecode(glucide).strip().replace(' ','').replace('gr',''))/float(servings_nb))
+                    glucide=round(safe_float(glucide)/float(servings_nb))
                 
         recette['Kcal']      = kcal
         recette['IG']        = nutrition.get('IG', 'N/A')
