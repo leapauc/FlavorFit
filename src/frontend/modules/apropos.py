@@ -5,7 +5,7 @@ import os
 def render(recettes, ingredients,BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
     # --- Chargement de l'image d'arrière-plan ---
-    image_path = os.path.join(ASSETS_DIR, "login_signin.png")
+    image_path = os.path.join(ASSETS_DIR, "accueil.png")
     image_base64 = get_base64_image(image_path) if os.path.exists(image_path) else ""
 
 
