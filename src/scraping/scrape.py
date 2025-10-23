@@ -27,6 +27,10 @@ def format_category(category):
     formated_category = unidecode(formated_category)
     return formated_category
 
+def format_char2number(number):
+    number = unidecode(number).replace(' ','').replace('gr','')
+    return number
+
 def scraper_type(url_category):
     response = requests.get(f'{url_category}', headers=headers)
     if response.status_code != 200:
@@ -155,19 +159,6 @@ def ingredients_recettes(df):
                 'img_url': img_url
             })
 
-        # Stocker le bloc texte multi-lignes pour la recette
-        ingredients_text_per_recipe[recette['id_recette']] = "\n".join(ingredients_lines)
-        #print("\n".join(ingredients_lines))
-        nutrition = calculer_nutrition("\n".join(ingredients_lines), headless=True)
-        print(f"=== Valeurs nutritionnelles {recette['id_recette']} ===")
-        # Ajouter directement les valeurs nutritionnelles dans la recette
-        recette['Kcal']      = nutrition.get('Kcal', 'N/A')
-        recette['IG']        = nutrition.get('IG', 'N/A')
-        recette['Proteines'] = nutrition.get('Protéines', 'N/A')
-        recette['Lipides']   = nutrition.get('Lipides', 'N/A')
-        recette['Glucides']  = nutrition.get('Glucides', 'N/A')
-        recette['Portions']  = nutrition.get('Portions', 'N/A')
-
         # --- Nb invités ---
         div = soup.find('div', class_='mrtn-recette_ingredients-counter')
         if div:
@@ -176,6 +167,31 @@ def ingredients_recettes(df):
             qt_counter = f"{servings_nb} {servings_unit}".strip()
         else:
             qt_counter = "N/A"
+
+        # Stocker le bloc texte multi-lignes pour la recette
+        ingredients_text_per_recipe[recette['id_recette']] = "\n".join(ingredients_lines)
+        #print("\n".join(ingredients_lines))
+        nutrition = calculer_nutrition("\n".join(ingredients_lines), headless=True)
+        print(f"=== Valeurs nutritionnelles {recette['id_recette']} ===")
+        kcal = nutrition.get('Kcal', 'N/A')
+        prot,lipide,glucide = nutrition.get('Protéines', 'N/A'),nutrition.get('Lipides', 'N/A'),nutrition.get('Glucides', 'N/A')
+        # Ajouter directement les valeurs nutritionnelles dans la recette
+        if servings_nb:
+            if servings_nb!='N/A':
+                if kcal != 'N/A':
+                    kcal=round(format_char2number(kcal)/float(servings_nb))
+                if prot != 'N/A':
+                    prot=round(format_char2number(prot)/float(servings_nb))
+                if lipide != 'N/A':
+                    lipide=round(format_char2number(lipide)/float(servings_nb))
+                if glucide != 'N/A':
+                    glucide=round(format_char2number(glucide)/float(servings_nb))
+                
+        recette['Kcal']      = kcal
+        recette['IG']        = nutrition.get('IG', 'N/A')
+        recette['Proteines'] = prot
+        recette['Lipides']   = lipide
+        recette['Glucides']  = glucide
 
         # --- Fusionner infos dans la recette ---
         card_title = soup.find(class_="recipe-header__title")
