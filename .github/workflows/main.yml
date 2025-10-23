@@ -30,7 +30,7 @@ jobs:
           pip install -r src/requirements.txt
 
       - name: Run scraping
-        run: python src/scrape.py
+        run: python src/scraping/scrape.py
 
       - name: Commit & Push CSV
         run: |

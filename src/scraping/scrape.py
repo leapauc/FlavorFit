@@ -104,7 +104,7 @@ def create_file(donnees, name_file):
 
     # Chemin vers le dossier data, basé sur l'emplacement du script
     script_dir = os.path.dirname(os.path.abspath(__file__))  # src/
-    data_dir = os.path.join(script_dir, '..', 'data')        # ../data
+    data_dir = os.path.join(script_dir, '..', '..', 'data')        # ../data
     os.makedirs(data_dir, exist_ok=True)                     # crée si manquant
 
     # Chemin complet du fichier CSV

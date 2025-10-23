@@ -6,7 +6,9 @@ Semaine 1 :
 
 - Mercredi 13h30
 - Vendredi 13h30
-  Semaine 2 :
+
+Semaine 2 :
+
 - Mardi 13h30
 - Jeudi 13h30
 
