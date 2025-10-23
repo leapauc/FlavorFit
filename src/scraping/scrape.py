@@ -28,7 +28,7 @@ def format_category(category):
     return formated_category
 
 def format_char2number(number):
-    number = unidecode(number).replace(' ','').replace('gr','')
+    number = float(unidecode(number).replace(' ','').replace('gr',''))
     return number
 
 def scraper_type(url_category):
