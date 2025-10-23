@@ -29,21 +29,8 @@ def format_category(category):
 
 def safe_float(value):
     """Convertit une chaîne contenant des chiffres FR ou EN en float."""
-    if not value or value == 'N/A':
-        return None
-
-    v = unidecode(value).strip().lower()
-    v = v.replace('gr', '').replace('g', '').replace(' ', '')
-
-    # Si contient à la fois virgule et point → on suppose virgule = séparateur de milliers
-    if ',' in v and '.' in v:
-        v = v.replace(',', '')
-
-    try:
-        return float(v)
-    except ValueError:
-        print(f"[WARN] Valeur non convertible en float: '{value}' (nettoyé: '{v}')")
-        return None
+    value = float(value.replace('\xa0','').replace('gr','').replace('g','').replace(' ',''))
+    return value
 
 
 def scraper_type(url_category):
@@ -194,7 +181,6 @@ def ingredients_recettes(df):
         if servings_nb:
             if servings_nb!='N/A':
                 if kcal != 'N/A':
-                    print(safe_float(kcal))
                     kcal=round(safe_float(kcal)/float(servings_nb))
                 if prot != 'N/A':
                     prot=round(safe_float(prot)/float(servings_nb))
