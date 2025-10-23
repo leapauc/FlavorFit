@@ -34,7 +34,7 @@ def safe_float(value):
 
     v = unidecode(value).strip().lower()
     v = v.replace('gr', '').replace('g', '').replace(' ', '')
-    
+
     # Si contient à la fois virgule et point → on suppose virgule = séparateur de milliers
     if ',' in v and '.' in v:
         v = v.replace(',', '')
@@ -194,6 +194,7 @@ def ingredients_recettes(df):
         if servings_nb:
             if servings_nb!='N/A':
                 if kcal != 'N/A':
+                    print(safe_float(kcal))
                     kcal=round(safe_float(kcal)/float(servings_nb))
                 if prot != 'N/A':
                     prot=round(safe_float(prot)/float(servings_nb))
