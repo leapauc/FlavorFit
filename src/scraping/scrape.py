@@ -27,8 +27,8 @@ def format_category(category):
     formated_category = unidecode(formated_category)
     return formated_category
 
-def format_char2number(number):
-    number = float(unidecode(number.replace(' ','').replace('gr','')))
+def format_string2number(number):
+    number = float(unidecode(number).replace(' ','').replace('gr',''))
     return number
 
 def scraper_type(url_category):
@@ -179,13 +179,13 @@ def ingredients_recettes(df):
         if servings_nb:
             if servings_nb!='N/A':
                 if kcal != 'N/A':
-                    kcal=round(format_char2number(kcal)/float(servings_nb))
+                    kcal=round(format_string2number(kcal)/float(servings_nb))
                 if prot != 'N/A':
-                    prot=round(format_char2number(prot)/float(servings_nb))
+                    prot=round(format_string2number(prot)/float(servings_nb))
                 if lipide != 'N/A':
-                    lipide=round(format_char2number(lipide)/float(servings_nb))
+                    lipide=round(format_string2number(lipide)/float(servings_nb))
                 if glucide != 'N/A':
-                    glucide=round(format_char2number(glucide)/float(servings_nb))
+                    glucide=round(format_string2number(glucide)/float(servings_nb))
                 
         recette['Kcal']      = kcal
         recette['IG']        = nutrition.get('IG', 'N/A')
