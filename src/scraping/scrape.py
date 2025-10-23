@@ -29,7 +29,7 @@ def format_category(category):
 
 def safe_float(value):
     """Convertit une chaîne contenant des chiffres FR ou EN en float."""
-    value = float(value.replace('\xa0','').replace('gr','').replace('g','').replace(' ',''))
+    value = float(value.replace('\xa0','').replace('gr','').replace('g','').replace(' ','').replace(',',''))
     return value
 
 
