@@ -1,9 +1,7 @@
 import streamlit as st
 import os
 import pandas as pd
-import base64
 import importlib
-from tools.helpers import get_base64_image
 
 # --- Configuration globale ---
 st.set_page_config(page_title="FlavorFIT", layout="wide")
@@ -19,10 +17,6 @@ ingredients_path = os.path.join(DATA_DIR, "ingredient_scrapees.csv")
 
 recettes = pd.read_csv(recettes_path) if os.path.exists(recettes_path) else pd.DataFrame()
 ingredients = pd.read_csv(ingredients_path) if os.path.exists(ingredients_path) else pd.DataFrame()
-
-# --- Chargement de l'image d'arrière-plan ---
-image_path = os.path.join(ASSETS_DIR, "accueil.png")
-image_base64 = get_base64_image(image_path) if os.path.exists(image_path) else ""
 
 # --- Définition des pages ---
 pages = {
@@ -42,18 +36,6 @@ module_name = pages.get(page, "accueil")
 
 st.markdown(f"""
 <style>
-.hero-section {{
-    background-image: url("data:image/png;base64,{image_base64}");
-    background-size: cover;
-    background-position: center;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-}}
-
 /* Navbar horizontale centrée */
 .nav-bar_container {{
     position: absolute;
@@ -120,7 +102,7 @@ st.markdown(nav_html, unsafe_allow_html=True)
 try:
     page_module = importlib.import_module(f"modules.{module_name}")
     if hasattr(page_module, "render"):
-        page_module.render(recettes, ingredients)
+        page_module.render(recettes, ingredients,BASE_DIR)
     else:
         st.error(f"⚠️ Le module **{module_name}.py** ne contient pas de fonction `render()`.")
 except Exception as e:
