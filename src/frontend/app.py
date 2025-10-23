@@ -79,7 +79,7 @@ st.markdown(f"""
 .content-block {{
     background-color: rgba(255,255,255,0.95);
     border-radius: 15px;
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
     padding: 20px;
 }}

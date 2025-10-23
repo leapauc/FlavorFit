@@ -41,5 +41,5 @@ pip freeze -l > requirements.txt
 ## Lancer streamlit
 
 ```
-streamlit run streamlit_app.py
+streamlit run app.py
 ```
