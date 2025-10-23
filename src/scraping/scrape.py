@@ -34,12 +34,9 @@ def safe_float(value):
 
     v = unidecode(value).strip().lower()
     v = v.replace('gr', '').replace('g', '').replace(' ', '')
-
-    # Si contient une virgule mais pas de point → virgule = séparateur décimal
-    if ',' in v and '.' not in v:
-        v = v.replace(',', '.')
+    
     # Si contient à la fois virgule et point → on suppose virgule = séparateur de milliers
-    elif ',' in v and '.' in v:
+    if ',' in v and '.' in v:
         v = v.replace(',', '')
 
     try:
