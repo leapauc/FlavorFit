@@ -74,7 +74,7 @@ st.markdown(f"""
     background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0)); /* du rouge-orangé au orange clair */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 50px !important;
+    font-size: 60px !important;
     font-weight: bold;
 }}
 
