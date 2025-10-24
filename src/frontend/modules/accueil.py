@@ -72,16 +72,22 @@ def render_pricing_visual():
         box-shadow: 0 10px 28px rgba(0,0,0,0.15);
     }
 
+    .card-novice, .card-pro {
+        position: relative; /* ⚠️ nécessaire pour que le badge soit positionné par rapport à la carte */
+    }
+
     .badge {
-        display: inline-block;
+        position: absolute; /* badge flottant */
+        top: 20px;          /* distance du haut de la carte */
+        right: 0px;        /* distance du bord droit de la carte */
         padding: 8px 14px;
-        border-radius: 6px;
+        border-radius: 6px 0 0 6px;
         font-weight:700;
-        font-size: 15px;
+        font-size: 25px;
         color: white;
-        margin-bottom: 20px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        z-index: 10;        /* pour qu’il soit au-dessus de tout */
     }
     .badge.novice { background: linear-gradient(90deg,#2b0f2b,#40133d); }
     .badge.pro { background: var(--accent); }
@@ -90,6 +96,7 @@ def render_pricing_visual():
         font-size: 40px;
         font-weight: 900;
         color: var(--purple);
+        padding-top:40px;
         margin-bottom: 4px;
     }
 
@@ -356,6 +363,10 @@ def render(recettes, ingredients,BASE_DIR):
     .fixed-text h3 {{
         font-size: 30px;
     }}  
+    .content-block {{
+        padding-left:10%;
+        width:80%;
+    }}
     </style>
     """, unsafe_allow_html=True)
 

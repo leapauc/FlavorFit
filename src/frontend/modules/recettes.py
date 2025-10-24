@@ -61,7 +61,7 @@ def render(recettes, ingredients, BASE_DIR):
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="header-block"><div><h1><span class="accent">Recettes</span></h1><h3>Filtrage</h3><div>', unsafe_allow_html=True)
+    st.markdown('<div class="header-block"><h1><span class="accent">Recettes</span></h1></div>', unsafe_allow_html=True)
 
     # --- Vérifications ---
     if "category" not in recettes.columns:
@@ -75,12 +75,12 @@ def render(recettes, ingredients, BASE_DIR):
     # --- Nettoyage du DataFrame des ingrédients ---
     ingredients["ingredient"] = ingredients["ingredient"].astype(str).str.strip().str.lower()
 
-    # --- SECTION FILTRAGE ---
-
     categories = ["Toutes"] + list(recettes["category"].unique())
 
+    # --- Ouverture de la div filtrage ---
+    st.markdown('<h2 style="text-align: center;font-size:50px;">Filtrage</h2>', unsafe_allow_html=True)
     with st.container():
-        col1, col2, col3 = st.columns([1, 2, 0.5])
+        col0,col1, col2, col3,col4 = st.columns([1,1, 2, 0.5,1])
         with col1:
             selected_category = st.selectbox("Catégorie :", categories)
         with col2:
@@ -91,15 +91,34 @@ def render(recettes, ingredients, BASE_DIR):
         with col3:
             st.markdown("""
             <style>
-            div.stButton > button:first-child {
-                height: 3rem !important;
-                margin-bottom:0.8rem !important;
+            .stButton > button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 60px;
+                width: 120px; /* bouton carré */
+                color: white !important;
+                background-color: rgb(255,165,0) !important;
+                border: 0 !important;
+                border-radius: 15px !important;
+                font-size: 28px !important; /* taille de la loupe */
+                font-weight: bold;
+                cursor: pointer;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            /* Hover effect */
+            .stButton > button:hover {
+                transform: scale(1.1);
             }
             </style>
             """, unsafe_allow_html=True)
             filter_button = st.button("Filtrer", use_container_width=True)
 
-    st.markdown('</div>', unsafe_allow_html=True)  # Fermeture de .header-block
+    # --- Fermeture de la div filtrage ---
+    st.markdown('</div><hr>', unsafe_allow_html=True)
+
 
     # --- Application du filtrage ---
     recettes_filtrees = recettes.copy()
@@ -126,8 +145,7 @@ def render(recettes, ingredients, BASE_DIR):
         st.warning("Aucune recette ne correspond à vos critères 😔")
         return
 
-    st.markdown('<div class="content-block">', unsafe_allow_html=True)
-    st.subheader("Vos recettes après filtrage")
+    st.markdown('<h2 style="text-align: center;font-size:50px;">Vos recettes après filtrage</h2>', unsafe_allow_html=True)
     # --- HTML des cartes ---
     cards_html = """
     <style>
@@ -164,6 +182,19 @@ def render(recettes, ingredients, BASE_DIR):
     </style>
     <div class="cards-container">
     """
+    st.markdown("""
+    <style>
+    hr {
+        margin-top: 0.5rem;  /* réduit l'espace au-dessus du hr */
+        margin-bottom: 0.5rem;  /* réduit l'espace en dessous */
+    }
+
+    h2 {
+        margin-top: 0.5rem;  /* réduit l'espace au-dessus du subheader */
+        margin-bottom: 0.5rem;  /* réduit l'espace en dessous */
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
     for _, row in recettes_filtrees.iterrows():
         image_url = row["img_url"] or "https://via.placeholder.com/300x200?text=Image+non+disponible"
