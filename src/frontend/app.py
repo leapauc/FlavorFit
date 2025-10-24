@@ -71,7 +71,9 @@ st.markdown(f"""
 }}
 
 .nom-site {{
-    color: rgb(255, 69, 0) !important;
+    background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0)); /* du rouge-orangé au orange clair */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 50px !important;
     font-weight: bold;
 }}

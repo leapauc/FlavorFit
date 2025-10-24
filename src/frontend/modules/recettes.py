@@ -35,6 +35,17 @@ def render(recettes, ingredients, BASE_DIR):
         font-size: 1.8rem;
         font-weight: bold;
     }}
+    .header-block h1 {{
+        font-size: 60px;
+    }} 
+    .header-block h3 {{
+        font-size: 30px;
+    }}
+    .accent {{
+        background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0)); /* du rouge-orangé au orange clair */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }}
 
     /* --- Alignement bouton filtrer --- */
     div[data-testid="stHorizontalBlock"] {{
@@ -50,7 +61,7 @@ def render(recettes, ingredients, BASE_DIR):
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="header-block">', unsafe_allow_html=True)
-    st.title("Recettes")
+    st.markdown('<div><h1><span class="accent">Recettes</span></h1><div>', unsafe_allow_html=True)
 
     # --- Vérifications ---
     if "category" not in recettes.columns:
@@ -140,14 +151,13 @@ def render(recettes, ingredients, BASE_DIR):
     }
     .card img {
         border-radius: 15px;
-        width: 250px;
+        width: 350px;
         height: auto;
         object-fit: cover;
     }
     .card-title {
         font-size: 18px;
         font-weight: bold;
-        color: #FF4500;
         padding: 10px;
     }
     </style>
