@@ -164,19 +164,19 @@ def ingredients_recettes(df):
         # --- Nb invités ---
         div = soup.find('div', class_='mrtn-recette_ingredients-counter')
         if div:
-            servings_nb = div.get('data-servingsnb', 'N/A')
-            servings_unit = div.get('data-servingsunit', 'N/A')
+            servings_nb = div.get('data-servingsnb', '')
+            servings_unit = div.get('data-servingsunit', '')
             qt_counter = f"{servings_nb} {servings_unit}".strip()
         else:
-            qt_counter = "N/A"
+            qt_counter = "-"
 
         # Stocker le bloc texte multi-lignes pour la recette
         ingredients_text_per_recipe[recette['id_recette']] = "\n".join(ingredients_lines)
         #print("\n".join(ingredients_lines))
         nutrition = calculer_nutrition("\n".join(ingredients_lines), headless=True)
         print(f"=== Valeurs nutritionnelles {recette['id_recette']} ===")
-        kcal = nutrition.get('Kcal', 'N/A')
-        prot,lipide,glucide = nutrition.get('Protéines', 'N/A'),nutrition.get('Lipides', 'N/A'),nutrition.get('Glucides', 'N/A')
+        kcal = nutrition.get('Kcal', '-')
+        prot,lipide,glucide = nutrition.get('Protéines', '-'),nutrition.get('Lipides', '-'),nutrition.get('Glucides', '-')
         # Ajouter directement les valeurs nutritionnelles dans la recette
         if servings_nb:
             if servings_nb!='N/A':
@@ -190,7 +190,7 @@ def ingredients_recettes(df):
                     glucide=round(safe_float(glucide)/float(servings_nb))
                 
         recette['Kcal']      = kcal
-        recette['IG']        = nutrition.get('IG', 'N/A')
+        recette['IG']        = nutrition.get('IG', '-')
         recette['Proteines'] = prot
         recette['Lipides']   = lipide
         recette['Glucides']  = glucide
@@ -198,15 +198,15 @@ def ingredients_recettes(df):
         # --- Fusionner infos dans la recette ---
         card_title = soup.find(class_="recipe-header__title")
         score_eco_elem = card_title.find(class_="score-img") if card_title else None
-        eco_score = score_eco_elem.get('alt') if score_eco_elem else "N/A"
+        eco_score = score_eco_elem.get('alt') if score_eco_elem else "-"
 
         items = soup.find_all(class_="recipe-primary__item")
         items_values = [item.find('span').get_text(strip=True) if item.find('span') else "N/A" for item in items]
 
         recette.update({
-            'temps_prepa': items_values[0] if len(items_values) > 0 else "N/A",
-            'difficulty': items_values[1] if len(items_values) > 1 else "N/A",
-            'prix': items_values[2] if len(items_values) > 2 else "N/A",
+            'temps_prepa': items_values[0] if len(items_values) > 0 else "-",
+            'difficulty': items_values[1] if len(items_values) > 1 else "-",
+            'prix': items_values[2] if len(items_values) > 2 else "-",
             'proportion': qt_counter,
             'eco_score': eco_score,
         })

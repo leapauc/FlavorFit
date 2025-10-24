@@ -280,8 +280,10 @@ def render(recettes, ingredients, BASE_DIR):
                     </p>
                 </div>
                 <div class="modal-body">
-                    <h3>Ingrédients</h3>
+                    <span><h3>Ingrédients</h3><p>{row.get("eco_score")}</p></span>
+
                     <ul>{ingredients_list}</ul>
+                    <a href="https://www.marmiton.org{row.get("lien")}"></a>
                 </div>
             </div>
         </div>
