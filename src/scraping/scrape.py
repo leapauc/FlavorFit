@@ -85,9 +85,9 @@ def scraper_recettes(url, list_category):
                 title = title_elem.get_text(strip=True) if title_elem else "N/A"
                 href = title_elem.get('href') if title_elem and title_elem.get('href') else "N/A"
                 rating_elem = card.find(class_="rating__rating")
-                rating = rating_elem.get_text(strip=True) if rating_elem else "N/A"
+                rating = rating_elem.get_text(strip=True) if rating_elem else "0/5"
                 nbreview_elem = card.find(class_="rating__nbreviews")
-                nbreview = nbreview_elem.get_text(strip=True) if nbreview_elem else "N/A"
+                nbreview = nbreview_elem.get_text(strip=True) if nbreview_elem else "0 avis"
                 img_elem = card.find("img")
                 img = img_elem.get('src') if img_elem else "N/A"
 
