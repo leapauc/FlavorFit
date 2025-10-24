@@ -43,6 +43,7 @@ def render(recettes, ingredients, BASE_DIR):
     }}
     .accent {{
         background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0)); /* du rouge-orangé au orange clair */
+        text-align:center;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }}
@@ -60,8 +61,7 @@ def render(recettes, ingredients, BASE_DIR):
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="header-block">', unsafe_allow_html=True)
-    st.markdown('<div><h1><span class="accent">Recettes</span></h1><div>', unsafe_allow_html=True)
+    st.markdown('<div class="header-block"><div><h1><span class="accent">Recettes</span></h1><h3>Filtrage</h3><div>', unsafe_allow_html=True)
 
     # --- Vérifications ---
     if "category" not in recettes.columns:
@@ -76,7 +76,6 @@ def render(recettes, ingredients, BASE_DIR):
     ingredients["ingredient"] = ingredients["ingredient"].astype(str).str.strip().str.lower()
 
     # --- SECTION FILTRAGE ---
-    st.subheader("Filtrage")
 
     categories = ["Toutes"] + list(recettes["category"].unique())
 
