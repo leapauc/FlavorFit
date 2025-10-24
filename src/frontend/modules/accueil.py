@@ -275,6 +275,9 @@ def render_objectif_section(BASE_DIR):
         font-size: 26px;
         cursor: pointer;
     }
+    .planif-repas:hover{
+        transform:scale(1.05);
+    }
     .objectif-image {
         width: 100%;
         border-radius: 16px;
@@ -329,6 +332,11 @@ def render(recettes, ingredients,BASE_DIR):
         align-items: center;
         position: relative;
     }}
+    .accent {{
+        background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0)); /* du rouge-orangé au orange clair */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }}
     /* Div centrée horizontalement et y fixe */
     .fixed-text {{
         position: absolute;
@@ -342,13 +350,16 @@ def render(recettes, ingredients,BASE_DIR):
         font-size: 1.8rem;
         font-weight: bold;
     }}
-    .fixed-text h1, .fixed-text h3 {{
-        color: rgb(255, 69, 0) !important;
+    .fixed-text h1 {{
+        font-size: 50px;
+    }} 
+    .fixed-text h3 {{
+        font-size: 30px;
     }}  
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="fixed-text"><h1>Bienvenue !!!</h1><h4>Manger sainement et varier les repas sans prise de tête</h4><h3>Inscrivez-vous, ce site est fait pour vous !</h3></div>', unsafe_allow_html=True)
+    st.markdown('<div class="fixed-text"><h1><span class="accent">Bienvenue !!!</span></h1><h4>Manger sainement et varier les repas sans prise de tête</h4><h3><span class="accent">Inscrivez-vous, ce site est fait pour vous !</span></h3></div>', unsafe_allow_html=True)
 
     st.markdown('<div class="content-block">', unsafe_allow_html=True)
     render_objectif_section(BASE_DIR)

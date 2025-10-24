@@ -3,13 +3,13 @@ import html
 import streamlit.components.v1 as components
 from tools.helpers import get_base64_image
 import os
-import math
 
 def render(recettes, ingredients, BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
     image_path = os.path.join(ASSETS_DIR, "accueil.png")
     image_base64 = get_base64_image(image_path) if os.path.exists(image_path) else ""
 
+    # --- CSS du header ---
     st.markdown(f"""
     <style>
     .hero-section {{
@@ -23,36 +23,98 @@ def render(recettes, ingredients, BASE_DIR):
         align-items: center;
         position: relative;
     }}
+    .header-block {{
+        position: absolute;
+        top: -400px; /* position verticale fixe (modifiable) */
+        left: 50%;   /* centre horizontal */
+        transform: translateX(-50%);
+        background-color: rgba(255,255,255,0.9);
+        padding: 15px 30px;
+        border-radius: 40px;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }}
+
+    /* --- Alignement bouton filtrer --- */
+    div[data-testid="stHorizontalBlock"] {{
+        align-items: center !important;
+    }}
+
+    /* Ajustement du bouton pour qu’il soit centré verticalement */
+    .stButton > button {{
+        height: 2.7rem;
+        margin-top: 1.35rem;
+    }}
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="content-block">', unsafe_allow_html=True)
-    st.title("🍽️ Nos Recettes")
+    st.markdown('<div class="header-block">', unsafe_allow_html=True)
+    st.title("Recettes")
 
+    # --- Vérifications ---
     if "category" not in recettes.columns:
-        st.warning("Aucune colonne 'category' trouvée dans les données.")
+        st.warning("Aucune colonne 'category' trouvée dans les données de recettes.")
         return
 
-    # Option "Toutes"
+    if "ingredient" not in ingredients.columns or "id_recette" not in ingredients.columns:
+        st.warning("Le DataFrame 'ingredients' doit contenir les colonnes 'ingredient' et 'id_recette'.")
+        return
+
+    # --- Nettoyage du DataFrame des ingrédients ---
+    ingredients["ingredient"] = ingredients["ingredient"].astype(str).str.strip().str.lower()
+
+    # --- 🔎 SECTION FILTRAGE ---
+    st.subheader("Filtrage")
+
     categories = ["Toutes"] + list(recettes["category"].unique())
-    recette_choisie = st.selectbox("Sélectionne une catégorie :", categories)
 
-    if recette_choisie == "Toutes":
-        recettes_filtrees = recettes.copy()
-    else:
-        recettes_filtrees = recettes[recettes["category"] == recette_choisie].copy()
+    with st.container():
+        col1, col2, col3 = st.columns([1, 2, 0.5])
+        with col1:
+            selected_category = st.selectbox("Catégorie :", categories)
+        with col2:
+            excluded_ingredients_input = st.text_input(
+                "Exclure des ingrédients (séparés par des virgules) :",
+                placeholder="ex: lait, saumon, œuf"
+            )
+        with col3:
+            st.markdown("""
+            <style>
+            div.stButton > button:first-child {
+                height: 3rem !important;
+                margin-bottom:0.8rem !important;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+            filter_button = st.button("Filtrer", use_container_width=True)
 
+    st.markdown('</div>', unsafe_allow_html=True)  # Fermeture de .header-block
+
+    # --- Application du filtrage ---
+    recettes_filtrees = recettes.copy()
+
+    # 1️⃣ Filtrage par catégorie
+    if selected_category != "Toutes":
+        recettes_filtrees = recettes_filtrees[recettes_filtrees["category"] == selected_category]
+
+    # 2️⃣ Filtrage par exclusion d'ingrédients
+    if filter_button and excluded_ingredients_input.strip():
+        excluded_keywords = [kw.strip().lower() for kw in excluded_ingredients_input.split(",") if kw.strip()]
+
+        mask = ingredients["ingredient"].apply(
+            lambda ingr: any(keyword in ingr for keyword in excluded_keywords)
+        )
+        excluded_ids = ingredients.loc[mask, "id_recette"].unique()
+        recettes_filtrees = recettes_filtrees[~recettes_filtrees["id_recette"].isin(excluded_ids)]
+
+    # --- Nettoyage des images ---
     recettes_filtrees["img_url"] = recettes_filtrees["img_url"].fillna("").astype(str).str.strip()
 
-    # --- Pagination ---
-    RECETTES_PAR_PAGE = 12
-    if "page" not in st.session_state:
-        st.session_state.page = 1
-
-    total_pages = math.ceil(len(recettes_filtrees) / RECETTES_PAR_PAGE)
-    start_idx = (st.session_state.page - 1) * RECETTES_PAR_PAGE
-    end_idx = start_idx + RECETTES_PAR_PAGE
-    recettes_page = recettes_filtrees.iloc[start_idx:end_idx]
+    # --- Si aucune recette ne correspond ---
+    if recettes_filtrees.empty:
+        st.warning("Aucune recette ne correspond à vos critères 😔")
+        return
 
     # --- HTML des cartes ---
     cards_html = """
@@ -63,20 +125,23 @@ def render(recettes, ingredients, BASE_DIR):
     .card {
         flex: 1 1 calc(22% - 40px);
         max-width: 22%;
+        width: 250px;
+        padding: 10px;
         background-color: white;
         border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         overflow: hidden;
         text-align: center;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: border 0.2s ease, transform 0.2s ease;
     }
     .card:hover {
+        border: 3px solid rgb(255,69,0);
+        cursor: pointer;
         transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
     .card img {
-        width: 100%;
-        height: 180px;
+        border-radius: 15px;
+        width: 250px;
+        height: auto;
         object-fit: cover;
     }
     .card-title {
@@ -89,7 +154,7 @@ def render(recettes, ingredients, BASE_DIR):
     <div class="cards-container">
     """
 
-    for _, row in recettes_page.iterrows():
+    for _, row in recettes_filtrees.iterrows():
         image_url = row["img_url"] or "https://via.placeholder.com/300x200?text=Image+non+disponible"
         titre_card_html = html.escape(row.get("titre", "Recette sans titre"))
         cards_html += f"""
@@ -98,23 +163,6 @@ def render(recettes, ingredients, BASE_DIR):
             <div class="card-title">{titre_card_html}</div>
         </div>
         """
+
     cards_html += "</div>"
     components.html(cards_html, height=900, scrolling=True)
-
-    # --- Boutons de pagination ---
-    col1, col2, col3 = st.columns([1, 1, 1])
-    with col1:
-        if st.session_state.page > 1:
-            if st.button("⬅ Précédent"):
-                st.session_state.page -= 1
-                st.experimental_rerun()
-    with col3:
-        if st.session_state.page < total_pages:
-            if st.button("Suivant ➡"):
-                st.session_state.page += 1
-                st.experimental_rerun()
-
-    # Affiche le numéro de page
-    st.markdown(f"<p style='text-align:center'>Page {st.session_state.page} / {total_pages}</p>", unsafe_allow_html=True)
-
-    st.markdown('</div>', unsafe_allow_html=True)
