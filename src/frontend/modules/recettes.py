@@ -25,7 +25,7 @@ def render(recettes, ingredients, BASE_DIR):
     }}
     .header-block {{
         position: absolute;
-        top: -400px; /* position verticale fixe (modifiable) */
+        top: -400px;
         left: 50%;   /* centre horizontal */
         transform: translateX(-50%);
         background-color: rgba(255,255,255,0.9);
@@ -75,7 +75,7 @@ def render(recettes, ingredients, BASE_DIR):
     # --- Nettoyage du DataFrame des ingrédients ---
     ingredients["ingredient"] = ingredients["ingredient"].astype(str).str.strip().str.lower()
 
-    # --- 🔎 SECTION FILTRAGE ---
+    # --- SECTION FILTRAGE ---
     st.subheader("Filtrage")
 
     categories = ["Toutes"] + list(recettes["category"].unique())
@@ -105,11 +105,11 @@ def render(recettes, ingredients, BASE_DIR):
     # --- Application du filtrage ---
     recettes_filtrees = recettes.copy()
 
-    # 1️⃣ Filtrage par catégorie
+    # Filtrage par catégorie
     if selected_category != "Toutes":
         recettes_filtrees = recettes_filtrees[recettes_filtrees["category"] == selected_category]
 
-    # 2️⃣ Filtrage par exclusion d'ingrédients
+    # Filtrage par exclusion d'ingrédients
     if filter_button and excluded_ingredients_input.strip():
         excluded_keywords = [kw.strip().lower() for kw in excluded_ingredients_input.split(",") if kw.strip()]
 
@@ -127,6 +127,8 @@ def render(recettes, ingredients, BASE_DIR):
         st.warning("Aucune recette ne correspond à vos critères 😔")
         return
 
+    st.markdown('<div class="content-block">', unsafe_allow_html=True)
+    st.subheader("Vos recettes après filtrage")
     # --- HTML des cartes ---
     cards_html = """
     <style>
@@ -176,3 +178,4 @@ def render(recettes, ingredients, BASE_DIR):
 
     cards_html += "</div>"
     components.html(cards_html, height=900, scrolling=True)
+    st.markdown('</div>', unsafe_allow_html=True)

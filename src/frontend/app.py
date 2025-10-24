@@ -8,6 +8,16 @@ st.set_page_config(page_title="FlavorFIT", layout="wide")
 
 # --- Chemins absolus ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ICON_DIR = os.path.join(BASE_DIR, "assets", "logo")
+ICON_PATH = os.path.join(ICON_DIR, "FlavorFit.ico")  # chemin vers ton favicon
+
+# --- Configuration globale avec favicon ---
+st.set_page_config(
+    page_title="FlavorFIT",
+    layout="wide",
+    page_icon=ICON_PATH  # ici on met l'icône
+)
+
 DATA_DIR = os.path.join(BASE_DIR, "..", "..", "data")
 ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
 
