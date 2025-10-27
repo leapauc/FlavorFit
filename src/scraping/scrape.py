@@ -88,7 +88,7 @@ def scraper_recettes(url, list_category):
                 rating_elem = card.find(class_="rating__rating")
                 rating = rating_elem.get_text(strip=True) if rating_elem else "0/5"
                 # -- FILTRAGE RECETTE MAL NOTEE --
-                if int(rating.split('/')[0])>=3.5:
+                if float(rating.split('/')[0])>=3.5:
                     nbreview_elem = card.find(class_="rating__nbreviews")
                     nbreview = nbreview_elem.get_text(strip=True) if nbreview_elem else "0 avis"
                     img_elem = card.find("img")
