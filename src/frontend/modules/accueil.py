@@ -1,6 +1,88 @@
 import streamlit as st
 from tools.helpers import get_base64_image
 import os 
+import streamlit.components.v1 as components
+import html
+
+def render_carousel(recettes):
+    st.markdown("<h2 style='text-align:center; font-size:50px;margin-top:40px;'>Recettes à découvrir</h2>", unsafe_allow_html=True)
+
+    if len(recettes) == 0:
+        st.warning("Aucune recette disponible.")
+        return
+
+    recettes_sample = recettes.sample(n=min(12, len(recettes)))
+
+    cards_html = """
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+    .swiper {
+      width: 100%;
+      padding: 40px 0;
+    }
+    .swiper-slide {
+      background-color: white;
+      border-radius: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      width: calc(25% - 20px); /* par défaut 4 slides par vue */
+      margin-right: 20px; /* espace entre slides */
+      box-sizing: border-box;
+    }
+    .swiper-slide img {
+      border-radius: 15px; width: auto; height: auto; object-fit: cover;
+    }
+    .card-title {
+      font-size: 18px; font-weight: bold; padding: 10px;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: rgb(255,69,0);
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      color: rgb(255,139,0);
+    }
+    </style>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+    """
+
+    for _, recette in recettes_sample.iterrows():
+        titre = html.escape(recette.get("titre", "Recette sans titre"))
+        img = recette.get("img_url", "https://via.placeholder.com/300x200?text=Image+non+disponible")
+        cards_html += f"""
+        <div class="swiper-slide">
+            <img src="{img}" alt="{titre}">
+            <div class="card-title">{titre}</div>
+        </div>
+        """
+
+    cards_html += """
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        slidesPerView: 'auto', // adapte automatiquement selon la largeur du slide
+        spaceBetween: 20,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+    """
+
+    components.html(cards_html, height=500, scrolling=False)
 
 def render_pricing_visual():
     st.markdown("""
@@ -240,7 +322,6 @@ def render_pricing_visual():
     st.markdown("""
         </div><hr>
         """, unsafe_allow_html=True)
-    
 
 def render_objectif_section(BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "image")
@@ -376,6 +457,9 @@ def render(recettes, ingredients,BASE_DIR):
     render_objectif_section(BASE_DIR)
 
     render_pricing_visual()
+
+    render_carousel(recettes) 
+
     st.markdown('</div></div>', unsafe_allow_html=True)
 
     

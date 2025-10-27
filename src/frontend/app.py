@@ -28,8 +28,8 @@ DATA_DIR = os.path.join(BASE_DIR, "..", "..", "data")
 ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
 
 # --- Chargement des CSV ---
-recettes_path = os.path.join(DATA_DIR, "recettes_scrapees.csv")
-ingredients_path = os.path.join(DATA_DIR, "ingredient_scrapees.csv")
+recettes_path = os.path.join(DATA_DIR, "recettes_filtrees.csv")
+ingredients_path = os.path.join(DATA_DIR, "ingredients_filtrees.csv")
 
 recettes = pd.read_csv(recettes_path) if os.path.exists(recettes_path) else pd.DataFrame()
 ingredients = pd.read_csv(ingredients_path) if os.path.exists(ingredients_path) else pd.DataFrame()
