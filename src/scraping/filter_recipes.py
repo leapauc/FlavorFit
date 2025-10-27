@@ -51,6 +51,5 @@ def filtrer_recettes_personne_portion_burger():
 
     print(f"Fichiers exportés :\n - {recettes_out}\n - {ingredients_out}")
 
-
 if __name__ == "__main__":
     filtrer_recettes_personne_portion_burger()

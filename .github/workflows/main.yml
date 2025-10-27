@@ -41,7 +41,7 @@ jobs:
           git config --local user.name "${{ github.actor }}"
           git add data/ingredient_scrapees.csv
           git add data/recettes_scrapees.csv
-          git add data/ingredient_filtrees.csv
+          git add data/ingredients_filtrees.csv
           git add data/recettes_filtrees.csv
           git commit -m "Update CSV automatically" || echo "No changes to commit"
           git push
