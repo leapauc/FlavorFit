@@ -59,11 +59,12 @@ def scraper_type(url_category):
 # Fonction pour scraper les données
 def scraper_recettes(url, list_category):
     idx=1
+    # -- Boucle pour extraire les recettes par catégorie de plat --
     for type in list_category:
         compteur_page = 1
         category = type['formated_category']
         print(f"\n=== Scraping catégorie : {category} ===")
-
+        # -- Boucle sur le nombre de page à extraire par catégorie de plat --
         while compteur_page <= max_pages:
             page_url = f"{url}{category}?page={compteur_page}"
             print(f"Scraping : {page_url}")
@@ -75,33 +76,35 @@ def scraper_recettes(url, list_category):
 
             soup = BeautifulSoup(response.content, 'html.parser')
             cards = soup.find_all(class_="card-vertical-detailed card-vertical-detailed--auto")
-
+            # -- Message si aucun card n'est trouvé dans la page --
             if not cards:
                 print(f"❌ Aucune carte trouvée sur {page_url}")
                 break
-
+            # -- Récupération des paramètres de la card de la recette --
             for card in cards:
                 title_elem = card.find(class_="card-content__title")
                 title = title_elem.get_text(strip=True) if title_elem else "N/A"
                 href = title_elem.get('href') if title_elem and title_elem.get('href') else "N/A"
                 rating_elem = card.find(class_="rating__rating")
                 rating = rating_elem.get_text(strip=True) if rating_elem else "0/5"
-                nbreview_elem = card.find(class_="rating__nbreviews")
-                nbreview = nbreview_elem.get_text(strip=True) if nbreview_elem else "0 avis"
-                img_elem = card.find("img")
-                img = img_elem.get('src') if img_elem else "N/A"
+                # -- FILTRAGE RECETTE MAL NOTEE --
+                if int(rating.split('/')[0])>=3.5:
+                    nbreview_elem = card.find(class_="rating__nbreviews")
+                    nbreview = nbreview_elem.get_text(strip=True) if nbreview_elem else "0 avis"
+                    img_elem = card.find("img")
+                    img = img_elem.get('src') if img_elem else "N/A"
 
-                data_recettes.append({
-                    'id_recette': idx,
-                    'titre': title,
-                    'lien': href,
-                    'note': rating,
-                    'nb_avis': nbreview,
-                    'img_url': img,
-                    'category': type['category']
-                })
-                idx+=1
-            compteur_page += 1
+                    data_recettes.append({
+                        'id_recette': idx,
+                        'titre': title,
+                        'lien': href,
+                        'note': rating,
+                        'nb_avis': nbreview,
+                        'img_url': img,
+                        'category': type['category']
+                    })
+                    idx+=1
+                compteur_page += 1
     return data_recettes
 
 def create_file(donnees, name_file):
@@ -124,8 +127,8 @@ def create_file(donnees, name_file):
 
 def ingredients_recettes(df):
     ingredient_list = []
-    ingredients_text_per_recipe = {}  # clé=id_recette, valeur=texte multi-lignes
-
+    ingredients_text_per_recipe = {}
+    # -- Boucle pour extraire les ingrédients, apports nutritionnels et autres informations pour chaque recette --
     for recette in df:
         response = requests.get(f'{url_recettes}{recette["lien"]}', headers=headers)
         if response.status_code != 200:
@@ -135,7 +138,7 @@ def ingredients_recettes(df):
         soup = BeautifulSoup(response.content, 'html.parser')
         ingredients_lines = []
 
-        # --- Ingrédients ---
+        # --- Récupération de la liste des ingrédients ---
         cards = soup.find_all(class_="card-ingredient")
         for card in cards:
             ingredient_elem = card.find(class_="ingredient-name")
@@ -161,7 +164,7 @@ def ingredients_recettes(df):
                 'img_url': img_url
             })
 
-        # --- Nb invités ---
+        # --- Récupération du nombres invités ---
         div = soup.find('div', class_='mrtn-recette_ingredients-counter')
         if div:
             servings_nb = div.get('data-servingsnb', '')
@@ -170,6 +173,7 @@ def ingredients_recettes(df):
         else:
             qt_counter = "-"
 
+        # --- Récupération des apports nutritionnels ---
         # Stocker le bloc texte multi-lignes pour la recette
         ingredients_text_per_recipe[recette['id_recette']] = "\n".join(ingredients_lines)
         #print("\n".join(ingredients_lines))
@@ -195,7 +199,7 @@ def ingredients_recettes(df):
         recette['Lipides']   = lipide
         recette['Glucides']  = glucide
 
-        # --- Fusionner infos dans la recette ---
+        # --- Récupération infos variés de la recette ---
         card_title = soup.find(class_="recipe-header__title")
         score_eco_elem = card_title.find(class_="score-img") if card_title else None
         eco_score = score_eco_elem.get('alt') if score_eco_elem else "-"
@@ -203,6 +207,7 @@ def ingredients_recettes(df):
         items = soup.find_all(class_="recipe-primary__item")
         items_values = [item.find('span').get_text(strip=True) if item.find('span') else "N/A" for item in items]
 
+        # --- Fusionner infos dans la recette ---
         recette.update({
             'temps_prepa': items_values[0] if len(items_values) > 0 else "-",
             'difficulty': items_values[1] if len(items_values) > 1 else "-",

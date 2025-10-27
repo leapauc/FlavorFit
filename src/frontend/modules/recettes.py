@@ -231,12 +231,13 @@ def render(recettes, ingredients, BASE_DIR):
     .modal-header h2 { position:absolute;top:5px;background-color:rgba(255,255,255,0.9);border-radius:15px;padding:15px;color:rgb(255,69,0); }
     .notation {position: absolute;bottom: 15px;left: 15px;background-color: rgba(255,255,255,0.3);padding: 8px 12px;border-radius: 10px;font-weight: bold; font-size:20px;}
     .info-prepa {position: absolute;bottom: 15px;right: 15px;background-color: rgba(255,255,255,0.85);padding: 8px 12px;border-radius: 10px;font-weight: bold;color: rgb(100,100,100);}
-    .modal-body { padding: 20px; }
-    .modal-body h3 {background-color: rgb(255,169,0); border-radius:15px;padding:15px;}
-    .modal-body ul {background-color: rgb(249,137,52,0.09); border-radius:15px;padding:15px;list-style: none;}
+    .modal-body {position: relative;padding: 1rem;}
+    .titre-section {display: inline-block;background: #f7b733; color: white;padding: 0.3rem 0.8rem;border-radius: 8px;position: relative;z-index: 2;margin-bottom: -0.8rem;box-shadow: 0 2px 6px rgba(0,0,0,0.1);font-size: 1.1rem;}
+    .modal-body ul, .apport-nutritionel {background-color: rgb(249,137,52,0.09); border-radius:15px 40px 15px 40px;padding:30px;list-style: none;}
     .modal-body li {padding:15;}
     .icon {font-size:35px;}
     .close { position: absolute; top: 10px; right: 20px; color: white; font-size: 28px; font-weight: bold; cursor: pointer; }
+    .recette-lien {position: absolute; bottom: 40px; right: 30px; text-decoration: none !important;font-weight: bold; cursor: pointer;color:black !important}
     </style>
     <div class="cards-container">
     """
@@ -280,10 +281,22 @@ def render(recettes, ingredients, BASE_DIR):
                     </p>
                 </div>
                 <div class="modal-body">
-                    <span><h3>Ingrédients</h3><p>{row.get("eco_score")}</p></span>
+                    <h3 class="titre-section">Apports nutritionnels</h3>
+                    <div class="apport-nutritionel">
+                        {row.get("Kcal")} kcal - IG : {row.get("IG")} - 
+                        protéines : {row.get("Proteines")} g - 
+                        lipides : {row.get("Lipides")} g - 
+                        glucides : {row.get("Glucides")} g
+                        <br>
+                        {row.get("eco_score")}
+                    </div>
 
+                    <h3 class="titre-section">Ingrédients</h3>
                     <ul>{ingredients_list}</ul>
-                    <a href="https://www.marmiton.org{row.get("lien")}"></a>
+
+                    <a href="https://www.marmiton.org{row.get('lien')}" target="_blank" class="recette-lien">
+                        Voir la recette complète sur Marmiton
+                    </a>
                 </div>
             </div>
         </div>
