@@ -1,10 +1,8 @@
-import concurrent.futures
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from unidecode import unidecode
 import os 
-import time
 
 from scrape_nutrition_stats import calculer_nutrition
 
@@ -19,8 +17,7 @@ headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
 
-max_pages=5
-MAX_WORKERS = 10 
+max_pages=1
 
 # ========== TOOLS ==========
 def format_category(category):
@@ -90,52 +87,56 @@ def scraper_recettes(url, list_category):
                 href = title_elem.get('href') if title_elem and title_elem.get('href') else "N/A"
                 rating_elem = card.find(class_="rating__rating")
                 rating = rating_elem.get_text(strip=True) if rating_elem else "0/5"
-            # -- FILTRAGE RECETTE MAL NOTEE --
-            if float(rating.split('/')[0])>=3.5:
-                nbreview_elem = card.find(class_="rating__nbreviews")
-                nbreview = nbreview_elem.get_text(strip=True) if nbreview_elem else "0 avis"
-                img_elem = card.find("img")
-                img = img_elem.get('src') if img_elem else "N/A"
+                # -- FILTRAGE RECETTE MAL NOTEE --
+                if float(rating.split('/')[0])>=3.5:
+                    nbreview_elem = card.find(class_="rating__nbreviews")
+                    nbreview = nbreview_elem.get_text(strip=True) if nbreview_elem else "0 avis"
+                    img_elem = card.find("img")
+                    img = img_elem.get('src') if img_elem else "N/A"
 
-                data_recettes.append({
-                    'id_recette': idx,
-                    'titre': title,
-                    'lien': href,
-                    'note': rating,
-                    'nb_avis': nbreview,
-                    'img_url': img,
-                    'category': type['category']
-                })
-                idx+=1
-            compteur_page += 1
+                    data_recettes.append({
+                        'id_recette': idx,
+                        'titre': title,
+                        'lien': href,
+                        'note': rating,
+                        'nb_avis': nbreview,
+                        'img_url': img,
+                        'category': type['category']
+                    })
+                    idx+=1
+                compteur_page += 1
     return data_recettes
 
-# ========== SCRAPER INGREDIENTS EN PARALLÈLE ==========
-def scrape_ingredients_for_one(recette):
-    """Scrape une seule recette (appelée en parallèle)."""
-    try:
-        response = requests.get(f'{url_recettes}{recette["lien"]}', headers=headers, timeout=10)
+def ingredients_recettes(df):
+    ingredient_list = []
+    ingredients_text_per_recipe = {}
+    # -- Boucle pour extraire les ingrédients, apports nutritionnels et autres informations pour chaque recette --
+    for recette in df:
+        response = requests.get(f'{url_recettes}{recette["lien"]}', headers=headers)
         if response.status_code != 200:
-            return None, recette
-
+            print(f"Erreur lors de la requête : {response.status_code}")
+            continue
+        
         soup = BeautifulSoup(response.content, 'html.parser')
-        ingredient_list = []
         ingredients_lines = []
 
+        # --- Récupération de la liste des ingrédients ---
         cards = soup.find_all(class_="card-ingredient")
         for card in cards:
             ingredient_elem = card.find(class_="ingredient-name")
             ingredient = ingredient_elem.get_text(strip=True) if ingredient_elem else "N/A"
-
+            
             count_elem = card.find(class_="count")
             count = count_elem.get_text(strip=True) if count_elem else ""
             unit_elem = card.find(class_="unit")
             unit = unit_elem.get_text(strip=True) if unit_elem else ""
             quantity = f'{count} {unit}'.strip()
 
+            # Ligne complète pour le bloc texte
             line = f"{quantity} {ingredient}".strip() if quantity else ingredient
             ingredients_lines.append(line)
 
+            # Stockage pour le CSV ingrédient (inchangé)
             img_tag = card.find('img')
             img_url = img_tag.get('data-src', 'N/A') if img_tag else 'N/A'
             ingredient_list.append({
@@ -145,81 +146,93 @@ def scrape_ingredients_for_one(recette):
                 'img_url': img_url
             })
 
+        # --- Récupération du nombres invités ---
         div = soup.find('div', class_='mrtn-recette_ingredients-counter')
-        servings_nb = div.get('data-servingsnb', '1') if div else '1'
+        if div:
+            servings_nb = div.get('data-servingsnb', '')
+            servings_unit = div.get('data-servingsunit', '')
+            qt_counter = f"{servings_nb} {servings_unit}".strip()
+        else:
+            qt_counter = "-"
 
+        # --- Récupération des apports nutritionnels ---
+        # Stocker le bloc texte multi-lignes pour la recette
+        ingredients_text_per_recipe[recette['id_recette']] = "\n".join(ingredients_lines)
+        #print("\n".join(ingredients_lines))
         nutrition = calculer_nutrition("\n".join(ingredients_lines), headless=True)
+        print(f"=== Valeurs nutritionnelles {recette['id_recette']} ===")
         kcal = nutrition.get('Kcal', '-')
-        prot = nutrition.get('Protéines', '-')
-        lipide = nutrition.get('Lipides', '-')
-        glucide = nutrition.get('Glucides', '-')
+        prot,lipide,glucide = nutrition.get('Protéines', '-'),nutrition.get('Lipides', '-'),nutrition.get('Glucides', '-')
+        # Ajouter directement les valeurs nutritionnelles dans la recette
+        if servings_nb:
+            if servings_nb!='N/A':
+                if kcal != 'N/A':
+                    kcal=round(safe_float(kcal)/float(servings_nb))
+                if prot != 'N/A':
+                    prot=round(safe_float(prot)/float(servings_nb))
+                if lipide != 'N/A':
+                    lipide=round(safe_float(lipide)/float(servings_nb))
+                if glucide != 'N/A':
+                    glucide=round(safe_float(glucide)/float(servings_nb))
+                
+        recette['Kcal']      = kcal
+        recette['IG']        = nutrition.get('IG', '-')
+        recette['Proteines'] = prot
+        recette['Lipides']   = lipide
+        recette['Glucides']  = glucide
 
-        if kcal != '-' and servings_nb != 'N/A':
-            try:
-                kcal = round(safe_float(kcal) / float(servings_nb))
-                prot = round(safe_float(prot) / float(servings_nb))
-                lipide = round(safe_float(lipide) / float(servings_nb))
-                glucide = round(safe_float(glucide) / float(servings_nb))
-            except:
-                pass
+        # --- Récupération infos variés de la recette ---
+        card_title = soup.find(class_="recipe-header__title")
+        score_eco_elem = card_title.find(class_="score-img") if card_title else None
+        eco_score = score_eco_elem.get('alt') if score_eco_elem else "-"
 
+        items = soup.find_all(class_="recipe-primary__item")
+        items_values = [item.find('span').get_text(strip=True) if item.find('span') else "N/A" for item in items]
+
+        # --- Fusionner infos dans la recette ---
         recette.update({
-            'Kcal': kcal,
-            'Proteines': prot,
-            'Lipides': lipide,
-            'Glucides': glucide,
-            'proportion': servings_nb
+            'temps_prepa': items_values[0] if len(items_values) > 0 else "-",
+            'difficulty': items_values[1] if len(items_values) > 1 else "-",
+            'prix': items_values[2] if len(items_values) > 2 else "-",
+            'proportion': qt_counter,
+            'eco_score': eco_score,
         })
 
-        return ingredient_list, recette
-
-    except Exception as e:
-        print(f"⚠️ Erreur sur {recette.get('titre', '?')}: {e}")
-        return None, recette
-
-def ingredients_recettes_parallel(df):
-    all_ingredients = []
-    updated_recettes = []
-
-    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures = [executor.submit(scrape_ingredients_for_one, recette) for recette in df]
-        for future in concurrent.futures.as_completed(futures):
-            ingredients, recette = future.result()
-            if ingredients:
-                all_ingredients.extend(ingredients)
-            updated_recettes.append(recette)
-
-    return all_ingredients, updated_recettes
+    return ingredient_list, df
 
 # ========== SAUVEGARDE ==========
 def create_file(donnees, name_file):
+    # Créer DataFrame
     df = pd.DataFrame(donnees)
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir = os.path.join(script_dir, '..', '..', 'data')
-    os.makedirs(data_dir, exist_ok=True)
-    file_path = os.path.join(data_dir, name_file)
-    df.to_csv(file_path, index=False, encoding='utf-8-sig')
-    print(f'✅ Données exportées dans "{file_path}"')
-    return df
 
+    # Chemin vers le dossier data, basé sur l'emplacement du script
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # src/
+    data_dir = os.path.join(script_dir, '..', '..', 'data')        # ../data
+    os.makedirs(data_dir, exist_ok=True)                     # crée si manquant
+
+    # Chemin complet du fichier CSV
+    file_path = os.path.join(data_dir, name_file)
+
+    # Export CSV
+    df.to_csv(file_path, index=False, encoding='utf-8-sig')
+    print(f'Données exportées dans "{file_path}"')
+
+    return df
 
 # ========== MAIN ==========
 def main():
-    start_time = time.time()
-    list_category = scraper_type(url_category)
-    donnees_recette = scraper_recettes(url, list_category)
-    print('*** Scraping des recettes : Succès ! ***')
+    # Scraper les données
+    list_category=scraper_type(url_category)
+    donnees_recette = scraper_recettes(url,list_category)
+    print('*** Scraping des recettes : Succés ! ***')
 
-    donnees_ingredient, donnees_recette = ingredients_recettes_parallel(donnees_recette)
-    print('*** Scraping des ingrédients (parallèle) : Succès ! ***')
-
-    create_file(donnees_recette, 'recettes_scrapees.csv')
+    [donnees_ingredient,donnees_recette] = ingredients_recettes(donnees_recette)
+    print('*** Scraping des ingrédients : Succés ! ***')
+    create_file(donnees_recette,'recettes_scrapees.csv')
     print('*** Création fichier recettes : Succés ! ***')
     create_file(donnees_ingredient,'ingredient_scrapees.csv')
     print('*** Création fichier ingrédient : Succés ! ***')
-    total_time = time.time() - start_time
-    minutes, seconds = divmod(total_time, 60)
-    print(f"\nTemps total d'exécution : {int(minutes)} min {seconds:.2f} s")
+
 
 if __name__ == "__main__":
     main()
