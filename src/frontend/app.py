@@ -18,6 +18,12 @@ st.set_page_config(
     page_icon=ICON_PATH  # ici on met l'icône
 )
 
+# --- Gestion de la session utilisateur ---
+if "connected" not in st.session_state:
+    st.session_state["connected"] = False
+if "user_email" not in st.session_state:
+    st.session_state["user_email"] = None
+
 DATA_DIR = os.path.join(BASE_DIR, "..", "..", "data")
 ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
 
@@ -33,8 +39,12 @@ pages = {
     "Accueil": "accueil",
     "Recettes": "recettes",
     "À propos": "apropos",
-    "Se connecter": "connexion",
 }
+
+if st.session_state["connected"]:
+    pages["Se déconnecter"] = "logout"
+else:
+    pages["Se connecter"] = "connexion"
 
 # --- Initialiser le paramètre "page" ---
 if "page" not in st.query_params:
@@ -43,19 +53,22 @@ if "page" not in st.query_params:
 page = st.query_params["page"]
 module_name = pages.get(page, "accueil")
 
-
+# --- CSS seulement pour la navbar (supprimez .hero-section) ---
 st.markdown(f"""
 <style>
 /* Navbar horizontale centrée */
 .nav-bar_container {{
     position: absolute;
     top: 0px;
+    left: 50%;  /* Centre horizontal */
+    transform: translateX(-50%);  /* Ajuste pour un centrage parfait */
     background-color: white;
     border-radius: 0 0 100px 100px;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     width: 70%;
+    z-index: 1000;  /* Assure que la navbar est au-dessus du contenu des pages */
 }}
 
 .nav-bar {{
@@ -98,8 +111,8 @@ st.markdown(f"""
 </style>
 """, unsafe_allow_html=True)
 
-# --- Navbar HTML ---
-nav_html = '<div class="hero-section"><div class="nav-bar_container"><div class="nav-bar">'
+# --- Navbar HTML (sans .hero-section globale) ---
+nav_html = '<div class="nav-bar_container"><div class="nav-bar">'
 for idx, (nom, module) in enumerate(pages.items()):
     # Insérer le nom du site "FlavorFIT" au centre
     if idx == 2:
@@ -107,14 +120,14 @@ for idx, (nom, module) in enumerate(pages.items()):
     # Surligner la page active
     active_style = 'style="text-decoration:underline; color:rgb(255,69,0);"' if page == nom else ""
     nav_html += f'<a href="?page={nom}" {active_style}>{nom}</a>'
-nav_html += '</div></div></div>'
+nav_html += '</div></div>'
 st.markdown(nav_html, unsafe_allow_html=True)
 
 # --- Chargement dynamique du module actif ---
 try:
     page_module = importlib.import_module(f"modules.{module_name}")
     if hasattr(page_module, "render"):
-        page_module.render(recettes, ingredients,BASE_DIR)
+        page_module.render(recettes, ingredients, BASE_DIR)
     else:
         st.error(f"⚠️ Le module **{module_name}.py** ne contient pas de fonction `render()`.")
 except Exception as e:

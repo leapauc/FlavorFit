@@ -71,7 +71,7 @@ def render(recettes, ingredients, BASE_DIR):
     }}
     .header-block {{
         position: absolute;
-        top: -400px;
+        top: 300px;
         left: 50%;
         transform: translateX(-50%);
         background-color: rgba(255,255,255,0.9);
@@ -99,7 +99,7 @@ def render(recettes, ingredients, BASE_DIR):
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="header-block"><h1><span class="accent">Recettes</span></h1></div>', unsafe_allow_html=True)
+    st.markdown('<div class="hero-section"><div class="header-block"><h1><span class="accent">Recettes</span></h1></div></div>', unsafe_allow_html=True)
 
     # --- Vérifications des colonnes ---
     if "category" not in recettes.columns:

@@ -347,7 +347,7 @@ def render(recettes, ingredients,BASE_DIR):
     /* Div centrée horizontalement et y fixe */
     .fixed-text {{
         position: absolute;
-        top: -400px; /* position verticale fixe (modifiable) */
+        top: 250px; /* position verticale fixe (modifiable) */
         left: 50%;   /* centre horizontal */
         transform: translateX(-50%);
         background-color: rgba(255,255,255,0.9);
@@ -370,12 +370,12 @@ def render(recettes, ingredients,BASE_DIR):
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="fixed-text"><h1><span class="accent">Bienvenue !!!</span></h1><h4>Manger sainement et varier les repas sans prise de tête</h4><h3><span class="accent">Inscrivez-vous, ce site est fait pour vous !</span></h3></div>', unsafe_allow_html=True)
+    st.markdown('<div class="hero-section"><div class="fixed-text"><h1><span class="accent">Bienvenue !!!</span></h1><h4>Manger sainement et varier les repas sans prise de tête</h4><h3><span class="accent">Inscrivez-vous, ce site est fait pour vous !</span></h3></div>', unsafe_allow_html=True)
 
     st.markdown('<div class="content-block">', unsafe_allow_html=True)
     render_objectif_section(BASE_DIR)
 
     render_pricing_visual()
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div></div>', unsafe_allow_html=True)
 
     

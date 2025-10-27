@@ -1,11 +1,13 @@
 import streamlit as st
-from tools.helpers import get_base64_image
+from tools.helpers import get_base64_image, load_users, verify_password
 import os
  
 def render(recettes, ingredients, BASE_DIR):
+    DATA_DIR = os.path.join(BASE_DIR, "..", "..", "data")
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
     image_path = os.path.join(ASSETS_DIR, "login_signin.png")
     image_base64 = get_base64_image(image_path) if os.path.exists(image_path) else ""
+
  
     st.markdown(f"""
     <style>
@@ -22,13 +24,13 @@ def render(recettes, ingredients, BASE_DIR):
     }}
     .login-container {{
         position: absolute;
-        top: -650px; /* remonter */
+        top: 200px; /* remonter */
         left:50%;
         width: 50%;
         padding: 30px;
         border-radius: 15px;
     }}
-     .login-container h3 {{
+    .login-container h3 {{
         font-weight: 700;
         color: #222;
         margin-bottom: 30px;
@@ -121,8 +123,8 @@ def render(recettes, ingredients, BASE_DIR):
     """, unsafe_allow_html=True)
  
     with st.container():
-           st.markdown("""
-        <div class="login-container">
+        st.markdown("""
+        <div class="hero-section"> <div class="login-container">
             <h3>Bonjour et bienvenue à nouveau! 👋</h3>
             <form>
                 <label>Email</label><br>
@@ -139,6 +141,7 @@ def render(recettes, ingredients, BASE_DIR):
                 <button>🔗 Se connecter avec Google</button>
                 <button>🐙 Se connecter avec Facebook</button>
             </div>
+        </div>            
     </div>
     """, unsafe_allow_html=True)
  
