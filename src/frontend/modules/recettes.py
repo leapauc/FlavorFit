@@ -235,12 +235,16 @@ def render(recettes, ingredients, BASE_DIR):
     .modal-body {position: relative;padding: 1rem;}
     .titre-section {display: inline-block;background: #f7b733; color: white;padding: 0.3rem 0.8rem;border-radius: 8px;position: relative;z-index: 2;margin-bottom: -0.8rem;box-shadow: 0 2px 6px rgba(0,0,0,0.1);font-size: 1.1rem;}
     .modal-body ul, .apport-nutritionel {background-color: rgb(249,137,52,0.09); border-radius:15px 40px 15px 40px;padding:30px;list-style: none;}
-    .modal-body li {padding:15;}
+    .modal-body li {padding:15px;}
     .icon {font-size:35px;}
     .close { position: absolute; top: 10px; right: 20px; color: white; font-size: 28px; font-weight: bold; cursor: pointer; }
     .recette-lien {position: absolute; bottom: 40px; right: 30px; text-decoration: none !important;font-weight: bold; cursor: pointer;color:black !important}
-    table {border-collapse: collapse; border: 1px solid black;}
-    th, td {padding: 10px;border: 1px solid black;text-align:center;}
+    .kcal { background-color:lightsalmon;border-radius:20px;padding:10px 30px;}
+    .ig { background-color:yellow;border-radius:20px;padding:10px 30px;}
+    .prot { background-color:white;border-radius:20px;padding:10px 30px;}
+    .lipide { background-color:lightgreen;border-radius:20px;padding:10px 30px;}
+    .glucide { background-color:lightblue;border-radius:20px;padding:10px 30px;}
+    th, td {padding: 15px;text-align:center;}
     </style>
     <div class="cards-container">
     """
@@ -294,18 +298,18 @@ def render(recettes, ingredients, BASE_DIR):
                         <p>par portion</p>
                         <table style="width:100%;">
                             <tr>
-                                <td>{row.get("Kcal")} kcal</td>
-                                <td>IG : {row.get("IG")}</td> 
+                                <td ><span class="kcal">{row.get("Kcal")} kcal</span></td>
+                                <td><span class="ig">IG : {row.get("IG")}</span></td> 
                                 <td rowspan="3" style="text-align:center; vertical-align:middle;">
                                     <img src="data:image/png;base64,{image_base64_eco_score}" alt="Éco-score" width="60">
                                 </td>
                             </tr>
                             <tr>
-                                <td>protéines : {row.get("Proteines")} g </td>
-                                <td>lipides : {row.get("Lipides")} g</td>
+                                <td><span class="prot">protéines : {row.get("Proteines")} g </span></td>
+                                <td><span class="lipide">lipides : {row.get("Lipides")} g</span></td>
                             </tr>
                             <tr>
-                                <td>glucides : {row.get("Glucides")} g</td>
+                                <td><span class="glucide">glucides : {row.get("Glucides")} g</span></td>
                             </tr>
                         </table> 
                     </div>
