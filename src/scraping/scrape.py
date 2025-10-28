@@ -19,7 +19,7 @@ headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
 
-max_pages=30
+max_pages=1
 
 # ========== TOOLS ==========
 def format_category(category):
@@ -32,6 +32,11 @@ def safe_float(value):
     """Convertit une chaîne contenant des chiffres FR ou EN en float."""
     value = float(value.replace('\xa0','').replace('gr','').replace('g','').replace(' ','').replace(',',''))
     return value
+
+def format_text(text):
+    text = text.replace('├©','è').replace('û´','è').replace('ÃĻ','è')
+    text = text.replace('├®','é').replace('ûˋ','é').replace('ĂŠ','é').replace('ÃĐ','é')
+    return text
 
 # ========== SCRAPERS ==========
 def scraper_type(url_category):
@@ -286,8 +291,8 @@ def process_single_recipe(recette):
 
         recette.update({
             'temps_prepa': items_values[0] if len(items_values) > 0 else "-",
-            'difficulty': items_values[1] if len(items_values) > 1 else "-",
-            'prix': items_values[2] if len(items_values) > 2 else "-",
+            'difficulty': format_text(items_values[1]) if len(items_values) > 1 else "-",
+            'prix': format_text(items_values[2]) if len(items_values) > 2 else "-",
             'eco_score': eco_score
         })
 
@@ -329,7 +334,7 @@ def create_file(donnees, name_file):
     file_path = os.path.join(data_dir, name_file)
 
     # Export CSV
-    df.to_csv(file_path, index=False, encoding='utf-8-sig')
+    df.to_csv(file_path, index=False)
     print(f'Données exportées dans "{file_path}"')
 
     return df
