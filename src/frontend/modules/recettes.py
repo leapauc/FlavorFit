@@ -222,10 +222,10 @@ def render(recettes, ingredients, BASE_DIR):
     cards_html = """
     <style>
     .cards-container { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; padding: 20px; }
-    .card { flex: 1 1 calc(22% - 40px); max-width: 22%; width: 250px; padding: 10px; background-color: white; border-radius: 15px; text-align: center; transition: border 0.2s ease, transform 0.2s ease; cursor: pointer; }
+    .card { flex: 1 1 calc(22% - 40px); padding: 10px; background-color: white; border-radius: 15px; text-align: center; transition: border 0.2s ease, transform 0.2s ease; cursor: pointer; }
     .card:hover { border: 3px solid rgb(255,69,0); transform: translateY(-5px); }
-    .card img { border-radius: 15px; width: auto; height: 350px; object-fit: cover; }
-    .card-title { font-size: 18px; font-weight: bold; padding: 10px; }
+    .card img { border-radius: 15px; width: auto; height: auto; object-fit: cover; }
+    .card-title { font-size: 18px; font-weight: bold; padding: 40px;}
     .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); }
     .modal-content { background-color: #fefefe; margin: 50px auto; border-radius: 15px; width: 60%; max-width: 700px; padding-bottom: 20px; overflow: hidden; position: relative; }
     .modal-header { position: relative; height: 300px; padding:20px; background-size: cover; background-position: center; }
@@ -235,13 +235,13 @@ def render(recettes, ingredients, BASE_DIR):
     .modal-body {position: relative;padding: 1rem;}
     .titre-section {display: inline-block;background: #f7b733; color: white;padding: 0.3rem 0.8rem;border-radius: 8px;position: relative;z-index: 2;margin-bottom: -0.8rem;box-shadow: 0 2px 6px rgba(0,0,0,0.1);font-size: 1.1rem;}
     .modal-body ul, .apport-nutritionel {background-color: rgb(249,137,52,0.09); border-radius:15px 40px 15px 40px;padding:30px;list-style: none;}
-    .modal-body li {padding:15px;}
+    .modal-body li {padding:2px;}
     .icon {font-size:35px;}
     .close { position: absolute; top: 10px; right: 20px; color: white; font-size: 28px; font-weight: bold; cursor: pointer; }
     .recette-lien {position: absolute; bottom: 40px; right: 30px; text-decoration: none !important;font-weight: bold; cursor: pointer;color:black !important}
     .kcal { background-color:lightsalmon;border-radius:20px;padding:10px 30px;}
     .ig { background-color:yellow;border-radius:20px;padding:10px 30px;}
-    .prot { background-color:white;border-radius:20px;padding:10px 30px;}
+    .prot { background-color:rgb(220,220,220);border-radius:20px;padding:10px 30px;}
     .lipide { background-color:lightgreen;border-radius:20px;padding:10px 30px;}
     .glucide { background-color:lightblue;border-radius:20px;padding:10px 30px;}
     th, td {padding: 15px;text-align:center;}
