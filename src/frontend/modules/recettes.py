@@ -53,6 +53,7 @@ def render_stars(score_str, max_score=5):
 def render(recettes, ingredients, BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
     image_path = os.path.join(ASSETS_DIR, "accueil.png")
+    eco_score_img_path = os.path.join(BASE_DIR, "assets", "image")
     image_base64 = get_base64_image(image_path) if os.path.exists(image_path) else ""
 
     # --- CSS général ---
@@ -238,6 +239,8 @@ def render(recettes, ingredients, BASE_DIR):
     .icon {font-size:35px;}
     .close { position: absolute; top: 10px; right: 20px; color: white; font-size: 28px; font-weight: bold; cursor: pointer; }
     .recette-lien {position: absolute; bottom: 40px; right: 30px; text-decoration: none !important;font-weight: bold; cursor: pointer;color:black !important}
+    table {border-collapse: collapse; border: 1px solid black;}
+    th, td {padding: 10px;border: 1px solid black;text-align:center;}
     </style>
     <div class="cards-container">
     """
@@ -252,6 +255,11 @@ def render(recettes, ingredients, BASE_DIR):
                 nb_avis = '0 avis'
         except (TypeError, ValueError):
             nb_avis = '0 avis'
+        eco_score = str(row.get("eco_score", "")).strip()
+        img_eco_score = os.path.join(eco_score_img_path, f"{eco_score.replace(' ', '_')}.png")
+        image_base64_eco_score = get_base64_image(img_eco_score) if os.path.exists(img_eco_score) else ""
+
+
         image_url = row.get("img_url", "") or "https://via.placeholder.com/300x200?text=Image+non+disponible"
         titre_card_html = html.escape(row.get("titre", "Recette sans titre"))
         ingredients_list = "".join(f"<li>{html.escape(ing)}</li>" for ing in ingredients[ingredients["id_recette"]==row["id_recette"]]["ingredient"].tolist())
@@ -281,14 +289,25 @@ def render(recettes, ingredients, BASE_DIR):
                     </p>
                 </div>
                 <div class="modal-body">
-                    <h3 class="titre-section">Apports nutritionnels</h3>
+                    <h3 class="titre-section">Apports nutritionnels et impact environnemental</h3>
                     <div class="apport-nutritionel">
-                        {row.get("Kcal")} kcal - IG : {row.get("IG")} - 
-                        protéines : {row.get("Proteines")} g - 
-                        lipides : {row.get("Lipides")} g - 
-                        glucides : {row.get("Glucides")} g
-                        <br>
-                        {row.get("eco_score")}
+                        <p>par portion</p>
+                        <table style="width:100%;">
+                            <tr>
+                                <td>{row.get("Kcal")} kcal</td>
+                                <td>IG : {row.get("IG")}</td> 
+                                <td rowspan="3" style="text-align:center; vertical-align:middle;">
+                                    <img src="data:image/png;base64,{image_base64_eco_score}" alt="Éco-score" width="60">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>protéines : {row.get("Proteines")} g </td>
+                                <td>lipides : {row.get("Lipides")} g</td>
+                            </tr>
+                            <tr>
+                                <td>glucides : {row.get("Glucides")} g</td>
+                            </tr>
+                        </table> 
                     </div>
 
                     <h3 class="titre-section">Ingrédients</h3>

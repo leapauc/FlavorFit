@@ -28,7 +28,6 @@ def render_carousel(recettes):
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: transform 0.3s ease;
       width: calc(25% - 20px); /* par défaut 4 slides par vue */
