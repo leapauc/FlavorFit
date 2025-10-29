@@ -437,7 +437,7 @@ def show(recettes_list,BASE_DIR):
     /* Div centrée horizontalement et y fixe */
     .fixed-text {{
         position: absolute;
-        top: 250px; /* position verticale fixe (modifiable) */
+        top: 125px; /* position verticale fixe (modifiable) */
         left: 50%;   /* centre horizontal */
         transform: translateX(-50%);
         background-color: rgba(255,255,255,0.9);
