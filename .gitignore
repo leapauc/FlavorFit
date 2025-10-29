@@ -1,4 +1,7 @@
 src/__pycache__
 src/frontend/tools/__pycache__
-src/frontend/modules/__pycache__
 src/scraping/__pycache__
+src/frontend/pages/__pycache__
+src/frontend/components/__pycache__
+data/*.py
+src/frontend/noHashed2Hashed.py
