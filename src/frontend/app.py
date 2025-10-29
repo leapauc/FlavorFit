@@ -62,9 +62,9 @@ for key, default in {"logged_in": False, "email": "", "status": ""}.items():
 # Vérification login
 # ----------------------------
 def check_login(email, password):
-    user = df_users[(df_users["email"] == email) & (df_users["password"] == password)]
+    user = df_users[(df_users['email'] == email) & (df_users['password'] == password)]
     if not user.empty:
-        return user.iloc[0]
+        return user.iloc[0]['status'] 
     return None
 
 # ----------------------------
@@ -74,6 +74,7 @@ st.markdown("""
     <style>
     .accent {
         background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0));
+        font-size:60px;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -111,7 +112,9 @@ elif selected == "Mon espace" and st.session_state['logged_in']:
 elif selected == "Recettes" and st.session_state['logged_in']:
     recettes.show(recettes_list, ingredients_list, BASE_DIR)
 elif selected == "Recettes" and not st.session_state['logged_in']:
-    st.warning("Pour avoir accés au contenu, veuillez vous connecter !!!")
+    left, center, right = st.columns([1, 2, 1])  # la colonne du milieu est plus large
+    with center :
+        st.warning("Pour avoir accés au contenu, veuillez vous connecter !!!")
 elif selected == "A propos" and not st.session_state['logged_in']:
     apropos.show(BASE_DIR)
 elif selected == "HebMealGenerator" and st.session_state['logged_in']:

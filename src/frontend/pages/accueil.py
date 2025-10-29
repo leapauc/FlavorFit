@@ -340,10 +340,11 @@ def render_objectif_section(BASE_DIR):
         display: flex;
         flex-direction: column;
         justify-content: center;   
-        height: 100%;              
+        height: 100%;
+        margin-top: 40px; /* 🔹 décale le bloc vers le bas */
     }
     .objectif-title {
-        font-size: 48px !important;
+        font-size: 45px !important;
         line-height: 1.2;
         font-weight: 800;
         color: #2b0f2b;
@@ -351,6 +352,7 @@ def render_objectif_section(BASE_DIR):
         text-align: center; 
     }
     .objectif-title .accent {
+        font-size: 45px !important;
         background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
