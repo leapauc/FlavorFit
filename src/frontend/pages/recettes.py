@@ -50,7 +50,7 @@ def render_stars(score_str, max_score=5):
     return f'<span style="color: gold; font-size: 25px;">{stars_html}</span>'
 
 
-def render(recettes, ingredients, BASE_DIR):
+def show(recettes, ingredients, BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
     image_path = os.path.join(ASSETS_DIR, "accueil.png")
     eco_score_img_path = os.path.join(BASE_DIR, "assets", "image")

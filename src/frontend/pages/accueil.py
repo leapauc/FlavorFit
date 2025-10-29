@@ -4,14 +4,14 @@ import os
 import streamlit.components.v1 as components
 import html
 
-def render_carousel(recettes):
+def render_carousel(recettes_list):
     st.markdown("<h2 style='text-align:center; font-size:50px;margin-top:40px;'>Recettes à découvrir</h2>", unsafe_allow_html=True)
 
-    if len(recettes) == 0:
+    if len(recettes_list) == 0:
         st.warning("Aucune recette disponible.")
         return
 
-    recettes_sample = recettes.sample(n=min(12, len(recettes)))
+    recettes_sample = recettes_list.sample(n=min(12, len(recettes_list)))
 
     cards_html = """
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -336,6 +336,12 @@ def render_objectif_section(BASE_DIR):
         text-align: center;  /* 🔥 centre le texte */
         margin-bottom: 20px;
     }
+    .objectif-text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;   
+        height: 100%;              
+    }
     .objectif-title {
         font-size: 48px !important;
         line-height: 1.2;
@@ -379,12 +385,14 @@ def render_objectif_section(BASE_DIR):
 
     with col_text:
         st.markdown(f"""
-            <h1 class="objectif-title">
-                Aider les <span class="accent">dietéticiens / médecins-nutritionnistes</span>
-                dans l'accompagnement de leurs patients <br> OU <br>
-                <span class="accent">toute personne</span> soucieuse de sa nutrition.
-            </h1>
-            <button class="planif-repas">Planifier et varier ses repas dès maintenant &gt;</button>
+            <div class="objectif-text-container">
+                <h1 class="objectif-title">
+                    Aider les <span class="accent">diététiciens / médecins-nutritionnistes</span>
+                    dans l'accompagnement de leurs patients <br> OU <br>
+                    <span class="accent">toute personne</span> soucieuse de sa nutrition.
+                </h1>
+                <button class="planif-repas">Planifier et varier ses repas dès maintenant &gt;</button>
+            </div>
         """, unsafe_allow_html=True)
 
     with col_image:
@@ -398,7 +406,7 @@ def render_objectif_section(BASE_DIR):
     st.markdown("""<hr>""", unsafe_allow_html=True)
 
 
-def render(recettes, ingredients,BASE_DIR):
+def show(recettes_list,BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
     # --- Chargement de l'image d'arrière-plan ---
     image_path = os.path.join(ASSETS_DIR, "accueil.png")
@@ -457,7 +465,7 @@ def render(recettes, ingredients,BASE_DIR):
 
     render_pricing_visual()
 
-    render_carousel(recettes) 
+    render_carousel(recettes_list) 
 
     st.markdown('</div></div>', unsafe_allow_html=True)
 

@@ -3,7 +3,7 @@ from tools.helpers import get_base64_image
 import os
  
 
-def render(BASE_DIR):
+def show(BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
     # --- Chargement de l'image d'arrière-plan ---
     image_path = os.path.join(ASSETS_DIR, "accueil.png")

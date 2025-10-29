@@ -1,6 +1,13 @@
 import streamlit as st
 
-def render(BASE_DIR="."):
-    st.title("Page d'accueil")
-    if st.session_state.get("user"):
-        st.write(f"Bienvenue {st.session_state['user']['email']} !")
+def show():
+    st.title("👤 Mon espace")
+    st.write(f"Bonjour **{st.session_state['email']}** !")
+    st.write(f"Votre statut : **{st.session_state['status']}**")
+
+    if st.button("Se déconnecter"):
+        st.session_state['logged_in'] = False
+        st.session_state['email'] = ""
+        st.session_state['status'] = ""
+        st.success("Vous êtes déconnecté !")
+        st.rerun()

@@ -1,23 +1,14 @@
 import streamlit as st
-from components.navbar import show_navbar
-from components.auth import is_authenticated, login, logout
-import os
+from streamlit_option_menu import option_menu
+import pages.accueil as accueil
+import pages.connexion as login
+import pages.home as user
+import pages.recettes as recettes
+import pages.apropos as apropos
+import pages.generator as generator
 import pandas as pd
+import os
 
-# Import dynamique des pages
-from pages import accueil, recettes, apropos
-from components import auth
-# --- Chemins absolus ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ICON_DIR = os.path.join(BASE_DIR, "assets", "logo")
-ICON_PATH = os.path.join(ICON_DIR, "FlavorFit.ico")  # chemin vers ton favicon
-
-# --- Configuration globale avec favicon ---
-st.set_page_config(
-    page_title="FlavorFIT",
-    layout="wide",
-    page_icon=ICON_PATH  # ici on met l'icône
-)
 # --- Masquer la sidebar ---
 st.markdown(
     """
@@ -33,54 +24,95 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- Initialisation session ---
-if "authenticated" not in st.session_state:
-    st.session_state["authenticated"] = False
-    st.session_state["user"] = None
+# ----------------------------
+# Chargement des utilisateurs
+# ----------------------------
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ICON_DIR = os.path.join(BASE_DIR, "assets", "logo")
+ICON_PATH = os.path.join(ICON_DIR, "FlavorFit.ico")  # chemin vers ton favicon
+
+# --- Configuration globale avec favicon ---
+st.set_page_config(
+    page_title="FlavorFIT",
+    layout="wide",
+    page_icon=ICON_PATH  # ici on met l'icône
+)
 
 DATA_DIR = os.path.join(BASE_DIR, "..", "..", "data")
 ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
 
-# --- Chargement des CSV ---
+# --- Chargement des données ---
 recettes_path = os.path.join(DATA_DIR, "recettes_filtrees.csv")
 ingredients_path = os.path.join(DATA_DIR, "ingredients_filtrees.csv")
 
 recettes_list = pd.read_csv(recettes_path) if os.path.exists(recettes_path) else pd.DataFrame()
 ingredients_list = pd.read_csv(ingredients_path) if os.path.exists(ingredients_path) else pd.DataFrame()
 
-# --- Navbar dynamique ---
-show_navbar()
+csv_path = os.path.join(DATA_DIR, "users.csv")
+df_users = pd.read_csv(csv_path)
 
-# --- Navigation ---
-page = st.query_params.get("page", "accueil")
+# ----------------------------
+# Initialisation session_state
+# ----------------------------
+for key, default in {"logged_in": False, "email": "", "status": ""}.items():
+    if key not in st.session_state:
+        st.session_state[key] = default
 
-# --- Routing simple ---
-if page == "accueil":
-    accueil.render(recettes_list, ingredients_list, BASE_DIR)
+# ----------------------------
+# Vérification login
+# ----------------------------
+def check_login(email, password):
+    user = df_users[(df_users["email"] == email) & (df_users["password"] == password)]
+    if not user.empty:
+        return user.iloc[0]
+    return None
 
-elif page == "connexion":
-    if is_authenticated():
-        st.warning("Vous êtes déjà connecté !")
-    else:
-        auth.render()
+# ----------------------------
+# Navbar et style
+# ----------------------------
+st.markdown("""
+    <style>
+    .accent {
+        background: linear-gradient(90deg, rgb(255,69,0), rgb(255,165,0));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-elif page == "recettes":
-    if not is_authenticated():
-        st.warning("Accés refusé. Connectez-vous d'abord.")
-    else:
-        recettes.render(recettes_list, ingredients_list, BASE_DIR)
-elif page == "apropos":
-    if not is_authenticated():
-        apropos.render(BASE_DIR)
-    else:
-        st.warning("Accés refusé car vous êtes connecté.")
+st.markdown("<h1 style='text-align: center;'><span class='accent'>FlavorFIT</span></h1>", unsafe_allow_html=True)
 
-elif page == "profil":
-    if not is_authenticated():
-        st.warning("Accès refusé. Connectez-vous d'abord.")
-    else:
-        st.title("Profil 👤")
-        st.write(f"Utilisateur : {st.session_state['user']['username']}")
-
+if st.session_state["logged_in"]:
+    selected = option_menu(
+        None,
+        ["Mon espace", "Recettes", "HebMealGenerator"],
+        icons=["person-circle", "book-half", "gear"],
+        orientation="horizontal",
+        default_index=0,
+    )
 else:
-    st.error("Page non trouvée.")
+    selected = option_menu(
+        None,
+        ["Accueil", "Recettes", "A propos", "Connexion"],
+        icons=["house-door", "book-half", "info-circle", "box-arrow-in-right"],
+        orientation="horizontal",
+        default_index=0,
+    )
+
+# ----------------------------
+# Navigation dynamique
+# ----------------------------
+if selected == "Accueil":
+    accueil.show(recettes_list, BASE_DIR)
+elif selected == "Connexion" and not st.session_state["logged_in"]:
+    login.show(check_login)
+elif selected == "Mon espace" and st.session_state['logged_in']:
+    user.show()
+elif selected == "Recettes" and st.session_state['logged_in']:
+    recettes.show(recettes_list, ingredients_list, BASE_DIR)
+elif selected == "Recettes" and not st.session_state['logged_in']:
+    st.warning("Pour avoir accés au contenu, veuillez vous connecter !!!")
+elif selected == "A propos" and not st.session_state['logged_in']:
+    apropos.show(BASE_DIR)
+elif selected == "HebMealGenerator" and st.session_state['logged_in']:
+    generator.show()
