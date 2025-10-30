@@ -78,13 +78,7 @@ def show(BASE_DIR):
             <span style="font-size: 2em; color: #ff8c00;">12+</span>
         </div>
         """, unsafe_allow_html=True)
-        st.subheader("Best ratings")
-        st.markdown("""
-        <div style="margin-top: -20px;">
-            <div style="background-color: #e0e0e0; height: 10px; width: 70%; border-radius: 5px;"></div>
-            <div style="background-color: #e0e0e0; height: 10px; width: 40%; margin-top: 5px; border-radius: 5px;"></div>
-        </div>
-        """, unsafe_allow_html=True)
+
  
     # --- 5. COLONNE DROITE ---
     with col_droite:

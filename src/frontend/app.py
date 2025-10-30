@@ -106,9 +106,9 @@ else:
 if selected == "Accueil":
     accueil.show(recettes_list, BASE_DIR)
 elif selected == "Connexion" and not st.session_state["logged_in"]:
-    login.show(check_login)
+    login.show(check_login,BASE_DIR)
 elif selected == "Mon espace" and st.session_state['logged_in']:
-    user.show()
+    user.show(BASE_DIR)
 elif selected == "Recettes" and st.session_state['logged_in']:
     recettes.show(recettes_list, ingredients_list, BASE_DIR)
 elif selected == "Recettes" and not st.session_state['logged_in']:
