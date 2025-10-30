@@ -61,6 +61,27 @@ def show(BASE_DIR):
         st.markdown(f"""<h2 style="padding-top:50px;">Bonjour {st.session_state['email']} !</h2>""", unsafe_allow_html=True)
         st.markdown(f"""<h4>Votre statut : {st.session_state['status']}</h4>""", unsafe_allow_html=True)
 
+        st.markdown("""
+            <style>
+            .stButton > button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 60px;
+                width: 120px;
+                color: white !important;
+                background-color: rgb(255,165,0) !important;
+                border: 0 !important;
+                border-radius: 15px !important;
+                font-size: 28px !important;
+                font-weight: bold;
+                cursor: pointer;
+                transition: transform 0.2s ease-in-out;
+            }
+            .stButton > button:hover { transform: scale(1.1); }
+            </style>
+            """, unsafe_allow_html=True)
         if st.button("Se déconnecter"):
             st.session_state['logged_in'] = False
             st.session_state['email'] = ""

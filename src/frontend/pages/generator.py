@@ -56,7 +56,28 @@ def show(recettes, ingredients, BASE_DIR):
         </style>
         """, unsafe_allow_html=True)
     st.markdown('<div class="hero-section"><div class="fixed-text"><h1><span class="accent">HebMealGenerator</span></h1><h3><span>Générer votre programme de repas de la semaine sans prise de tête.</span></h3></div>', unsafe_allow_html=True)
-
+    st.markdown("""
+        <style>
+            .stButton > button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 60px;
+                width: 120px;
+                color: white !important;
+                background-color: rgb(255,165,0) !important;
+                border: 0 !important;
+                border-radius: 15px !important;
+                font-size: 28px !important;
+                font-weight: bold;
+                cursor: pointer;
+                transition: transform 0.2s ease-in-out;
+            }
+            .stButton > button:hover { transform: scale(1.1); }
+        </style>
+    """, unsafe_allow_html=True)
+    
     if "category" not in recettes.columns:
         st.warning("Aucune colonne 'category' trouvée dans les données de recettes.")
         return
@@ -97,28 +118,7 @@ def show(recettes, ingredients, BASE_DIR):
                 )
                 check_diner = st.checkbox("Repas du soir")
             with col3:
-                st.markdown("""
-                <style>
-                .stButton > button {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 0 auto;
-                    height: 60px;
-                    width: 120px;
-                    color: white !important;
-                    background-color: rgb(255,165,0) !important;
-                    border: 0 !important;
-                    border-radius: 15px !important;
-                    font-size: 28px !important;
-                    font-weight: bold;
-                    cursor: pointer;
-                    transition: transform 0.2s ease-in-out;
-                }
-                .stButton > button:hover { transform: scale(1.1); }
-                </style>
-                """, unsafe_allow_html=True)
-                filter_button = st.button("Générer", use_container_width=True)
+                filter_button = st.button("Générer", type="primary", use_container_width=True)
 
         # --- Action lors du clic ---
         if filter_button:
@@ -247,3 +247,4 @@ def show(recettes, ingredients, BASE_DIR):
                                 </div>
                                 """, unsafe_allow_html=True)
 
+            st.button("Enregistrer la liste de course", use_container_width=True)

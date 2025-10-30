@@ -69,6 +69,27 @@ def show(check_login,BASE_DIR):
         password = st.text_input("Mot de passe", type="password")
         st.markdown("<br>", unsafe_allow_html=True)  # espace
         
+        st.markdown("""
+            <style>
+            .stButton > button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 60px;
+                width: 120px;
+                color: white !important;
+                background-color: rgb(255,165,0) !important;
+                border: 0 !important;
+                border-radius: 15px !important;
+                font-size: 28px !important;
+                font-weight: bold;
+                cursor: pointer;
+                transition: transform 0.2s ease-in-out;
+            }
+            .stButton > button:hover { transform: scale(1.1); }
+            </style>
+            """, unsafe_allow_html=True)
         if st.button("Se connecter"):
             status = check_login(email, password)
             if status:
