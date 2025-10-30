@@ -1,3 +1,7 @@
 email,password,status
 alice@test.com,monpassword,pro
 bob@test.com,123456,novice
+lea@test.com,123456,pro
+takwa@gmail.com,123456,novice
+dom@test.com,123456,pro
+alice1@test.com,123456,novice

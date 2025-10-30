@@ -6,6 +6,7 @@ import pages.home as user
 import pages.recettes as recettes
 import pages.apropos as apropos
 import pages.generator as generator
+import pages.inscription as signin
 import pandas as pd
 import os
 
@@ -107,6 +108,8 @@ if selected == "Accueil":
     accueil.show(recettes_list, BASE_DIR)
 elif selected == "Connexion" and not st.session_state["logged_in"]:
     login.show(check_login,BASE_DIR)
+if st.session_state.get('page') == 'signup' and not st.session_state["logged_in"]:
+    signin.render(BASE_DIR)
 elif selected == "Mon espace" and st.session_state['logged_in']:
     user.show(BASE_DIR)
 elif selected == "Recettes" and st.session_state['logged_in']:

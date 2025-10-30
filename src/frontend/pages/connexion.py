@@ -102,13 +102,8 @@ def show(check_login,BASE_DIR):
         
         st.markdown("<br>", unsafe_allow_html=True)  # espace avant le lien
         
-        # Lien stylé comme un lien classique
-        link_html = """
-        <p style='text-align:center;'>
-            <a href='/?page=inscription'">Pas encore de compte ? Inscrivez-vous ici</a>
-        </p>
-        """
-        # Mettre à jour le page state via le clic : on peut utiliser un petit hack
-        if st.markdown(link_html, unsafe_allow_html=True):
-            if st.session_state.get('page') != 'signup':
-                st.session_state['page'] = 'signup'
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align:center;'>Pas encore de compte ?</p>", unsafe_allow_html=True)
+
+        if st.button("👉 Inscrivez-vous ici", use_container_width=True):
+            st.session_state['page'] = 'signup'

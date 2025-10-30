@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
  
-def render(recettes=None, ingredients=None, BASE_DIR=None):
+def render(BASE_DIR=None):
     # --- Chemins ---
     if BASE_DIR is None:
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,7 +22,7 @@ def render(recettes=None, ingredients=None, BASE_DIR=None):
         # Fichier introuvable -> DataFrame vide
         return pd.DataFrame(columns=["email", "password", "status"])
  
-    def save_user_plain(file_path, email, password, status="user"):
+    def save_user_plain(file_path, email, password, status):
         users_df = load_users_csv(file_path)
         # Vérifier si l'email existe déjà
         if email in users_df["email"].values:
@@ -37,7 +37,6 @@ def render(recettes=None, ingredients=None, BASE_DIR=None):
     # --- CSS ---
     st.markdown(f"""
     <style>
-    [data-testid="stAppViewContainer"] {{ background-color: rgb(249,137,52,0.09); }}
     .signup-container, .signup-option {{ padding-top: 120px; width: 60%; padding-left: 20%; }}
     .signup-container h3 {{ font-weight: 700; color: #222; margin-bottom: 30px; }}
     .signup-container input {{ width: 100%; padding: 12px 15px; border-radius: 10px; border: 1px solid #ddd; margin-top: 8px; font-size: 15px; background-color: #f7f7f7; outline: none; transition: border-color 0.3s; }}
@@ -56,7 +55,8 @@ def render(recettes=None, ingredients=None, BASE_DIR=None):
     """, unsafe_allow_html=True)
  
     # --- Titre ---
-    with st.container():
+    left, center, right = st.columns([1, 2, 1])
+    with center:
         st.markdown(f"""
         <div class="signup-container">
             <h3>Créez votre compte 🌟</h3>
@@ -67,6 +67,7 @@ def render(recettes=None, ingredients=None, BASE_DIR=None):
         email = st.text_input("Email", placeholder="Entrez votre adresse e-mail ici")
         password = st.text_input("Mot de passe", placeholder="Créez un mot de passe", type="password")
         confirm_password = st.text_input("Confirmez le mot de passe", placeholder="Répétez votre mot de passe", type="password")
+        check_pro = st.checkbox("Version pro si coché, version novice sinon")
         signup_button = st.button("S'inscrire")
  
         # --- Gestion du clic inscription ---
@@ -76,24 +77,25 @@ def render(recettes=None, ingredients=None, BASE_DIR=None):
             elif password != confirm_password:
                 st.error("Les mots de passe ne correspondent pas.")
             else:
-                success = save_user_plain(USERS_FILE, email, password)
+                if check_pro:
+                    status="pro"
+                else:
+                    status="novice"
+                success = save_user_plain(USERS_FILE, email, password,status)
                 if success:
                     st.success("🎉 Compte créé avec succès ! Vous pouvez maintenant vous connecter.")
                     # Optionnel : rediriger vers la page de connexion via query param
-                    st.experimental_set_query_params(page="connexion")
+                    st.query_params["page"] = "connexion"
                 else:
                     st.error("Un compte avec cet e-mail existe déjà.")
  
-    # --- Bas de page (lien fonctionnel via JS pour mettre le query param) ---
-    st.markdown("""
-        <div class="signup-option">
-            <p>Vous avez déjà un compte ?
-                 <a href='/?page=connexion'>Connectez vous</a></p>
-            </p>
-            <div class='separator'>— OU —</div><br>
-            <div class="social-buttons">
-                <button>🔗 S'inscrire avec Google</button>
-                <button>🐙 S'inscrire avec Facebook</button>
+        # --- Bas de page (lien fonctionnel via JS pour mettre le query param) ---
+        st.markdown("""
+            <div class="signup-option">
+                <div class='separator'>— OU —</div><br>
+                <div class="social-buttons">
+                    <button>🔗 S'inscrire avec Google</button>
+                    <button>🐙 S'inscrire avec Facebook</button>
+                </div>
             </div>
-        </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
