@@ -118,4 +118,4 @@ elif selected == "Recettes" and not st.session_state['logged_in']:
 elif selected == "A propos" and not st.session_state['logged_in']:
     apropos.show(BASE_DIR)
 elif selected == "HebMealGenerator" and st.session_state['logged_in']:
-    generator.show()
+    generator.show(recettes_list, ingredients_list, BASE_DIR)

@@ -28,7 +28,7 @@ def show(check_login):
         # Lien stylé comme un lien classique
         link_html = """
         <p style='text-align:center;'>
-            <a href='#' onclick="window.location.reload();">Pas encore de compte ? Inscrivez-vous ici</a>
+            <a href='/?page=inscription'">Pas encore de compte ? Inscrivez-vous ici</a>
         </p>
         """
         # Mettre à jour le page state via le clic : on peut utiliser un petit hack
