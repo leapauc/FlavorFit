@@ -117,8 +117,16 @@ def show(recettes, ingredients, BASE_DIR):
                     value=st.session_state.filtre_exclusions
                 )
                 check_diner = st.checkbox("Repas du soir")
-            with col3:
                 filter_button = st.button("Générer", type="primary", use_container_width=True)
+
+            with col3:
+                nb_part = st.number_input(
+                    label="Nombre de part",
+                    min_value=0,
+                    max_value=120,
+                    value=2,     
+                    step=1        
+                )
 
         # --- Action lors du clic ---
         if filter_button:
