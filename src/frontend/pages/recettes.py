@@ -261,8 +261,15 @@ def show(recettes, ingredients, BASE_DIR):
         except (TypeError, ValueError):
             nb_avis = '0 avis'
         eco_score = str(row.get("eco_score", "")).strip()
-        img_eco_score = os.path.join(eco_score_img_path, f"{eco_score.replace(' ', '_')}.png")
+        # Si vide, on affiche une image de croix
+        if eco_score=="-":
+            img_eco_score = os.path.join(eco_score_img_path, "croix.png")
+        else:
+            img_eco_score = os.path.join(eco_score_img_path, f"{eco_score.replace(' ', '_')}.png")
+
+        # Chargement de l'image encodée en base64
         image_base64_eco_score = get_base64_image(img_eco_score) if os.path.exists(img_eco_score) else ""
+
 
 
         image_url = row.get("img_url", "") or "https://via.placeholder.com/300x200?text=Image+non+disponible"
