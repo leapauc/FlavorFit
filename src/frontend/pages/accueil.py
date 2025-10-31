@@ -279,7 +279,7 @@ def render_pricing_visual():
         <div class="card-novice">
             <div>
                 <div class="badge novice">Version Novice</div>
-                <div class="price">10 €</div>
+                <div class="price">5 €</div>
                 <div class="per-month">Par mois</div>
                 <br>
                 <hr>
@@ -302,7 +302,7 @@ def render_pricing_visual():
         <div class="card-pro">
             <div>
                 <div class="badge pro">Version Pro</div>
-                <div class="price">20 €</div>
+                <div class="price">10 €</div>
                 <div class="per-month">Par mois</div>
                 <br>
                 <hr>
