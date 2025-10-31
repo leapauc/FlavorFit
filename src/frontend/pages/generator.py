@@ -2,6 +2,89 @@ import streamlit as st
 import pandas as pd
 from tools.helpers import get_base64_image
 import os
+import io
+
+def show_shopping_list(ingredients_df):
+    # --- Vérification que les repas existent ---
+    if "repas_generes" not in st.session_state or not st.session_state.repas_generes:
+        st.warning("⚠️ Aucun repas généré pour le moment.")
+        return
+
+    repas = st.session_state.repas_generes
+
+    # --- Extraction des ID recettes ---
+    recettes_ids = []
+    for jour, moments in repas.items():
+        for moment, recette in moments.items():
+            recettes_ids.append(recette["id_recette"])
+
+    # --- Filtrage des ingrédients associés ---
+    liste_courses = ingredients_df[ingredients_df["id_recette"].isin(recettes_ids)].copy()
+
+    # On vérifie les colonnes requises
+    for col in ["ingredient", "quantity"]:
+        if col not in liste_courses.columns:
+            st.error(f"Colonne manquante dans ingredients_df : '{col}'")
+            return
+
+    # --- Nettoyage et regroupement ---
+    liste_courses["ingredient"] = liste_courses["ingredient"].astype(str).str.strip().str.lower()
+    liste_courses["quantity"] = pd.to_numeric(liste_courses["quantity"], errors="coerce").fillna(0)
+
+    grouped_courses = (
+        liste_courses.groupby(["ingredient"], as_index=False)["quantity"].sum()
+        .sort_values("ingredient")
+    )
+
+    # --- Création du texte pour téléchargement ---
+    buffer = io.StringIO()
+    buffer.write("Liste de courses hebdomadaire\n\n")
+    for _, row in grouped_courses.iterrows():
+        qte = f"{row['quantity']:.1f}".rstrip('0').rstrip('.') if row['quantity'] > 0 else ""
+        ligne = f"- {qte} {row['ingredient']}".strip()
+        buffer.write(ligne + "\n")
+
+    list_txt = buffer.getvalue()
+
+    if st.button("Générer la liste de courses", use_container_width=True):
+        # --- Affichage de la liste ---
+        st.markdown("#### Liste de courses hebdomadaire")
+        # --- Bouton de téléchargement ---
+        col_g, col_gm, col_dm, col_d = st.columns([2, 2,2, 2])
+        with col_g:
+            st.download_button(
+                label="Télécharger (.txt)",
+                data=list_txt.encode("utf-8"),
+                file_name="liste_de_courses.txt",
+                mime="text/plain",
+                use_container_width=True,
+            )
+        with col_gm:
+            st.download_button(
+                label="Télécharger (.csv)",
+                data=list_txt.encode("utf-8"),
+                file_name="liste_de_courses.csv",
+                mime="text/plain",
+                use_container_width=True,
+            )
+        liste_html = """
+        <div style='background-color:rgba(255,165,0,0.1);
+                    padding:25px;
+                    border-radius:20px;
+                    line-height:1.6;
+                    font-size:1.1rem;'>
+         <ul style='list-style-type:none;padding-left:10px;display:grid;grid-template-columns: repeat(3, 1fr);gap:10px;font-size:1.05rem;'>
+        """
+        for _, row in grouped_courses.iterrows():
+            if row["quantity"] > 0:
+                liste_html += f"<li>• <b>{row['quantity']}</b> {row['ingredient']}</li>"
+            else:
+                liste_html += f"<li>• {row['ingredient']}</li>"
+
+        liste_html += "</ul></div>"
+
+        st.markdown(liste_html, unsafe_allow_html=True)
+
 
 def show(recettes, ingredients, BASE_DIR):
     ASSETS_DIR = os.path.join(BASE_DIR, "assets", "background")
@@ -63,8 +146,6 @@ def show(recettes, ingredients, BASE_DIR):
                 justify-content: center;
                 align-items: center;
                 margin: 0 auto;
-                height: 60px;
-                width: 120px;
                 color: white !important;
                 background-color: rgb(255,165,0) !important;
                 border: 0 !important;
@@ -255,4 +336,6 @@ def show(recettes, ingredients, BASE_DIR):
                                 </div>
                                 """, unsafe_allow_html=True)
 
-            st.button("Enregistrer la liste de course", use_container_width=True)
+            show_shopping_list(ingredients)
+
+            
