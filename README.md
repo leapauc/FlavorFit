@@ -22,3 +22,9 @@ pip freeze -l > requirements.txt
 ```
 streamlit run src/frontend/app.py
 ```
+
+# SOURCES SUPPLEMENTAIRES
+
+Site avec ingrédients et catégorie + idées recettes :
+
+https://www.academiedugout.fr/encyclopedie
