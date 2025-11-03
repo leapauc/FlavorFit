@@ -19,7 +19,7 @@ headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
 
-max_pages=50
+max_pages=60
 
 # ========== TOOLS ==========
 def format_category(category):
@@ -230,6 +230,12 @@ def process_single_recipe(recette):
 
         soup = BeautifulSoup(response.content, 'html.parser')
 
+        # --- Nombre d'invités ---
+        div = soup.find('div', class_='mrtn-recette_ingredients-counter')
+        servings_nb = div.get('data-servingsnb', '') if div else "-"
+        servings_unit = div.get('data-servingsunit', '') if div else "-"
+        qt_counter = f"{servings_nb} {servings_unit}".strip()
+
         # --- Extraction ingrédients ---
         ingredient_lines = []
         ingredient_list = []
@@ -240,10 +246,14 @@ def process_single_recipe(recette):
 
             count_elem = card.find(class_="count")
             count = count_elem.get_text(strip=True) if count_elem else ""
+            
             unit_elem = card.find(class_="unit")
             unit = unit_elem.get_text(strip=True) if unit_elem else ""
             quantity = f'{count} {unit}'.strip()
-
+            try:
+                count=float(count)/int(servings_nb)
+            except:
+                count=count
             line = f"{quantity} {ingredient}".strip() if quantity else ingredient
             ingredient_lines.append(line)
 
@@ -252,15 +262,10 @@ def process_single_recipe(recette):
             ingredient_list.append({
                 'id_recette': recette['id_recette'],
                 'ingredient': ingredient,
-                'quantity': quantity,
+                'quantity': count,
+                'unit':unit,
                 'img_url': img_url
             })
-
-        # --- Nombre d'invités ---
-        div = soup.find('div', class_='mrtn-recette_ingredients-counter')
-        servings_nb = div.get('data-servingsnb', '') if div else "-"
-        servings_unit = div.get('data-servingsunit', '') if div else "-"
-        qt_counter = f"{servings_nb} {servings_unit}".strip()
 
         # --- Nutrition ---
         ingredients_text = "\n".join(ingredient_lines)
