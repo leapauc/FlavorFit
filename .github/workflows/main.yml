@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"
           git config --local user.name "${{ github.actor }}"
-          git add data/ingredient_scrapees.csv
+          git add data/ingredients_scrapees.csv
           git add data/recettes_scrapees.csv
           git add data/ingredients_filtrees.csv
           git add data/recettes_filtrees.csv
