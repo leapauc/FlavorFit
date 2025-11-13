@@ -89,6 +89,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import StaleElementReferenceException
 
 
 # =====================================================
@@ -185,42 +186,64 @@ def get_driver(headless=True):
     return webdriver.Chrome(options=options)
 
 
-def get_nutritional_values(driver, ingredient):
+def get_nutritional_values(driver, ingredient, max_retries=3):
     """
-    Recherche un ingrédient sur Ciqual et extrait ses valeurs nutritionnelles.
+    Recherche un ingrédient sur Ciqual et récupère ses valeurs nutritionnelles.
+    Robuste face aux mises à jour du DOM (StaleElementReferenceException).
 
     Args:
-        driver (webdriver): Instance active de Selenium.
+        driver (webdriver): Instance Selenium active.
         ingredient (str): Nom de l'ingrédient à rechercher.
+        max_retries (int): Nombre maximal de tentatives.
 
     Returns:
-        dict: Dictionnaire des nutriments et valeurs associées.
+        dict: Dictionnaire {nom_nutriment: valeur ou None}.
     """
     data = {"Ingrédient": ingredient}
     for label in NUTRIENTS_TO_EXTRACT.values():
         data[label] = None
 
-    try:
-        search_box = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, "champ-recherche"))
-        )
-        search_box.clear()
-        search_box.send_keys(ingredient)
-        search_box.send_keys(Keys.RETURN)
-        time.sleep(0.5)
+    for attempt in range(1, max_retries + 1):
+        try:
+            # Saisie dans le champ de recherche
+            search_box = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.ID, "champ-recherche"))
+            )
+            search_box.clear()
+            search_box.send_keys(ingredient)
+            search_box.send_keys(Keys.RETURN)
+            time.sleep(2)  # Laisser Angular mettre à jour la page
 
-        for nutri_label, col_name in NUTRIENTS_TO_EXTRACT.items():
-            try:
-                label_elem = driver.find_element(
-                    By.XPATH, f"//span[contains(text(), '{nutri_label}')]"
-                )
-                value_elem = label_elem.find_element(By.XPATH, "./ancestor::tr/td[2]")
-                data[col_name] = value_elem.text.strip()
-            except NoSuchElementException:
-                data[col_name] = None
-    except TimeoutException:
-        pass
+            # Pour chaque nutriment, recherche et lecture directe
+            for nutri_label, col_name in NUTRIENTS_TO_EXTRACT.items():
+                try:
+                    value_elem = WebDriverWait(driver, 5).until(
+                        EC.presence_of_element_located(
+                            (By.XPATH, f"//span[contains(text(), '{nutri_label}')]/ancestor::tr/td[2]")
+                        )
+                    )
+                    # Lecture sécurisée avec retry
+                    for _ in range(3):
+                        try:
+                            data[col_name] = value_elem.text.strip()
+                            break
+                        except StaleElementReferenceException:
+                            time.sleep(0.5)
+                            value_elem = driver.find_element(
+                                By.XPATH, f"//span[contains(text(), '{nutri_label}')]/ancestor::tr/td[2]"
+                            )
+                except (TimeoutException, NoSuchElementException):
+                    data[col_name] = None
 
+            return data
+
+        except (TimeoutException, StaleElementReferenceException) as e:
+            print(f"⚠️ Tentative {attempt}/{max_retries} échouée pour '{ingredient}' ({e.__class__.__name__})")
+            time.sleep(1)
+            driver.get("https://ciqual.anses.fr/")  # reload page
+            continue
+
+    print(f"❌ Échec complet pour '{ingredient}' après {max_retries} tentatives.")
     return data
 
 
