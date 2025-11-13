@@ -212,7 +212,7 @@ def get_nutritional_values(driver, ingredient, max_retries=3):
             search_box.clear()
             search_box.send_keys(ingredient)
             search_box.send_keys(Keys.RETURN)
-            time.sleep(2)  # Laisser Angular mettre à jour la page
+            time.sleep(0.3)  # Laisser Angular mettre à jour la page
 
             # Pour chaque nutriment, recherche et lecture directe
             for nutri_label, col_name in NUTRIENTS_TO_EXTRACT.items():
