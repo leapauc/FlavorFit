@@ -28,3 +28,29 @@ streamlit run src/frontend/app.py
 Site avec ingrédients et catégorie + idées recettes :
 
 https://www.academiedugout.fr/encyclopedie
+
+# TO DO LIST
+
+SITE DE https://ciqual.anses.fr/
+Récup par ingrédient :
+
+- sel NaCl
+- Fibres alimentaires
+- Prot
+- Lipide
+- AG saturés
+- Glucide
+- Sucre
+- Cholestérol (facultatif)
+- Energie, Règlement UE N° 1169/2011 (kJ/100 g)
+- Energie, Règlement UE N° 1169/2011 (kcal/100 g)
+
+Ajout petit dej
+
+Filtre supplémentaire :
+
+- repas rapide vs repas long/mijoté
+- prépa simple, peu d'ingrédients
+- prix
+- eco_score
+- compatible : Airfryer, Cookeo,...

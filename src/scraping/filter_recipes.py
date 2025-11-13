@@ -10,7 +10,7 @@ def filtrer_recettes_personne_portion_burger():
 
     # --- Chemins vers les fichiers ---
     recettes_path = os.path.join(data_dir, 'recettes_scrapees.csv')
-    ingredients_path = os.path.join(data_dir, 'ingredient_scrapees.csv')
+    ingredients_path = os.path.join(data_dir, 'ingredients_scrapees.csv')
 
     # --- Vérification des fichiers ---
     if not os.path.exists(recettes_path):

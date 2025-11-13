@@ -29,6 +29,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r src/requirements.txt
 
+      - name: Scraping ingredient - info nutritionnelles
+        run: python src/scraping/scrape_ingredient_list.py
+
       - name: Run scraping
         run: python src/scraping/scrape.py
 
@@ -41,8 +44,10 @@ jobs:
           git config --local user.name "${{ github.actor }}"
           git add data/ingredients_scrapees.csv
           git add data/recettes_scrapees.csv
-          git add data/ingredients_filtrees.csv
+          git add data/ingredients_filtrees.cs
           git add data/recettes_filtrees.csv
+          git add data/ingredients_filtrees.csv
+          git add data/ingredients_marmiton_ciqual.csv
           git commit -m "Update CSV automatically" || echo "No changes to commit"
           git push
         env:
