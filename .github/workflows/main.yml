@@ -47,7 +47,7 @@ jobs:
           git add data/ingredients_filtrees.cs
           git add data/recettes_filtrees.csv
           git add data/ingredients_filtrees.csv
-          git add data/ingredients_marmiton_ciqual.csv
+          git add src/scraping/ingredients_marmiton_ciqual.csv
           git commit -m "Update CSV automatically" || echo "No changes to commit"
           git push
         env:

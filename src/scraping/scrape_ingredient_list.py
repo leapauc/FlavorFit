@@ -239,7 +239,7 @@ def get_nutritional_values(driver, ingredient, max_retries=3):
 
         except (TimeoutException, StaleElementReferenceException) as e:
             print(f"⚠️ Tentative {attempt}/{max_retries} échouée pour '{ingredient}' ({e.__class__.__name__})")
-            time.sleep(1)
+            time.sleep(0.1)
             driver.get("https://ciqual.anses.fr/")  # reload page
             continue
 
