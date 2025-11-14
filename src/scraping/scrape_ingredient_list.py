@@ -88,8 +88,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 
 
 # =====================================================
@@ -185,65 +184,43 @@ def get_driver(headless=True):
     options.add_argument("--window-size=1920,1080")
     return webdriver.Chrome(options=options)
 
-
-def get_nutritional_values(driver, ingredient, max_retries=3):
+def get_nutritional_values(driver, ingredient):
     """
-    Recherche un ingrédient sur Ciqual et récupère ses valeurs nutritionnelles.
-    Robuste face aux mises à jour du DOM (StaleElementReferenceException).
+    Recherche un ingrédient sur Ciqual et extrait ses valeurs nutritionnelles.
 
     Args:
-        driver (webdriver): Instance Selenium active.
+        driver (webdriver): Instance active de Selenium.
         ingredient (str): Nom de l'ingrédient à rechercher.
-        max_retries (int): Nombre maximal de tentatives.
 
     Returns:
-        dict: Dictionnaire {nom_nutriment: valeur ou None}.
+        dict: Dictionnaire des nutriments et valeurs associées.
     """
     data = {"Ingrédient": ingredient}
     for label in NUTRIENTS_TO_EXTRACT.values():
         data[label] = None
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            # Saisie dans le champ de recherche
-            search_box = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.ID, "champ-recherche"))
-            )
-            search_box.clear()
-            search_box.send_keys(ingredient)
-            search_box.send_keys(Keys.RETURN)
-            time.sleep(0.3)  # Laisser Angular mettre à jour la page
+    try:
+        search_box = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "champ-recherche"))
+        )
+        search_box.clear()
+        search_box.send_keys(ingredient)
+        search_box.send_keys(Keys.RETURN)
+        time.sleep(0.4)  # Pause courte pour laisser la page se charger
 
-            # Pour chaque nutriment, recherche et lecture directe
-            for nutri_label, col_name in NUTRIENTS_TO_EXTRACT.items():
-                try:
-                    value_elem = WebDriverWait(driver, 5).until(
-                        EC.presence_of_element_located(
-                            (By.XPATH, f"//span[contains(text(), '{nutri_label}')]/ancestor::tr/td[2]")
-                        )
-                    )
-                    # Lecture sécurisée avec retry
-                    for _ in range(3):
-                        try:
-                            data[col_name] = value_elem.text.strip()
-                            break
-                        except StaleElementReferenceException:
-                            time.sleep(0.5)
-                            value_elem = driver.find_element(
-                                By.XPATH, f"//span[contains(text(), '{nutri_label}')]/ancestor::tr/td[2]"
-                            )
-                except (TimeoutException, NoSuchElementException):
-                    data[col_name] = None
+        for nutri_label, col_name in NUTRIENTS_TO_EXTRACT.items():
+            try:
+                label_elem = driver.find_element(
+                    By.XPATH, f"//span[contains(text(), '{nutri_label}')]"
+                )
+                value_elem = label_elem.find_element(By.XPATH, "./ancestor::tr/td[2]")
+                data[col_name] = value_elem.text.strip()
+            except (NoSuchElementException, StaleElementReferenceException):
+                # Gestion des exceptions : élément non trouvé ou obsolète
+                data[col_name] = None
+    except TimeoutException:
+        pass
 
-            return data
-
-        except (TimeoutException, StaleElementReferenceException) as e:
-            print(f"⚠️ Tentative {attempt}/{max_retries} échouée pour '{ingredient}' ({e.__class__.__name__})")
-            time.sleep(0.1)
-            driver.get("https://ciqual.anses.fr/")  # reload page
-            continue
-
-    print(f"❌ Échec complet pour '{ingredient}' après {max_retries} tentatives.")
     return data
 
 
@@ -269,7 +246,7 @@ def scrape_ciqual_extended(ingredients, output_file="ingredients_marmiton_ciqual
         results.append(nutri_data)
         found = sum(v is not None for v in nutri_data.values()) - 1
         print(f"→ {found} nutriments trouvés")
-        time.sleep(0.5)
+        time.sleep(0.2)
 
     driver.quit()
     df = pd.DataFrame(results)
