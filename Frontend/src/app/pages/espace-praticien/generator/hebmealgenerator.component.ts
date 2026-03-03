@@ -1,23 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { GetInfoFromDBService } from '../../../../services/getInfoFromDB';
+import { GetInfoFromDBService } from '../../../services/getInfoFromDB';
 import {
   PathologyGroup,
   PathologyGroupUi,
-} from '../../../../models/pathologyGroup';
-import { Conviction, Restriction } from '../../../../models/infoDB';
-import { IngredientService } from '../../../../services/ingredient.services';
-import { DistinctIngredient } from '../../../../models/ingredient';
+} from '../../../models/pathologyGroup';
+import { Conviction, Restriction } from '../../../models/infoDB';
+import { IngredientService } from '../../../services/ingredient.services';
+import { DistinctIngredient } from '../../../models/ingredient';
 import flatpickr from 'flatpickr';
 import { French } from 'flatpickr/dist/l10n/fr.js';
 import { FormsModule } from '@angular/forms';
-import { RecipeService } from '../../../../services/recipe.services';
+import { RecipeService } from '../../../services/recipe.services';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
-import { PlanningService } from '../../../../services/planning.services';
-import { PdfService } from '../../../../services/pdf.services';
+import { PlanningService } from '../../../services/planning.services';
+import { PdfService } from '../../../services/pdf.services';
 
 interface ShoppingItem {
   name: string;
@@ -604,6 +602,8 @@ export class HebmealgeneratorComponent {
   generatePdf() {
     const payload = {
       constraints: {
+        nbPersons: 2,
+        startDate: this.dateDebut,
         pathologies: this.selectedPathologies,
         restrictions: this.selectedDietaryOptions,
         ingredientsExcluded: this.selectedIngredients,

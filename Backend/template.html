@@ -2,30 +2,284 @@
 <html>
   <head>
     <meta charset="utf-8" />
+
     <style>
-      body {
-        font-family: Arial;
+      /* =========================
+       PAGE SETTINGS
+    ========================== */
+
+      @page {
+        size: A4;
+        margin: 8mm;
       }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: #fd810d;
+        margin: 10px 0 20px 0;
+      }
+
+      /* =========================
+       CARD STYLE
+    ========================== */
+
+      .card {
+        border-radius: 12px;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+      }
+
+      .card-title {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #fd810d;
+      }
+
+      /* =========================
+       PLANNING TABLE
+    ========================== */
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        font-size: 12px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f5c783;
+      }
+
+      td:first-child {
+        font-weight: bold;
+        background: #fafafa;
+      }
+
+      /* =========================
+       SHOPPING LIST
+    ========================== */
+
+      .shopping-card {
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+        overflow: hidden;
+        page-break-inside: avoid;
+      }
+
+      .shopping-card-header {
+        color: white;
+        padding: 6px 10px;
+        font-weight: bold;
+        font-size: 13px;
+
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .shopping-card-body {
+        padding: 8px;
+      }
+
+      /* 2 COLONNES */
+      .shopping-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px 12px;
+        font-size: 11px;
+      }
+
+      .shopping-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .shopping-checkbox {
+        flex-shrink: 0;
+        width: 12px;
+        height: 12px;
+        margin-top: 2px;
+      }
+
+      .shopping-text {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 6px;
+      }
+
+      .shopping-name {
+        word-break: break-word;
+      }
+
+      .shopping-quantity {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* PAGE BREAK */
       .page-break {
         page-break-after: always;
+      }
+
+      /* =========================
+       GROUP COLORS (ANGULAR MATCH)
+    ========================== */
+
+      .group-red {
+        background: linear-gradient(90deg, #e53935, #ff6b6b);
+      }
+
+      .group-green {
+        background: linear-gradient(90deg, #2e7d32, #66bb6a);
+      }
+
+      .group-blue {
+        background: linear-gradient(90deg, #1565c0, #42a5f5);
+      }
+
+      .group-orange {
+        background: linear-gradient(90deg, #fd810d, #ffb347);
+      }
+
+      .group-brown {
+        background: linear-gradient(90deg, #6d4c41, #a1887f);
+      }
+
+      .group-black {
+        background: linear-gradient(90deg, #212121, #616161);
+      }
+
+      .group-pink {
+        background: linear-gradient(90deg, #d81b60, #f06292);
+      }
+
+      .group-purple {
+        background: linear-gradient(90deg, #6a1b9a, #ab47bc);
+      }
+
+      .group-default {
+        background: linear-gradient(90deg, #607d8b, #90a4ae);
       }
     </style>
   </head>
 
   <body>
-    <h1>Rapport</h1>
+    <h1>Rapport HebMealGenerator</h1>
 
-    <h2>Contraintes</h2>
-    <p>{{ constraints }}</p>
+    <!-- =========================
+     CONTRAINTES
+========================== -->
+
+    <div class="card">
+      <div class="card-title">Contraintes alimentaires</div>
+
+      <p>
+        <strong>Nombre de parts :</strong> {{ constraints.nbPersons or "-" }}
+      </p>
+      <p><strong>Date de début :</strong> {{ constraints.startDate or "-" }}</p>
+
+      <p>
+        <strong>Pathologies :</strong>
+        {{ constraints.pathologies | join(", ") if constraints.pathologies else
+        "-" }}
+      </p>
+
+      <p>
+        <strong>Restrictions :</strong>
+        {{ constraints.restrictions | join(", ") if constraints.restrictions
+        else "-" }}
+      </p>
+
+      <p>
+        <strong>Ingrédients exclus :</strong>
+        {{ constraints.ingredientsExcluded | join(", ") if
+        constraints.ingredientsExcluded else "-" }}
+      </p>
+    </div>
+
+    <!-- =========================
+     PLANNING
+========================== -->
+
+    <h1>Planning des repas</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Jour</th>
+          {% set first_day = planning.values() | list | first %} {% for meal in
+          first_day.keys() %}
+          <th>{{ meal }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for day, meals in planning.items() %}
+        <tr>
+          <td>{{ day }}</td>
+          {% for meal, recipe in meals.items() %}
+          <td>{% if recipe %} {{ recipe.title }} {% else %} — {% endif %}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
     <div class="page-break"></div>
 
-    <h2>Planning</h2>
-    <p>{{ planning }}</p>
+    <!-- =========================
+     LISTE DE COURSE
+========================== -->
 
-    <div class="page-break"></div>
+    <h1>Liste de course</h1>
 
-    <h2>Liste de courses</h2>
-    <p>{{ shopping }}</p>
+    {% macro get_group_class(name) %} {% set n = name.lower() %} {% if 'viandes'
+    in n or 'oeufs' in n or 'poisson' in n %} group-red {% elif 'fruits' in n or
+    'légumes' in n or 'legumes' in n or 'oléagineux' in n or 'legumineuses' in n
+    %} group-green {% elif 'eau' in n or 'boisson' in n %} group-blue {% elif
+    'matières grasses' in n or 'matieres grasses' in n %} group-orange {% elif
+    'céréaliers' in n or 'cerealiers' in n %} group-brown {% elif 'laitiers' in
+    n %} group-black {% elif 'sucrés' in n or 'sucres' in n %} group-pink {%
+    elif 'aides culinaires' in n %} group-purple {% else %} group-default {%
+    endif %} {% endmacro %} {% for group, items in shopping.items() %}
+    <div class="shopping-card">
+      <div class="shopping-card-header {{ get_group_class(group) }}">
+        {{ group }}
+      </div>
+
+      <div class="shopping-card-body">
+        <div class="shopping-grid">
+          {% for item in items %}
+          <div class="shopping-item">
+            <input type="checkbox" class="shopping-checkbox" />
+
+            <div class="shopping-text">
+              <span class="shopping-name">{{ item.name }}</span>
+              <span class="shopping-quantity">{{ item.quantity_g }} g</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </body>
 </html>

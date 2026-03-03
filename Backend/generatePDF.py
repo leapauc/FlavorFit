@@ -19,6 +19,7 @@ html_content = template.render(
     shopping=data.get("shoppingList", {})
 )
 
+
 # Générer PDF
 pdf = HTML(string=html_content).write_pdf()
 
