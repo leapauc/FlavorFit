@@ -1,0 +1,280 @@
+<div class="modal fade show d-block" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <!-- HEADER stylisé -->
+      <div
+        *ngIf="!formSubmitted"
+        class="modal-header custom-modal-header justify-content-center"
+      >
+        <h3 class="modal-title fw-bold">Modification d'une recette</h3>
+        <button type="button" class="close-btn" (click)="closeModal()">
+          ✕
+        </button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body">
+        <!-- TITRE -->
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Titre de la recette</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="getFieldClass(recipe.title)"
+            [(ngModel)]="recipe.title"
+            placeholder="Ex : Lasagnes maison"
+          />
+        </div>
+
+        <!-- LIGNE 1 : Catégorie, Parts, Temps -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <label class="form-label">Catégorie</label>
+            <select
+              class="form-select"
+              [ngClass]="getFieldClass(recipe.categorie)"
+              [(ngModel)]="recipe.categorie"
+            >
+              <option value="">-- Choisir --</option>
+              <option *ngFor="let c of categories" [value]="c.categorie">
+                {{ c.categorie }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Nombre de parts</label>
+            <input
+              type="number"
+              class="form-control"
+              [ngClass]="getFieldClass(recipe.servings)"
+              [(ngModel)]="recipe.servings"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Temps de préparation (min)</label>
+            <input
+              type="number"
+              class="form-control"
+              [ngClass]="getFieldClass(recipe.prepTime)"
+              [(ngModel)]="recipe.prepTime"
+            />
+          </div>
+        </div>
+
+        <!-- LIGNE 2 : Difficulté, Prix, Écoscore -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <label class="form-label">Difficulté</label>
+            <select
+              class="form-select"
+              [ngClass]="getFieldClass(recipe.difficulty)"
+              [(ngModel)]="recipe.difficulty"
+            >
+              <option value="">-- Choisir --</option>
+              <option *ngFor="let d of difficulties" [value]="d.difficulty">
+                {{ d.difficulty }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Prix</label>
+            <select
+              class="form-select"
+              [ngClass]="getFieldClass(recipe.price)"
+              [(ngModel)]="recipe.price"
+            >
+              <option value="">-- Choisir --</option>
+              <option *ngFor="let p of prices" [value]="p.price">
+                {{ p.price }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Écoscore</label>
+            <select
+              class="form-select"
+              [ngClass]="getFieldClass(recipe.ecoscore)"
+              [(ngModel)]="recipe.ecoscore"
+            >
+              <option value="">-- Choisir --</option>
+              <option *ngFor="let e of ecoscores" [value]="e.ecoscore">
+                {{ e.ecoscore }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- INGREDIENTS -->
+        <div id="ingredients" class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Ingrédients</h5>
+            <button class="btn add-btn" (click)="addIngredient()">
+              <i class="bi bi-plus-lg"></i>
+            </button>
+          </div>
+
+          <div
+            *ngFor="let ing of ingredients; let i = index"
+            class="ingredient-row d-flex mb-3 border rounded p-2"
+          >
+            <!-- NUMÉRO -->
+            <div
+              class="d-flex align-items-center justify-content-center me-2"
+              style="width: 40px"
+            >
+              <div class="ingredient-index">{{ i + 1 }}</div>
+            </div>
+
+            <!-- CONTENU -->
+            <div class="flex-grow-1 d-flex flex-column gap-2">
+              <!-- LIGNE 1 -->
+              <div class="row g-2">
+                <div class="col-md-4">
+                  <select
+                    class="form-select"
+                    [ngClass]="getFieldClass(ing.group)"
+                    [(ngModel)]="ing.group"
+                    (change)="onGroupChange(i)"
+                  >
+                    <option value="">-- Groupe --</option>
+                    <option
+                      *ngFor="let g of ingredientGroups"
+                      [value]="g.alim_grp_nom_fr"
+                    >
+                      {{ g.alim_grp_nom_fr }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-8">
+                  <select
+                    class="form-select"
+                    [ngClass]="getFieldClass(ing.ingredient)"
+                    [(ngModel)]="ing.ingredient"
+                    (ngModelChange)="onIngredientChange(i)"
+                    [disabled]="!ing.group"
+                  >
+                    <option [ngValue]="undefined">-- Ingrédient --</option>
+                    <option
+                      *ngFor="let item of ing.availableIngredients"
+                      [ngValue]="item"
+                    >
+                      {{ item.alim_nom_fr }}
+                      <!-- ici, remplacer name par alim_nom_fr -->
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- LIGNE 2 -->
+              <div class="row g-2 mt-2" *ngIf="ing.ingredient">
+                <div class="col-md-6">
+                  <input
+                    type="number"
+                    class="form-control"
+                    [ngClass]="getFieldClass(ing.quantity)"
+                    placeholder="Quantité"
+                    [(ngModel)]="ing.quantity"
+                    min="0"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <select
+                    class="form-select"
+                    [ngClass]="getFieldClass(ing.unit)"
+                    [(ngModel)]="ing.unit"
+                  >
+                    <option value="">-- Unité --</option>
+                    <option *ngFor="let u of ing.availableUnits" [value]="u">
+                      {{ u }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- DELETE -->
+            <div
+              class="d-flex align-items-center justify-content-center ms-2"
+              style="width: 40px"
+            >
+              <button
+                class="btn btn-link text-danger p-0"
+                (click)="removeIngredient(i)"
+                *ngIf="ingredients.length > 1"
+              >
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- DESCRIPTION -->
+        <div id="description">
+          <div class="mb-3 d-flex align-items-center gap-3">
+            <label class="fw-bold mb-0">Mode recette :</label>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="recipeMode"
+                id="modeText"
+                value="text"
+                [(ngModel)]="recipeMode"
+              />
+              <label class="form-check-label" for="modeText">Texte</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="recipeMode"
+                id="modeURL"
+                value="url"
+                [(ngModel)]="recipeMode"
+              />
+              <label class="form-check-label" for="modeURL">URL</label>
+            </div>
+          </div>
+
+          <div *ngIf="recipeMode === 'url'" class="mb-3">
+            <label class="fw-bold mb-2">URL de la recette</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="recipe.url"
+              placeholder="Ex : https://..."
+            />
+          </div>
+
+          <div *ngIf="recipeMode === 'text'">
+            <label class="fw-bold mb-2">Étapes de la recette</label>
+            <textarea
+              class="form-control"
+              rows="5"
+              placeholder="Décris les étapes de préparation..."
+              [(ngModel)]="recipe.description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <hr />
+
+      <div class="modal-footer custom-modal-footer">
+        <button
+          class="btn success"
+          (click)="submit()"
+          [disabled]="!isFormValid()"
+        >
+          Modifier la recette
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show"></div>

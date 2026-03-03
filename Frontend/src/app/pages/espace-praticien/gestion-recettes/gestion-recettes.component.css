@@ -1,0 +1,160 @@
+h1 {
+  color: whitesmoke;
+  font-weight: bold;
+}
+/* ===== BACKDROP ===== */
+.patient-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== CARD ===== */
+.patient-modal-card {
+  background: #fff3e0;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  animation: slideUp 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.patient-modal-card .modal-header {
+  background: linear-gradient(135deg, orange, orangered);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patient-modal-card .modal-header h5 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.patient-modal-card .close-btn {
+  background: white;
+  border: none;
+  color: orangered;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.patient-modal-card .close-btn:hover {
+  background: orangered;
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* ===== BODY ===== */
+.patient-modal-card .modal-body {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* ===== FOOTER ===== */
+.patient-modal-card .modal-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid #f0d9c2;
+}
+
+.patient-modal-card .btn {
+  border-radius: 12px;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-modal-card .btn.success {
+  background: orange;
+  color: white;
+}
+
+.patient-modal-card .btn.success:hover {
+  background: orangered;
+}
+
+.patient-modal-card .btn.danger {
+  background: #f44336;
+  color: white;
+}
+
+.patient-modal-card .btn.danger:hover {
+  background: #d32f2f;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== SCROLLBAR BODY ===== */
+/* Chrome, Edge, Safari */
+.patient-modal-card .modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.patient-modal-card .modal-body::-webkit-scrollbar-track {
+  background: #f0d9c2;
+  border-radius: 10px;
+}
+
+.patient-modal-card .modal-body::-webkit-scrollbar-thumb {
+  background: orangered;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.patient-modal-card .modal-body::-webkit-scrollbar-thumb:hover {
+  background: darkred;
+}
+
+/* Firefox */
+.patient-modal-card .modal-body {
+  scrollbar-width: thin;
+  scrollbar-color: orangered #f0d9c2;
+}

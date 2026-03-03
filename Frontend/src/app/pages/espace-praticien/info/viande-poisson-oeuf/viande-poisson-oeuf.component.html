@@ -1,0 +1,48 @@
+<div class="p-4">
+  <br />
+  <!-- FILTRES -->
+  <div class="row mb-4 g-2">
+    <div class="col-md-6">
+      <input
+        type="text"
+        placeholder="Filtrer par nom de pièce"
+        [(ngModel)]="filterName"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-6">
+      <select [(ngModel)]="filterSource" class="form-select">
+        <option value="">Tous les animaux</option>
+        <option *ngFor="let s of sources" [value]="s">{{ s }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- GRID DES CARDS -->
+  <div class="row g-4">
+    <div
+      *ngFor="let item of filteredItems()"
+      class="col-12 col-md-6 col-lg-4 col-xl-3"
+    >
+      <div class="card h-100 shadow-sm d-flex flex-row align-items-center">
+        <!-- Image -->
+        <div class="card-image-container">
+          <img
+            [src]="getImageUrl(item.img)"
+            [alt]="item.name"
+            class="card-image"
+          />
+        </div>
+
+        <!-- Texte -->
+        <div class="card-info">
+          <h5 class="name">{{ item.name }}</h5>
+          <p class="source"><strong>Source:</strong> {{ item.source }}</p>
+          <p class="weight">
+            <strong>Poids moyen:</strong> {{ item.weight }} g
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

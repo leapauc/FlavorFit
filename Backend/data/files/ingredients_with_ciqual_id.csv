@@ -1,0 +1,2210 @@
+id;id_recette;ingredient;quantity;unit;ingredient_clean;ciqual_id;alim_nom_fr
+;4;poivron rouge;0.5;;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;4;poivron vert;0.5;;poivron vert;173;Poivron vert, cuit
+;4;oignon;0.5;;oignon;18;Oignon, cru
+;4;coriandre;;;coriandre;2949;Coriandre, graine
+;4;cumin;0.5;cuillère à soupe;cumin;1956;Gouda au cumin
+;4;huile;;;huile;275;Tomate, séchée, à l'huile
+;4;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;4;sucre en poudre;0.5;cuillère à soupe;sucre en poudre;39;Epinard, haché ou purée ou en branches, surgelé, cru
+;4;citron;;;citron;415;Citron, chair sans peau, sans pépins, cru
+;4;ail;;;ail;406;Lentille corail, sèche
+;4;sauce soja;;;sauce soja;2810;Sauce soja, préemballée
+;4;cannelle;0.5;cuillère à café;cannelle;1798;Riz au lait vanille, cannelle ou nature, rayon frais
+;2;quatre-épices;0.3;pincées;quatre-épices;2956;Quatre épices, poudre
+;2;sel;1.5;g;sel;457;Raisin Chasselas, cru
+;2;poivre;0.1;pincée;poivre;1237;Pâté au poivre vert
+;2;foie;0.2;;foie;983;Foie, agneau, cuit
+;2;paprika;0.2;pincées;paprika;2953;Paprika, poudre
+;2;Sauternes;0.05;verre;sauternes;520;Compote, autres fruits, préemballée
+;3;carottes;0.25;;carottes;92;Petits pois et carottes, surgelés, crus
+;3;oignons;0.25;;oignons;2843;Sauce tomate aux oignons, préemballée
+;3;romarin;0.125;brin;romarin;2974;Romarin, frais
+;3;huile d'olive;0.125;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;3;beurre;3.75;g;beurre;81;Haricot beurre, cru
+;3;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;3;gros sel;;;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;3;épaule;0.1875;kg;épaule;907;Veau, épaule grillée/poêlée
+;3;bourgogne;0.125;bouteille;bourgogne;891;Boeuf, à bourguignon ou pot-au-feu, cuit
+;3;champignon;0.125;petite boîte;champignon;7;Champignon, tout type, cru
+;3;sauge;0.75;feuilles;sauge;2975;Sauge, fraîche
+;3;bouquet garni;0.125;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;3;marc;0.125;cuillère à soupe;marc;1873;Saint-Marcellin
+;1;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;1;oignon jaune;0.25;;oignon jaune;21;Poivron, vert, jaune ou rouge, cru
+;1;bouillon de légumes;0.25;cube;bouillon de légumes;2908;Bouillon de légumes, déshydraté
+;1;crème fraîche;0.25;petit pot;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;1;farine;0.5;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;1;beurre doux;2.5;g;beurre doux;651;Beurre de cacahuète ou pâte d'arachide
+;1;blanquette de veau;0.25;kg;blanquette de veau;3;Graine germée de luzerne, crue
+;1;champignon;0.25;petite boîte;champignon;7;Champignon, tout type, cru
+;1;bouillon de poule;0.25;cube;bouillon de poule;3;Graine germée de luzerne, crue
+;1;vin blanc;6.25;cl;vin blanc;2297;Vin blanc sec
+;1;jaunes d'oeuf;0.5;;jaunes d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;1;jus de citron;0.25;cuillère à café;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;1;sel et poivre;;;sel et poivre;11;Concombre, chair et peau, cru
+;5;vin rouge;0.25;bouteille;vin rouge;2296;Vin rouge
+;5;sucre;25.0;g;sucre;2260;Thé infusé, sans sucres ajoutés
+;5;maïzena;0.25;cuillère à café;maïzena;820;Chips de maïs ou tortilla chips, nature
+;5;miel;;;miel;2343;Miel
+;5;poivre;;;poivre;1237;Pâté au poivre vert
+;5;sel;;;sel;457;Raisin Chasselas, cru
+;5;clous de girofle;0.5;;clous de girofle;2954;Clou de girofle
+;5;Magrets de Canard;0.5;;magrets de canard;3;Graine germée de luzerne, crue
+;5;poires;0.5;;poires;2696;Tarte aux poires amandine
+;5;sirop de cassis;2.5;cl;sirop de cassis;3;Graine germée de luzerne, crue
+;5;lait;2.5;cl;lait;17;Laitue, crue
+;5;cannelle;;;cannelle;1798;Riz au lait vanille, cannelle ou nature, rayon frais
+;6;oignons;0.2;;oignons;2843;Sauce tomate aux oignons, préemballée
+;6;huile;;;huile;275;Tomate, séchée, à l'huile
+;6;chevreuil;0.1;;chevreuil;951;Chevreuil, viande rôtie/cuite au four
+;6;concentré de tomates;0.1;boîte;concentré de tomates;3;Graine germée de luzerne, crue
+;6;vin blanc sec;6.0;cl;vin blanc sec;2297;Vin blanc sec
+;6;madère;;;madère;2847;Sauce madère, préemballée
+;7;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;7;oignon jaune;0.25;;oignon jaune;21;Poivron, vert, jaune ou rouge, cru
+;7;crème fraîche;0.25;petit pot;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;7;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;7;sel;;;sel;457;Raisin Chasselas, cru
+;7;poivre;;;poivre;1237;Pâté au poivre vert
+;7;bouillon de légumes;0.25;;bouillon de légumes;2908;Bouillon de légumes, déshydraté
+;7;blanquette de veau;0.25;kg;blanquette de veau;3;Graine germée de luzerne, crue
+;7;bouillon de poule;0.25;;bouillon de poule;3;Graine germée de luzerne, crue
+;7;champignon;0.25;petite boîte;champignon;7;Champignon, tout type, cru
+;7;citron;;;citron;415;Citron, chair sans peau, sans pépins, cru
+;7;jaune d'oeuf;0.25;;jaune d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;7;vin blanc;6.25;cl;vin blanc;2297;Vin blanc sec
+;8;oignons;0.25;;oignons;2843;Sauce tomate aux oignons, préemballée
+;8;tomates cerise;0.125;poignée;tomates cerise;205;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+;8;feuille de laurier;;;feuille de laurier;3;Graine germée de luzerne, crue
+;8;sel;0.125;petite poignée;sel;457;Raisin Chasselas, cru
+;8;poivre;;;poivre;1237;Pâté au poivre vert
+;8;poulet;0.125;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;8;ail;0.375;gousses;ail;406;Lentille corail, sèche
+;8;jus de citron;0.125;cl;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;8;bouillon de volaille;0.125;;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;9;huile d'olive;1.0;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;9;poivre;0.5;;poivre;1237;Pâté au poivre vert
+;9;sel;0.5;;sel;457;Raisin Chasselas, cru
+;9;thym;0.5;;thym;2976;Thym, frais
+;9;rôti de boeuf;200.0;g;rôti de boeuf;3;Graine germée de luzerne, crue
+;9;ail;0.5;gousse;ail;406;Lentille corail, sèche
+;9;eau;6.0;cl;eau;20;Poireau, cru
+;10;bouillon de légumes;0.25;;bouillon de légumes;2908;Bouillon de légumes, déshydraté
+;10;crème fraîche;10.0;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;10;moutarde;;;moutarde;2881;Moutarde
+;10;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;10;beurre;;;beurre;81;Haricot beurre, cru
+;10;filet mignon;0.25;;filet mignon;918;Porc, filet mignon cuit
+;10;vin blanc sec;6.25;cl;vin blanc sec;2297;Vin blanc sec
+;10;champignon;125.0;g;champignon;7;Champignon, tout type, cru
+;12;lardons;16.666666666666668;g;lardons;1654;Omelette aux lardons, faite maison
+;12;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;12;vin rouge;0.1111111166666666;l;vin rouge;2296;Vin rouge
+;12;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;12;farine;0.3333333333333333;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;12;sel;;;sel;457;Raisin Chasselas, cru
+;12;poivre;;;poivre;1237;Pâté au poivre vert
+;12;boeuf;133.33333333333334;g;boeuf;80;Tomate côtelée ou coeur de boeuf, crue
+;12;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;12;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;12;champignons de Paris;41.66666666666666;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;11;beurre;6.25;g;beurre;81;Haricot beurre, cru
+;11;poivre;;;poivre;1237;Pâté au poivre vert
+;11;sel;;;sel;457;Raisin Chasselas, cru
+;11;huile d'olive;0.25;filet;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;11;rôti de porc;0.25;;rôti de porc;3;Graine germée de luzerne, crue
+;11;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;11;eau;1.25;cl;eau;20;Poireau, cru
+;13;oignon;0.25;;oignon;18;Oignon, cru
+;13;thym;0.25;cuillère à café;thym;2976;Thym, frais
+;13;feuilles de laurier;0.5;;feuilles de laurier;3;Graine germée de luzerne, crue
+;13;clou de girofle;0.25;;clou de girofle;2954;Clou de girofle
+;13;huile d'olive;0.25;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;13;cuisses de poulet;1.0;;cuisses de poulet;3;Graine germée de luzerne, crue
+;13;eau;12.5;cl;eau;20;Poireau, cru
+;13;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;13;bouillon de volaille;0.25;;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;13;genièvre;0.75;;genièvre;653;Soja, graine entière
+;14;huile de tournesol;;;huile de tournesol;2771;Huile de tournesol
+;14;sel;;;sel;457;Raisin Chasselas, cru
+;14;poivre;;;poivre;1237;Pâté au poivre vert
+;14;rôti de veau;0.1666666666666666;;rôti de veau;3;Graine germée de luzerne, crue
+;14;ail;0.6666666666666666;gousses;ail;406;Lentille corail, sèche
+;14;champignons de Paris;0.1666666666666666;boîte;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;15;huile d'olive;0.5;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;15;fond de veau;1.0;cuillères à soupe;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;15;moutarde de Dijon;0.5;cuillère à soupe;moutarde de dijon;2881;Moutarde
+;15;vinaigre balsamique;0.5;cuillère à soupe;vinaigre balsamique;2887;Vinaigre balsamique
+;15;paupiettes de veau;2.0;;paupiettes de veau;3;Graine germée de luzerne, crue
+;15;ail;0.5;gousse;ail;406;Lentille corail, sèche
+;15;vin blanc;6.25;cl;vin blanc;2297;Vin blanc sec
+;15;eau;6.25;cl;eau;20;Poireau, cru
+;16;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;16;carottes;0.75;;carottes;92;Petits pois et carottes, surgelés, crus
+;16;beurre;7.5;g;beurre;81;Haricot beurre, cru
+;16;huile d'olive;0.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;16;crème fraîche épaisse;5.0;cl;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;16;moutarde;0.5;cuillères à soupe;moutarde;2881;Moutarde
+;16;farine;0.5;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;16;sauté de porc;0.25;kg;sauté de porc;3;Graine germée de luzerne, crue
+;16;vin blanc;6.25;cl;vin blanc;2297;Vin blanc sec
+;16;eau;6.25;cl;eau;20;Poireau, cru
+;17;romarin;0.3333333333333333;branches;romarin;2974;Romarin, frais
+;17;gros sel;0.1666666666666666;cuillère à soupe;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;17;gigot d'agneau;0.1666666666666666;;gigot d'agneau;936;Mouton, gigot rôti/cuit au four
+;17;ail;0.3333333333333333;gousses;ail;406;Lentille corail, sèche
+;17;graisse d'oie;;;graisse d'oie;2801;Graisse d'oie
+;17;ail;;;ail;406;Lentille corail, sèche
+;18;côte de boeuf;0.1666666666666666;;côte de boeuf;3;Graine germée de luzerne, crue
+;18;huile;;;huile;275;Tomate, séchée, à l'huile
+;18;fleur de sel;;;fleur de sel;2941;Fleur de sel, non iodée, non fluorée
+;18;poivre;;;poivre;1237;Pâté au poivre vert
+;18;thym;0.8333333333333334;brins;thym;2976;Thym, frais
+;19;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;19;sel;;;sel;457;Raisin Chasselas, cru
+;19;poivre;;;poivre;1237;Pâté au poivre vert
+;19;poulet;0.25;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;19;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;19;pommes de terre;5.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;20;huile;2.5;cl;huile;275;Tomate, séchée, à l'huile
+;20;tomates concassées;0.25;boîte de 400 g;tomates concassées;205;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+;20;carotte;50.0;g;carotte;6;Carotte, crue
+;20;oignon;25.0;g;oignon;18;Oignon, cru
+;20;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;20;poivre;;;poivre;1237;Pâté au poivre vert
+;20;sel;;;sel;457;Raisin Chasselas, cru
+;20;jarret de veau;1.0;tranches;jarret de veau;3;Graine germée de luzerne, crue
+;20;ail;0.75;gousses;ail;406;Lentille corail, sèche
+;20;vin blanc sec;5.0;cl;vin blanc sec;2297;Vin blanc sec
+;20;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;21;gros sel;0.25;pincée;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;21;Magrets de Canard;0.75;;magrets de canard;3;Graine germée de luzerne, crue
+;21;poivre en grains;;;poivre en grains;39;Epinard, haché ou purée ou en branches, surgelé, cru
+;22;gingembre;0.25;cuillère à café;gingembre;2316;Gin
+;22;curry;;;curry;2837;Sauce au curry, froide, préemballée
+;22;oignons jaunes;0.5;;oignons jaunes;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;22;escalopes de poulet;1.0;;escalopes de poulet;3;Graine germée de luzerne, crue
+;22;lait de coco;;;lait de coco;2924;Lait de coco
+;22;champignons de Paris;;;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;23;moutarde à l'ancienne;0.1666666666666666;pot;moutarde à l'ancienne;2883;Moutarde à l'ancienne
+;23;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;23;huile d'olive;0.6666666666666666;cuillères;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;23;thym;0.3333333333333333;branches;thym;2976;Thym, frais
+;23;sel;;;sel;457;Raisin Chasselas, cru
+;23;poivre;;;poivre;1237;Pâté au poivre vert
+;23;filets mignons;0.3333333333333333;;filets mignons;1619;Sardine, filets sans arêtes à l'huile d'olive, appertisés, égouttés
+;23;pomme de terre;0.3333333333333333;kg;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;23;laurier;0.3333333333333333;branches;laurier;2955;Laurier, feuille
+;25;vinaigre d'alcool;3.333333333333333;cl;vinaigre d'alcool;2882;Vinaigre
+;25;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;25;bouillons;0.3333333333333333;;bouillons;1365;Raie, cuite au court-bouillon
+;25;thym;0.1666666666666666;branche;thym;2976;Thym, frais
+;25;feuilles de laurier;0.8333333333333334;;feuilles de laurier;3;Graine germée de luzerne, crue
+;25;sel;;;sel;457;Raisin Chasselas, cru
+;25;poivre;;;poivre;1237;Pâté au poivre vert
+;25;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;25;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;25;farine;0.5;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;25;langue;0.1666666666666666;;langue;990;Langue, veau, cuite
+;25;cornichons;16.666666666666668;g;cornichons;2880;Cornichon, au vinaigre
+;25;patrelle;0.1666666666666666;cuillère à café;patrelle;49;Champignon, chanterelle ou girolle, crue
+;24;oignon;0.25;;oignon;18;Oignon, cru
+;24;huile d'olive;0.25;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;24;curry;0.25;cuillère à café;curry;2837;Sauce au curry, froide, préemballée
+;24;crème fraîche épaisse;2.5;cl;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;24;sel;;;sel;457;Raisin Chasselas, cru
+;24;poivre;;;poivre;1237;Pâté au poivre vert
+;24;filets de poulet;1.0;;filets de poulet;1264;Rillettes de poulet
+;24;ail;;;ail;406;Lentille corail, sèche
+;24;sauce soja;1.0;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;24;ciboulette;1.0;brins;ciboulette;1656;Omelette à la ciboulette, faite maison
+;26;tomate;0.1666666666666666;kg;tomate;56;Tomate verte, crue
+;26;poivron;116.66666666666669;g;poivron;21;Poivron, vert, jaune ou rouge, cru
+;26;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;26;huile d'olive;1.0;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;26;sel;;;sel;457;Raisin Chasselas, cru
+;26;poivre;;;poivre;1237;Pâté au poivre vert
+;26;poulet;0.1666666666666666;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;26;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;26;vin blanc;3.333333333333333;cl;vin blanc;2297;Vin blanc sec
+;26;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;27;harissa;;;harissa;2814;Harissa (sauce au piment), préemballée
+;27;huile d'olive;1.25;cl;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;27;fleur de sel;;;fleur de sel;2941;Fleur de sel, non iodée, non fluorée
+;27;poivre;;;poivre;1237;Pâté au poivre vert
+;27;thym;;;thym;2976;Thym, frais
+;27;romarin;;;romarin;2974;Romarin, frais
+;27;épaule d'agneau;0.375;kg;épaule d'agneau;907;Veau, épaule grillée/poêlée
+;27;échalotes;3.0;;échalotes;46;Échalote, crue
+;27;ail;2.0;gousses;ail;406;Lentille corail, sèche
+;28;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;28;fond de veau;;;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;28;porc;0.25;;porc;913;Porc, épaule cuite
+;28;pomme de terre;0.25;kg;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;30;lardons;0.25;poignée;lardons;1654;Omelette aux lardons, faite maison
+;30;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;30;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;30;clous de girofle;0.5;;clous de girofle;2954;Clou de girofle
+;30;bouillon;0.25;;bouillon;1365;Raie, cuite au court-bouillon
+;30;maïzena;0.5;cuillères à soupe;maïzena;820;Chips de maïs ou tortilla chips, nature
+;30;huile d'olive;0.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;30;vin rouge;12.5;cl;vin rouge;2296;Vin rouge
+;30;joue;0.375;;joue;1011;Boeuf, joue crue
+;30;champignons de Paris;50.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;30;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;30;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;29;oignon;0.125;;oignon;18;Oignon, cru
+;29;saucisses de Morteau;0.25;;saucisses de morteau;1209;Saucisse de Morteau
+;29;saucisses de Montbéliard;0.375;;saucisses de montbéliard;4;Graine germée de radis, fraîche, crue
+;29;huile d'olive;0.25;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;29;poivre;;;poivre;1237;Pâté au poivre vert
+;29;sel;;;sel;457;Raisin Chasselas, cru
+;29;chou;0.125;;chou;9;Chou rouge, cru
+;29;pommes de terre;1.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;29;rôti de porc;0.125;;rôti de porc;3;Graine germée de luzerne, crue
+;29;lardons fumés;0.125;barquette;lardons fumés;1309;Lardon fumé, cru
+;29;bouquets garnis;0.25;;bouquets garnis;2464;Chouquette
+;29;crème;2.5;cl;crème;361;Patate douce, purée, cuisinée à la crème
+;31;beurre;;;beurre;81;Haricot beurre, cru
+;31;huile;;;huile;275;Tomate, séchée, à l'huile
+;31;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;31;lardons;62.5;g;lardons;1654;Omelette aux lardons, faite maison
+;31;miel;0.25;cuillère à soupe;miel;2343;Miel
+;31;bière;8.25;cl;bière;1232;Saucisse de bière
+;31;poivre;;;poivre;1237;Pâté au poivre vert
+;31;sel;;;sel;457;Raisin Chasselas, cru
+;31;joue de porc;0.25;kg;joue de porc;3;Graine germée de luzerne, crue
+;32;thym;1.5;branches;thym;2976;Thym, frais
+;32;huile d'olive;2.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;32;miel;1.0;cuillères à soupe;miel;2343;Miel
+;32;poivre;;;poivre;1237;Pâté au poivre vert
+;32;sel;;;sel;457;Raisin Chasselas, cru
+;32;souris d'agneau;1.0;;souris d'agneau;1153;Ris, agneau, cru
+;32;ail;0.25;;ail;406;Lentille corail, sèche
+;34;beurre;4.166666666666667;g;beurre;81;Haricot beurre, cru
+;34;feuilles de laurier;0.5;;feuilles de laurier;3;Graine germée de luzerne, crue
+;34;thym;;;thym;2976;Thym, frais
+;34;sel;;;sel;457;Raisin Chasselas, cru
+;34;poivre;;;poivre;1237;Pâté au poivre vert
+;34;rôti de porc;0.1666666666666666;;rôti de porc;3;Graine germée de luzerne, crue
+;34;échalotes;0.5;;échalotes;46;Échalote, crue
+;34;ail;0.8333333333333334;gousses;ail;406;Lentille corail, sèche
+;34;vin blanc;4.166666666666667;cl;vin blanc;2297;Vin blanc sec
+;34;eau;8.333333333333334;cl;eau;20;Poireau, cru
+;33;lentilles corail;50.0;g;lentilles corail;679;Pâtes sèches, sans gluten (à base de lentilles corail), cuites, sans sel ajouté
+;33;tomate;0.25;;tomate;56;Tomate verte, crue
+;33;oignon;0.25;;oignon;18;Oignon, cru
+;33;huile;;;huile;275;Tomate, séchée, à l'huile
+;33;piment;0.25;;piment;66;Piment, cru
+;33;curry;;;curry;2837;Sauce au curry, froide, préemballée
+;33;poivre;;;poivre;1237;Pâté au poivre vert
+;33;sel;;;sel;457;Raisin Chasselas, cru
+;33;coriandre;;;coriandre;2949;Coriandre, graine
+;33;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;33;Riz, céréales;;;riz, céréales;681;Vermicelle de riz, cuite, sans sel ajouté
+;35;beurre;10.0;g;beurre;81;Haricot beurre, cru
+;35;boudin noir;125.0;g;boudin noir;1293;Boudin noir, à cuire
+;35;pommes;1.5;;pommes;318;Chips de pommes de terre nature ou aromatisées
+;35;citron;0.5;;citron;415;Citron, chair sans peau, sans pépins, cru
+;37;moutarde de Dijon;0.5;cuillère à café;moutarde de dijon;2881;Moutarde
+;37;oignon;0.5;cuillère à soupe;oignon;18;Oignon, cru
+;37;tabasco;1.5;gouttes;tabasco;1416;Thon albacore, cru
+;37;poivre;1.0;tours de moulin;poivre;1237;Pâté au poivre vert
+;37;sel;1.0;pincées;sel;457;Raisin Chasselas, cru
+;37;huile d'olive;1.0;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;37;persil;0.5;cuillère à café;persil;1163;Jambon persillé en gelée
+;37;boeuf;125.0;g;boeuf;80;Tomate côtelée ou coeur de boeuf, crue
+;37;jaune d'oeuf;0.5;;jaune d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;37;câpres;0.5;cuillère à soupe;câpres;2884;Câpres, au vinaigre
+;37;sauce worcestershire;0.5;cuillère à café;sauce worcestershire;1574;Escargot en sauce au beurre persillé, préemballé, cuit
+;37;ketchup;0.5;cuillère à soupe;ketchup;2804;Ketchup, préemballé
+;36;vinaigre;0.25;cuillère à soupe;vinaigre;2882;Vinaigre
+;36;coriandre;0.25;cuillère à café;coriandre;2949;Coriandre, graine
+;36;échalote;0.25;;échalote;46;Échalote, crue
+;36;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;36;épices à colombo;0.25;cuillère à soupe;épices à colombo;115;Chou romanesco ou brocoli à pomme, cru
+;36;oignon;0.25;;oignon;18;Oignon, cru
+;36;aubergine;0.25;;aubergine;25;Aubergine, crue
+;36;courgette;0.25;;courgette;12;Courgette, chair et peau, crue
+;36;thym;0.75;cuillères à soupe;thym;2976;Thym, frais
+;36;persil;0.5;cuillères à soupe;persil;1163;Jambon persillé en gelée
+;36;piment de Cayenne;0.25;cuillère à soupe;piment de cayenne;2965;Poivre de Cayenne ou piment de Cayenne, poudre
+;36;poivre;;;poivre;1237;Pâté au poivre vert
+;36;sel;;;sel;457;Raisin Chasselas, cru
+;36;cuisses de poulet;1.0;;cuisses de poulet;3;Graine germée de luzerne, crue
+;36;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;36;pommes de terre;0.75;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;36;épices à colombo;0.5;cuillères à soupe;épices à colombo;115;Chou romanesco ou brocoli à pomme, cru
+;36;jus de citron;;;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;36;lait de coco;3.75;cl;lait de coco;2924;Lait de coco
+;38;moutarde de Dijon;0.1666666666666666;cuillère à soupe;moutarde de dijon;2881;Moutarde
+;38;miel;0.3333333333333333;cuillères à soupe;miel;2343;Miel
+;38;poivre;;;poivre;1237;Pâté au poivre vert
+;38;sel;;;sel;457;Raisin Chasselas, cru
+;38;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;38;rôti de porc;0.1666666666666666;;rôti de porc;3;Graine germée de luzerne, crue
+;38;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;38;bouillon de volaille;4.166666666666667;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;39;saucisses de Montbéliard;0.6666666666666666;;saucisses de montbéliard;4;Graine germée de radis, fraîche, crue
+;39;carottes;0.3333333333333333;;carottes;92;Petits pois et carottes, surgelés, crus
+;39;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;39;clou de girofle;;;clou de girofle;2954;Clou de girofle
+;39;poivre;;;poivre;1237;Pâté au poivre vert
+;39;sel;;;sel;457;Raisin Chasselas, cru
+;39;petit salé;0.1666666666666666;kg;petit salé;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;39;lentilles vertes;100.0;g;lentilles vertes;120;Chou chinois pak choï ou pak choy (feuilles vertes ressemblant à des blettes), cru
+;39;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;40;beurre tendre;6.666666666666667;g;beurre tendre;651;Beurre de cacahuète ou pâte d'arachide
+;40;poivre;;;poivre;1237;Pâté au poivre vert
+;40;sel;;;sel;457;Raisin Chasselas, cru
+;40;Rosbif;0.1666666666666666;;rosbif;888;Boeuf, rosbif rôti/cuit au four
+;40;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;41;oignons jaunes;0.5;;oignons jaunes;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;41;curry;;;curry;2837;Sauce au curry, froide, préemballée
+;41;cumin;;;cumin;1956;Gouda au cumin
+;41;piment;;;piment;66;Piment, cru
+;41;poivre;;;poivre;1237;Pâté au poivre vert
+;41;sel;;;sel;457;Raisin Chasselas, cru
+;41;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;41;crème fraîche allégée;0.25;pot;crème fraîche allégée;361;Patate douce, purée, cuisinée à la crème
+;42;lardons;37.5;g;lardons;1654;Omelette aux lardons, faite maison
+;42;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;42;thym;;;thym;2976;Thym, frais
+;42;oignon;0.25;;oignon;18;Oignon, cru
+;42;chou;0.25;;chou;9;Chou rouge, cru
+;42;chipolata;1.0;;chipolata;1203;Chipolata cuite
+;42;lard;;;lard;1300;Lardon nature, cru
+;42;échalote;0.25;;échalote;46;Échalote, crue
+;44;cubes de bouillon;0.5;;cubes de bouillon;3;Graine germée de luzerne, crue
+;44;gingembre;0.25;cuillère à soupe;gingembre;2316;Gin
+;44;sucre;7.5;morceaux;sucre;2260;Thé infusé, sans sucres ajoutés
+;44;oignon jaune;0.25;;oignon jaune;21;Poivron, vert, jaune ou rouge, cru
+;44;filet mignon;0.25;;filet mignon;918;Porc, filet mignon cuit
+;44;eau;12.5;cl;eau;20;Poireau, cru
+;44;mélange 4 épices;0.25;cuillère à soupe;mélange 4 épices;48;Légumes, mélange surgelé, crus
+;44;sauce soja;0.75;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;44;eau;1.25;cl;eau;20;Poireau, cru
+;45;pois chiches;50.0;g;pois chiches;378;Pois chiche, bouilli/cuit à l'eau
+;45;oignon;0.25;;oignon;18;Oignon, cru
+;45;persil;0.25;bouquet;persil;1163;Jambon persillé en gelée
+;45;farine;0.75;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;45;cumin en poudre;0.25;cuillère à café;cumin en poudre;39;Epinard, haché ou purée ou en branches, surgelé, cru
+;45;coriandre;0.25;cuillère à café;coriandre;2949;Coriandre, graine
+;45;sel;;;sel;457;Raisin Chasselas, cru
+;45;huile de friture;;;huile de friture;3;Graine germée de luzerne, crue
+;45;fèves;125.0;g;fèves;374;Fève, bouillie/cuite à l'eau
+;45;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;45;paprika;0.25;cuillère à café;paprika;2953;Paprika, poudre
+;45;basilic frais;0.75;cuillères à soupe;basilic frais;2973;Basilic, frais
+;46;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;46;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;46;fond de veau;;;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;46;crème fraîche épaisse;;;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;46;poivre;;;poivre;1237;Pâté au poivre vert
+;46;sel;;;sel;457;Raisin Chasselas, cru
+;46;ris de veau;0.1666666666666666;kg;ris de veau;3;Graine germée de luzerne, crue
+;46;bouillon de volaille;0.1666666666666666;;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;46;champignon;50.0;g;champignon;7;Champignon, tout type, cru
+;47;beurre;6.666666666666667;g;beurre;81;Haricot beurre, cru
+;47;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;47;poivre;;;poivre;1237;Pâté au poivre vert
+;47;sel;;;sel;457;Raisin Chasselas, cru
+;47;fond de veau;1.0;cuillères à café;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;47;rôti de veau;0.1666666666666666;;rôti de veau;3;Graine germée de luzerne, crue
+;47;vin blanc;0.1666666666666666;verre;vin blanc;2297;Vin blanc sec
+;47;herbes de Provence;0.1666666666666666;cuillère à soupe;herbes de provence;2994;Herbes de Provence, séchées
+;47;basilic;0.1666666666666666;cuillère à soupe;basilic;2973;Basilic, frais
+;47;champignons de Paris;83.33333333333333;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;48;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;48;carotte;0.3333333333333333;kg;carotte;6;Carotte, crue
+;48;poivre;;;poivre;1237;Pâté au poivre vert
+;48;sel;;;sel;457;Raisin Chasselas, cru
+;48;ail semoule;0.1666666666666666;cuillère à café;ail semoule;668;Polenta ou semoule de maïs, cuite, sans sel ajouté
+;48;beurre;4.166666666666667;g;beurre;81;Haricot beurre, cru
+;48;cubes de bouillon;0.3333333333333333;;cubes de bouillon;3;Graine germée de luzerne, crue
+;48;joue;100.0;g;joue;1011;Boeuf, joue crue
+;48;paleron;100.0;g;paleron;898;Boeuf, paleron, braisé ou bouilli/cuit à l'eau
+;48;concentré de tomates;0.5;cuillères à café;concentré de tomates;3;Graine germée de luzerne, crue
+;48;vin blanc;6.666666666666667;cl;vin blanc;2297;Vin blanc sec
+;49;saucisse de Morteau;0.25;;saucisse de morteau;1209;Saucisse de Morteau
+;49;romarin;;;romarin;2974;Romarin, frais
+;49;poivre;;;poivre;1237;Pâté au poivre vert
+;49;huile d'olive;0.5;cuillères;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;49;pomme de terre;0.25;kg;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;49;crème liquide;0.25;pot;crème liquide;361;Patate douce, purée, cuisinée à la crème
+;50;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;50;crème fraîche épaisse;0.1666666666666666;pot;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;50;farine;0.1666666666666666;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;50;persil;;;persil;1163;Jambon persillé en gelée
+;50;cuisses de poulet;0.5;;cuisses de poulet;3;Graine germée de luzerne, crue
+;50;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;50;champignon;0.1666666666666666;boîte;champignon;7;Champignon, tout type, cru
+;50;fond;0.3333333333333333;cuillères à soupe;fond;98;Artichaut, fond, surgelé, cru
+;51;moutarde;1.3333333333333333;cuillères à soupe;moutarde;2881;Moutarde
+;51;sel;;;sel;457;Raisin Chasselas, cru
+;51;cuisse de dinde;0.3333333333333333;;cuisse de dinde;3;Graine germée de luzerne, crue
+;51;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;51;ail;0.6666666666666666;gousses;ail;406;Lentille corail, sèche
+;51;miel;0.6666666666666666;cuillères à soupe;miel;2343;Miel
+;51;huile d'olive;0.3333333333333333;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;51;poivre;;;poivre;1237;Pâté au poivre vert
+;51;sauce soja;0.6666666666666666;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;52;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;52;farine;12.5;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;52;bouillon;0.125;l;bouillon;1365;Raie, cuite au court-bouillon
+;52;crème fraîche;2.5;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;52;poivre;;;poivre;1237;Pâté au poivre vert
+;52;sel;;;sel;457;Raisin Chasselas, cru
+;52;riz;;;riz;689;Riz blanc, cru
+;52;blancs de poulet;0.5;;blancs de poulet;3;Graine germée de luzerne, crue
+;52;champignon;25.0;g;champignon;7;Champignon, tout type, cru
+;52;bouchées feuilletées;1.0;;bouchées feuilletées;2279;Thé, feuille
+;52;jus de citron;0.125;;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;54;oignons;1.0;;oignons;2843;Sauce tomate aux oignons, préemballée
+;54;carottes;1.0;;carottes;92;Petits pois et carottes, surgelés, crus
+;54;vin rouge;0.25;bouteille;vin rouge;2296;Vin rouge
+;54;beurre;25.0;g;beurre;81;Haricot beurre, cru
+;54;sel;;;sel;457;Raisin Chasselas, cru
+;54;poivre;;;poivre;1237;Pâté au poivre vert
+;54;bourguignon;150.0;g;bourguignon;891;Boeuf, à bourguignon ou pot-au-feu, cuit
+;54;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;53;poivre;;;poivre;1237;Pâté au poivre vert
+;53;sel;;;sel;457;Raisin Chasselas, cru
+;53;moutarde;;;moutarde;2881;Moutarde
+;53;thym;;;thym;2976;Thym, frais
+;53;oignon;;;oignon;18;Oignon, cru
+;53;huile;;;huile;275;Tomate, séchée, à l'huile
+;53;côte de porc;1.0;;côte de porc;3;Graine germée de luzerne, crue
+;55;carottes;0.6666666666666666;;carottes;92;Petits pois et carottes, surgelés, crus
+;55;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;55;moutarde;0.1666666666666666;cuillère à soupe;moutarde;2881;Moutarde
+;55;vinaigre;0.5;cuillères à soupe;vinaigre;2882;Vinaigre
+;55;huile;0.1666666666666666;cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;55;poivre;;;poivre;1237;Pâté au poivre vert
+;55;sel;;;sel;457;Raisin Chasselas, cru
+;55;tête de veau;0.1666666666666666;;tête de veau;3;Graine germée de luzerne, crue
+;55;navets;0.6666666666666666;;navets;33;Navet, pelé, cru
+;55;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;55;oeuf;0.1666666666666666;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;55;cerfeuil;0.3333333333333333;cuillères à café;cerfeuil;2968;Cerfeuil, frais
+;55;radis;1.0;;radis;4;Graine germée de radis, fraîche, crue
+;56;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;56;tomates;1.5;;tomates;3031;Caviar de tomates
+;56;vinaigre balsamique;;;vinaigre balsamique;2887;Vinaigre balsamique
+;56;beurre;;;beurre;81;Haricot beurre, cru
+;56;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;56;poivre;;;poivre;1237;Pâté au poivre vert
+;56;sel;;;sel;457;Raisin Chasselas, cru
+;56;escalopes de veau;1.0;;escalopes de veau;3;Graine germée de luzerne, crue
+;56;chapelure;;;chapelure;793;Chapelure
+;56;parmesan râpé;;;parmesan râpé;1922;Parmesan
+;56;oeuf;0.5;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;56;citron;0.5;;citron;415;Citron, chair sans peau, sans pépins, cru
+;56;roquette;;;roquette;93;Roquette, crue
+;56;basilic;;;basilic;2973;Basilic, frais
+;57;vin rouge;0.125;bouteille;vin rouge;2296;Vin rouge
+;57;lardons;31.25;g;lardons;1654;Omelette aux lardons, faite maison
+;57;oignon;0.125;;oignon;18;Oignon, cru
+;57;carottes;0.25;;carottes;92;Petits pois et carottes, surgelés, crus
+;57;poivre;0.125;cuillère à soupe;poivre;1237;Pâté au poivre vert
+;57;fond de veau;6.25;cl;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;57;cognac;0.625;cl;cognac;2328;Eau de vie de vin type armagnac ou cognac
+;57;huile;0.375;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;57;farine;0.125;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;57;poivre;;;poivre;1237;Pâté au poivre vert
+;57;sel;;;sel;457;Raisin Chasselas, cru
+;57;coq;0.125;;coq;1517;Coque, cuite
+;57;champignons de Paris;31.25;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;57;ail;0.25;gousses;ail;406;Lentille corail, sèche
+;57;bouquet garni;0.125;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;58;oignons;0.4;;oignons;2843;Sauce tomate aux oignons, préemballée
+;58;thym;0.8;branches;thym;2976;Thym, frais
+;58;feuilles de laurier;0.8;;feuilles de laurier;3;Graine germée de luzerne, crue
+;58;huile;0.4;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;58;beurre;0.2;cuillère à soupe;beurre;81;Haricot beurre, cru
+;58;poulet;0.2;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;58;ail;0.6;gousses;ail;406;Lentille corail, sèche
+;58;bouillon de volaille;5.0;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;58;eau;0.2;verre;eau;20;Poireau, cru
+;59;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;59;crème fraîche;3.333333333333333;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;59;beurre;3.333333333333333;g;beurre;81;Haricot beurre, cru
+;59;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;59;sel;;;sel;457;Raisin Chasselas, cru
+;59;poivre;;;poivre;1237;Pâté au poivre vert
+;59;persil;;;persil;1163;Jambon persillé en gelée
+;59;paupiettes;1.0;;paupiettes;2906;Levure de bière en paillettes
+;59;champignons de Paris;50.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;60;poivre;;;poivre;1237;Pâté au poivre vert
+;60;sel;;;sel;457;Raisin Chasselas, cru
+;60;miel;0.5;cuillères à soupe;miel;2343;Miel
+;60;vinaigre balsamique;0.5;cuillères à soupe;vinaigre balsamique;2887;Vinaigre balsamique
+;60;huile;0.5;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;60;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;60;jus de citron;0.5;cuillères à soupe;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;60;sauce soja;0.25;cuillère;sauce soja;2810;Sauce soja, préemballée
+;60;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;61;carotte;133.33333333333334;g;carotte;6;Carotte, crue
+;61;poireaux;0.6666666666666666;;poireaux;20;Poireau, cru
+;61;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;61;poivre;;;poivre;1237;Pâté au poivre vert
+;61;sel;;;sel;457;Raisin Chasselas, cru
+;61;thym;0.1666666666666666;cuillère à soupe;thym;2976;Thym, frais
+;61;poule;0.1666666666666666;;poule;927;Poulet, filet sans peau grillé/poêlé
+;61;navet;50.0;g;navet;33;Navet, pelé, cru
+;62;lardons;25.0;g;lardons;1654;Omelette aux lardons, faite maison
+;62;beurre;6.25;g;beurre;81;Haricot beurre, cru
+;62;vin rouge;9.375;cl;vin rouge;2296;Vin rouge
+;62;oignons;0.25;;oignons;2843;Sauce tomate aux oignons, préemballée
+;62;farine;0.5;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;62;poivre;;;poivre;1237;Pâté au poivre vert
+;62;sel;;;sel;457;Raisin Chasselas, cru
+;62;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;62;sanglier;100.0;g;sanglier;952;Sanglier, viande rôtie/cuite au four
+;62;ail;0.375;;ail;406;Lentille corail, sèche
+;62;bouquet garni;0.125;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;62;champignons de Paris;31.25;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;63;beurre;10.0;g;beurre;81;Haricot beurre, cru
+;63;oignon;0.5;;oignon;18;Oignon, cru
+;63;huile;0.5;cuillère à café;huile;275;Tomate, séchée, à l'huile
+;63;sel;0.5;pincée;sel;457;Raisin Chasselas, cru
+;63;steak;250.0;g;steak;884;Boeuf, steak ou bifteck grillé/poêlé
+;64;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;64;persil;;;persil;1163;Jambon persillé en gelée
+;64;poivre;;;poivre;1237;Pâté au poivre vert
+;64;sel;;;sel;457;Raisin Chasselas, cru
+;64;cumin;;;cumin;1956;Gouda au cumin
+;64;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;64;viande hachée;0.1666666666666666;kg;viande hachée;868;Viande blanche, cuite (aliment moyen)
+;64;tomates pelées;0.3333333333333333;;tomates pelées;205;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+;64;paprika;;;paprika;2953;Paprika, poudre
+;64;oeuf;;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;65;tomate;1.0;;tomate;56;Tomate verte, crue
+;65;oignon jaune;1.0;;oignon jaune;21;Poivron, vert, jaune ou rouge, cru
+;65;emmental;10.0;g;emmental;1910;Emmental de Savoie ou emmenthal de Savoie
+;65;viande hachée;100.0;g;viande hachée;868;Viande blanche, cuite (aliment moyen)
+;65;cornichons;1.0;;cornichons;2880;Cornichon, au vinaigre
+;65;salade;2.0;feuilles;salade;8;Salade ou chicorée frisée, crue
+;65;mayonnaise;1.0;cuillère à soupe;mayonnaise;2806;Mayonnaise (70% MG min.), préemballée
+;65;ketchup;1.0;cuillère à soupe;ketchup;2804;Ketchup, préemballé
+;65;pain pour hamburger;1.0;;pain pour hamburger;106;Légumes pour potages, surgelés, crus
+;66;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;66;carottes;0.3333333333333333;;carottes;92;Petits pois et carottes, surgelés, crus
+;66;farine;0.1666666666666666;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;66;poivre;;;poivre;1237;Pâté au poivre vert
+;66;sel;;;sel;457;Raisin Chasselas, cru
+;66;veau;0.1999999999999999;kg;veau;900;Veau, côte grillée/poêlée
+;66;échalotes;0.6666666666666666;;échalotes;46;Échalote, crue
+;66;concentré de tomates;8.333333333333334;g;concentré de tomates;3;Graine germée de luzerne, crue
+;66;vin blanc sec;5.0;cl;vin blanc sec;2297;Vin blanc sec
+;66;eau;5.0;cl;eau;20;Poireau, cru
+;66;ail;0.3333333333333333;gousses;ail;406;Lentille corail, sèche
+;66;champignon;20.83333333333333;g;champignon;7;Champignon, tout type, cru
+;66;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;68;farine;5.0;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;68;fond de veau;0.5;cuillères à café;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;68;veau;200.0;g;veau;900;Veau, côte grillée/poêlée
+;68;vin blanc;5.0;cl;vin blanc;2297;Vin blanc sec
+;68;matière grasse;5.0;g;matière grasse;182;Champignon de Paris ou champignon de couche, sauté/poêlé, sans matière grasse
+;68;champignons de Paris;0.25;petite boîte;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;67;lardons;16.666666666666668;g;lardons;1654;Omelette aux lardons, faite maison
+;67;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;67;vin rouge;4.166666666666667;cl;vin rouge;2296;Vin rouge
+;67;farine;0.1666666666666666;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;67;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;67;boeuf;133.33333333333334;g;boeuf;80;Tomate côtelée ou coeur de boeuf, crue
+;67;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;67;champignons de Paris;41.66666666666666;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;67;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;67;sel et poivre;;;sel et poivre;11;Concombre, chair et peau, cru
+;69;moutarde;0.25;bonne cuillère à soupe;moutarde;2881;Moutarde
+;69;andouillette;1.0;;andouillette;1290;Andouillette, à cuire
+;69;crème;5.0;cl;crème;361;Patate douce, purée, cuisinée à la crème
+;69;échalote;0.25;;échalote;46;Échalote, crue
+;70;carottes;2.0;;carottes;92;Petits pois et carottes, surgelés, crus
+;70;oignons;3.0;;oignons;2843;Sauce tomate aux oignons, préemballée
+;70;bouillon;0.125;l;bouillon;1365;Raie, cuite au court-bouillon
+;70;gros sel;0.75;cuillères à café;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;70;farine;0.25;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;70;huile d'olive;0.75;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;70;persil;0.25;bouquet;persil;1163;Jambon persillé en gelée
+;70;épaule d'agneau;0.25;kg;épaule d'agneau;907;Veau, épaule grillée/poêlée
+;70;navets;2.0;;navets;33;Navet, pelé, cru
+;70;pommes de terre;2.5;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;70;ail;2.0;gousses;ail;406;Lentille corail, sèche
+;70;double concentré de tomates;18.75;g;double concentré de tomates;28;Champignon de Paris ou champignon de couche, cru
+;70;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;70;épices à couscous;;;épices à couscous;115;Chou romanesco ou brocoli à pomme, cru
+;71;lardons;37.5;g;lardons;1654;Omelette aux lardons, faite maison
+;71;poivron rouge;0.25;;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;71;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;71;cumin;0.25;cuillère à café;cumin;1956;Gouda au cumin
+;71;piment;0.25;cuillère à café;piment;66;Piment, cru
+;71;sel;;;sel;457;Raisin Chasselas, cru
+;71;poivre;;;poivre;1237;Pâté au poivre vert
+;71;blanc de poulet;125.0;g;blanc de poulet;1183;Jambon de poulet ou blanc de poulet en tranche
+;71;riz blanc;50.0;g;riz blanc;656;Riz blanc, cuit, sans sel ajouté
+;71;eau;75.0;ml;eau;20;Poireau, cru
+;71;chorizo;0.25;;chorizo;1316;Chorizo
+;71;paprika;0.25;cuillère à café;paprika;2953;Paprika, poudre
+;71;bouillon de volaille;0.25;cube;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;72;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;72;gros sel;;;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;72;poivre;;;poivre;1237;Pâté au poivre vert
+;72;côte de boeuf;0.2;;côte de boeuf;3;Graine germée de luzerne, crue
+;72;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;73;sel;;;sel;457;Raisin Chasselas, cru
+;73;poivre;;;poivre;1237;Pâté au poivre vert
+;73;huile;;;huile;275;Tomate, séchée, à l'huile
+;73;blancs d'oeuf;1.0;;blancs d'oeuf;1635;Oeuf, blanc (blanc d'oeuf), cuit
+;73;escalopes de poulet;1.0;;escalopes de poulet;3;Graine germée de luzerne, crue
+;73;chapelure;;;chapelure;793;Chapelure
+;74;oignon;0.25;;oignon;18;Oignon, cru
+;74;sel;0.25;pincée;sel;457;Raisin Chasselas, cru
+;74;poivre;0.25;pincée;poivre;1237;Pâté au poivre vert
+;74;huile d'olive;0.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;74;aiguillette de poulet;125.0;g;aiguillette de poulet;4;Graine germée de radis, fraîche, crue
+;74;crème;5.0;cl;crème;361;Patate douce, purée, cuisinée à la crème
+;74;citron;0.25;;citron;415;Citron, chair sans peau, sans pépins, cru
+;75;farine;0.5;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;75;moutarde;0.25;cuillère à soupe;moutarde;2881;Moutarde
+;75;bouillon de boeuf;2.5;cl;bouillon de boeuf;2904;Bouillon de boeuf, déshydraté
+;75;persil;0.25;cuillère à soupe;persil;1163;Jambon persillé en gelée
+;75;poivre;;;poivre;1237;Pâté au poivre vert
+;75;sel;;;sel;457;Raisin Chasselas, cru
+;75;beurre;15.0;g;beurre;81;Haricot beurre, cru
+;75;rognons;0.25;;rognons;994;Rognon, cuit (aliment moyen)
+;75;champignon;37.5;g;champignon;7;Champignon, tout type, cru
+;75;madère;1.25;cuillères à soupe;madère;2847;Sauce madère, préemballée
+;76;oignon;0.125;;oignon;18;Oignon, cru
+;76;carotte;0.125;;carotte;6;Carotte, crue
+;76;feuilles de laurier;0.25;;feuilles de laurier;3;Graine germée de luzerne, crue
+;76;thym;0.125;bouquet;thym;2976;Thym, frais
+;76;poivre;;;poivre;1237;Pâté au poivre vert
+;76;orange;0.125;;orange;432;Orange, chair sans peau, sans pépins, crue
+;76;huile d'olive;0.25;cuillères;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;76;vin rouge;0.125;bouteille;vin rouge;2296;Vin rouge
+;76;boeuf;0.25;kg;boeuf;80;Tomate côtelée ou coeur de boeuf, crue
+;76;ail;0.25;gousses;ail;406;Lentille corail, sèche
+;76;olives noires;37.5;g;olives noires;2893;Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+;76;coulis de tomate;0.25;cuillères;coulis de tomate;3;Graine germée de luzerne, crue
+;77;crème fraîche épaisse;50.0;ml;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;77;beurre;;;beurre;81;Haricot beurre, cru
+;77;poivre;;;poivre;1237;Pâté au poivre vert
+;77;sel;;;sel;457;Raisin Chasselas, cru
+;77;persil;;;persil;1163;Jambon persillé en gelée
+;77;escalopes de veau;1.0;;escalopes de veau;3;Graine germée de luzerne, crue
+;77;champignons de Paris;0.25;boîte;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;78;oignons;0.75;;oignons;2843;Sauce tomate aux oignons, préemballée
+;78;lardons;50.0;g;lardons;1654;Omelette aux lardons, faite maison
+;78;carottes;1.25;;carottes;92;Petits pois et carottes, surgelés, crus
+;78;bouillon de boeuf;0.5;l;bouillon de boeuf;2904;Bouillon de boeuf, déshydraté
+;78;crème fraîche;0.5;cuillères à soupe;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;78;thym;;;thym;2976;Thym, frais
+;78;poivre;;;poivre;1237;Pâté au poivre vert
+;78;sel;;;sel;457;Raisin Chasselas, cru
+;78;huile;;;huile;275;Tomate, séchée, à l'huile
+;78;filet mignon;0.25;;filet mignon;918;Porc, filet mignon cuit
+;78;pommes de terre;1.5;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;78;laurier;;;laurier;2955;Laurier, feuille
+;79;cuisses de canard;1.0;;cuisses de canard;3;Graine germée de luzerne, crue
+;79;canard;0.125;bol;canard;969;Canard, viande et peau rôties/cuites au four
+;80;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;80;huile d'olive;0.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;80;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;80;tomate;83.33333333333333;g;tomate;56;Tomate verte, crue
+;80;Liqueur;0.1666666666666666;verre;liqueur;2317;Liqueur
+;80;poivre;;;poivre;1237;Pâté au poivre vert
+;80;sel;;;sel;457;Raisin Chasselas, cru
+;80;dinde;0.1666666666666666;kg;dinde;933;Dinde, viande rôtie/cuite au four
+;80;vin blanc;2.0;cl;vin blanc;2297;Vin blanc sec
+;80;bouillon de volaille;2.0;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;80;concentré de tomates;0.1666666666666666;boîte;concentré de tomates;3;Graine germée de luzerne, crue
+;80;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;80;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;81;muscade;;;muscade;2952;Noix de muscade
+;81;carottes;0.2;;carottes;92;Petits pois et carottes, surgelés, crus
+;81;romarin;;;romarin;2974;Romarin, frais
+;81;thym;;;thym;2976;Thym, frais
+;81;farine;3.0;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;81;beurre;3.0;g;beurre;81;Haricot beurre, cru
+;81;clous de girofle;0.4;;clous de girofle;2954;Clou de girofle
+;81;persil;0.4;brins;persil;1163;Jambon persillé en gelée
+;81;oignons jaunes;0.2;;oignons jaunes;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;81;poivre;;;poivre;1237;Pâté au poivre vert
+;81;sel;;;sel;457;Raisin Chasselas, cru
+;81;bouillon de boeuf;0.12;l;bouillon de boeuf;2904;Bouillon de boeuf, déshydraté
+;81;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;81;vinaigre de vin;1.0;cl;vinaigre de vin;2889;Vinaigre de vin rouge
+;81;vin rouge;0.2;;vin rouge;2296;Vin rouge
+;81;eau;1.0;cl;eau;20;Poireau, cru
+;81;échalotes;0.3;;échalotes;46;Échalote, crue
+;81;ail;0.2;gousses;ail;406;Lentille corail, sèche
+;81;céleri;0.1;branche;céleri;14;Céleri branche, cru
+;81;bouquet garni;0.1;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;81;crème;1.0;cl;crème;361;Patate douce, purée, cuisinée à la crème
+;81;vin blanc;0.1;;vin blanc;2297;Vin blanc sec
+;81;chevreuil;0.1;;chevreuil;951;Chevreuil, viande rôtie/cuite au four
+;82;vinaigre de cidre;0.5;cuillères à café;vinaigre de cidre;2886;Vinaigre de cidre
+;82;moutarde;0.25;cuillère à soupe;moutarde;2881;Moutarde
+;82;huile;0.25;cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;82;sucre;0.25;cuillère à soupe;sucre;2260;Thé infusé, sans sucres ajoutés
+;82;poivre;;;poivre;1237;Pâté au poivre vert
+;82;sel;;;sel;457;Raisin Chasselas, cru
+;82;piment de Cayenne;0.25;pincée;piment de cayenne;2965;Poivre de Cayenne ou piment de Cayenne, poudre
+;82;travers de porc;0.25;kg;travers de porc;3;Graine germée de luzerne, crue
+;82;coulis de tomate;2.5;cl;coulis de tomate;3;Graine germée de luzerne, crue
+;82;ketchup;0.5;cuillères;ketchup;2804;Ketchup, préemballé
+;84;gingembre;0.1666666666666666;cuillère à café;gingembre;2316;Gin
+;84;chili;0.1666666666666666;cuillère à café;chili;2911;Levure chimique ou poudre à lever
+;84;curcuma;0.0416666666666666;cuillère à café;curcuma;2966;Curcuma, poudre
+;84;sel;0.1666666666666666;cuillère à café;sel;457;Raisin Chasselas, cru
+;84;yaourt;25.0;ml;yaourt;1696;Lait fermenté type yaourt au bifidus, nature
+;84;coriandre;0.1666666666666666;cuillère;coriandre;2949;Coriandre, graine
+;84;huile;0.1666666666666666;cuillère;huile;275;Tomate, séchée, à l'huile
+;84;blanc de poulet;83.33333333333333;g;blanc de poulet;1183;Jambon de poulet ou blanc de poulet en tranche
+;84;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;84;jus de citron;0.6666666666666666;cuillères;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;84;citron vert;;quartier;citron vert;449;Citron vert ou lime, chair sans peau, sans pépins, cru
+;84;salade;;;salade;8;Salade ou chicorée frisée, crue
+;83;yaourt;0.5;;yaourt;1696;Lait fermenté type yaourt au bifidus, nature
+;83;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;83;ail;;;ail;406;Lentille corail, sèche
+;83;épices tandoori;1.5;cuillères à café;épices tandoori;2857;Sauce à la crème aux épices
+;83;paprika;;;paprika;2953;Paprika, poudre
+;83;citron;0.5;;citron;415;Citron, chair sans peau, sans pépins, cru
+;83;miel;0.5;cuillère à café;miel;2343;Miel
+;83;crème fraîche;1.0;cuillères à café;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;83;beurre;5.0;g;beurre;81;Haricot beurre, cru
+;83;tomates pelées;0.5;boîte;tomates pelées;205;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+;83;épices tandoori;0.5;cuillère à café;épices tandoori;2857;Sauce à la crème aux épices
+;85;sel;;;sel;457;Raisin Chasselas, cru
+;85;poivre;;;poivre;1237;Pâté au poivre vert
+;85;côtelettes d'agneau;2.0;;côtelettes d'agneau;1878;Boulette d'Avesne
+;85;citrons;0.5;;citrons;415;Citron, chair sans peau, sans pépins, cru
+;85;échalotes;0.5;;échalotes;46;Échalote, crue
+;85;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;85;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;86;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;86;moutarde;0.1666666666666666;cuillère à soupe;moutarde;2881;Moutarde
+;86;miel;0.3333333333333333;cuillères à soupe;miel;2343;Miel
+;86;bouillon;0.1666666666666666;cube;bouillon;1365;Raie, cuite au court-bouillon
+;86;poivre;;;poivre;1237;Pâté au poivre vert
+;86;rôti de porc;0.1999999999999999;kg;rôti de porc;3;Graine germée de luzerne, crue
+;86;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;87;oignon;;;oignon;18;Oignon, cru
+;87;tomate;;;tomate;56;Tomate verte, crue
+;87;moutarde;;;moutarde;2881;Moutarde
+;87;pain pour hamburger;;;pain pour hamburger;106;Légumes pour potages, surgelés, crus
+;87;viande hachée;;;viande hachée;868;Viande blanche, cuite (aliment moyen)
+;87;cheddar;;;cheddar;1933;Cheddar
+;87;salade;;;salade;8;Salade ou chicorée frisée, crue
+;87;ketchup;;;ketchup;2804;Ketchup, préemballé
+;88;miel;0.5;cuillères à soupe;miel;2343;Miel
+;88;ketchup;5.0;cl;ketchup;2804;Ketchup, préemballé
+;88;paprika;0.1666666666666666;cuillère à café;paprika;2953;Paprika, poudre
+;88;moutarde;0.1666666666666666;cuillère à soupe;moutarde;2881;Moutarde
+;88;vinaigre de vin;0.8333333333333334;cl;vinaigre de vin;2889;Vinaigre de vin rouge
+;88;sauce worcestershire;1.6666666666666667;cl;sauce worcestershire;1574;Escargot en sauce au beurre persillé, préemballé, cuit
+;88;échine de porc;0.1666666666666666;;échine de porc;3;Graine germée de luzerne, crue
+;88;oignons rouges;0.3333333333333333;;oignons rouges;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;88;huile de tournesol;;;huile de tournesol;2771;Huile de tournesol
+;88;sel;;;sel;457;Raisin Chasselas, cru
+;88;poivre;;;poivre;1237;Pâté au poivre vert
+;89;moutarde;;;moutarde;2881;Moutarde
+;89;pains;1.0;;pains;722;Pain (aliment moyen)
+;89;relish;;;relish;1697;Yaourt à la grecque nature, au lait de brebis
+;89;knackis;1.0;;knackis;1216;Saucisse de volaille type knack
+;89;ketchup;;;ketchup;2804;Ketchup, préemballé
+;90;fond de veau;0.75;cuillères à soupe;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;90;huile d'olive;0.25;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;90;filets mignons;0.5;;filets mignons;1619;Sardine, filets sans arêtes à l'huile d'olive, appertisés, égouttés
+;90;oignons blancs;0.5;;oignons blancs;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;90;champignons de Paris;1.25;;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;90;crème;20.0;cl;crème;361;Patate douce, purée, cuisinée à la crème
+;91;miel;1.0;cuillères à soupe;miel;2343;Miel
+;91;huile;0.5;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;91;curry;0.5;cuillères à soupe;curry;2837;Sauce au curry, froide, préemballée
+;91;côtes de porc;1.0;;côtes de porc;3;Graine germée de luzerne, crue
+;91;citron;0.125;;citron;415;Citron, chair sans peau, sans pépins, cru
+;92;moutarde à l'ancienne;0.25;cuillère à soupe;moutarde à l'ancienne;2883;Moutarde à l'ancienne
+;92;crème fraîche;10.0;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;92;bouillon;0.25;cube;bouillon;1365;Raie, cuite au court-bouillon
+;92;beurre;2.5;g;beurre;81;Haricot beurre, cru
+;92;filet mignon;0.25;;filet mignon;918;Porc, filet mignon cuit
+;92;champignon;125.0;g;champignon;7;Champignon, tout type, cru
+;92;vin blanc sec;6.25;cl;vin blanc sec;2297;Vin blanc sec
+;93;oignon;0.25;;oignon;18;Oignon, cru
+;93;cube de bouillon;0.25;;cube de bouillon;3;Graine germée de luzerne, crue
+;93;carotte;0.25;;carotte;6;Carotte, crue
+;93;vin rouge;6.25;cl;vin rouge;2296;Vin rouge
+;93;poivre;;;poivre;1237;Pâté au poivre vert
+;93;sel;;;sel;457;Raisin Chasselas, cru
+;93;jarret de boeuf;125.0;g;jarret de boeuf;3;Graine germée de luzerne, crue
+;93;eau;2.5;cl;eau;20;Poireau, cru
+;93;matière grasse;;;matière grasse;182;Champignon de Paris ou champignon de couche, sauté/poêlé, sans matière grasse
+;94;poivre;;;poivre;1237;Pâté au poivre vert
+;94;persil;0.125;botte;persil;1163;Jambon persillé en gelée
+;94;sel;;;sel;457;Raisin Chasselas, cru
+;94;huile;;;huile;275;Tomate, séchée, à l'huile
+;94;beurre;;;beurre;81;Haricot beurre, cru
+;94;chapon;0.125;;chapon;967;Chapon, viande et peau rôties/cuites au four
+;94;échalote;0.125;;échalote;46;Échalote, crue
+;94;ail;0.125;gousse;ail;406;Lentille corail, sèche
+;94;pain;0.125;grosse poignée;pain;312;Fruit à pain, cru
+;94;lait;1.875;cl;lait;17;Laitue, crue
+;94;épinards frais;25.0;g;épinards frais;242;Oignon nouveau ou oignon frais ou cébette, sauté/poêlé sans matière grasse
+;94;Foie gras;6.25;g;foie gras;1274;Foie gras, canard, entier, cuit
+;94;oeuf;0.125;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;94;foie;;;foie;983;Foie, agneau, cuit
+;95;crème fraîche;4.166666666666667;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;95;rôti de porc;0.1666666666666666;kg;rôti de porc;3;Graine germée de luzerne, crue
+;95;gouda;1.6666666666666667;tranches;gouda;1936;Gouda
+;95;bacon;1.6666666666666667;tranches;bacon;1165;Filet de bacon
+;96;saucisses de Montbéliard;0.5;;saucisses de montbéliard;4;Graine germée de radis, fraîche, crue
+;96;oignon;0.25;;oignon;18;Oignon, cru
+;96;lardons;37.5;g;lardons;1654;Omelette aux lardons, faite maison
+;96;gros sel;;;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;96;chou;0.25;;chou;9;Chou rouge, cru
+;96;matière grasse;0.25;cuillère à soupe;matière grasse;182;Champignon de Paris ou champignon de couche, sauté/poêlé, sans matière grasse
+;97;oignon;50.0;g;oignon;18;Oignon, cru
+;97;lardons;12.5;g;lardons;1654;Omelette aux lardons, faite maison
+;97;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;97;farine;7.5;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;97;poivre;;;poivre;1237;Pâté au poivre vert
+;97;sel;;;sel;457;Raisin Chasselas, cru
+;97;poulet;150.0;g;poulet;925;Poulet, viande et peau rôties/cuites au four
+;97;champignons de Paris;100.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;97;bouillon de volaille;0.25;tablette;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;97;ciboulette;0.25;cuillère à soupe;ciboulette;1656;Omelette à la ciboulette, faite maison
+;97;jaune d'oeuf;0.25;;jaune d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;97;citron;;;citron;415;Citron, chair sans peau, sans pépins, cru
+;97;crème épaisse;0.5;cuillères à soupe;crème épaisse;361;Patate douce, purée, cuisinée à la crème
+;98;miel;1.0;cuillères à soupe;miel;2343;Miel
+;98;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;98;moutarde de Dijon;0.5;cuillères à soupe;moutarde de dijon;2881;Moutarde
+;98;sel;;;sel;457;Raisin Chasselas, cru
+;98;poivre;;;poivre;1237;Pâté au poivre vert
+;98;cailles;2.0;;cailles;968;Caille, viande et peau cuites
+;99;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;99;huile d'olive;3.75;cl;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;99;persil;0.25;bouquet;persil;1163;Jambon persillé en gelée
+;99;safran;0.25;dose;safran;2950;Safran
+;99;poivre;;;poivre;1237;Pâté au poivre vert
+;99;sel;;;sel;457;Raisin Chasselas, cru
+;99;poulet;0.25;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;99;olives vertes;125.0;g;olives vertes;2893;Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+;99;ail;0.75;gousses;ail;406;Lentille corail, sèche
+;99;épices à couscous;0.125;cuillère à café;épices à couscous;115;Chou romanesco ou brocoli à pomme, cru
+;99;paprika;0.125;cuillère à café;paprika;2953;Paprika, poudre
+;100;oignon;0.25;;oignon;18;Oignon, cru
+;100;poivre;;;poivre;1237;Pâté au poivre vert
+;100;sel;;;sel;457;Raisin Chasselas, cru
+;100;huile;;;huile;275;Tomate, séchée, à l'huile
+;100;beurre;;;beurre;81;Haricot beurre, cru
+;100;joue de porc;2.0;;joue de porc;3;Graine germée de luzerne, crue
+;100;lard;100.0;g;lard;1300;Lardon nature, cru
+;100;pomme de terre;0.25;kg;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;100;cidre;12.5;cl;cidre;2302;Cidre (aliment moyen)
+;100;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;101;tomate;1.6666666666666667;tranches;tomate;56;Tomate verte, crue
+;101;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;101;poivre;;;poivre;1237;Pâté au poivre vert
+;101;sel;;;sel;457;Raisin Chasselas, cru
+;101;rôti de veau;0.1666666666666666;;rôti de veau;3;Graine germée de luzerne, crue
+;101;bacon;1.6666666666666667;tranches;bacon;1165;Filet de bacon
+;101;cheddar;1.6666666666666667;tranches;cheddar;1933;Cheddar
+;102;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;102;fond de veau;0.25;cuillère à café;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;102;farine;0.25;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;102;piment d'Espelette;0.25;pincée;piment d'espelette;2965;Poivre de Cayenne ou piment de Cayenne, poudre
+;102;sel;0.25;pincée;sel;457;Raisin Chasselas, cru
+;102;poivre blanc;0.25;pincée;poivre blanc;2947;Poivre blanc, poudre
+;102;huile d'olive;0.25;filet;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;102;huile de tournesol;0.25;filet;huile de tournesol;2771;Huile de tournesol
+;102;beurre;0.25;noix;beurre;81;Haricot beurre, cru
+;102;cuisses de poulet;0.75;;cuisses de poulet;3;Graine germée de luzerne, crue
+;102;oignon rouge;0.25;;oignon rouge;243;Oignon rouge, sauté/poêlé
+;102;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;102;vin blanc;6.25;cl;vin blanc;2297;Vin blanc sec
+;102;champignons de Paris;57.5;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;102;olives vertes;40.0;g;olives vertes;2893;Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+;102;eau;12.5;cl;eau;20;Poireau, cru
+;103;porto;5.0;cl;porto;2230;Boisson pour le sport, sucrée
+;103;beurre;15.0;g;beurre;81;Haricot beurre, cru
+;103;crème fraîche;25.0;g;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;103;moutarde;0.25;cuillère à soupe;moutarde;2881;Moutarde
+;103;farine;0.25;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;103;sel;;;sel;457;Raisin Chasselas, cru
+;103;poivre;;;poivre;1237;Pâté au poivre vert
+;103;rognon de veau;175.0;g;rognon de veau;3;Graine germée de luzerne, crue
+;103;champignons de Paris;25.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;103;échalotes;0.5;;échalotes;46;Échalote, crue
+;104;tomate;0.5;grosses boîtes;tomate;56;Tomate verte, crue
+;104;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;104;poivre;;;poivre;1237;Pâté au poivre vert
+;104;sel;;;sel;457;Raisin Chasselas, cru
+;104;carottes;1.0;;carottes;92;Petits pois et carottes, surgelés, crus
+;104;tripes;0.5;kg;tripes;1159;Tripes, boeuf, crues
+;104;vin blanc;0.25;grand verre;vin blanc;2297;Vin blanc sec
+;104;pastis;0.25;;pastis;2314;Pastis
+;104;petit piment;0.25;;petit piment;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;105;fond de veau;0.5;cuillères à soupe;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;105;moutarde;0.25;cuillère à soupe;moutarde;2881;Moutarde
+;105;vinaigre balsamique;0.25;cuillère à soupe;vinaigre balsamique;2887;Vinaigre balsamique
+;105;huile d'olive;0.75;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;105;paupiettes de veau;1.0;;paupiettes de veau;3;Graine germée de luzerne, crue
+;105;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;105;vin blanc;3.125;cl;vin blanc;2297;Vin blanc sec
+;105;eau;3.125;cl;eau;20;Poireau, cru
+;105;sel et poivre;;;sel et poivre;11;Concombre, chair et peau, cru
+;106;thym;0.1666666666666666;branche;thym;2976;Thym, frais
+;106;sel;;;sel;457;Raisin Chasselas, cru
+;106;dinde;0.1666666666666666;;dinde;933;Dinde, viande rôtie/cuite au four
+;106;échalote;;;échalote;46;Échalote, crue
+;106;bouillon de volaille;0.1666666666666666;;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;107;sel;;;sel;457;Raisin Chasselas, cru
+;107;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;107;piment de Cayenne;0.1666666666666666;cuillère à café;piment de cayenne;2965;Poivre de Cayenne ou piment de Cayenne, poudre
+;107;poivron rouge;0.1666666666666666;;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;107;feuille de laurier;0.1666666666666666;;feuille de laurier;3;Graine germée de luzerne, crue
+;107;thym;0.3333333333333333;pincées;thym;2976;Thym, frais
+;107;huile d'olive;1.6666666666666667;cl;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;107;riz rond;58.333333333333336;g;riz rond;655;Riz complet, cuit, sans sel ajouté
+;107;poulet;58.333333333333336;g;poulet;925;Poulet, viande et peau rôties/cuites au four
+;107;chorizo;33.333333333333336;g;chorizo;1316;Chorizo
+;107;lardons fumés;33.333333333333336;g;lardons fumés;1309;Lardon fumé, cru
+;107;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;107;coulis;16.666666666666668;g;coulis;1746;Faisselle au coulis de fruits
+;107;bouillon de poule;12.5;cl;bouillon de poule;3;Graine germée de luzerne, crue
+;107;céleri;0.3333333333333333;;céleri;14;Céleri branche, cru
+;107;sauge;0.1666666666666666;pincée;sauge;2975;Sauge, fraîche
+;108;thym;;;thym;2976;Thym, frais
+;108;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;108;bouillon de boeuf;0.1666666666666666;tablette;bouillon de boeuf;2904;Bouillon de boeuf, déshydraté
+;108;poivre;;;poivre;1237;Pâté au poivre vert
+;108;sel;;;sel;457;Raisin Chasselas, cru
+;108;carottes;1.0;;carottes;92;Petits pois et carottes, surgelés, crus
+;108;paleron;0.1666666666666666;morceau;paleron;898;Boeuf, paleron, braisé ou bouilli/cuit à l'eau
+;108;lard;0.1666666666666666;tranche;lard;1300;Lardon nature, cru
+;108;matière grasse;;;matière grasse;182;Champignon de Paris ou champignon de couche, sauté/poêlé, sans matière grasse
+;108;concentré de tomates;0.1666666666666666;petite boîte;concentré de tomates;3;Graine germée de luzerne, crue
+;108;laurier;;;laurier;2955;Laurier, feuille
+;108;sauge;;;sauge;2975;Sauge, fraîche
+;108;ail;0.3333333333333333;gousses;ail;406;Lentille corail, sèche
+;109;pâtes feuilletées;0.3333333333333333;;pâtes feuilletées;673;Pâtes sèches, standard, cuites, sans sel ajouté
+;109;jambon blanc;0.6666666666666666;tranches;jambon blanc;241;Oignon blanc ou jaune, sauté/poêlé sans matière grasse
+;109;gruyère râpé;33.333333333333336;g;gruyère râpé;1178;Dés, allumettes, râpé ou haché de jambon
+;109;oignons jaunes;0.3333333333333333;;oignons jaunes;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;109;filets mignons;0.3333333333333333;;filets mignons;1619;Sardine, filets sans arêtes à l'huile d'olive, appertisés, égouttés
+;109;jaunes d'oeuf;0.3333333333333333;;jaunes d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;110;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;110;curry;0.5;cuillères à soupe;curry;2837;Sauce au curry, froide, préemballée
+;110;huile;0.5;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;110;sel;;;sel;457;Raisin Chasselas, cru
+;110;sauté de porc;125.0;g;sauté de porc;3;Graine germée de luzerne, crue
+;110;pulpe de tomate;87.5;g;pulpe de tomate;3;Graine germée de luzerne, crue
+;110;lait de coco;6.25;cl;lait de coco;2924;Lait de coco
+;111;oignon;0.25;;oignon;18;Oignon, cru
+;111;carottes;1.25;;carottes;92;Petits pois et carottes, surgelés, crus
+;111;persil;0.5;cuillères à soupe;persil;1163;Jambon persillé en gelée
+;111;poivre;;;poivre;1237;Pâté au poivre vert
+;111;sel;;;sel;457;Raisin Chasselas, cru
+;111;chou blanc;0.25;;chou blanc;55;Chou blanc, cru
+;111;lard;2.0;tranches;lard;1300;Lardon nature, cru
+;111;saucisse;125.0;g;saucisse;1200;Saucisse sèche
+;111;pommes de terre;2.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;111;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;111;matière grasse;7.5;g;matière grasse;182;Champignon de Paris ou champignon de couche, sauté/poêlé, sans matière grasse
+;112;lardons;33.333333333333336;g;lardons;1654;Omelette aux lardons, faite maison
+;112;oignon;0.3333333333333333;;oignon;18;Oignon, cru
+;112;farine;0.3333333333333333;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;112;poivre;;;poivre;1237;Pâté au poivre vert
+;112;sel;;;sel;457;Raisin Chasselas, cru
+;112;épaule de veau;200.0;g;épaule de veau;3;Graine germée de luzerne, crue
+;112;olives vertes;33.333333333333336;g;olives vertes;2893;Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+;112;ail;0.3333333333333333;gousse;ail;406;Lentille corail, sèche
+;112;vin blanc;5.0;cl;vin blanc;2297;Vin blanc sec
+;112;graine de fenouil;0.3333333333333333;cuillère à café;graine de fenouil;3;Graine germée de luzerne, crue
+;112;bouquet garni;0.3333333333333333;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;112;concentré de tomates;0.3333333333333333;cuillère à soupe;concentré de tomates;3;Graine germée de luzerne, crue
+;113;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;113;curry;;;curry;2837;Sauce au curry, froide, préemballée
+;113;escalopes de dinde;1.0;;escalopes de dinde;3;Graine germée de luzerne, crue
+;113;échalotes;1.0;;échalotes;46;Échalote, crue
+;113;crème liquide;0.25;briquette;crème liquide;361;Patate douce, purée, cuisinée à la crème
+;114;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;114;cumin;0.25;cuillère à soupe;cumin;1956;Gouda au cumin
+;114;gingembre;0.25;cuillère à soupe;gingembre;2316;Gin
+;114;coriandre;0.25;cuillère à soupe;coriandre;2949;Coriandre, graine
+;114;miel;0.5;cuillères à soupe;miel;2343;Miel
+;114;vinaigre balsamique;0.5;cuillères à soupe;vinaigre balsamique;2887;Vinaigre balsamique
+;114;cube de bouillon;0.25;;cube de bouillon;3;Graine germée de luzerne, crue
+;114;crème fraîche;3.75;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;114;poivre;;;poivre;1237;Pâté au poivre vert
+;114;sel;;;sel;457;Raisin Chasselas, cru
+;114;cuisses de canard;1.0;;cuisses de canard;3;Graine germée de luzerne, crue
+;114;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;114;raisins secs;15.0;g;raisins secs;548;Raisin sec
+;114;eau;;;eau;20;Poireau, cru
+;115;beurre;25.0;g;beurre;81;Haricot beurre, cru
+;115;cognac;1.5;cl;cognac;2328;Eau de vie de vin type armagnac ou cognac
+;115;crème fraîche épaisse;5.0;cl;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;115;truffe;1.0;rondelles;truffe;51;Champignon, truffe noire, crue
+;115;poivre;;;poivre;1237;Pâté au poivre vert
+;115;sel;;;sel;457;Raisin Chasselas, cru
+;115;tournedos;1.0;;tournedos;611;Tournesol, graine
+;115;pain de mie;1.0;tranches;pain de mie;734;Pain de mie complet, sans croûte, préemballé
+;115;madère;1.5;cl;madère;2847;Sauce madère, préemballée
+;115;Foie gras;1.0;belles tranches;foie gras;1274;Foie gras, canard, entier, cuit
+;116;farine;12.5;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;116;persil;0.125;bouquet;persil;1163;Jambon persillé en gelée
+;116;huile;0.75;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;116;beurre;5.0;g;beurre;81;Haricot beurre, cru
+;116;poivre;;;poivre;1237;Pâté au poivre vert
+;116;sel;;;sel;457;Raisin Chasselas, cru
+;116;cuisses de grenouille;12.0;;cuisses de grenouille;4;Graine germée de radis, fraîche, crue
+;116;ail;0.75;gousses;ail;406;Lentille corail, sèche
+;117;beurre;7.5;g;beurre;81;Haricot beurre, cru
+;117;oignon;0.25;;oignon;18;Oignon, cru
+;117;sucre;0.25;pincée;sucre;2260;Thé infusé, sans sucres ajoutés
+;117;crème fraîche;1.0;cuillères à soupe;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;117;moutarde;0.25;cuillère à café;moutarde;2881;Moutarde
+;117;poivre;;;poivre;1237;Pâté au poivre vert
+;117;sel;;;sel;457;Raisin Chasselas, cru
+;117;boeuf;100.0;g;boeuf;80;Tomate côtelée ou coeur de boeuf, crue
+;117;champignons de Paris;25.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;117;paprika;0.125;cuillère à café;paprika;2953;Paprika, poudre
+;117;concentré de tomates;0.25;cuillère à soupe;concentré de tomates;3;Graine germée de luzerne, crue
+;117;vin blanc sec;1.25;cl;vin blanc sec;2297;Vin blanc sec
+;118;carotte;20.0;g;carotte;6;Carotte, crue
+;118;oignon;30.0;g;oignon;18;Oignon, cru
+;118;bouillon de boeuf;3.0;cl;bouillon de boeuf;2904;Bouillon de boeuf, déshydraté
+;118;huile d'olive;1.0;cl;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;118;cognac;1.0;cl;cognac;2328;Eau de vie de vin type armagnac ou cognac
+;118;poivre;;;poivre;1237;Pâté au poivre vert
+;118;sel;;;sel;457;Raisin Chasselas, cru
+;118;gigot d'agneau;0.1;;gigot d'agneau;936;Mouton, gigot rôti/cuit au four
+;118;couenne;25.0;g;couenne;1168;Jambon cuit, supérieur, avec couenne
+;118;tomates pelées;50.0;g;tomates pelées;205;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+;118;bouquet garni;0.1;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;118;vin blanc;5.0;cl;vin blanc;2297;Vin blanc sec
+;119;lardons;31.25;g;lardons;1654;Omelette aux lardons, faite maison
+;119;bouillon;5.0;cl;bouillon;1365;Raie, cuite au court-bouillon
+;119;beurre;2.5;g;beurre;81;Haricot beurre, cru
+;119;huile d'olive;0.25;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;119;moutarde;0.25;cuillère à soupe;moutarde;2881;Moutarde
+;119;farine;0.5;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;119;poivre;;;poivre;1237;Pâté au poivre vert
+;119;sel;;;sel;457;Raisin Chasselas, cru
+;119;lapin;0.25;;lapin;964;Lapin, viande braisée
+;119;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;119;échalotes;1.0;;échalotes;46;Échalote, crue
+;119;vin blanc sec;5.0;cl;vin blanc sec;2297;Vin blanc sec
+;119;crème épaisse;5.0;cl;crème épaisse;361;Patate douce, purée, cuisinée à la crème
+;120;oignon;0.5;;oignon;18;Oignon, cru
+;120;piment;;;piment;66;Piment, cru
+;120;poivre;;;poivre;1237;Pâté au poivre vert
+;120;sel;;;sel;457;Raisin Chasselas, cru
+;120;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;120;citron;;;citron;415;Citron, chair sans peau, sans pépins, cru
+;120;paprika;;;paprika;2953;Paprika, poudre
+;121;farine;1.0;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;121;escalopes de poulet;1.0;;escalopes de poulet;3;Graine germée de luzerne, crue
+;121;biscottes;2.5;;biscottes;763;Biscotte classique
+;121;oeuf;0.5;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;121;paprika;0.5;petite cuillère à soupe;paprika;2953;Paprika, poudre
+;122;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;122;oignon;0.25;;oignon;18;Oignon, cru
+;122;clou de girofle;0.25;;clou de girofle;2954;Clou de girofle
+;122;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;122;crème fraîche;3.75;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;122;poivre;;;poivre;1237;Pâté au poivre vert
+;122;sel;;;sel;457;Raisin Chasselas, cru
+;122;dinde;0.25;kg;dinde;933;Dinde, viande rôtie/cuite au four
+;122;bouillon de volaille;0.5;tablettes;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;122;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;122;champignons de Paris;75.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;122;petits pois;50.0;g;petits pois;37;Petits pois, crus
+;122;coeur d'artichaut;0.25;boîte;coeur d'artichaut;80;Tomate côtelée ou coeur de boeuf, crue
+;122;citron;0.125;;citron;415;Citron, chair sans peau, sans pépins, cru
+;122;jaune d'oeuf;0.25;;jaune d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;123;carottes;0.375;;carottes;92;Petits pois et carottes, surgelés, crus
+;123;poireaux;0.375;;poireaux;20;Poireau, cru
+;123;oignon;0.125;;oignon;18;Oignon, cru
+;123;gros sel;0.125;petite poignée;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;123;langue;0.1875;kg;langue;990;Langue, veau, cuite
+;123;navet;0.125;;navet;33;Navet, pelé, cru
+;123;os à moelle;0.125;;os à moelle;115;Chou romanesco ou brocoli à pomme, cru
+;123;bouillon;;;bouillon;1365;Raie, cuite au court-bouillon
+;123;beurre;3.125;g;beurre;81;Haricot beurre, cru
+;123;farine;0.125;cuillère à soupe rase;farine;727;Pain bis (à la farine T80 ou T110) 
+;123;sauce tomate;0.125;boîte;sauce tomate;1590;Pilchard, sauce tomate, appertisé, égoutté
+;123;échalote;0.0625;;échalote;46;Échalote, crue
+;123;cornichons;1.25;;cornichons;2880;Cornichon, au vinaigre
+;124;bière;5.5;cl;bière;1232;Saucisse de bière
+;124;moutarde;0.3333333333333333;cuillères;moutarde;2881;Moutarde
+;124;huile d'olive;0.3333333333333333;cuillères;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;124;vinaigre balsamique;0.1666666666666666;cuillère;vinaigre balsamique;2887;Vinaigre balsamique
+;124;oignon;0.0833333333333333;;oignon;18;Oignon, cru
+;124;thym;;;thym;2976;Thym, frais
+;124;poivre;;;poivre;1237;Pâté au poivre vert
+;124;sel;;;sel;457;Raisin Chasselas, cru
+;124;sanglier;0.1666666666666666;;sanglier;952;Sanglier, viande rôtie/cuite au four
+;124;guignolet;0.3333333333333333;cuillères;guignolet;2815;Sauce bourguignonne, préemballée
+;124;lardons fumés;8.333333333333334;g;lardons fumés;1309;Lardon fumé, cru
+;124;échalote;0.1666666666666666;;échalote;46;Échalote, crue
+;124;ail;0.3333333333333333;gousses;ail;406;Lentille corail, sèche
+;125;poivre;;;poivre;1237;Pâté au poivre vert
+;125;sel;;;sel;457;Raisin Chasselas, cru
+;125;sauce tomate;18.75;cl;sauce tomate;1590;Pilchard, sauce tomate, appertisé, égoutté
+;125;beurre;;;beurre;81;Haricot beurre, cru
+;125;langues;0.5;;langues;1869;Langres
+;125;bouquet garni;;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;125;cornichons;3.75;;cornichons;2880;Cornichon, au vinaigre
+;125;échalote;0.25;;échalote;46;Échalote, crue
+;126;carotte;0.375;kg;carotte;6;Carotte, crue
+;126;lard fumé;62.5;g;lard fumé;646;Amande, grillée, salée, goût fumé
+;126;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;126;vin rouge;18.75;cl;vin rouge;2296;Vin rouge
+;126;tomates;2.0;;tomates;3031;Caviar de tomates
+;126;poivre;;;poivre;1237;Pâté au poivre vert
+;126;sel;;;sel;457;Raisin Chasselas, cru
+;126;macreuse;0.25;kg;macreuse;887;Boeuf, boule de macreuse grillée/poêlée
+;126;échalote;62.5;g;échalote;46;Échalote, crue
+;126;madère;1.25;cl;madère;2847;Sauce madère, préemballée
+;126;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;127;oignon;0.3333333333333333;;oignon;18;Oignon, cru
+;127;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;127;huile;0.3333333333333333;cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;127;miel liquide;0.6666666666666666;cuillères à café;miel liquide;2343;Miel
+;127;poivre;;;poivre;1237;Pâté au poivre vert
+;127;sel;;;sel;457;Raisin Chasselas, cru
+;127;escalopes de poulet;1.0;;escalopes de poulet;3;Graine germée de luzerne, crue
+;127;ail;0.3333333333333333;cuillère à soupe;ail;406;Lentille corail, sèche
+;127;cannelle;0.3333333333333333;cuillère à café;cannelle;1798;Riz au lait vanille, cannelle ou nature, rayon frais
+;127;sauce soja;1.3333333333333333;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;128;fond de veau;0.5;cuillère à soupe;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;128;vin;25.0;cl;vin;2290;Vin doux
+;128;sel;;;sel;457;Raisin Chasselas, cru
+;128;poivre;;;poivre;1237;Pâté au poivre vert
+;128;beurre;15.0;g;beurre;81;Haricot beurre, cru
+;128;bavettes;1.0;;bavettes;889;Boeuf, bavette d'aloyau grillée/poêlée
+;128;échalotes;2.0;;échalotes;46;Échalote, crue
+;129;moutarde;;;moutarde;2881;Moutarde
+;129;thym;2.0;branches;thym;2976;Thym, frais
+;129;poivre;;;poivre;1237;Pâté au poivre vert
+;129;sel;;;sel;457;Raisin Chasselas, cru
+;129;beurre;1.0;noisettes;beurre;81;Haricot beurre, cru
+;129;pintades;1.0;;pintades;1126;Pintade, viande crue
+;129;ail;2.0;gousses;ail;406;Lentille corail, sèche
+;130;persil;;;persil;1163;Jambon persillé en gelée
+;130;crème fraîche;10.0;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;130;foie;0.5;barquette;foie;983;Foie, agneau, cuit
+;130;échalotes;1.0;;échalotes;46;Échalote, crue
+;130;vin blanc;;;vin blanc;2297;Vin blanc sec
+;131;gingembre;0.125;cuillère à café;gingembre;2316;Gin
+;131;gingembre;0.25;;gingembre;2316;Gin
+;131;miel;0.5;grosses cuillères à soupe;miel;2343;Miel
+;131;huile de sésame;0.25;cuillère à café;huile de sésame;2769;Huile de sésame
+;131;sel;0.5;pincées;sel;457;Raisin Chasselas, cru
+;131;coriandre;0.25;cuillère à soupe;coriandre;2949;Coriandre, graine
+;131;travers de porc;0.3;kg;travers de porc;3;Graine germée de luzerne, crue
+;131;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;131;sauce soja;0.75;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;131;eau;0.25;cuillère à soupe;eau;20;Poireau, cru
+;132;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;132;crème semi-épaisse;0.25;pot;crème semi-épaisse;361;Patate douce, purée, cuisinée à la crème
+;132;citron;0.25;;citron;415;Citron, chair sans peau, sans pépins, cru
+;133;tomates;0.75;;tomates;3031;Caviar de tomates
+;133;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;133;thym;1.25;brins;thym;2976;Thym, frais
+;133;sel;0.25;pincée;sel;457;Raisin Chasselas, cru
+;133;poivre;0.25;pincée;poivre;1237;Pâté au poivre vert
+;133;paupiettes;1.0;;paupiettes;2906;Levure de bière en paillettes
+;133;champignons de Paris;2.5;;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;133;bouillon de volaille;5.0;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;133;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;134;tomates;0.5;;tomates;3031;Caviar de tomates
+;134;moutarde de Dijon;0.25;cuillère à soupe;moutarde de dijon;2881;Moutarde
+;134;crème fraîche;0.25;cuillère à soupe;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;134;huile;0.25;cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;134;poivre;;;poivre;1237;Pâté au poivre vert
+;134;sel;;;sel;457;Raisin Chasselas, cru
+;134;cuisse de dinde;0.25;;cuisse de dinde;3;Graine germée de luzerne, crue
+;134;pomme de terre;200.0;g;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;134;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;135;carottes;1.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;135;moutarde;0.5;cuillère à soupe;moutarde;2881;Moutarde
+;135;beurre;1.0;cuillères à café;beurre;81;Haricot beurre, cru
+;135;sel;;;sel;457;Raisin Chasselas, cru
+;135;poivre;;;poivre;1237;Pâté au poivre vert
+;135;persil;;;persil;1163;Jambon persillé en gelée
+;135;thym;;;thym;2976;Thym, frais
+;135;rognons;1.0;;rognons;994;Rognon, cuit (aliment moyen)
+;135;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;135;échalote;0.5;;échalote;46;Échalote, crue
+;135;crème liquide;12.5;cl;crème liquide;361;Patate douce, purée, cuisinée à la crème
+;136;carottes;0.2;;carottes;92;Petits pois et carottes, surgelés, crus
+;136;oignons;0.2;;oignons;2843;Sauce tomate aux oignons, préemballée
+;136;jambon;0.1;;jambon;915;Porc, rouelle de jambon cuite
+;136;clous de girofle;0.6;;clous de girofle;2954;Clou de girofle
+;136;thym;;;thym;2976;Thym, frais
+;136;persil;;;persil;1163;Jambon persillé en gelée
+;136;quatre-épices;;;quatre-épices;2956;Quatre épices, poudre
+;136;poivre;;;poivre;1237;Pâté au poivre vert
+;136;sel;;;sel;457;Raisin Chasselas, cru
+;136;tripes;0.2;kg;tripes;1159;Tripes, boeuf, crues
+;136;pieds de veau;0.2;;pieds de veau;3;Graine germée de luzerne, crue
+;136;vin blanc;5.0;cl;vin blanc;2297;Vin blanc sec
+;136;couenne de panne;;;couenne de panne;3;Graine germée de luzerne, crue
+;136;laurier;;;laurier;2955;Laurier, feuille
+;137;poivre;;;poivre;1237;Pâté au poivre vert
+;137;sel;;;sel;457;Raisin Chasselas, cru
+;137;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;137;boeuf haché;200.0;g;boeuf haché;39;Epinard, haché ou purée ou en branches, surgelé, cru
+;137;échalotes;0.5;;échalotes;46;Échalote, crue
+;137;ciboulette;;;ciboulette;1656;Omelette à la ciboulette, faite maison
+;137;oeuf;0.25;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;137;chapelure;0.5;cuillères à soupe;chapelure;793;Chapelure
+;137;ketchup;;;ketchup;2804;Ketchup, préemballé
+;139;crème fraîche;0.25;pot;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;139;moutarde;0.75;cuillères à soupe;moutarde;2881;Moutarde
+;139;poivre;;;poivre;1237;Pâté au poivre vert
+;139;sel;;;sel;457;Raisin Chasselas, cru
+;139;escalopes de poulet;1.0;;escalopes de poulet;3;Graine germée de luzerne, crue
+;139;échalotes;0.5;;échalotes;46;Échalote, crue
+;139;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;138;crème fraîche épaisse;0.25;pot;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;138;moutarde de Dijon;0.5;cuillères à soupe;moutarde de dijon;2881;Moutarde
+;138;beurre;5.0;g;beurre;81;Haricot beurre, cru
+;138;huile;0.25;cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;138;filets de poulet;1.0;;filets de poulet;1264;Rillettes de poulet
+;138;échalote;0.25;;échalote;46;Échalote, crue
+;140;poivron vert;0.25;demi;poivron vert;173;Poivron vert, cuit
+;140;poivron rouge;0.25;demi;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;140;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;140;carotte;0.25;;carotte;6;Carotte, crue
+;140;huile;0.25;bonne cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;140;escalopes de poulet;1.0;;escalopes de poulet;3;Graine germée de luzerne, crue
+;140;germes de soja;0.25;poignée;germes de soja;3;Graine germée de luzerne, crue
+;140;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;140;sauce soja;1.25;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;140;poisson;0.5;cuillères à soupe;poisson;1268;Quenelle de poisson en sauce, appertisée
+;140;petit piment;0.25;;petit piment;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;141;oignon jaune;0.25;;oignon jaune;21;Poivron, vert, jaune ou rouge, cru
+;141;sucre;30.0;g;sucre;2260;Thé infusé, sans sucres ajoutés
+;141;gingembre;0.5;cuillères à café;gingembre;2316;Gin
+;141;filet mignon;0.25;;filet mignon;918;Porc, filet mignon cuit
+;141;mélange 4 épices;0.25;cuillère à soupe;mélange 4 épices;48;Légumes, mélange surgelé, crus
+;141;sauce soja;0.75;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;141;bouillon de volaille;0.25;cube;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;142;thym;0.375;branches;thym;2976;Thym, frais
+;142;feuilles de laurier;0.375;;feuilles de laurier;3;Graine germée de luzerne, crue
+;142;piment de Cayenne;0.0625;cuillère à café;piment de cayenne;2965;Poivre de Cayenne ou piment de Cayenne, poudre
+;142;oignons;0.625;;oignons;2843;Sauce tomate aux oignons, préemballée
+;142;sanglier;0.25;kg;sanglier;952;Sanglier, viande rôtie/cuite au four
+;142;bourgogne;0.125;bouteille;bourgogne;891;Boeuf, à bourguignon ou pot-au-feu, cuit
+;142;farine;9.375;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;142;cube de bouillon;0.125;;cube de bouillon;3;Graine germée de luzerne, crue
+;142;carottes;1.0;;carottes;92;Petits pois et carottes, surgelés, crus
+;142;huile d'olive;0.125;filet;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;142;sel;0.125;pincée;sel;457;Raisin Chasselas, cru
+;142;poivre;0.125;pincée;poivre;1237;Pâté au poivre vert
+;142;lardons fumés;12.5;g;lardons fumés;1309;Lardon fumé, cru
+;143;huile;1.0;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;143;thym;1.25;brins;thym;2976;Thym, frais
+;143;crème fraîche;2.5;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;143;gros sel;0.25;cuillère à café;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;143;sel;;;sel;457;Raisin Chasselas, cru
+;143;rôti de porc;0.25;;rôti de porc;3;Graine germée de luzerne, crue
+;143;pomme de terre;0.25;kg;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;143;ratte;;;ratte;6;Carotte, crue
+;143;ail;0.5;;ail;406;Lentille corail, sèche
+;143;bouillon de volaille;5.0;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;144;sel;0.3333333333333333;pincées;sel;457;Raisin Chasselas, cru
+;144;farine;11.666666666666666;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;144;poivre;0.3333333333333333;tours de moulin;poivre;1237;Pâté au poivre vert
+;144;oignons jaunes;0.3333333333333333;;oignons jaunes;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;144;oignon;33.333333333333336;g;oignon;18;Oignon, cru
+;144;clous de girofle;0.6666666666666666;;clous de girofle;2954;Clou de girofle
+;144;poireau;0.1666666666666666;;poireau;20;Poireau, cru
+;144;thym;0.3333333333333333;branches;thym;2976;Thym, frais
+;144;feuille de laurier;0.1666666666666666;;feuille de laurier;3;Graine germée de luzerne, crue
+;144;carottes;1.0;;carottes;92;Petits pois et carottes, surgelés, crus
+;144;crème fraîche;1.6666666666666667;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;144;beurre;16.666666666666668;g;beurre;81;Haricot beurre, cru
+;144;citron;0.0833333333333333;;citron;415;Citron, chair sans peau, sans pépins, cru
+;144;épaule de veau;0.1999999999999999;kg;épaule de veau;3;Graine germée de luzerne, crue
+;144;jaunes d'oeuf;0.3333333333333333;;jaunes d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;144;ail;0.3333333333333333;gousses;ail;406;Lentille corail, sèche
+;144;céleri;0.3333333333333333;branches;céleri;14;Céleri branche, cru
+;144;champignon;50.0;g;champignon;7;Champignon, tout type, cru
+;144;cerfeuil;0.3333333333333333;brins;cerfeuil;2968;Cerfeuil, frais
+;145;oignons;3.0;;oignons;2843;Sauce tomate aux oignons, préemballée
+;145;crème fraîche;5.0;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;145;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;145;huile;0.25;cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;145;farine;0.25;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;145;poivre;;;poivre;1237;Pâté au poivre vert
+;145;sel;;;sel;457;Raisin Chasselas, cru
+;145;poulet;0.25;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;145;girolles;150.0;g;girolles;49;Champignon, chanterelle ou girolle, crue
+;145;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;145;vin blanc sec;5.0;cl;vin blanc sec;2297;Vin blanc sec
+;147;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;147;persil;;;persil;1163;Jambon persillé en gelée
+;147;feuilles de laurier;0.3333333333333333;;feuilles de laurier;3;Graine germée de luzerne, crue
+;147;fond de veau;0.1666666666666666;cuillère à soupe;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;147;poivre;;;poivre;1237;Pâté au poivre vert
+;147;sel;;;sel;457;Raisin Chasselas, cru
+;147;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;147;vin rouge;;;vin rouge;2296;Vin rouge
+;147;lapin;0.1666666666666666;;lapin;964;Lapin, viande braisée
+;147;lardons fumés;25.0;g;lardons fumés;1309;Lardon fumé, cru
+;147;champignons de Paris;1.6666666666666667;;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;147;olives vertes;;;olives vertes;2893;Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+;147;échalote;0.1666666666666666;;échalote;46;Échalote, crue
+;147;ail;;gousse;ail;406;Lentille corail, sèche
+;147;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;147;concentré de tomates;0.3333333333333333;cuillères à café;concentré de tomates;3;Graine germée de luzerne, crue
+;149;huile;0.25;;huile;275;Tomate, séchée, à l'huile
+;149;poivre;;;poivre;1237;Pâté au poivre vert
+;149;sel;;;sel;457;Raisin Chasselas, cru
+;149;farine;50.0;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;149;escalopes de veau;1.0;;escalopes de veau;3;Graine germée de luzerne, crue
+;149;oeufs;0.5;;oeufs;711;Pâtes fraîches, aux oeufs, crues
+;149;lait;0.75;cuillères à café;lait;17;Laitue, crue
+;149;chapelure;37.5;g;chapelure;793;Chapelure
+;148;oignon;0.25;;oignon;18;Oignon, cru
+;148;romarin;0.25;petite branche;romarin;2974;Romarin, frais
+;148;feuille de laurier;0.25;;feuille de laurier;3;Graine germée de luzerne, crue
+;148;poivre;;;poivre;1237;Pâté au poivre vert
+;148;sel;;;sel;457;Raisin Chasselas, cru
+;148;saucisse de Toulouse;0.25;beau morceau;saucisse de toulouse;1204;Saucisse de Toulouse cuite
+;148;pommes de terre;1.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;148;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;148;vin blanc;0.5;petits verres;vin blanc;2297;Vin blanc sec
+;150;farine;0.25;cuillère à soupe rase;farine;727;Pain bis (à la farine T80 ou T110) 
+;150;poivre;;;poivre;1237;Pâté au poivre vert
+;150;sel;;;sel;457;Raisin Chasselas, cru
+;150;oignon;0.25;sachet;oignon;18;Oignon, cru
+;150;viande hachée;125.0;g;viande hachée;868;Viande blanche, cuite (aliment moyen)
+;150;oeuf;0.25;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;151;tomates;1.0;;tomates;3031;Caviar de tomates
+;151;oignon;0.25;;oignon;18;Oignon, cru
+;151;lardons;0.25;grosse poignée;lardons;1654;Omelette aux lardons, faite maison
+;151;thym;;;thym;2976;Thym, frais
+;151;feuille de laurier;;;feuille de laurier;3;Graine germée de luzerne, crue
+;151;huile;;;huile;275;Tomate, séchée, à l'huile
+;151;sel;;;sel;457;Raisin Chasselas, cru
+;151;poivre;;;poivre;1237;Pâté au poivre vert
+;151;lapin;;;lapin;964;Lapin, viande braisée
+;151;pommes de terre;2.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;151;ail;0.75;gousses;ail;406;Lentille corail, sèche
+;151;vin blanc sec;0.25;petit verre;vin blanc sec;2297;Vin blanc sec
+;152;oignon;0.25;;oignon;18;Oignon, cru
+;152;huile d'olive;0.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;152;échalote;0.25;;échalote;46;Échalote, crue
+;152;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;152;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;152;saucisse;100.0;g;saucisse;1200;Saucisse sèche
+;152;pommes de terre;2.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;152;eau;2.0;cl;eau;20;Poireau, cru
+;153;poivron rouge;0.1666666666666666;;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;153;poivron jaune;0.1666666666666666;;poivron jaune;247;Poivron jaune, sauté/poêlé
+;153;farine;0.3333333333333333;cuillères à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;153;cube de bouillon;0.1666666666666666;;cube de bouillon;3;Graine germée de luzerne, crue
+;153;poivre;;;poivre;1237;Pâté au poivre vert
+;153;sel;;;sel;457;Raisin Chasselas, cru
+;153;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;153;sauté de porc;0.1666666666666666;kg;sauté de porc;3;Graine germée de luzerne, crue
+;153;poudre de colombo;;;poudre de colombo;3;Graine germée de luzerne, crue
+;154;oignon;0.25;;oignon;18;Oignon, cru
+;154;tomates;0.5;;tomates;3031;Caviar de tomates
+;154;curry;0.25;pincée;curry;2837;Sauce au curry, froide, préemballée
+;154;quatre-épices;0.25;pincée;quatre-épices;2956;Quatre épices, poudre
+;154;poivre;;;poivre;1237;Pâté au poivre vert
+;154;sel;;;sel;457;Raisin Chasselas, cru
+;154;huile;;;huile;275;Tomate, séchée, à l'huile
+;154;cuisses de poulet;1.0;;cuisses de poulet;3;Graine germée de luzerne, crue
+;154;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;154;lait de coco;0.25;petite boîte;lait de coco;2924;Lait de coco
+;155;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;155;thym;;;thym;2976;Thym, frais
+;155;poivre;;;poivre;1237;Pâté au poivre vert
+;155;sel;;;sel;457;Raisin Chasselas, cru
+;155;souris d'agneau;1.0;;souris d'agneau;1153;Ris, agneau, cru
+;155;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;155;ail;2.5;gousses;ail;406;Lentille corail, sèche
+;156;pâte brisée;0.5;paquets;pâte brisée;847;Pâte brisée, préemballée, cuite (aliment moyen)
+;156;lardons;18.75;g;lardons;1654;Omelette aux lardons, faite maison
+;156;curry;0.25;cuillère à soupe;curry;2837;Sauce au curry, froide, préemballée
+;156;blanc de poulet;100.0;g;blanc de poulet;1183;Jambon de poulet ou blanc de poulet en tranche
+;156;champignon;62.5;g;champignon;7;Champignon, tout type, cru
+;156;Volaille;0.125;cube;volaille;871;Volaille, viande cuite (aliment moyen)
+;156;crème liquide;5.0;cl;crème liquide;361;Patate douce, purée, cuisinée à la crème
+;157;poivre;;;poivre;1237;Pâté au poivre vert
+;157;persil;;;persil;1163;Jambon persillé en gelée
+;157;sel;;;sel;457;Raisin Chasselas, cru
+;157;foie;75.0;g;foie;983;Foie, agneau, cuit
+;157;biscottes;1.0;;biscottes;763;Biscotte classique
+;157;oeufs;1.0;;oeufs;711;Pâtes fraîches, aux oeufs, crues
+;157;béchamel;0.1666666666666666;;béchamel;2840;Sauce béchamel, préemballée
+;157;ail;0.8333333333333334;gousses;ail;406;Lentille corail, sèche
+;159;vin rouge;12.5;cl;vin rouge;2296;Vin rouge
+;159;carotte;0.1666666666666666;;carotte;6;Carotte, crue
+;159;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;159;feuille de laurier;0.1666666666666666;;feuille de laurier;3;Graine germée de luzerne, crue
+;159;thym;0.1666666666666666;brin;thym;2976;Thym, frais
+;159;romarin;0.1666666666666666;brin;romarin;2974;Romarin, frais
+;159;persil;0.1666666666666666;branche;persil;1163;Jambon persillé en gelée
+;159;cognac;0.3333333333333333;cuillères à soupe;cognac;2328;Eau de vie de vin type armagnac ou cognac
+;159;huile d'olive;0.1666666666666666;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;159;poivre;;;poivre;1237;Pâté au poivre vert
+;159;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;159;échalotes;0.3333333333333333;;échalotes;46;Échalote, crue
+;158;poivre;;;poivre;1237;Pâté au poivre vert
+;158;sel;;;sel;457;Raisin Chasselas, cru
+;158;muscade;1.0;pincées;muscade;2952;Noix de muscade
+;158;beurre;;;beurre;81;Haricot beurre, cru
+;158;origan;;;origan;2989;Origan, séché
+;158;viande hachée;250.0;g;viande hachée;868;Viande blanche, cuite (aliment moyen)
+;158;ail;0.5;gousse;ail;406;Lentille corail, sèche
+;158;jaune d'oeuf;0.5;;jaune d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;158;chapelure;2.5;cuillères à soupe;chapelure;793;Chapelure
+;158;coulis de tomate;0.5;;coulis de tomate;3;Graine germée de luzerne, crue
+;158;échalote;0.5;;échalote;46;Échalote, crue
+;158;basilic;;;basilic;2973;Basilic, frais
+;158;laurier;;;laurier;2955;Laurier, feuille
+;161;huile de tournesol;0.25;cuillère à soupe;huile de tournesol;2771;Huile de tournesol
+;161;tomates;1.0;;tomates;3031;Caviar de tomates
+;161;thym;0.5;branches;thym;2976;Thym, frais
+;161;curcuma;0.75;cuillères à café;curcuma;2966;Curcuma, poudre
+;161;poivre;;;poivre;1237;Pâté au poivre vert
+;161;sel;;;sel;457;Raisin Chasselas, cru
+;161;poulet;0.25;kg;poulet;925;Poulet, viande et peau rôties/cuites au four
+;161;oignons rouges;0.75;;oignons rouges;1657;Tortilla espagnole aux oignons (omelette aux pommes de terre et oignons), préemballée
+;161;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;161;eau;12.5;cl;eau;20;Poireau, cru
+;162;carotte;0.1666666666666666;;carotte;6;Carotte, crue
+;162;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;162;clous de girofle;0.3333333333333333;;clous de girofle;2954;Clou de girofle
+;162;poireaux;0.3333333333333333;;poireaux;20;Poireau, cru
+;162;beurre;16.666666666666668;g;beurre;81;Haricot beurre, cru
+;162;persil;;;persil;1163;Jambon persillé en gelée
+;162;poivre;;;poivre;1237;Pâté au poivre vert
+;162;sel;;;sel;457;Raisin Chasselas, cru
+;162;oie;0.1666666666666666;;oie;983;Foie, agneau, cuit
+;162;pain;0.0833333333333333;;pain;312;Fruit à pain, cru
+;162;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;162;oignon grelot;;;oignon grelot;241;Oignon blanc ou jaune, sauté/poêlé sans matière grasse
+;163;crème fraîche épaisse;1.6666666666666667;cl;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;163;persil;;feuille;persil;1163;Jambon persillé en gelée
+;163;huile d'olive;1.6666666666666667;cl;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;163;vinaigre de vin;0.1666666666666666;cuillère à soupe;vinaigre de vin;2889;Vinaigre de vin rouge
+;163;poivre;;;poivre;1237;Pâté au poivre vert
+;163;sel;;;sel;457;Raisin Chasselas, cru
+;163;faisselle;83.33333333333333;g;faisselle;1746;Faisselle au coulis de fruits
+;163;ail;0.1666666666666666;gousse;ail;406;Lentille corail, sèche
+;163;échalotes;0.6666666666666666;;échalotes;46;Échalote, crue
+;163;ciboulette;0.1666666666666666;botte;ciboulette;1656;Omelette à la ciboulette, faite maison
+;163;oignon nouveau;;;oignon nouveau;242;Oignon nouveau ou oignon frais ou cébette, sauté/poêlé sans matière grasse
+;164;sauce soja Suzi Wan®;1.25;cuillères à soupe;sauce soja suzi wan®;717;Vermicelles de soja sèches, crues
+;164;miel;0.75;cuillères à soupe;miel;2343;Miel
+;164;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;164;fécule de maïs;0.5;cuillères à soupe;fécule de maïs;834;Amidon de maïs ou fécule de maïs
+;164;eau;0.5;cuillères à soupe;eau;20;Poireau, cru
+;164;ail;0.25;cuillère à soupe;ail;406;Lentille corail, sèche
+;164;graines de sésame;0.25;cuillère à soupe;graines de sésame;3;Graine germée de luzerne, crue
+;164;sucre;6.25;g;sucre;2260;Thé infusé, sans sucres ajoutés
+;164;eau;6.25;cl;eau;20;Poireau, cru
+;164;huile de tournesol;;;huile de tournesol;2771;Huile de tournesol
+;164;riz;75.0;g;riz;689;Riz blanc, cru
+;165;oignons;0.6666666666666666;;oignons;2843;Sauce tomate aux oignons, préemballée
+;165;carottes;0.6666666666666666;;carottes;92;Petits pois et carottes, surgelés, crus
+;165;huile;1.0;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;165;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;165;fond de veau;0.6666666666666666;cuillères à soupe;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;165;poivre;;;poivre;1237;Pâté au poivre vert
+;165;sel;;;sel;457;Raisin Chasselas, cru
+;165;rôti de porc;0.3333333333333333;;rôti de porc;3;Graine germée de luzerne, crue
+;165;pommes de terre;1.6666666666666667;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;165;vin blanc;8.333333333333334;cl;vin blanc;2297;Vin blanc sec
+;165;Volaille;0.6666666666666666;cubes;volaille;871;Volaille, viande cuite (aliment moyen)
+;165;bouquet garni;0.3333333333333333;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;166;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;166;oignon;0.25;;oignon;18;Oignon, cru
+;166;cube de bouillon;0.25;;cube de bouillon;3;Graine germée de luzerne, crue
+;166;curry;;;curry;2837;Sauce au curry, froide, préemballée
+;166;thym;;;thym;2976;Thym, frais
+;166;poivre;;;poivre;1237;Pâté au poivre vert
+;166;sel;;;sel;457;Raisin Chasselas, cru
+;166;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;166;pulpe de tomate;0.25;boîte;pulpe de tomate;3;Graine germée de luzerne, crue
+;166;pomme;0.25;demi;pomme;115;Chou romanesco ou brocoli à pomme, cru
+;166;raisins secs;0.25;poignée;raisins secs;548;Raisin sec
+;166;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;166;garam masala;;;garam masala;2325;Marsala
+;166;cannelle;0.25;bâton;cannelle;1798;Riz au lait vanille, cannelle ou nature, rayon frais
+;166;laurier;;;laurier;2955;Laurier, feuille
+;166;crème fraîche allégée;;;crème fraîche allégée;361;Patate douce, purée, cuisinée à la crème
+;167;crème fraîche;2.0;cuillères à soupe;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;167;moutarde;1.0;cuillère à soupe;moutarde;2881;Moutarde
+;167;oignons;2.0;;oignons;2843;Sauce tomate aux oignons, préemballée
+;167;tomate;1.0;;tomate;56;Tomate verte, crue
+;167;beurre;1.0;morceau;beurre;81;Haricot beurre, cru
+;167;andouillette;1.0;;andouillette;1290;Andouillette, à cuire
+;167;vin blanc;1.0;verre;vin blanc;2297;Vin blanc sec
+;168;oignon;0.25;;oignon;18;Oignon, cru
+;168;tomate;0.25;;tomate;56;Tomate verte, crue
+;168;thym;;;thym;2976;Thym, frais
+;168;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;168;sel;;;sel;457;Raisin Chasselas, cru
+;168;poivre;;;poivre;1237;Pâté au poivre vert
+;168;sauté de veau;200.0;g;sauté de veau;3;Graine germée de luzerne, crue
+;168;ciboulette;;;ciboulette;1656;Omelette à la ciboulette, faite maison
+;170;beurre;3.0;g;beurre;81;Haricot beurre, cru
+;170;poivre;;;poivre;1237;Pâté au poivre vert
+;170;sel;;;sel;457;Raisin Chasselas, cru
+;170;sanglier;0.1;;sanglier;952;Sanglier, viande rôtie/cuite au four
+;170;lard;25.0;g;lard;1300;Lardon nature, cru
+;170;madère;1.5;cl;madère;2847;Sauce madère, préemballée
+;170;pignons;5.0;g;pignons;1246;Pâté ou terrine aux champignons (forestier)
+;170;raisin;5.0;g;raisin;441;Raisin noir, cru
+;170;fécule;0.1;cuillère à soupe;fécule;825;Fécule de pomme de terre
+;170;carottes;0.3;;carottes;92;Petits pois et carottes, surgelés, crus
+;170;oignon;0.1;;oignon;18;Oignon, cru
+;170;huile;3.0;cl;huile;275;Tomate, séchée, à l'huile
+;170;thym;;;thym;2976;Thym, frais
+;170;clous de girofle;0.3;;clous de girofle;2954;Clou de girofle
+;170;vinaigre;4.5;cl;vinaigre;2882;Vinaigre
+;170;échalotes;0.3;;échalotes;46;Échalote, crue
+;170;ail;0.1;gousse;ail;406;Lentille corail, sèche
+;170;laurier;;;laurier;2955;Laurier, feuille
+;170;vin blanc;0.15;l;vin blanc;2297;Vin blanc sec
+;171;poivre;;;poivre;1237;Pâté au poivre vert
+;171;fleur de sel;;;fleur de sel;2941;Fleur de sel, non iodée, non fluorée
+;171;Foie gras;0.125;;foie gras;1274;Foie gras, canard, entier, cuit
+;172;poivre;;;poivre;1237;Pâté au poivre vert
+;172;beurre;10.0;g;beurre;81;Haricot beurre, cru
+;172;sel;;;sel;457;Raisin Chasselas, cru
+;172;canard;0.25;;canard;969;Canard, viande et peau rôties/cuites au four
+;173;vinaigre de vin;;;vinaigre de vin;2889;Vinaigre de vin rouge
+;173;fond de veau;;;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;173;poivre;;;poivre;1237;Pâté au poivre vert
+;173;sel;;;sel;457;Raisin Chasselas, cru
+;173;huile;;;huile;275;Tomate, séchée, à l'huile
+;173;foie de veau;1.0;belles tranches;foie de veau;3;Graine germée de luzerne, crue
+;173;échalotes;1.5;;échalotes;46;Échalote, crue
+;175;vinaigre de framboise;;goutte;vinaigre de framboise;2882;Vinaigre
+;175;poivre;;;poivre;1237;Pâté au poivre vert
+;175;sel;;;sel;457;Raisin Chasselas, cru
+;175;muscade;;;muscade;2952;Noix de muscade
+;175;Foie gras;2.0;tranches;foie gras;1274;Foie gras, canard, entier, cuit
+;175;pomme;1.0;;pomme;115;Chou romanesco ou brocoli à pomme, cru
+;174;oignon;0.5;;oignon;18;Oignon, cru
+;174;poivron rouge;0.5;;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;174;crème fraîche épaisse;10.0;cl;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;174;lardons;0.5;barquette;lardons;1654;Omelette aux lardons, faite maison
+;174;cuisses de poulet;1.0;;cuisses de poulet;3;Graine germée de luzerne, crue
+;174;champignons de Paris;5.0;;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;174;pommes de terre;2.5;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;176;huile;0.25;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;176;beurre;15.625;g;beurre;81;Haricot beurre, cru
+;176;thym;0.25;branches;thym;2976;Thym, frais
+;176;feuille de laurier;0.125;;feuille de laurier;3;Graine germée de luzerne, crue
+;176;cognac;0.625;cl;cognac;2328;Eau de vie de vin type armagnac ou cognac
+;176;sel;;;sel;457;Raisin Chasselas, cru
+;176;poivre;;;poivre;1237;Pâté au poivre vert
+;176;bouillon;1.875;cl;bouillon;1365;Raie, cuite au court-bouillon
+;176;dinde;0.125;;dinde;933;Dinde, viande rôtie/cuite au four
+;176;marrons;37.5;g;marrons;613;Purée de marrons, appertisée
+;176;chair à saucisse;37.5;g;chair à saucisse;1205;Chair à saucisse crue
+;176;pain de mie;28.125;g;pain de mie;734;Pain de mie complet, sans croûte, préemballé
+;176;lait;1.875;cl;lait;17;Laitue, crue
+;176;échalotes;0.5;;échalotes;46;Échalote, crue
+;176;pomme de terre;0.1875;kg;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;177;oignon;0.25;;oignon;18;Oignon, cru
+;177;sel;;;sel;457;Raisin Chasselas, cru
+;177;poivre;;;poivre;1237;Pâté au poivre vert
+;177;foie;75.0;g;foie;983;Foie, agneau, cuit
+;177;ail;0.25;;ail;406;Lentille corail, sèche
+;177;oeuf;0.25;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;177;viande hachée;75.0;g;viande hachée;868;Viande blanche, cuite (aliment moyen)
+;178;curcuma;0.3333333333333333;cuillères à soupe;curcuma;2966;Curcuma, poudre
+;178;cumin;0.3333333333333333;cuillères à soupe;cumin;1956;Gouda au cumin
+;178;curry;0.3333333333333333;cuillères à soupe;curry;2837;Sauce au curry, froide, préemballée
+;178;moutarde;0.3333333333333333;cuillères à soupe;moutarde;2881;Moutarde
+;178;huile d'olive;1.0;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;178;côtes de porc;1.0;;côtes de porc;3;Graine germée de luzerne, crue
+;179;miel;0.5;cuillères à soupe;miel;2343;Miel
+;179;beurre;1.6666666666666667;g;beurre;81;Haricot beurre, cru
+;179;poivre;;;poivre;1237;Pâté au poivre vert
+;179;boudins blancs;1.0;;boudins blancs;1297;Boudin blanc, grillé/poêlé
+;179;pommes;0.5;;pommes;318;Chips de pommes de terre nature ou aromatisées
+;180;huile d'olive;0.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;180;vinaigre de xérès;0.5;cuillères à café;vinaigre de xérès;2882;Vinaigre
+;180;vinaigre de vin;0.5;cuillères à café;vinaigre de vin;2889;Vinaigre de vin rouge
+;180;cognac;0.25;trait;cognac;2328;Eau de vie de vin type armagnac ou cognac
+;180;crème fraîche épaisse;6.25;cl;crème fraîche épaisse;361;Patate douce, purée, cuisinée à la crème
+;180;moutarde;0.25;cuillère à café;moutarde;2881;Moutarde
+;180;poivre;;;poivre;1237;Pâté au poivre vert
+;180;sel;;;sel;457;Raisin Chasselas, cru
+;180;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;180;échalote;0.25;;échalote;46;Échalote, crue
+;180;bouillon de volaille;3.75;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;180;ciboulette;;;ciboulette;1656;Omelette à la ciboulette, faite maison
+;180;estragon;;;estragon;2978;Estragon, frais
+;182;carottes;0.6666666666666666;;carottes;92;Petits pois et carottes, surgelés, crus
+;182;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;182;romarin;0.1666666666666666;branche;romarin;2974;Romarin, frais
+;182;piment;;;piment;66;Piment, cru
+;182;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;182;poivre;;;poivre;1237;Pâté au poivre vert
+;182;sel;;;sel;457;Raisin Chasselas, cru
+;182;gigot d'agneau;0.1666666666666666;;gigot d'agneau;936;Mouton, gigot rôti/cuit au four
+;182;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;182;échalotes;0.6666666666666666;;échalotes;46;Échalote, crue
+;182;céleri;0.1666666666666666;branche;céleri;14;Céleri branche, cru
+;182;girofle;0.3333333333333333;;girofle;2954;Clou de girofle
+;182;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;182;vin blanc sec;;;vin blanc sec;2297;Vin blanc sec
+;183;vin rouge;0.3333333333333333;l;vin rouge;2296;Vin rouge
+;183;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;183;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;183;lardons;33.333333333333336;g;lardons;1654;Omelette aux lardons, faite maison
+;183;tomates;0.3333333333333333;;tomates;3031;Caviar de tomates
+;183;huile d'olive;0.3333333333333333;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;183;poivre;;;poivre;1237;Pâté au poivre vert
+;183;sel;;;sel;457;Raisin Chasselas, cru
+;183;sanglier;0.3333333333333333;kg;sanglier;952;Sanglier, viande rôtie/cuite au four
+;183;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;183;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;183;olives noires;0.1666666666666666;petite boîte;olives noires;2893;Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+;184;huile;;;huile;275;Tomate, séchée, à l'huile
+;184;sucre;5.0;g;sucre;2260;Thé infusé, sans sucres ajoutés
+;184;vinaigre;0.5;cl;vinaigre;2882;Vinaigre
+;184;fond de veau;0.125;;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;184;oranges;0.625;;oranges;432;Orange, chair sans peau, sans pépins, crue
+;184;poivre;;;poivre;1237;Pâté au poivre vert
+;184;sel;;;sel;457;Raisin Chasselas, cru
+;184;fécule de maïs;;;fécule de maïs;834;Amidon de maïs ou fécule de maïs
+;184;canard;0.25;;canard;969;Canard, viande et peau rôties/cuites au four
+;184;grand-marnier;;;grand-marnier;1942;Morbier
+;184;jus d'orange;0.125;;jus d'orange;2109;Jus d'orange, à base de concentré
+;184;vin blanc;0.125;verre;vin blanc;2297;Vin blanc sec
+;185;pruneaux;10.0;;pruneaux;2411;Crème de pruneaux, préemballée
+;185;orange;0.25;zeste;orange;432;Orange, chair sans peau, sans pépins, crue
+;185;fond de veau;0.5;cuillères à café;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;185;poivre;;;poivre;1237;Pâté au poivre vert
+;185;sel;;;sel;457;Raisin Chasselas, cru
+;185;rôti de porc;0.25;;rôti de porc;3;Graine germée de luzerne, crue
+;185;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;185;vin blanc;5.0;cl;vin blanc;2297;Vin blanc sec
+;185;crème;0.25;petit pot;crème;361;Patate douce, purée, cuisinée à la crème
+;185;margarine;;;margarine;2776;Huile d'argan ou d'argane
+;186;oignon;0.25;;oignon;18;Oignon, cru
+;186;poivre;;;poivre;1237;Pâté au poivre vert
+;186;sel;;;sel;457;Raisin Chasselas, cru
+;186;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;186;lieu noir;150.0;g;lieu noir;1347;Lieu noir, cuit
+;186;champignons de Paris;100.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;186;vin blanc;3.75;cl;vin blanc;2297;Vin blanc sec
+;186;crème fraîche liquide;3.75;cl;crème fraîche liquide;361;Patate douce, purée, cuisinée à la crème
+;186;bouquet garni;;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;187;moutarde de Dijon;0.25;cuillère à soupe;moutarde de dijon;2881;Moutarde
+;187;cube de bouillon;0.25;;cube de bouillon;3;Graine germée de luzerne, crue
+;187;huile d'olive;0.75;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;187;poivre;;;poivre;1237;Pâté au poivre vert
+;187;sel;;;sel;457;Raisin Chasselas, cru
+;187;joue de porc;225.0;g;joue de porc;3;Graine germée de luzerne, crue
+;187;échalotes;1.0;;échalotes;46;Échalote, crue
+;187;vin blanc;1.25;cl;vin blanc;2297;Vin blanc sec
+;187;eau;6.25;cl;eau;20;Poireau, cru
+;187;crème fraîche allégée;2.5;cl;crème fraîche allégée;361;Patate douce, purée, cuisinée à la crème
+;187;ciboulette;0.5;cuillères à soupe;ciboulette;1656;Omelette à la ciboulette, faite maison
+;188;carottes;0.75;;carottes;92;Petits pois et carottes, surgelés, crus
+;188;lardons;0.25;boîte;lardons;1654;Omelette aux lardons, faite maison
+;188;fond de veau;0.25;cuillère;fond de veau;2914;Fond de veau pour sauces et cuisson, déshydraté
+;188;huile d'olive;0.5;cuillères;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;188;paupiettes;1.0;;paupiettes;2906;Levure de bière en paillettes
+;188;champignon;0.25;petite boîte;champignon;7;Champignon, tout type, cru
+;188;eau;0.5;verres;eau;20;Poireau, cru
+;189;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;189;crème fraîche;8.333333333333334;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;189;poivre;;;poivre;1237;Pâté au poivre vert
+;189;sel;;;sel;457;Raisin Chasselas, cru
+;189;filets mignons;0.3333333333333333;;filets mignons;1619;Sardine, filets sans arêtes à l'huile d'olive, appertisés, égouttés
+;189;vin blanc;1.6666666666666667;cl;vin blanc;2297;Vin blanc sec
+;189;maroilles;41.66666666666666;g;maroilles;1859;Maroilles, laitier
+;190;carotte;0.25;;carotte;6;Carotte, crue
+;190;crème fraîche;7.5;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;190;beurre;2.5;g;beurre;81;Haricot beurre, cru
+;190;moutarde de Dijon;0.25;cuillère à soupe;moutarde de dijon;2881;Moutarde
+;190;thym;0.25;branche;thym;2976;Thym, frais
+;190;persil;0.25;cuillère à soupe;persil;1163;Jambon persillé en gelée
+;190;lapin;0.25;;lapin;964;Lapin, viande braisée
+;190;échalotes;1.25;;échalotes;46;Échalote, crue
+;190;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;190;vin blanc sec;12.5;cl;vin blanc sec;2297;Vin blanc sec
+;190;laurier;0.75;feuilles;laurier;2955;Laurier, feuille
+;190;sel et poivre;;;sel et poivre;11;Concombre, chair et peau, cru
+;191;pâte feuilletée;0.1666666666666666;;pâte feuilletée;854;Pâte feuilletée, matière grasse végétale, crue
+;191;huile d'olive;0.3333333333333333;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;191;moutarde;0.5;cuillères à café;moutarde;2881;Moutarde
+;191;persil;0.1666666666666666;bouquet;persil;1163;Jambon persillé en gelée
+;191;poivre;;;poivre;1237;Pâté au poivre vert
+;191;sel;;;sel;457;Raisin Chasselas, cru
+;191;filet mignon;0.1666666666666666;;filet mignon;918;Porc, filet mignon cuit
+;191;crème épaisse;0.3333333333333333;cuillères à café;crème épaisse;361;Patate douce, purée, cuisinée à la crème
+;191;ail;0.6666666666666666;gousses;ail;406;Lentille corail, sèche
+;191;jaune d'oeuf;0.1666666666666666;;jaune d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;192;beurre;10.0;g;beurre;81;Haricot beurre, cru
+;192;farine;10.0;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;192;poivre;;;poivre;1237;Pâté au poivre vert
+;192;sel;;;sel;457;Raisin Chasselas, cru
+;192;foie de veau;1.0;tranches;foie de veau;3;Graine germée de luzerne, crue
+;193;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;193;bouillon;10.0;cl;bouillon;1365;Raie, cuite au court-bouillon
+;193;thym;;;thym;2976;Thym, frais
+;193;fleur de sel;;;fleur de sel;2941;Fleur de sel, non iodée, non fluorée
+;193;jarrets de porc;0.5;;jarrets de porc;3;Graine germée de luzerne, crue
+;193;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;193;bière brune;7.5;cl;bière brune;2299;Bière brune
+;193;baie de genévrier;;;baie de genévrier;3;Graine germée de luzerne, crue
+;193;sel et poivre;;;sel et poivre;11;Concombre, chair et peau, cru
+;193;pomme de terre;;;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;194;carottes;0.3333333333333333;;carottes;92;Petits pois et carottes, surgelés, crus
+;194;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;194;poivre;;;poivre;1237;Pâté au poivre vert
+;194;langue;0.1666666666666666;;langue;990;Langue, veau, cuite
+;194;céleri;0.3333333333333333;branches;céleri;14;Céleri branche, cru
+;194;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;194;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;194;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;194;farine;6.666666666666667;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;194;bouillon de boeuf;4.166666666666667;cl;bouillon de boeuf;2904;Bouillon de boeuf, déshydraté
+;194;madère;2.5;cl;madère;2847;Sauce madère, préemballée
+;194;concentré de tomates;0.3333333333333333;cuillères à soupe;concentré de tomates;3;Graine germée de luzerne, crue
+;194;tomates;1.0;;tomates;3031;Caviar de tomates
+;194;beurre;16.666666666666668;g;beurre;81;Haricot beurre, cru
+;194;petits pois;50.0;g;petits pois;37;Petits pois, crus
+;194;haricots verts;100.0;g;haricots verts;202;Haricots verts, purée
+;194;échalotes;0.3333333333333333;;échalotes;46;Échalote, crue
+;195;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;195;miel liquide;1.25;cuillères à soupe;miel liquide;2343;Miel
+;195;vinaigre balsamique;1.5;cl;vinaigre balsamique;2887;Vinaigre balsamique
+;195;purée de tomate;0.25;boîte moyenne;purée de tomate;205;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+;195;huile d'olive;0.25;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;195;beurre;7.5;g;beurre;81;Haricot beurre, cru
+;195;poivre;;;poivre;1237;Pâté au poivre vert
+;195;sel;;;sel;457;Raisin Chasselas, cru
+;195;filet mignon;150.0;g;filet mignon;918;Porc, filet mignon cuit
+;195;sauce soja;0.5;cuillères à soupe;sauce soja;2810;Sauce soja, préemballée
+;196;huile d'olive;1.0;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;196;curry;0.1666666666666666;cuillère à café;curry;2837;Sauce au curry, froide, préemballée
+;196;gingembre;0.1666666666666666;;gingembre;2316;Gin
+;196;thym;0.1666666666666666;cuillère à café;thym;2976;Thym, frais
+;196;sel;;;sel;457;Raisin Chasselas, cru
+;196;poivre;;;poivre;1237;Pâté au poivre vert
+;196;citron;;;citron;415;Citron, chair sans peau, sans pépins, cru
+;196;carvi;0.0833333333333333;cuillère à café;carvi;2959;Carvi, graine
+;196;ail;0.3333333333333333;gousses;ail;406;Lentille corail, sèche
+;196;sauce soja;;;sauce soja;2810;Sauce soja, préemballée
+;196;blanc de poulet;83.33333333333333;g;blanc de poulet;1183;Jambon de poulet ou blanc de poulet en tranche
+;197;moutarde de Dijon;0.5;cuillères à soupe;moutarde de dijon;2881;Moutarde
+;197;beurre;7.5;g;beurre;81;Haricot beurre, cru
+;197;lapin;0.25;barquette;lapin;964;Lapin, viande braisée
+;197;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;197;pommes de terre;1.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;197;eau;0.125;verre;eau;20;Poireau, cru
+;197;vin blanc sec;0.125;verre;vin blanc sec;2297;Vin blanc sec
+;197;crème;0.25;briquette;crème;361;Patate douce, purée, cuisinée à la crème
+;198;oignon;0.25;;oignon;18;Oignon, cru
+;198;carotte;0.25;;carotte;6;Carotte, crue
+;198;vinaigre balsamique;0.5;cuillères à soupe;vinaigre balsamique;2887;Vinaigre balsamique
+;198;poivre;;;poivre;1237;Pâté au poivre vert
+;198;thym;;;thym;2976;Thym, frais
+;198;romarin;;;romarin;2974;Romarin, frais
+;198;rôti de boeuf;0.25;;rôti de boeuf;3;Graine germée de luzerne, crue
+;198;margarine;0.5;;margarine;2776;Huile d'argan ou d'argane
+;198;eau;0.125;l;eau;20;Poireau, cru
+;198;laurier;;;laurier;2955;Laurier, feuille
+;198;sauceline;;;sauceline;2870;Sauce indienne type tandoori ou tikka masala, préemballée
+;199;oignon;0.25;;oignon;18;Oignon, cru
+;199;carottes;0.75;;carottes;92;Petits pois et carottes, surgelés, crus
+;199;curry;0.25;cuillère à café;curry;2837;Sauce au curry, froide, préemballée
+;199;poivre;;;poivre;1237;Pâté au poivre vert
+;199;sel;;;sel;457;Raisin Chasselas, cru
+;199;beurre;2.5;g;beurre;81;Haricot beurre, cru
+;199;butternut;0.25;;butternut;63;Courge butternut (doubeurre), chair sans peau, crue
+;199;bouillon de volaille;0.25;cube;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;200;oignon;0.25;;oignon;18;Oignon, cru
+;200;cumin;0.25;cuillère à café;cumin;1956;Gouda au cumin
+;200;persil;0.5;cuillères à soupe;persil;1163;Jambon persillé en gelée
+;200;huile d'olive;1.5;cl;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;200;poivre;;;poivre;1237;Pâté au poivre vert
+;200;sel;;;sel;457;Raisin Chasselas, cru
+;200;gigot d'agneau;187.5;g;gigot d'agneau;936;Mouton, gigot rôti/cuit au four
+;200;paprika;0.25;cuillère à café;paprika;2953;Paprika, poudre
+;201;bouillon;7.5;cl;bouillon;1365;Raie, cuite au court-bouillon
+;201;farine;12.5;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;201;crème fraîche;0.25;cuillère à soupe;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;201;poivre;;;poivre;1237;Pâté au poivre vert
+;201;sel;;;sel;457;Raisin Chasselas, cru
+;201;paupiettes de veau;1.0;;paupiettes de veau;3;Graine germée de luzerne, crue
+;201;champignons de Paris;0.25;boîte;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;201;échalotes;0.75;;échalotes;46;Échalote, crue
+;202;huile;;;huile;275;Tomate, séchée, à l'huile
+;202;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;202;poivre;;;poivre;1237;Pâté au poivre vert
+;202;sel;;;sel;457;Raisin Chasselas, cru
+;202;rôti de porc;0.25;;rôti de porc;3;Graine germée de luzerne, crue
+;202;ail;1.5;gousses;ail;406;Lentille corail, sèche
+;202;vin blanc;0.125;verre;vin blanc;2297;Vin blanc sec
+;202;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;202;lait;0.25;l;lait;17;Laitue, crue
+;203;escalopes de veau;1.0;;escalopes de veau;3;Graine germée de luzerne, crue
+;203;mozzarella;0.25;boule;mozzarella;1995;Mozzarella au lait de vache
+;203;Jambon de Parme;1.0;tranches;jambon de parme;1191;Jambon sec de Parme
+;203;coulis de tomate;0.25;briquette;coulis de tomate;3;Graine germée de luzerne, crue
+;203;basilic frais;;feuille;basilic frais;2973;Basilic, frais
+;203;échalotes;0.5;;échalotes;46;Échalote, crue
+;203;Parmesan;0.25;sachet;parmesan;1922;Parmesan
+;205;sauce tomate;0.5;cuillères à soupe;sauce tomate;1590;Pilchard, sauce tomate, appertisé, égoutté
+;205;harissa;0.75;gouttes;harissa;2814;Harissa (sauce au piment), préemballée
+;205;persil;0.125;bouquet;persil;1163;Jambon persillé en gelée
+;205;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;205;sel;;;sel;457;Raisin Chasselas, cru
+;205;poivre;;;poivre;1237;Pâté au poivre vert
+;205;poulet;0.25;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;205;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;205;vin blanc;12.5;cl;vin blanc;2297;Vin blanc sec
+;205;laurier;1.0;feuilles;laurier;2955;Laurier, feuille
+;204;thym;1.0;feuilles;thym;2976;Thym, frais
+;204;huile de tournesol;0.25;cuillère à soupe;huile de tournesol;2771;Huile de tournesol
+;204;poivre;;;poivre;1237;Pâté au poivre vert
+;204;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;204;sauce soja;;;sauce soja;2810;Sauce soja, préemballée
+;204;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;206;oignon;0.25;;oignon;18;Oignon, cru
+;206;poivron rouge;0.125;;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;206;carotte;0.25;;carotte;6;Carotte, crue
+;206;poivre;;;poivre;1237;Pâté au poivre vert
+;206;sel;;;sel;457;Raisin Chasselas, cru
+;206;rôti de porc;0.25;;rôti de porc;3;Graine germée de luzerne, crue
+;206;échalotes;0.5;;échalotes;46;Échalote, crue
+;206;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;206;pommes de terre;2.0;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;206;vin blanc;0.125;verre;vin blanc;2297;Vin blanc sec
+;207;poivron vert;0.25;;poivron vert;173;Poivron vert, cuit
+;207;poivron rouge;0.25;;poivron rouge;210;Poivron rouge, appertisé, égoutté
+;207;poivron jaune;0.25;;poivron jaune;247;Poivron jaune, sauté/poêlé
+;207;crème fraîche;0.5;cuillères à soupe;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;207;poivre;;;poivre;1237;Pâté au poivre vert
+;207;sel;;;sel;457;Raisin Chasselas, cru
+;207;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;207;échalotes;0.5;;échalotes;46;Échalote, crue
+;207;ail;0.25;gousse;ail;406;Lentille corail, sèche
+;207;margarine;0.5;cuillères à café;margarine;2776;Huile d'argan ou d'argane
+;208;farine;0.25;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;208;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;208;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;208;vinaigre balsamique;0.5;cuillères à soupe;vinaigre balsamique;2887;Vinaigre balsamique
+;208;vinaigre de cidre;0.5;cuillères à soupe;vinaigre de cidre;2886;Vinaigre de cidre
+;208;persil;;;persil;1163;Jambon persillé en gelée
+;208;poivre;;;poivre;1237;Pâté au poivre vert
+;208;sel;;;sel;457;Raisin Chasselas, cru
+;208;moutarde à l'ancienne;0.5;cuillères à soupe;moutarde à l'ancienne;2883;Moutarde à l'ancienne
+;208;cube de bouillon;0.25;;cube de bouillon;3;Graine germée de luzerne, crue
+;208;crème fraîche;0.75;cuillères à soupe;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;208;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;208;bourguignon;200.0;g;bourguignon;891;Boeuf, à bourguignon ou pot-au-feu, cuit
+;208;eau;0.25;verre;eau;20;Poireau, cru
+;208;champignons de Paris;;;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;209;persil;1.25;brins;persil;1163;Jambon persillé en gelée
+;209;oignon;0.125;;oignon;18;Oignon, cru
+;209;feuilles de laurier;0.25;;feuilles de laurier;3;Graine germée de luzerne, crue
+;209;thym;0.25;branches;thym;2976;Thym, frais
+;209;vin;0.125;bouteille;vin;2290;Vin doux
+;209;farine;0.125;cuillère à soupe;farine;727;Pain bis (à la farine T80 ou T110) 
+;209;crème fraîche;1.875;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;209;huile d'olive;0.125;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;209;poivre;;;poivre;1237;Pâté au poivre vert
+;209;sel;;;sel;457;Raisin Chasselas, cru
+;209;sanglier;0.125;;sanglier;952;Sanglier, viande rôtie/cuite au four
+;210;oignon;0.25;;oignon;18;Oignon, cru
+;210;huile d'olive;1.0;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;210;vinaigre de framboise;0.5;cuillères à soupe;vinaigre de framboise;2882;Vinaigre
+;210;poivre;;;poivre;1237;Pâté au poivre vert
+;210;sel;;;sel;457;Raisin Chasselas, cru
+;210;origan;;;origan;2989;Origan, séché
+;210;persil;;;persil;1163;Jambon persillé en gelée
+;210;cube de bouillon;0.25;;cube de bouillon;3;Graine germée de luzerne, crue
+;210;cuisses de canard;1.5;;cuisses de canard;3;Graine germée de luzerne, crue
+;210;pommes de terre;2.5;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;210;huile de pépin de raisin;0.5;cuillères à soupe;huile de pépin de raisin;2767;Huile de pépins de raisin
+;210;eau;12.5;cl;eau;20;Poireau, cru
+;211;oignon;0.25;;oignon;18;Oignon, cru
+;211;carotte;0.25;;carotte;6;Carotte, crue
+;211;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;211;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;211;poivre;;;poivre;1237;Pâté au poivre vert
+;211;sel;;;sel;457;Raisin Chasselas, cru
+;211;feuille de laurier;0.25;;feuille de laurier;3;Graine germée de luzerne, crue
+;211;tendron de veau;1.0;morceaux;tendron de veau;3;Graine germée de luzerne, crue
+;211;céleri;0.25;branche;céleri;14;Céleri branche, cru
+;211;tomates pelées;0.25;boîte;tomates pelées;205;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+;211;concentré de tomates;0.25;petite boîte;concentré de tomates;3;Graine germée de luzerne, crue
+;211;vin blanc sec;5.0;cl;vin blanc sec;2297;Vin blanc sec
+;212;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;212;poivre;;;poivre;1237;Pâté au poivre vert
+;212;sel;;;sel;457;Raisin Chasselas, cru
+;212;pintade;0.2;;pintade;1126;Pintade, viande crue
+;212;chair à saucisse;20.0;g;chair à saucisse;1205;Chair à saucisse crue
+;212;porc;20.0;g;porc;913;Porc, épaule cuite
+;212;échalotes;0.4;;échalotes;46;Échalote, crue
+;212;ail;0.2;gousse;ail;406;Lentille corail, sèche
+;212;pomme;0.2;;pomme;115;Chou romanesco ou brocoli à pomme, cru
+;212;raisins secs;2.0;;raisins secs;548;Raisin sec
+;212;oeuf;0.2;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;214;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;214;sel;0.3333333333333333;cuillères à café;sel;457;Raisin Chasselas, cru
+;214;poivre;;;poivre;1237;Pâté au poivre vert
+;214;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;214;beurre;;;beurre;81;Haricot beurre, cru
+;214;poulet;0.1666666666666666;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;214;ail;;;ail;406;Lentille corail, sèche
+;214;estragon;;;estragon;2978;Estragon, frais
+;214;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;214;pommes de terre;0.8333333333333334;;pommes de terre;109;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+;213;sel;5.0;g;sel;457;Raisin Chasselas, cru
+;213;poivre blanc;0.8333333333333334;g;poivre blanc;2947;Poivre blanc, poudre
+;213;beurre;5.0;g;beurre;81;Haricot beurre, cru
+;213;carottes;0.3333333333333333;;carottes;92;Petits pois et carottes, surgelés, crus
+;213;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;213;porto;0.8333333333333334;cl;porto;2230;Boisson pour le sport, sucrée
+;213;muscade;0.3333333333333333;g;muscade;2952;Noix de muscade
+;213;sucre;0.6666666666666666;g;sucre;2260;Thé infusé, sans sucres ajoutés
+;213;quatre-épices;0.3333333333333333;g;quatre-épices;2956;Quatre épices, poudre
+;213;pain;33.333333333333336;g;pain;312;Fruit à pain, cru
+;213;porc;125.0;g;porc;913;Porc, épaule cuite
+;213;porc;41.66666666666666;g;porc;913;Porc, épaule cuite
+;213;fécule;6.666666666666667;g;fécule;825;Fécule de pomme de terre
+;213;oeufs;0.8333333333333334;;oeufs;711;Pâtes fraîches, aux oeufs, crues
+;213;échalotes;0.5;;échalotes;46;Échalote, crue
+;213;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;213;lait;0.1666666666666666;l;lait;17;Laitue, crue
+;213;boyau;;;boyau;1018;Boeuf, bavette d'aloyau crue
+;216;crème fraîche;0.25;gros pot;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;216;moutarde;0.25;cuillère à soupe;moutarde;2881;Moutarde
+;216;sel;;;sel;457;Raisin Chasselas, cru
+;216;persil;;;persil;1163;Jambon persillé en gelée
+;216;saucisse;;;saucisse;1200;Saucisse sèche
+;216;pomme de terre;;;pomme de terre;316;Pomme de terre, sans peau, rôtie/cuite au four
+;216;ail;;;ail;406;Lentille corail, sèche
+;217;miel;0.5;cuillère à soupe;miel;2343;Miel
+;217;huile d'olive;0.5;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;217;moutarde à l'ancienne;0.5;cuillère à café;moutarde à l'ancienne;2883;Moutarde à l'ancienne
+;217;poivre;;;poivre;1237;Pâté au poivre vert
+;217;côte de porc;0.5;;côte de porc;3;Graine germée de luzerne, crue
+;217;concentré de tomates;0.5;cuillère à soupe;concentré de tomates;3;Graine germée de luzerne, crue
+;217;sauce soja;0.5;cuillère à soupe;sauce soja;2810;Sauce soja, préemballée
+;217;vin blanc sec;5.0;cl;vin blanc sec;2297;Vin blanc sec
+;217;ail;1.0;gousses;ail;406;Lentille corail, sèche
+;217;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;218;jambon;16.666666666666668;g;jambon;915;Porc, rouelle de jambon cuite
+;218;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;218;pruneaux;1.6666666666666667;;pruneaux;2411;Crème de pruneaux, préemballée
+;218;cognac;;;cognac;2328;Eau de vie de vin type armagnac ou cognac
+;218;persil;;;persil;1163;Jambon persillé en gelée
+;218;poivre;;;poivre;1237;Pâté au poivre vert
+;218;sel;;;sel;457;Raisin Chasselas, cru
+;218;chair à saucisse;33.333333333333336;g;chair à saucisse;1205;Chair à saucisse crue
+;218;foie;33.333333333333336;g;foie;983;Foie, agneau, cuit
+;218;oeuf;0.1666666666666666;;oeuf;711;Pâtes fraîches, aux oeufs, crues
+;218;raisins secs;0.3333333333333333;cuillères à soupe;raisins secs;548;Raisin sec
+;218;pain;0.3333333333333333;tranches;pain;312;Fruit à pain, cru
+;218;poulet;0.1666666666666666;;poulet;925;Poulet, viande et peau rôties/cuites au four
+;220;tomate;0.5;;tomate;56;Tomate verte, crue
+;220;sel;;;sel;457;Raisin Chasselas, cru
+;220;poivre;;;poivre;1237;Pâté au poivre vert
+;220;huile d'olive;0.5;cuillère à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;220;pains pour hamburger;1.0;;pains pour hamburger;106;Légumes pour potages, surgelés, crus
+;220;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;220;oignon rouge;0.5;;oignon rouge;243;Oignon rouge, sauté/poêlé
+;220;cheddar;1.0;tranches;cheddar;1933;Cheddar
+;220;laitue;1.0;feuilles;laitue;17;Laitue, crue
+;220;ketchup;1.0;cuillères à soupe;ketchup;2804;Ketchup, préemballé
+;220;oeufs;1.0;;oeufs;711;Pâtes fraîches, aux oeufs, crues
+;220;chapelure;50.0;g;chapelure;793;Chapelure
+;219;tomates;2.0;;tomates;3031;Caviar de tomates
+;219;huile;1.0;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;219;beurre;10.0;g;beurre;81;Haricot beurre, cru
+;219;cube de bouillon;0.25;;cube de bouillon;3;Graine germée de luzerne, crue
+;219;poivre;;;poivre;1237;Pâté au poivre vert
+;219;sel;;;sel;457;Raisin Chasselas, cru
+;219;thym;;;thym;2976;Thym, frais
+;219;cuisses de lapin;1.0;;cuisses de lapin;3;Graine germée de luzerne, crue
+;219;champignon;75.0;g;champignon;7;Champignon, tout type, cru
+;219;eau;10.0;cl;eau;20;Poireau, cru
+;221;beurre;12.5;g;beurre;81;Haricot beurre, cru
+;221;moutarde;0.5;cuillères à soupe;moutarde;2881;Moutarde
+;221;poivre;;;poivre;1237;Pâté au poivre vert
+;221;sel;;;sel;457;Raisin Chasselas, cru
+;221;côtes de porc;1.0;;côtes de porc;3;Graine germée de luzerne, crue
+;221;crème;0.6666666666666666;cuillères à soupe;crème;361;Patate douce, purée, cuisinée à la crème
+;221;eau;0.0833333333333333;verre;eau;20;Poireau, cru
+;222;carotte;133.33333333333334;g;carotte;6;Carotte, crue
+;222;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;222;curry;;;curry;2837;Sauce au curry, froide, préemballée
+;222;sel;;;sel;457;Raisin Chasselas, cru
+;222;huile;;;huile;275;Tomate, séchée, à l'huile
+;222;lentilles vertes;41.66666666666666;g;lentilles vertes;120;Chou chinois pak choï ou pak choy (feuilles vertes ressemblant à des blettes), cru
+;222;brique;0.1666666666666666;;brique;2602;Barre céréalière diététique hypocalorique
+;223;oignon;0.25;;oignon;18;Oignon, cru
+;223;curry;0.25;cuillère à soupe;curry;2837;Sauce au curry, froide, préemballée
+;223;huile;0.25;cuillère à soupe;huile;275;Tomate, séchée, à l'huile
+;223;chou-fleur;0.25;;chou-fleur;10;Chou-fleur, cru
+;223;escalopes de dinde;1.0;;escalopes de dinde;3;Graine germée de luzerne, crue
+;223;lait de coco;50.0;ml;lait de coco;2924;Lait de coco
+;223;coulis de tomate;62.5;ml;coulis de tomate;3;Graine germée de luzerne, crue
+;224;miel;0.5;cuillères à soupe;miel;2343;Miel
+;224;piment de Cayenne;0.25;pincée;piment de cayenne;2965;Poivre de Cayenne ou piment de Cayenne, poudre
+;224;sel;;;sel;457;Raisin Chasselas, cru
+;224;poivre;;;poivre;1237;Pâté au poivre vert
+;224;ailes de poulet;3.0;;ailes de poulet;3;Graine germée de luzerne, crue
+;224;jus de citron;0.75;cuillères à soupe;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;224;ail;0.5;;ail;406;Lentille corail, sèche
+;226;huile d'olive;0.3333333333333333;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;226;persil;0.0833333333333333;bouquet;persil;1163;Jambon persillé en gelée
+;226;poivre;;;poivre;1237;Pâté au poivre vert
+;226;sel;;;sel;457;Raisin Chasselas, cru
+;226;cailles;1.0;;cailles;968;Caille, viande et peau cuites
+;226;échalotes;0.3333333333333333;;échalotes;46;Échalote, crue
+;226;vin blanc sec;1.6666666666666667;cl;vin blanc sec;2297;Vin blanc sec
+;226;bouillon de volaille;3.333333333333333;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;226;raisins secs;25.0;g;raisins secs;548;Raisin sec
+;226;graines de coriandre;;;graines de coriandre;3;Graine germée de luzerne, crue
+;225;tomate;162.5;g;tomate;56;Tomate verte, crue
+;225;poivron vert;112.5;g;poivron vert;173;Poivron vert, cuit
+;225;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;225;huile d'olive;0.5;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;225;escalope de poulet;150.0;g;escalope de poulet;3;Graine germée de luzerne, crue
+;225;ail;0.5;gousses;ail;406;Lentille corail, sèche
+;225;vin blanc;3.125;cl;vin blanc;2297;Vin blanc sec
+;225;bouquet garni;0.25;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;225;sel et poivre;;;sel et poivre;11;Concombre, chair et peau, cru
+;227;cube de bouillon;0.1666666666666666;;cube de bouillon;3;Graine germée de luzerne, crue
+;227;curry;0.25;cuillère à soupe;curry;2837;Sauce au curry, froide, préemballée
+;227;curcuma;0.1666666666666666;cuillère à café;curcuma;2966;Curcuma, poudre
+;227;sel;;;sel;457;Raisin Chasselas, cru
+;227;cuisses de poulet;1.0;;cuisses de poulet;3;Graine germée de luzerne, crue
+;227;concentré de tomates;0.1666666666666666;petite boîte;concentré de tomates;3;Graine germée de luzerne, crue
+;227;eau;8.333333333333334;cl;eau;20;Poireau, cru
+;227;jus de citron;0.25;cuillère à soupe;jus de citron;567;Jus de citron punch (variété petit calibre), pur jus, prélevé à la Martinique
+;227;basilic;0.3333333333333333;cuillères à soupe;basilic;2973;Basilic, frais
+;228;oignons;0.75;;oignons;2843;Sauce tomate aux oignons, préemballée
+;228;crème fraîche;0.25;pot;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;228;beurre;15.0;g;beurre;81;Haricot beurre, cru
+;228;sel;;;sel;457;Raisin Chasselas, cru
+;228;filet mignon;0.25;;filet mignon;918;Porc, filet mignon cuit
+;228;champignon;75.0;g;champignon;7;Champignon, tout type, cru
+;228;tomates confites à l’huile;0.25;bocal;tomates confites à l’huile;120;Chou chinois pak choï ou pak choy (feuilles vertes ressemblant à des blettes), cru
+;228;cidre;0.125;bouteille;cidre;2302;Cidre (aliment moyen)
+;230;oignons;0.3333333333333333;;oignons;2843;Sauce tomate aux oignons, préemballée
+;230;crème fraîche;0.1666666666666666;pot;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;230;beurre;13.333333333333334;g;beurre;81;Haricot beurre, cru
+;230;huile;;;huile;275;Tomate, séchée, à l'huile
+;230;poivre;;;poivre;1237;Pâté au poivre vert
+;230;sel;;;sel;457;Raisin Chasselas, cru
+;230;escalopes;1.0;;escalopes;1082;Dinde, escalope crue
+;230;riesling;5.0;cl;riesling;2343;Miel
+;230;champignons de Paris;50.0;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;230;bouillon de volaille;3.333333333333333;cl;bouillon de volaille;2917;Bouillon de volaille, déshydraté
+;230;jaune d'oeuf;0.1666666666666666;;jaune d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;230;échalotes;0.3333333333333333;;échalotes;46;Échalote, crue
+;231;beurre;10.0;g;beurre;81;Haricot beurre, cru
+;231;feuille de laurier;0.25;;feuille de laurier;3;Graine germée de luzerne, crue
+;231;thym;0.25;;thym;2976;Thym, frais
+;231;poivre;;;poivre;1237;Pâté au poivre vert
+;231;sel;;;sel;457;Raisin Chasselas, cru
+;231;moutarde;0.25;cuillère à soupe;moutarde;2881;Moutarde
+;231;beurre;0.25;cuillère à soupe;beurre;81;Haricot beurre, cru
+;231;andouillette;1.0;;andouillette;1290;Andouillette, à cuire
+;231;échalotes;1.0;;échalotes;46;Échalote, crue
+;231;vin blanc sec;12.5;cl;vin blanc sec;2297;Vin blanc sec
+;229;carottes;0.5;;carottes;92;Petits pois et carottes, surgelés, crus
+;229;poireau;0.1666666666666666;;poireau;20;Poireau, cru
+;229;beurre;8.333333333333334;g;beurre;81;Haricot beurre, cru
+;229;farine;8.333333333333334;g;farine;727;Pain bis (à la farine T80 ou T110) 
+;229;oignon;0.1666666666666666;;oignon;18;Oignon, cru
+;229;poivre;;;poivre;1237;Pâté au poivre vert
+;229;sel;;;sel;457;Raisin Chasselas, cru
+;229;épaule de veau;0.1666666666666666;kg;épaule de veau;3;Graine germée de luzerne, crue
+;229;queue;0.1666666666666666;;queue;899;Boeuf, queue bouillie/cuite à l'eau
+;229;jaunes d'oeuf;0.5;;jaunes d'oeuf;1636;Oeuf, jaune (jaune d'oeuf), cuit
+;229;crème épaisse;1.6666666666666667;cl;crème épaisse;361;Patate douce, purée, cuisinée à la crème
+;229;bouquet garni;0.1666666666666666;;bouquet garni;1516;Crevette bouquet, sauvage, cuite
+;232;poivre;;;poivre;1237;Pâté au poivre vert
+;232;gros sel;;;gros sel;327;Purée de pomme de terre, avec lait et beurre, sans sel ajouté
+;232;cuisses de canard;1.0;;cuisses de canard;3;Graine germée de luzerne, crue
+;232;canard;;;canard;969;Canard, viande et peau rôties/cuites au four
+;233;huile;0.5;cuillères à soupe;huile;275;Tomate, séchée, à l'huile
+;233;gingembre;0.5;cuillères à soupe;gingembre;2316;Gin
+;233;oignons;0.5;;oignons;2843;Sauce tomate aux oignons, préemballée
+;233;carotte;62.5;g;carotte;6;Carotte, crue
+;233;maïzena;0.5;cuillères à café;maïzena;820;Chips de maïs ou tortilla chips, nature
+;233;blancs de poulet;1.0;;blancs de poulet;3;Graine germée de luzerne, crue
+;233;brocoli;62.5;g;brocoli;29;Brocoli, cru
+;233;champignons de Paris;62.5;g;champignons de paris;28;Champignon de Paris ou champignon de couche, cru
+;233;bouillon de poule;0.25;verre;bouillon de poule;3;Graine germée de luzerne, crue
+;233;Xérès;0.5;cuillères à soupe;xérès;750;Pain aux céréales et/ou graines
+;233;sauce soja;0.5;cuillères à café;sauce soja;2810;Sauce soja, préemballée
+;233;eau;0.5;cuillères à soupe;eau;20;Poireau, cru
+;233;chou chinois;0.25;bol;chou chinois;73;Chou chinois pé-tsaï, cru
+;234;Liqueur;0.1666666666666666;verre;liqueur;2317;Liqueur
+;234;thym;0.1666666666666666;pincée;thym;2976;Thym, frais
+;234;poivre;;;poivre;1237;Pâté au poivre vert
+;234;sel;;;sel;457;Raisin Chasselas, cru
+;234;farine;;;farine;727;Pain bis (à la farine T80 ou T110) 
+;234;foie;100.0;g;foie;983;Foie, agneau, cuit
+;234;lard;58.333333333333336;g;lard;1300;Lardon nature, cru
+;234;crépine;0.1666666666666666;;crépine;118;Salade sucrine, crue
+;234;échalotes;0.3333333333333333;;échalotes;46;Échalote, crue
+;234;oeufs;0.3333333333333333;;oeufs;711;Pâtes fraîches, aux oeufs, crues
+;234;cinq-épices;0.1666666666666666;cuillère à café;cinq-épices;2631;Pain d'épices, préemballé
+;236;carotte;0.25;;carotte;6;Carotte, crue
+;236;oignon;0.25;;oignon;18;Oignon, cru
+;236;poivre blanc;;;poivre blanc;2947;Poivre blanc, poudre
+;236;thym;;;thym;2976;Thym, frais
+;236;persil;;;persil;1163;Jambon persillé en gelée
+;236;paleron;0.375;kg;paleron;898;Boeuf, paleron, braisé ou bouilli/cuit à l'eau
+;236;poitrine de porc;100.0;;poitrine de porc;1301;Poitrine de porc en salaison, fumée, crue
+;236;pied de veau;0.25;;pied de veau;3;Graine germée de luzerne, crue
+;236;céleri;0.25;branche;céleri;14;Céleri branche, cru
+;236;girofle;0.75;;girofle;2954;Clou de girofle
+;236;laurier;;;laurier;2955;Laurier, feuille
+;236;herbes de Provence;;;herbes de provence;2994;Herbes de Provence, séchées
+;236;bourgogne;0.5;;bourgogne;891;Boeuf, à bourguignon ou pot-au-feu, cuit
+;235;courgettes;1.5;;courgettes;12;Courgette, chair et peau, crue
+;235;oignon;0.25;;oignon;18;Oignon, cru
+;235;curry;;;curry;2837;Sauce au curry, froide, préemballée
+;235;huile d'olive;;;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;235;poivre;;;poivre;1237;Pâté au poivre vert
+;235;sel;;;sel;457;Raisin Chasselas, cru
+;235;escalopes de poulet;1.25;;escalopes de poulet;3;Graine germée de luzerne, crue
+;235;crème fraîche liquide;7.5;cl;crème fraîche liquide;361;Patate douce, purée, cuisinée à la crème
+;237;huile d'olive;0.6666666666666666;cuillères à soupe;huile d'olive;1598;Sardine, à l'huile d'olive, appertisée, égouttée
+;237;crème fraîche;6.666666666666667;cl;crème fraîche;361;Patate douce, purée, cuisinée à la crème
+;237;bouillon;16.666666666666668;cl;bouillon;1365;Raie, cuite au court-bouillon
+;237;carottes;1.0;;carottes;92;Petits pois et carottes, surgelés, crus
+;237;oignons;0.6666666666666666;;oignons;2843;Sauce tomate aux oignons, préemballée
+;237;porto;1.0;cuillères à soupe;porto;2230;Boisson pour le sport, sucrée
+;237;persil;0.3333333333333333;bouquet;persil;1163;Jambon persillé en gelée
+;237;joue de porc;2.0;;joue de porc;3;Graine germée de luzerne, crue
+;237;champignons;2.0;;champignons;1246;Pâté ou terrine aux champignons (forestier)
+;237;ail;0.6666666666666666;gousses;ail;406;Lentille corail, sèche
+;237;bouquet garni;0.3333333333333333;;bouquet garni;1516;Crevette bouquet, sauvage, cuite

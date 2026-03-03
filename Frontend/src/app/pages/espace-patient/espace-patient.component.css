@@ -1,0 +1,80 @@
+/* S'assure que le body et html prennent toute la hauteur et pas de marges */
+html,
+body {
+  height: 100%;
+  width: 100%; /* largeur = largeur de l’écran */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* empêche le scroll horizontal */
+}
+
+.patient {
+  background-image: url("https://cdn.pixabay.com/photo/2024/08/31/08/25/ai-generated-9010875_1280.jpg");
+  background-size: cover; /* couvre tout l’écran, pas de répétition */
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* minimum hauteur = écran */
+  width: 100%; /* largeur = écran */
+  box-sizing: border-box; /* padding inclus dans la largeur */
+  overflow: hidden; /* empêche débordement horizontal/vertical */
+}
+
+h1,
+h3 {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-content {
+  border: 1px solid rgb(232, 230, 230);
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+.nav-link {
+  background-color: rgb(255, 165, 0); /* Couleur par défaut */
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.nav-link.active {
+  background-color: #fff3e0;
+  color: black;
+  border-bottom: none;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.nav-link:hover {
+  background-color: rgb(255, 69, 0);
+}
+
+.full_content {
+  width: 90%;
+  margin: 0 auto; /* centrer horizontalement */
+  padding-left: 5%;
+  box-sizing: border-box;
+}
+
+.main_content {
+  padding: 2%;
+  background-color: #fff3e0;
+  border-radius: 0 0 20px 20px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.exit-btn {
+  transition: all 0.3s ease;
+}
+
+.exit-btn:hover {
+  transform: rotate(90deg);
+}

@@ -1,0 +1,2210 @@
+﻿id,id_recette,ingredient,quantity,unit
+,4,poivron rouge,0.5,
+,4,poivron vert,0.5,
+,4,oignon,0.5,
+,4,coriandre,,
+,4,cumin,0.5,cuillère à soupe
+,4,huile,,
+,4,blancs de poulet,1.0,
+,4,sucre en poudre,0.5,cuillère à soupe
+,4,citron,,
+,4,ail,,
+,4,sauce soja,,
+,4,cannelle,0.5,cuillère à café
+,2,quatre-épices,0.3,pincées
+,2,sel,1.5,g
+,2,poivre,0.1,pincée
+,2,foie,0.2,
+,2,paprika,0.2,pincées
+,2,Sauternes,0.05,verre
+,3,carottes,0.25,
+,3,oignons,0.25,
+,3,romarin,0.125,brin
+,3,huile d'olive,0.125,cuillère à soupe
+,3,beurre,3.75,g
+,3,farine,,
+,3,gros sel,,
+,3,épaule,0.1875,kg
+,3,bourgogne,0.125,bouteille
+,3,champignon,0.125,petite boîte
+,3,sauge,0.75,feuilles
+,3,bouquet garni,0.125,
+,3,marc,0.125,cuillère à soupe
+,1,carottes,0.5,
+,1,oignon jaune,0.25,
+,1,bouillon de légumes,0.25,cube
+,1,crème fraîche,0.25,petit pot
+,1,farine,0.5,cuillères à soupe
+,1,beurre doux,2.5,g
+,1,blanquette de veau,0.25,kg
+,1,champignon,0.25,petite boîte
+,1,bouillon de poule,0.25,cube
+,1,vin blanc,6.25,cl
+,1,jaunes d'oeuf,0.5,
+,1,jus de citron,0.25,cuillère à café
+,1,sel et poivre,,
+,5,vin rouge,0.25,bouteille
+,5,sucre,25.0,g
+,5,maïzena,0.25,cuillère à café
+,5,miel,,
+,5,poivre,,
+,5,sel,,
+,5,clous de girofle,0.5,
+,5,Magrets de Canard,0.5,
+,5,poires,0.5,
+,5,sirop de cassis,2.5,cl
+,5,lait,2.5,cl
+,5,cannelle,,
+,6,oignons,0.2,
+,6,huile,,
+,6,chevreuil,0.1,
+,6,concentré de tomates,0.1,boîte
+,6,vin blanc sec,6.0,cl
+,6,madère,,
+,7,carottes,0.5,
+,7,oignon jaune,0.25,
+,7,crème fraîche,0.25,petit pot
+,7,farine,,
+,7,sel,,
+,7,poivre,,
+,7,bouillon de légumes,0.25,
+,7,blanquette de veau,0.25,kg
+,7,bouillon de poule,0.25,
+,7,champignon,0.25,petite boîte
+,7,citron,,
+,7,jaune d'oeuf,0.25,
+,7,vin blanc,6.25,cl
+,8,oignons,0.25,
+,8,tomates cerise,0.125,poignée
+,8,feuille de laurier,,
+,8,sel,0.125,petite poignée
+,8,poivre,,
+,8,poulet,0.125,
+,8,ail,0.375,gousses
+,8,jus de citron,0.125,cl
+,8,bouillon de volaille,0.125,
+,9,huile d'olive,1.0,cuillères à soupe
+,9,poivre,0.5,
+,9,sel,0.5,
+,9,thym,0.5,
+,9,rôti de boeuf,200.0,g
+,9,ail,0.5,gousse
+,9,eau,6.0,cl
+,10,bouillon de légumes,0.25,
+,10,crème fraîche,10.0,cl
+,10,moutarde,,
+,10,huile d'olive,,
+,10,beurre,,
+,10,filet mignon,0.25,
+,10,vin blanc sec,6.25,cl
+,10,champignon,125.0,g
+,12,lardons,16.666666666666668,g
+,12,beurre,8.333333333333334,g
+,12,vin rouge,0.1111111166666666,l
+,12,oignons,0.3333333333333333,
+,12,farine,0.3333333333333333,cuillères à soupe
+,12,sel,,
+,12,poivre,,
+,12,boeuf,133.33333333333334,g
+,12,ail,0.1666666666666666,gousse
+,12,bouquet garni,0.1666666666666666,
+,12,champignons de Paris,41.66666666666666,g
+,11,beurre,6.25,g
+,11,poivre,,
+,11,sel,,
+,11,huile d'olive,0.25,filet
+,11,rôti de porc,0.25,
+,11,ail,0.25,gousse
+,11,eau,1.25,cl
+,13,oignon,0.25,
+,13,thym,0.25,cuillère à café
+,13,feuilles de laurier,0.5,
+,13,clou de girofle,0.25,
+,13,huile d'olive,0.25,cuillère à soupe
+,13,cuisses de poulet,1.0,
+,13,eau,12.5,cl
+,13,ail,0.25,gousse
+,13,bouillon de volaille,0.25,
+,13,genièvre,0.75,
+,14,huile de tournesol,,
+,14,sel,,
+,14,poivre,,
+,14,rôti de veau,0.1666666666666666,
+,14,ail,0.6666666666666666,gousses
+,14,champignons de Paris,0.1666666666666666,boîte
+,15,huile d'olive,0.5,cuillère à soupe
+,15,fond de veau,1.0,cuillères à soupe
+,15,moutarde de Dijon,0.5,cuillère à soupe
+,15,vinaigre balsamique,0.5,cuillère à soupe
+,15,paupiettes de veau,2.0,
+,15,ail,0.5,gousse
+,15,vin blanc,6.25,cl
+,15,eau,6.25,cl
+,16,oignons,0.5,
+,16,carottes,0.75,
+,16,beurre,7.5,g
+,16,huile d'olive,0.5,cuillères à soupe
+,16,crème fraîche épaisse,5.0,cl
+,16,moutarde,0.5,cuillères à soupe
+,16,farine,0.5,cuillères à soupe
+,16,sauté de porc,0.25,kg
+,16,vin blanc,6.25,cl
+,16,eau,6.25,cl
+,17,romarin,0.3333333333333333,branches
+,17,gros sel,0.1666666666666666,cuillère à soupe
+,17,gigot d'agneau,0.1666666666666666,
+,17,ail,0.3333333333333333,gousses
+,17,graisse d'oie,,
+,17,ail,,
+,18,côte de boeuf,0.1666666666666666,
+,18,huile,,
+,18,fleur de sel,,
+,18,poivre,,
+,18,thym,0.8333333333333334,brins
+,19,beurre,12.5,g
+,19,sel,,
+,19,poivre,,
+,19,poulet,0.25,
+,19,herbes de Provence,,
+,19,pommes de terre,5.0,
+,20,huile,2.5,cl
+,20,tomates concassées,0.25,boîte de 400 g
+,20,carotte,50.0,g
+,20,oignon,25.0,g
+,20,farine,,
+,20,poivre,,
+,20,sel,,
+,20,jarret de veau,1.0,tranches
+,20,ail,0.75,gousses
+,20,vin blanc sec,5.0,cl
+,20,bouquet garni,0.25,
+,21,gros sel,0.25,pincée
+,21,Magrets de Canard,0.75,
+,21,poivre en grains,,
+,22,gingembre,0.25,cuillère à café
+,22,curry,,
+,22,oignons jaunes,0.5,
+,22,escalopes de poulet,1.0,
+,22,lait de coco,,
+,22,champignons de Paris,,
+,23,moutarde à l'ancienne,0.1666666666666666,pot
+,23,beurre,8.333333333333334,g
+,23,huile d'olive,0.6666666666666666,cuillères
+,23,thym,0.3333333333333333,branches
+,23,sel,,
+,23,poivre,,
+,23,filets mignons,0.3333333333333333,
+,23,pomme de terre,0.3333333333333333,kg
+,23,laurier,0.3333333333333333,branches
+,25,vinaigre d'alcool,3.333333333333333,cl
+,25,oignon,0.1666666666666666,
+,25,bouillons,0.3333333333333333,
+,25,thym,0.1666666666666666,branche
+,25,feuilles de laurier,0.8333333333333334,
+,25,sel,,
+,25,poivre,,
+,25,beurre,8.333333333333334,g
+,25,oignon,0.1666666666666666,
+,25,farine,0.5,cuillères à soupe
+,25,langue,0.1666666666666666,
+,25,cornichons,16.666666666666668,g
+,25,patrelle,0.1666666666666666,cuillère à café
+,24,oignon,0.25,
+,24,huile d'olive,0.25,cuillère à soupe
+,24,curry,0.25,cuillère à café
+,24,crème fraîche épaisse,2.5,cl
+,24,sel,,
+,24,poivre,,
+,24,filets de poulet,1.0,
+,24,ail,,
+,24,sauce soja,1.0,cuillères à soupe
+,24,ciboulette,1.0,brins
+,26,tomate,0.1666666666666666,kg
+,26,poivron,116.66666666666669,g
+,26,oignons,0.5,
+,26,huile d'olive,1.0,cuillères à soupe
+,26,sel,,
+,26,poivre,,
+,26,poulet,0.1666666666666666,
+,26,ail,0.5,gousses
+,26,vin blanc,3.333333333333333,cl
+,26,bouquet garni,0.1666666666666666,
+,27,harissa,,
+,27,huile d'olive,1.25,cl
+,27,fleur de sel,,
+,27,poivre,,
+,27,thym,,
+,27,romarin,,
+,27,épaule d'agneau,0.375,kg
+,27,échalotes,3.0,
+,27,ail,2.0,gousses
+,28,huile d'olive,,
+,28,fond de veau,,
+,28,porc,0.25,
+,28,pomme de terre,0.25,kg
+,30,lardons,0.25,poignée
+,30,oignons,0.5,
+,30,carottes,0.5,
+,30,clous de girofle,0.5,
+,30,bouillon,0.25,
+,30,maïzena,0.5,cuillères à soupe
+,30,huile d'olive,0.5,cuillères à soupe
+,30,vin rouge,12.5,cl
+,30,joue,0.375,
+,30,champignons de Paris,50.0,g
+,30,bouquet garni,0.25,
+,30,ail,0.25,gousse
+,29,oignon,0.125,
+,29,saucisses de Morteau,0.25,
+,29,saucisses de Montbéliard,0.375,
+,29,huile d'olive,0.25,cuillères à soupe
+,29,poivre,,
+,29,sel,,
+,29,chou,0.125,
+,29,pommes de terre,1.0,
+,29,rôti de porc,0.125,
+,29,lardons fumés,0.125,barquette
+,29,bouquets garnis,0.25,
+,29,crème,2.5,cl
+,31,beurre,,
+,31,huile,,
+,31,oignons,0.5,
+,31,lardons,62.5,g
+,31,miel,0.25,cuillère à soupe
+,31,bière,8.25,cl
+,31,poivre,,
+,31,sel,,
+,31,joue de porc,0.25,kg
+,32,thym,1.5,branches
+,32,huile d'olive,2.5,cuillères à soupe
+,32,miel,1.0,cuillères à soupe
+,32,poivre,,
+,32,sel,,
+,32,souris d'agneau,1.0,
+,32,ail,0.25,
+,34,beurre,4.166666666666667,g
+,34,feuilles de laurier,0.5,
+,34,thym,,
+,34,sel,,
+,34,poivre,,
+,34,rôti de porc,0.1666666666666666,
+,34,échalotes,0.5,
+,34,ail,0.8333333333333334,gousses
+,34,vin blanc,4.166666666666667,cl
+,34,eau,8.333333333333334,cl
+,33,lentilles corail,50.0,g
+,33,tomate,0.25,
+,33,oignon,0.25,
+,33,huile,,
+,33,piment,0.25,
+,33,curry,,
+,33,poivre,,
+,33,sel,,
+,33,coriandre,,
+,33,ail,0.5,gousses
+,33,"Riz, céréales",,
+,35,beurre,10.0,g
+,35,boudin noir,125.0,g
+,35,pommes,1.5,
+,35,citron,0.5,
+,37,moutarde de Dijon,0.5,cuillère à café
+,37,oignon,0.5,cuillère à soupe
+,37,tabasco,1.5,gouttes
+,37,poivre,1.0,tours de moulin
+,37,sel,1.0,pincées
+,37,huile d'olive,1.0,cuillères à soupe
+,37,persil,0.5,cuillère à café
+,37,boeuf,125.0,g
+,37,jaune d'oeuf,0.5,
+,37,câpres,0.5,cuillère à soupe
+,37,sauce worcestershire,0.5,cuillère à café
+,37,ketchup,0.5,cuillère à soupe
+,36,vinaigre,0.25,cuillère à soupe
+,36,coriandre,0.25,cuillère à café
+,36,échalote,0.25,
+,36,ail,1.0,gousses
+,36,épices à colombo,0.25,cuillère à soupe
+,36,oignon,0.25,
+,36,aubergine,0.25,
+,36,courgette,0.25,
+,36,thym,0.75,cuillères à soupe
+,36,persil,0.5,cuillères à soupe
+,36,piment de Cayenne,0.25,cuillère à soupe
+,36,poivre,,
+,36,sel,,
+,36,cuisses de poulet,1.0,
+,36,ail,0.25,gousse
+,36,pommes de terre,0.75,
+,36,épices à colombo,0.5,cuillères à soupe
+,36,jus de citron,,
+,36,lait de coco,3.75,cl
+,38,moutarde de Dijon,0.1666666666666666,cuillère à soupe
+,38,miel,0.3333333333333333,cuillères à soupe
+,38,poivre,,
+,38,sel,,
+,38,oignons,0.3333333333333333,
+,38,rôti de porc,0.1666666666666666,
+,38,ail,0.1666666666666666,gousse
+,38,bouillon de volaille,4.166666666666667,cl
+,39,saucisses de Montbéliard,0.6666666666666666,
+,39,carottes,0.3333333333333333,
+,39,oignons,0.3333333333333333,
+,39,clou de girofle,,
+,39,poivre,,
+,39,sel,,
+,39,petit salé,0.1666666666666666,kg
+,39,lentilles vertes,100.0,g
+,39,bouquet garni,0.1666666666666666,
+,40,beurre tendre,6.666666666666667,g
+,40,poivre,,
+,40,sel,,
+,40,Rosbif,0.1666666666666666,
+,40,ail,0.1666666666666666,gousse
+,41,oignons jaunes,0.5,
+,41,curry,,
+,41,cumin,,
+,41,piment,,
+,41,poivre,,
+,41,sel,,
+,41,blancs de poulet,1.0,
+,41,crème fraîche allégée,0.25,pot
+,42,lardons,37.5,g
+,42,huile d'olive,,
+,42,thym,,
+,42,oignon,0.25,
+,42,chou,0.25,
+,42,chipolata,1.0,
+,42,lard,,
+,42,échalote,0.25,
+,44,cubes de bouillon,0.5,
+,44,gingembre,0.25,cuillère à soupe
+,44,sucre,7.5,morceaux
+,44,oignon jaune,0.25,
+,44,filet mignon,0.25,
+,44,eau,12.5,cl
+,44,mélange 4 épices,0.25,cuillère à soupe
+,44,sauce soja,0.75,cuillères à soupe
+,44,eau,1.25,cl
+,45,pois chiches,50.0,g
+,45,oignon,0.25,
+,45,persil,0.25,bouquet
+,45,farine,0.75,cuillères à soupe
+,45,cumin en poudre,0.25,cuillère à café
+,45,coriandre,0.25,cuillère à café
+,45,sel,,
+,45,huile de friture,,
+,45,fèves,125.0,g
+,45,ail,0.5,gousses
+,45,paprika,0.25,cuillère à café
+,45,basilic frais,0.75,cuillères à soupe
+,46,oignons,0.3333333333333333,
+,46,huile d'olive,,
+,46,fond de veau,,
+,46,crème fraîche épaisse,,
+,46,poivre,,
+,46,sel,,
+,46,ris de veau,0.1666666666666666,kg
+,46,bouillon de volaille,0.1666666666666666,
+,46,champignon,50.0,g
+,47,beurre,6.666666666666667,g
+,47,oignon,0.1666666666666666,
+,47,poivre,,
+,47,sel,,
+,47,fond de veau,1.0,cuillères à café
+,47,rôti de veau,0.1666666666666666,
+,47,vin blanc,0.1666666666666666,verre
+,47,herbes de Provence,0.1666666666666666,cuillère à soupe
+,47,basilic,0.1666666666666666,cuillère à soupe
+,47,champignons de Paris,83.33333333333333,g
+,48,oignons,0.3333333333333333,
+,48,carotte,0.3333333333333333,kg
+,48,poivre,,
+,48,sel,,
+,48,ail semoule,0.1666666666666666,cuillère à café
+,48,beurre,4.166666666666667,g
+,48,cubes de bouillon,0.3333333333333333,
+,48,joue,100.0,g
+,48,paleron,100.0,g
+,48,concentré de tomates,0.5,cuillères à café
+,48,vin blanc,6.666666666666667,cl
+,49,saucisse de Morteau,0.25,
+,49,romarin,,
+,49,poivre,,
+,49,huile d'olive,0.5,cuillères
+,49,pomme de terre,0.25,kg
+,49,crème liquide,0.25,pot
+,50,oignon,0.1666666666666666,
+,50,crème fraîche épaisse,0.1666666666666666,pot
+,50,farine,0.1666666666666666,cuillère à soupe
+,50,persil,,
+,50,cuisses de poulet,0.5,
+,50,ail,0.1666666666666666,gousse
+,50,champignon,0.1666666666666666,boîte
+,50,fond,0.3333333333333333,cuillères à soupe
+,51,moutarde,1.3333333333333333,cuillères à soupe
+,51,sel,,
+,51,cuisse de dinde,0.3333333333333333,
+,51,herbes de Provence,,
+,51,ail,0.6666666666666666,gousses
+,51,miel,0.6666666666666666,cuillères à soupe
+,51,huile d'olive,0.3333333333333333,cuillère à soupe
+,51,poivre,,
+,51,sauce soja,0.6666666666666666,cuillères à soupe
+,52,beurre,12.5,g
+,52,farine,12.5,g
+,52,bouillon,0.125,l
+,52,crème fraîche,2.5,cl
+,52,poivre,,
+,52,sel,,
+,52,riz,,
+,52,blancs de poulet,0.5,
+,52,champignon,25.0,g
+,52,bouchées feuilletées,1.0,
+,52,jus de citron,0.125,
+,54,oignons,1.0,
+,54,carottes,1.0,
+,54,vin rouge,0.25,bouteille
+,54,beurre,25.0,g
+,54,sel,,
+,54,poivre,,
+,54,bourguignon,150.0,g
+,54,bouquet garni,0.25,
+,53,poivre,,
+,53,sel,,
+,53,moutarde,,
+,53,thym,,
+,53,oignon,,
+,53,huile,,
+,53,côte de porc,1.0,
+,55,carottes,0.6666666666666666,
+,55,oignon,0.1666666666666666,
+,55,moutarde,0.1666666666666666,cuillère à soupe
+,55,vinaigre,0.5,cuillères à soupe
+,55,huile,0.1666666666666666,cuillère à soupe
+,55,poivre,,
+,55,sel,,
+,55,tête de veau,0.1666666666666666,
+,55,navets,0.6666666666666666,
+,55,bouquet garni,0.1666666666666666,
+,55,oeuf,0.1666666666666666,
+,55,cerfeuil,0.3333333333333333,cuillères à café
+,55,radis,1.0,
+,56,huile d'olive,,
+,56,tomates,1.5,
+,56,vinaigre balsamique,,
+,56,beurre,,
+,56,farine,,
+,56,poivre,,
+,56,sel,,
+,56,escalopes de veau,1.0,
+,56,chapelure,,
+,56,parmesan râpé,,
+,56,oeuf,0.5,
+,56,citron,0.5,
+,56,roquette,,
+,56,basilic,,
+,57,vin rouge,0.125,bouteille
+,57,lardons,31.25,g
+,57,oignon,0.125,
+,57,carottes,0.25,
+,57,poivre,0.125,cuillère à soupe
+,57,fond de veau,6.25,cl
+,57,cognac,0.625,cl
+,57,huile,0.375,cuillères à soupe
+,57,farine,0.125,cuillère à soupe
+,57,poivre,,
+,57,sel,,
+,57,coq,0.125,
+,57,champignons de Paris,31.25,g
+,57,ail,0.25,gousses
+,57,bouquet garni,0.125,
+,58,oignons,0.4,
+,58,thym,0.8,branches
+,58,feuilles de laurier,0.8,
+,58,huile,0.4,cuillères à soupe
+,58,beurre,0.2,cuillère à soupe
+,58,poulet,0.2,
+,58,ail,0.6,gousses
+,58,bouillon de volaille,5.0,cl
+,58,eau,0.2,verre
+,59,oignon,0.1666666666666666,
+,59,crème fraîche,3.333333333333333,cl
+,59,beurre,3.333333333333333,g
+,59,huile d'olive,,
+,59,sel,,
+,59,poivre,,
+,59,persil,,
+,59,paupiettes,1.0,
+,59,champignons de Paris,50.0,g
+,60,poivre,,
+,60,sel,,
+,60,miel,0.5,cuillères à soupe
+,60,vinaigre balsamique,0.5,cuillères à soupe
+,60,huile,0.5,cuillères à soupe
+,60,blancs de poulet,1.0,
+,60,jus de citron,0.5,cuillères à soupe
+,60,sauce soja,0.25,cuillère
+,60,ail,0.5,gousses
+,61,carotte,133.33333333333334,g
+,61,poireaux,0.6666666666666666,
+,61,oignon,0.1666666666666666,
+,61,poivre,,
+,61,sel,,
+,61,thym,0.1666666666666666,cuillère à soupe
+,61,poule,0.1666666666666666,
+,61,navet,50.0,g
+,62,lardons,25.0,g
+,62,beurre,6.25,g
+,62,vin rouge,9.375,cl
+,62,oignons,0.25,
+,62,farine,0.5,cuillères à soupe
+,62,poivre,,
+,62,sel,,
+,62,carottes,0.5,
+,62,sanglier,100.0,g
+,62,ail,0.375,
+,62,bouquet garni,0.125,
+,62,champignons de Paris,31.25,g
+,63,beurre,10.0,g
+,63,oignon,0.5,
+,63,huile,0.5,cuillère à café
+,63,sel,0.5,pincée
+,63,steak,250.0,g
+,64,oignons,0.3333333333333333,
+,64,persil,,
+,64,poivre,,
+,64,sel,,
+,64,cumin,,
+,64,huile d'olive,,
+,64,viande hachée,0.1666666666666666,kg
+,64,tomates pelées,0.3333333333333333,
+,64,paprika,,
+,64,oeuf,,
+,65,tomate,1.0,
+,65,oignon jaune,1.0,
+,65,emmental,10.0,g
+,65,viande hachée,100.0,g
+,65,cornichons,1.0,
+,65,salade,2.0,feuilles
+,65,mayonnaise,1.0,cuillère à soupe
+,65,ketchup,1.0,cuillère à soupe
+,65,pain pour hamburger,1.0,
+,66,beurre,12.5,g
+,66,carottes,0.3333333333333333,
+,66,farine,0.1666666666666666,cuillère à soupe
+,66,poivre,,
+,66,sel,,
+,66,veau,0.1999999999999999,kg
+,66,échalotes,0.6666666666666666,
+,66,concentré de tomates,8.333333333333334,g
+,66,vin blanc sec,5.0,cl
+,66,eau,5.0,cl
+,66,ail,0.3333333333333333,gousses
+,66,champignon,20.83333333333333,g
+,66,bouquet garni,0.1666666666666666,
+,68,farine,5.0,g
+,68,fond de veau,0.5,cuillères à café
+,68,veau,200.0,g
+,68,vin blanc,5.0,cl
+,68,matière grasse,5.0,g
+,68,champignons de Paris,0.25,petite boîte
+,67,lardons,16.666666666666668,g
+,67,oignons,0.3333333333333333,
+,67,vin rouge,4.166666666666667,cl
+,67,farine,0.1666666666666666,cuillère à soupe
+,67,beurre,8.333333333333334,g
+,67,boeuf,133.33333333333334,g
+,67,ail,0.1666666666666666,gousse
+,67,champignons de Paris,41.66666666666666,g
+,67,bouquet garni,0.1666666666666666,
+,67,sel et poivre,,
+,69,moutarde,0.25,bonne cuillère à soupe
+,69,andouillette,1.0,
+,69,crème,5.0,cl
+,69,échalote,0.25,
+,70,carottes,2.0,
+,70,oignons,3.0,
+,70,bouillon,0.125,l
+,70,gros sel,0.75,cuillères à café
+,70,farine,0.25,cuillère à soupe
+,70,huile d'olive,0.75,cuillères à soupe
+,70,persil,0.25,bouquet
+,70,épaule d'agneau,0.25,kg
+,70,navets,2.0,
+,70,pommes de terre,2.5,
+,70,ail,2.0,gousses
+,70,double concentré de tomates,18.75,g
+,70,bouquet garni,0.25,
+,70,épices à couscous,,
+,71,lardons,37.5,g
+,71,poivron rouge,0.25,
+,71,oignons,0.5,
+,71,cumin,0.25,cuillère à café
+,71,piment,0.25,cuillère à café
+,71,sel,,
+,71,poivre,,
+,71,blanc de poulet,125.0,g
+,71,riz blanc,50.0,g
+,71,eau,75.0,ml
+,71,chorizo,0.25,
+,71,paprika,0.25,cuillère à café
+,71,bouillon de volaille,0.25,cube
+,72,huile d'olive,,
+,72,gros sel,,
+,72,poivre,,
+,72,côte de boeuf,0.2,
+,72,herbes de Provence,,
+,73,sel,,
+,73,poivre,,
+,73,huile,,
+,73,blancs d'oeuf,1.0,
+,73,escalopes de poulet,1.0,
+,73,chapelure,,
+,74,oignon,0.25,
+,74,sel,0.25,pincée
+,74,poivre,0.25,pincée
+,74,huile d'olive,0.5,cuillères à soupe
+,74,aiguillette de poulet,125.0,g
+,74,crème,5.0,cl
+,74,citron,0.25,
+,75,farine,0.5,cuillères à soupe
+,75,moutarde,0.25,cuillère à soupe
+,75,bouillon de boeuf,2.5,cl
+,75,persil,0.25,cuillère à soupe
+,75,poivre,,
+,75,sel,,
+,75,beurre,15.0,g
+,75,rognons,0.25,
+,75,champignon,37.5,g
+,75,madère,1.25,cuillères à soupe
+,76,oignon,0.125,
+,76,carotte,0.125,
+,76,feuilles de laurier,0.25,
+,76,thym,0.125,bouquet
+,76,poivre,,
+,76,orange,0.125,
+,76,huile d'olive,0.25,cuillères
+,76,vin rouge,0.125,bouteille
+,76,boeuf,0.25,kg
+,76,ail,0.25,gousses
+,76,olives noires,37.5,g
+,76,coulis de tomate,0.25,cuillères
+,77,crème fraîche épaisse,50.0,ml
+,77,beurre,,
+,77,poivre,,
+,77,sel,,
+,77,persil,,
+,77,escalopes de veau,1.0,
+,77,champignons de Paris,0.25,boîte
+,78,oignons,0.75,
+,78,lardons,50.0,g
+,78,carottes,1.25,
+,78,bouillon de boeuf,0.5,l
+,78,crème fraîche,0.5,cuillères à soupe
+,78,thym,,
+,78,poivre,,
+,78,sel,,
+,78,huile,,
+,78,filet mignon,0.25,
+,78,pommes de terre,1.5,
+,78,laurier,,
+,79,cuisses de canard,1.0,
+,79,canard,0.125,bol
+,80,farine,,
+,80,huile d'olive,0.5,cuillères à soupe
+,80,oignons,0.5,
+,80,tomate,83.33333333333333,g
+,80,Liqueur,0.1666666666666666,verre
+,80,poivre,,
+,80,sel,,
+,80,dinde,0.1666666666666666,kg
+,80,vin blanc,2.0,cl
+,80,bouillon de volaille,2.0,cl
+,80,concentré de tomates,0.1666666666666666,boîte
+,80,ail,0.1666666666666666,gousse
+,80,herbes de Provence,,
+,81,muscade,,
+,81,carottes,0.2,
+,81,romarin,,
+,81,thym,,
+,81,farine,3.0,g
+,81,beurre,3.0,g
+,81,clous de girofle,0.4,
+,81,persil,0.4,brins
+,81,oignons jaunes,0.2,
+,81,poivre,,
+,81,sel,,
+,81,bouillon de boeuf,0.12,l
+,81,huile d'olive,,
+,81,vinaigre de vin,1.0,cl
+,81,vin rouge,0.2,
+,81,eau,1.0,cl
+,81,échalotes,0.3,
+,81,ail,0.2,gousses
+,81,céleri,0.1,branche
+,81,bouquet garni,0.1,
+,81,crème,1.0,cl
+,81,vin blanc,0.1,
+,81,chevreuil,0.1,
+,82,vinaigre de cidre,0.5,cuillères à café
+,82,moutarde,0.25,cuillère à soupe
+,82,huile,0.25,cuillère à soupe
+,82,sucre,0.25,cuillère à soupe
+,82,poivre,,
+,82,sel,,
+,82,piment de Cayenne,0.25,pincée
+,82,travers de porc,0.25,kg
+,82,coulis de tomate,2.5,cl
+,82,ketchup,0.5,cuillères
+,84,gingembre,0.1666666666666666,cuillère à café
+,84,chili,0.1666666666666666,cuillère à café
+,84,curcuma,0.0416666666666666,cuillère à café
+,84,sel,0.1666666666666666,cuillère à café
+,84,yaourt,25.0,ml
+,84,coriandre,0.1666666666666666,cuillère
+,84,huile,0.1666666666666666,cuillère
+,84,blanc de poulet,83.33333333333333,g
+,84,ail,0.1666666666666666,gousse
+,84,jus de citron,0.6666666666666666,cuillères
+,84,citron vert,,quartier
+,84,salade,,
+,83,yaourt,0.5,
+,83,blancs de poulet,1.0,
+,83,ail,,
+,83,épices tandoori,1.5,cuillères à café
+,83,paprika,,
+,83,citron,0.5,
+,83,miel,0.5,cuillère à café
+,83,crème fraîche,1.0,cuillères à café
+,83,beurre,5.0,g
+,83,tomates pelées,0.5,boîte
+,83,épices tandoori,0.5,cuillère à café
+,85,sel,,
+,85,poivre,,
+,85,côtelettes d'agneau,2.0,
+,85,citrons,0.5,
+,85,échalotes,0.5,
+,85,ail,0.25,gousse
+,85,herbes de Provence,,
+,86,oignons,0.3333333333333333,
+,86,moutarde,0.1666666666666666,cuillère à soupe
+,86,miel,0.3333333333333333,cuillères à soupe
+,86,bouillon,0.1666666666666666,cube
+,86,poivre,,
+,86,rôti de porc,0.1999999999999999,kg
+,86,ail,0.1666666666666666,gousse
+,87,oignon,,
+,87,tomate,,
+,87,moutarde,,
+,87,pain pour hamburger,,
+,87,viande hachée,,
+,87,cheddar,,
+,87,salade,,
+,87,ketchup,,
+,88,miel,0.5,cuillères à soupe
+,88,ketchup,5.0,cl
+,88,paprika,0.1666666666666666,cuillère à café
+,88,moutarde,0.1666666666666666,cuillère à soupe
+,88,vinaigre de vin,0.8333333333333334,cl
+,88,sauce worcestershire,1.6666666666666667,cl
+,88,échine de porc,0.1666666666666666,
+,88,oignons rouges,0.3333333333333333,
+,88,huile de tournesol,,
+,88,sel,,
+,88,poivre,,
+,89,moutarde,,
+,89,pains,1.0,
+,89,relish,,
+,89,knackis,1.0,
+,89,ketchup,,
+,90,fond de veau,0.75,cuillères à soupe
+,90,huile d'olive,0.25,cuillère à soupe
+,90,filets mignons,0.5,
+,90,oignons blancs,0.5,
+,90,champignons de Paris,1.25,
+,90,crème,20.0,cl
+,91,miel,1.0,cuillères à soupe
+,91,huile,0.5,cuillères à soupe
+,91,curry,0.5,cuillères à soupe
+,91,côtes de porc,1.0,
+,91,citron,0.125,
+,92,moutarde à l'ancienne,0.25,cuillère à soupe
+,92,crème fraîche,10.0,cl
+,92,bouillon,0.25,cube
+,92,beurre,2.5,g
+,92,filet mignon,0.25,
+,92,champignon,125.0,g
+,92,vin blanc sec,6.25,cl
+,93,oignon,0.25,
+,93,cube de bouillon,0.25,
+,93,carotte,0.25,
+,93,vin rouge,6.25,cl
+,93,poivre,,
+,93,sel,,
+,93,jarret de boeuf,125.0,g
+,93,eau,2.5,cl
+,93,matière grasse,,
+,94,poivre,,
+,94,persil,0.125,botte
+,94,sel,,
+,94,huile,,
+,94,beurre,,
+,94,chapon,0.125,
+,94,échalote,0.125,
+,94,ail,0.125,gousse
+,94,pain,0.125,grosse poignée
+,94,lait,1.875,cl
+,94,épinards frais,25.0,g
+,94,Foie gras,6.25,g
+,94,oeuf,0.125,
+,94,foie,,
+,95,crème fraîche,4.166666666666667,cl
+,95,rôti de porc,0.1666666666666666,kg
+,95,gouda,1.6666666666666667,tranches
+,95,bacon,1.6666666666666667,tranches
+,96,saucisses de Montbéliard,0.5,
+,96,oignon,0.25,
+,96,lardons,37.5,g
+,96,gros sel,,
+,96,chou,0.25,
+,96,matière grasse,0.25,cuillère à soupe
+,97,oignon,50.0,g
+,97,lardons,12.5,g
+,97,beurre,12.5,g
+,97,farine,7.5,g
+,97,poivre,,
+,97,sel,,
+,97,poulet,150.0,g
+,97,champignons de Paris,100.0,g
+,97,bouillon de volaille,0.25,tablette
+,97,ciboulette,0.25,cuillère à soupe
+,97,jaune d'oeuf,0.25,
+,97,citron,,
+,97,crème épaisse,0.5,cuillères à soupe
+,98,miel,1.0,cuillères à soupe
+,98,beurre,12.5,g
+,98,moutarde de Dijon,0.5,cuillères à soupe
+,98,sel,,
+,98,poivre,,
+,98,cailles,2.0,
+,99,oignons,0.5,
+,99,huile d'olive,3.75,cl
+,99,persil,0.25,bouquet
+,99,safran,0.25,dose
+,99,poivre,,
+,99,sel,,
+,99,poulet,0.25,
+,99,olives vertes,125.0,g
+,99,ail,0.75,gousses
+,99,épices à couscous,0.125,cuillère à café
+,99,paprika,0.125,cuillère à café
+,100,oignon,0.25,
+,100,poivre,,
+,100,sel,,
+,100,huile,,
+,100,beurre,,
+,100,joue de porc,2.0,
+,100,lard,100.0,g
+,100,pomme de terre,0.25,kg
+,100,cidre,12.5,cl
+,100,herbes de Provence,,
+,101,tomate,1.6666666666666667,tranches
+,101,beurre,8.333333333333334,g
+,101,poivre,,
+,101,sel,,
+,101,rôti de veau,0.1666666666666666,
+,101,bacon,1.6666666666666667,tranches
+,101,cheddar,1.6666666666666667,tranches
+,102,carottes,0.5,
+,102,fond de veau,0.25,cuillère à café
+,102,farine,0.25,cuillère à soupe
+,102,piment d'Espelette,0.25,pincée
+,102,sel,0.25,pincée
+,102,poivre blanc,0.25,pincée
+,102,huile d'olive,0.25,filet
+,102,huile de tournesol,0.25,filet
+,102,beurre,0.25,noix
+,102,cuisses de poulet,0.75,
+,102,oignon rouge,0.25,
+,102,ail,1.0,gousses
+,102,vin blanc,6.25,cl
+,102,champignons de Paris,57.5,g
+,102,olives vertes,40.0,g
+,102,eau,12.5,cl
+,103,porto,5.0,cl
+,103,beurre,15.0,g
+,103,crème fraîche,25.0,g
+,103,moutarde,0.25,cuillère à soupe
+,103,farine,0.25,cuillère à soupe
+,103,sel,,
+,103,poivre,,
+,103,rognon de veau,175.0,g
+,103,champignons de Paris,25.0,g
+,103,échalotes,0.5,
+,104,tomate,0.5,grosses boîtes
+,104,oignons,0.5,
+,104,poivre,,
+,104,sel,,
+,104,carottes,1.0,
+,104,tripes,0.5,kg
+,104,vin blanc,0.25,grand verre
+,104,pastis,0.25,
+,104,petit piment,0.25,
+,105,fond de veau,0.5,cuillères à soupe
+,105,moutarde,0.25,cuillère à soupe
+,105,vinaigre balsamique,0.25,cuillère à soupe
+,105,huile d'olive,0.75,cuillères à soupe
+,105,paupiettes de veau,1.0,
+,105,ail,0.25,gousse
+,105,vin blanc,3.125,cl
+,105,eau,3.125,cl
+,105,sel et poivre,,
+,106,thym,0.1666666666666666,branche
+,106,sel,,
+,106,dinde,0.1666666666666666,
+,106,échalote,,
+,106,bouillon de volaille,0.1666666666666666,
+,107,sel,,
+,107,oignon,0.1666666666666666,
+,107,piment de Cayenne,0.1666666666666666,cuillère à café
+,107,poivron rouge,0.1666666666666666,
+,107,feuille de laurier,0.1666666666666666,
+,107,thym,0.3333333333333333,pincées
+,107,huile d'olive,1.6666666666666667,cl
+,107,riz rond,58.333333333333336,g
+,107,poulet,58.333333333333336,g
+,107,chorizo,33.333333333333336,g
+,107,lardons fumés,33.333333333333336,g
+,107,ail,0.1666666666666666,gousse
+,107,coulis,16.666666666666668,g
+,107,bouillon de poule,12.5,cl
+,107,céleri,0.3333333333333333,
+,107,sauge,0.1666666666666666,pincée
+,108,thym,,
+,108,oignons,0.3333333333333333,
+,108,bouillon de boeuf,0.1666666666666666,tablette
+,108,poivre,,
+,108,sel,,
+,108,carottes,1.0,
+,108,paleron,0.1666666666666666,morceau
+,108,lard,0.1666666666666666,tranche
+,108,matière grasse,,
+,108,concentré de tomates,0.1666666666666666,petite boîte
+,108,laurier,,
+,108,sauge,,
+,108,ail,0.3333333333333333,gousses
+,109,pâtes feuilletées,0.3333333333333333,
+,109,jambon blanc,0.6666666666666666,tranches
+,109,gruyère râpé,33.333333333333336,g
+,109,oignons jaunes,0.3333333333333333,
+,109,filets mignons,0.3333333333333333,
+,109,jaunes d'oeuf,0.3333333333333333,
+,110,oignons,0.5,
+,110,curry,0.5,cuillères à soupe
+,110,huile,0.5,cuillères à soupe
+,110,sel,,
+,110,sauté de porc,125.0,g
+,110,pulpe de tomate,87.5,g
+,110,lait de coco,6.25,cl
+,111,oignon,0.25,
+,111,carottes,1.25,
+,111,persil,0.5,cuillères à soupe
+,111,poivre,,
+,111,sel,,
+,111,chou blanc,0.25,
+,111,lard,2.0,tranches
+,111,saucisse,125.0,g
+,111,pommes de terre,2.0,
+,111,ail,0.5,gousses
+,111,matière grasse,7.5,g
+,112,lardons,33.333333333333336,g
+,112,oignon,0.3333333333333333,
+,112,farine,0.3333333333333333,cuillère à soupe
+,112,poivre,,
+,112,sel,,
+,112,épaule de veau,200.0,g
+,112,olives vertes,33.333333333333336,g
+,112,ail,0.3333333333333333,gousse
+,112,vin blanc,5.0,cl
+,112,graine de fenouil,0.3333333333333333,cuillère à café
+,112,bouquet garni,0.3333333333333333,
+,112,concentré de tomates,0.3333333333333333,cuillère à soupe
+,113,beurre,12.5,g
+,113,curry,,
+,113,escalopes de dinde,1.0,
+,113,échalotes,1.0,
+,113,crème liquide,0.25,briquette
+,114,oignons,0.5,
+,114,cumin,0.25,cuillère à soupe
+,114,gingembre,0.25,cuillère à soupe
+,114,coriandre,0.25,cuillère à soupe
+,114,miel,0.5,cuillères à soupe
+,114,vinaigre balsamique,0.5,cuillères à soupe
+,114,cube de bouillon,0.25,
+,114,crème fraîche,3.75,cl
+,114,poivre,,
+,114,sel,,
+,114,cuisses de canard,1.0,
+,114,ail,0.5,gousses
+,114,raisins secs,15.0,g
+,114,eau,,
+,115,beurre,25.0,g
+,115,cognac,1.5,cl
+,115,crème fraîche épaisse,5.0,cl
+,115,truffe,1.0,rondelles
+,115,poivre,,
+,115,sel,,
+,115,tournedos,1.0,
+,115,pain de mie,1.0,tranches
+,115,madère,1.5,cl
+,115,Foie gras,1.0,belles tranches
+,116,farine,12.5,g
+,116,persil,0.125,bouquet
+,116,huile,0.75,cuillères à soupe
+,116,beurre,5.0,g
+,116,poivre,,
+,116,sel,,
+,116,cuisses de grenouille,12.0,
+,116,ail,0.75,gousses
+,117,beurre,7.5,g
+,117,oignon,0.25,
+,117,sucre,0.25,pincée
+,117,crème fraîche,1.0,cuillères à soupe
+,117,moutarde,0.25,cuillère à café
+,117,poivre,,
+,117,sel,,
+,117,boeuf,100.0,g
+,117,champignons de Paris,25.0,g
+,117,paprika,0.125,cuillère à café
+,117,concentré de tomates,0.25,cuillère à soupe
+,117,vin blanc sec,1.25,cl
+,118,carotte,20.0,g
+,118,oignon,30.0,g
+,118,bouillon de boeuf,3.0,cl
+,118,huile d'olive,1.0,cl
+,118,cognac,1.0,cl
+,118,poivre,,
+,118,sel,,
+,118,gigot d'agneau,0.1,
+,118,couenne,25.0,g
+,118,tomates pelées,50.0,g
+,118,bouquet garni,0.1,
+,118,vin blanc,5.0,cl
+,119,lardons,31.25,g
+,119,bouillon,5.0,cl
+,119,beurre,2.5,g
+,119,huile d'olive,0.25,cuillère à soupe
+,119,moutarde,0.25,cuillère à soupe
+,119,farine,0.5,cuillères à soupe
+,119,poivre,,
+,119,sel,,
+,119,lapin,0.25,
+,119,bouquet garni,0.25,
+,119,échalotes,1.0,
+,119,vin blanc sec,5.0,cl
+,119,crème épaisse,5.0,cl
+,120,oignon,0.5,
+,120,piment,,
+,120,poivre,,
+,120,sel,,
+,120,blancs de poulet,1.0,
+,120,citron,,
+,120,paprika,,
+,121,farine,1.0,cuillères à soupe
+,121,escalopes de poulet,1.0,
+,121,biscottes,2.5,
+,121,oeuf,0.5,
+,121,paprika,0.5,petite cuillère à soupe
+,122,carottes,0.5,
+,122,oignon,0.25,
+,122,clou de girofle,0.25,
+,122,beurre,12.5,g
+,122,crème fraîche,3.75,cl
+,122,poivre,,
+,122,sel,,
+,122,dinde,0.25,kg
+,122,bouillon de volaille,0.5,tablettes
+,122,bouquet garni,0.25,
+,122,champignons de Paris,75.0,g
+,122,petits pois,50.0,g
+,122,coeur d'artichaut,0.25,boîte
+,122,citron,0.125,
+,122,jaune d'oeuf,0.25,
+,123,carottes,0.375,
+,123,poireaux,0.375,
+,123,oignon,0.125,
+,123,gros sel,0.125,petite poignée
+,123,langue,0.1875,kg
+,123,navet,0.125,
+,123,os à moelle,0.125,
+,123,bouillon,,
+,123,beurre,3.125,g
+,123,farine,0.125,cuillère à soupe rase
+,123,sauce tomate,0.125,boîte
+,123,échalote,0.0625,
+,123,cornichons,1.25,
+,124,bière,5.5,cl
+,124,moutarde,0.3333333333333333,cuillères
+,124,huile d'olive,0.3333333333333333,cuillères
+,124,vinaigre balsamique,0.1666666666666666,cuillère
+,124,oignon,0.0833333333333333,
+,124,thym,,
+,124,poivre,,
+,124,sel,,
+,124,sanglier,0.1666666666666666,
+,124,guignolet,0.3333333333333333,cuillères
+,124,lardons fumés,8.333333333333334,g
+,124,échalote,0.1666666666666666,
+,124,ail,0.3333333333333333,gousses
+,125,poivre,,
+,125,sel,,
+,125,sauce tomate,18.75,cl
+,125,beurre,,
+,125,langues,0.5,
+,125,bouquet garni,,
+,125,cornichons,3.75,
+,125,échalote,0.25,
+,126,carotte,0.375,kg
+,126,lard fumé,62.5,g
+,126,beurre,12.5,g
+,126,vin rouge,18.75,cl
+,126,tomates,2.0,
+,126,poivre,,
+,126,sel,,
+,126,macreuse,0.25,kg
+,126,échalote,62.5,g
+,126,madère,1.25,cl
+,126,bouquet garni,0.25,
+,127,oignon,0.3333333333333333,
+,127,beurre,8.333333333333334,g
+,127,huile,0.3333333333333333,cuillère à soupe
+,127,miel liquide,0.6666666666666666,cuillères à café
+,127,poivre,,
+,127,sel,,
+,127,escalopes de poulet,1.0,
+,127,ail,0.3333333333333333,cuillère à soupe
+,127,cannelle,0.3333333333333333,cuillère à café
+,127,sauce soja,1.3333333333333333,cuillères à soupe
+,128,fond de veau,0.5,cuillère à soupe
+,128,vin,25.0,cl
+,128,sel,,
+,128,poivre,,
+,128,beurre,15.0,g
+,128,bavettes,1.0,
+,128,échalotes,2.0,
+,129,moutarde,,
+,129,thym,2.0,branches
+,129,poivre,,
+,129,sel,,
+,129,beurre,1.0,noisettes
+,129,pintades,1.0,
+,129,ail,2.0,gousses
+,130,persil,,
+,130,crème fraîche,10.0,cl
+,130,foie,0.5,barquette
+,130,échalotes,1.0,
+,130,vin blanc,,
+,131,gingembre,0.125,cuillère à café
+,131,gingembre,0.25,
+,131,miel,0.5,grosses cuillères à soupe
+,131,huile de sésame,0.25,cuillère à café
+,131,sel,0.5,pincées
+,131,coriandre,0.25,cuillère à soupe
+,131,travers de porc,0.3,kg
+,131,ail,0.5,gousses
+,131,sauce soja,0.75,cuillères à soupe
+,131,eau,0.25,cuillère à soupe
+,132,blancs de poulet,1.0,
+,132,crème semi-épaisse,0.25,pot
+,132,citron,0.25,
+,133,tomates,0.75,
+,133,oignons,0.5,
+,133,thym,1.25,brins
+,133,sel,0.25,pincée
+,133,poivre,0.25,pincée
+,133,paupiettes,1.0,
+,133,champignons de Paris,2.5,
+,133,bouillon de volaille,5.0,cl
+,133,ail,0.5,gousses
+,134,tomates,0.5,
+,134,moutarde de Dijon,0.25,cuillère à soupe
+,134,crème fraîche,0.25,cuillère à soupe
+,134,huile,0.25,cuillère à soupe
+,134,poivre,,
+,134,sel,,
+,134,cuisse de dinde,0.25,
+,134,pomme de terre,200.0,g
+,134,ail,0.5,gousses
+,135,carottes,1.5,
+,135,moutarde,0.5,cuillère à soupe
+,135,beurre,1.0,cuillères à café
+,135,sel,,
+,135,poivre,,
+,135,persil,,
+,135,thym,,
+,135,rognons,1.0,
+,135,ail,1.0,gousses
+,135,échalote,0.5,
+,135,crème liquide,12.5,cl
+,136,carottes,0.2,
+,136,oignons,0.2,
+,136,jambon,0.1,
+,136,clous de girofle,0.6,
+,136,thym,,
+,136,persil,,
+,136,quatre-épices,,
+,136,poivre,,
+,136,sel,,
+,136,tripes,0.2,kg
+,136,pieds de veau,0.2,
+,136,vin blanc,5.0,cl
+,136,couenne de panne,,
+,136,laurier,,
+,137,poivre,,
+,137,sel,,
+,137,farine,,
+,137,boeuf haché,200.0,g
+,137,échalotes,0.5,
+,137,ciboulette,,
+,137,oeuf,0.25,
+,137,chapelure,0.5,cuillères à soupe
+,137,ketchup,,
+,139,crème fraîche,0.25,pot
+,139,moutarde,0.75,cuillères à soupe
+,139,poivre,,
+,139,sel,,
+,139,escalopes de poulet,1.0,
+,139,échalotes,0.5,
+,139,ail,1.0,gousses
+,138,crème fraîche épaisse,0.25,pot
+,138,moutarde de Dijon,0.5,cuillères à soupe
+,138,beurre,5.0,g
+,138,huile,0.25,cuillère à soupe
+,138,filets de poulet,1.0,
+,138,échalote,0.25,
+,140,poivron vert,0.25,demi
+,140,poivron rouge,0.25,demi
+,140,oignons,0.5,
+,140,carotte,0.25,
+,140,huile,0.25,bonne cuillère à soupe
+,140,escalopes de poulet,1.0,
+,140,germes de soja,0.25,poignée
+,140,ail,1.0,gousses
+,140,sauce soja,1.25,cuillères à soupe
+,140,poisson,0.5,cuillères à soupe
+,140,petit piment,0.25,
+,141,oignon jaune,0.25,
+,141,sucre,30.0,g
+,141,gingembre,0.5,cuillères à café
+,141,filet mignon,0.25,
+,141,mélange 4 épices,0.25,cuillère à soupe
+,141,sauce soja,0.75,cuillères à soupe
+,141,bouillon de volaille,0.25,cube
+,142,thym,0.375,branches
+,142,feuilles de laurier,0.375,
+,142,piment de Cayenne,0.0625,cuillère à café
+,142,oignons,0.625,
+,142,sanglier,0.25,kg
+,142,bourgogne,0.125,bouteille
+,142,farine,9.375,g
+,142,cube de bouillon,0.125,
+,142,carottes,1.0,
+,142,huile d'olive,0.125,filet
+,142,sel,0.125,pincée
+,142,poivre,0.125,pincée
+,142,lardons fumés,12.5,g
+,143,huile,1.0,cuillères à soupe
+,143,thym,1.25,brins
+,143,crème fraîche,2.5,cl
+,143,gros sel,0.25,cuillère à café
+,143,sel,,
+,143,rôti de porc,0.25,
+,143,pomme de terre,0.25,kg
+,143,ratte,,
+,143,ail,0.5,
+,143,bouillon de volaille,5.0,cl
+,144,sel,0.3333333333333333,pincées
+,144,farine,11.666666666666666,g
+,144,poivre,0.3333333333333333,tours de moulin
+,144,oignons jaunes,0.3333333333333333,
+,144,oignon,33.333333333333336,g
+,144,clous de girofle,0.6666666666666666,
+,144,poireau,0.1666666666666666,
+,144,thym,0.3333333333333333,branches
+,144,feuille de laurier,0.1666666666666666,
+,144,carottes,1.0,
+,144,crème fraîche,1.6666666666666667,cl
+,144,beurre,16.666666666666668,g
+,144,citron,0.0833333333333333,
+,144,épaule de veau,0.1999999999999999,kg
+,144,jaunes d'oeuf,0.3333333333333333,
+,144,ail,0.3333333333333333,gousses
+,144,céleri,0.3333333333333333,branches
+,144,champignon,50.0,g
+,144,cerfeuil,0.3333333333333333,brins
+,145,oignons,3.0,
+,145,crème fraîche,5.0,cl
+,145,beurre,12.5,g
+,145,huile,0.25,cuillère à soupe
+,145,farine,0.25,cuillère à soupe
+,145,poivre,,
+,145,sel,,
+,145,poulet,0.25,
+,145,girolles,150.0,g
+,145,ail,0.5,gousses
+,145,vin blanc sec,5.0,cl
+,147,carottes,0.5,
+,147,persil,,
+,147,feuilles de laurier,0.3333333333333333,
+,147,fond de veau,0.1666666666666666,cuillère à soupe
+,147,poivre,,
+,147,sel,,
+,147,huile d'olive,,
+,147,vin rouge,,
+,147,lapin,0.1666666666666666,
+,147,lardons fumés,25.0,g
+,147,champignons de Paris,1.6666666666666667,
+,147,olives vertes,,
+,147,échalote,0.1666666666666666,
+,147,ail,,gousse
+,147,herbes de Provence,,
+,147,concentré de tomates,0.3333333333333333,cuillères à café
+,149,huile,0.25,
+,149,poivre,,
+,149,sel,,
+,149,farine,50.0,g
+,149,escalopes de veau,1.0,
+,149,oeufs,0.5,
+,149,lait,0.75,cuillères à café
+,149,chapelure,37.5,g
+,148,oignon,0.25,
+,148,romarin,0.25,petite branche
+,148,feuille de laurier,0.25,
+,148,poivre,,
+,148,sel,,
+,148,saucisse de Toulouse,0.25,beau morceau
+,148,pommes de terre,1.0,
+,148,ail,0.5,gousses
+,148,vin blanc,0.5,petits verres
+,150,farine,0.25,cuillère à soupe rase
+,150,poivre,,
+,150,sel,,
+,150,oignon,0.25,sachet
+,150,viande hachée,125.0,g
+,150,oeuf,0.25,
+,151,tomates,1.0,
+,151,oignon,0.25,
+,151,lardons,0.25,grosse poignée
+,151,thym,,
+,151,feuille de laurier,,
+,151,huile,,
+,151,sel,,
+,151,poivre,,
+,151,lapin,,
+,151,pommes de terre,2.0,
+,151,ail,0.75,gousses
+,151,vin blanc sec,0.25,petit verre
+,152,oignon,0.25,
+,152,huile d'olive,0.5,cuillères à soupe
+,152,échalote,0.25,
+,152,ail,0.5,gousses
+,152,herbes de Provence,,
+,152,saucisse,100.0,g
+,152,pommes de terre,2.0,
+,152,eau,2.0,cl
+,153,poivron rouge,0.1666666666666666,
+,153,poivron jaune,0.1666666666666666,
+,153,farine,0.3333333333333333,cuillères à soupe
+,153,cube de bouillon,0.1666666666666666,
+,153,poivre,,
+,153,sel,,
+,153,oignon,0.1666666666666666,
+,153,sauté de porc,0.1666666666666666,kg
+,153,poudre de colombo,,
+,154,oignon,0.25,
+,154,tomates,0.5,
+,154,curry,0.25,pincée
+,154,quatre-épices,0.25,pincée
+,154,poivre,,
+,154,sel,,
+,154,huile,,
+,154,cuisses de poulet,1.0,
+,154,ail,0.25,gousse
+,154,lait de coco,0.25,petite boîte
+,155,huile d'olive,,
+,155,thym,,
+,155,poivre,,
+,155,sel,,
+,155,souris d'agneau,1.0,
+,155,herbes de Provence,,
+,155,ail,2.5,gousses
+,156,pâte brisée,0.5,paquets
+,156,lardons,18.75,g
+,156,curry,0.25,cuillère à soupe
+,156,blanc de poulet,100.0,g
+,156,champignon,62.5,g
+,156,Volaille,0.125,cube
+,156,crème liquide,5.0,cl
+,157,poivre,,
+,157,persil,,
+,157,sel,,
+,157,foie,75.0,g
+,157,biscottes,1.0,
+,157,oeufs,1.0,
+,157,béchamel,0.1666666666666666,
+,157,ail,0.8333333333333334,gousses
+,159,vin rouge,12.5,cl
+,159,carotte,0.1666666666666666,
+,159,oignon,0.1666666666666666,
+,159,feuille de laurier,0.1666666666666666,
+,159,thym,0.1666666666666666,brin
+,159,romarin,0.1666666666666666,brin
+,159,persil,0.1666666666666666,branche
+,159,cognac,0.3333333333333333,cuillères à soupe
+,159,huile d'olive,0.1666666666666666,cuillère à soupe
+,159,poivre,,
+,159,ail,0.1666666666666666,gousse
+,159,échalotes,0.3333333333333333,
+,158,poivre,,
+,158,sel,,
+,158,muscade,1.0,pincées
+,158,beurre,,
+,158,origan,,
+,158,viande hachée,250.0,g
+,158,ail,0.5,gousse
+,158,jaune d'oeuf,0.5,
+,158,chapelure,2.5,cuillères à soupe
+,158,coulis de tomate,0.5,
+,158,échalote,0.5,
+,158,basilic,,
+,158,laurier,,
+,161,huile de tournesol,0.25,cuillère à soupe
+,161,tomates,1.0,
+,161,thym,0.5,branches
+,161,curcuma,0.75,cuillères à café
+,161,poivre,,
+,161,sel,,
+,161,poulet,0.25,kg
+,161,oignons rouges,0.75,
+,161,ail,1.0,gousses
+,161,eau,12.5,cl
+,162,carotte,0.1666666666666666,
+,162,oignon,0.1666666666666666,
+,162,clous de girofle,0.3333333333333333,
+,162,poireaux,0.3333333333333333,
+,162,beurre,16.666666666666668,g
+,162,persil,,
+,162,poivre,,
+,162,sel,,
+,162,oie,0.1666666666666666,
+,162,pain,0.0833333333333333,
+,162,ail,0.1666666666666666,gousse
+,162,oignon grelot,,
+,163,crème fraîche épaisse,1.6666666666666667,cl
+,163,persil,,feuille
+,163,huile d'olive,1.6666666666666667,cl
+,163,vinaigre de vin,0.1666666666666666,cuillère à soupe
+,163,poivre,,
+,163,sel,,
+,163,faisselle,83.33333333333333,g
+,163,ail,0.1666666666666666,gousse
+,163,échalotes,0.6666666666666666,
+,163,ciboulette,0.1666666666666666,botte
+,163,oignon nouveau,,
+,164,sauce soja Suzi Wan®,1.25,cuillères à soupe
+,164,miel,0.75,cuillères à soupe
+,164,blancs de poulet,1.0,
+,164,fécule de maïs,0.5,cuillères à soupe
+,164,eau,0.5,cuillères à soupe
+,164,ail,0.25,cuillère à soupe
+,164,graines de sésame,0.25,cuillère à soupe
+,164,sucre,6.25,g
+,164,eau,6.25,cl
+,164,huile de tournesol,,
+,164,riz,75.0,g
+,165,oignons,0.6666666666666666,
+,165,carottes,0.6666666666666666,
+,165,huile,1.0,cuillères à soupe
+,165,beurre,8.333333333333334,g
+,165,fond de veau,0.6666666666666666,cuillères à soupe
+,165,poivre,,
+,165,sel,,
+,165,rôti de porc,0.3333333333333333,
+,165,pommes de terre,1.6666666666666667,
+,165,vin blanc,8.333333333333334,cl
+,165,Volaille,0.6666666666666666,cubes
+,165,bouquet garni,0.3333333333333333,
+,166,huile d'olive,,
+,166,oignon,0.25,
+,166,cube de bouillon,0.25,
+,166,curry,,
+,166,thym,,
+,166,poivre,,
+,166,sel,,
+,166,blancs de poulet,1.0,
+,166,pulpe de tomate,0.25,boîte
+,166,pomme,0.25,demi
+,166,raisins secs,0.25,poignée
+,166,ail,0.5,gousses
+,166,garam masala,,
+,166,cannelle,0.25,bâton
+,166,laurier,,
+,166,crème fraîche allégée,,
+,167,crème fraîche,2.0,cuillères à soupe
+,167,moutarde,1.0,cuillère à soupe
+,167,oignons,2.0,
+,167,tomate,1.0,
+,167,beurre,1.0,morceau
+,167,andouillette,1.0,
+,167,vin blanc,1.0,verre
+,168,oignon,0.25,
+,168,tomate,0.25,
+,168,thym,,
+,168,huile d'olive,,
+,168,sel,,
+,168,poivre,,
+,168,sauté de veau,200.0,g
+,168,ciboulette,,
+,170,beurre,3.0,g
+,170,poivre,,
+,170,sel,,
+,170,sanglier,0.1,
+,170,lard,25.0,g
+,170,madère,1.5,cl
+,170,pignons,5.0,g
+,170,raisin,5.0,g
+,170,fécule,0.1,cuillère à soupe
+,170,carottes,0.3,
+,170,oignon,0.1,
+,170,huile,3.0,cl
+,170,thym,,
+,170,clous de girofle,0.3,
+,170,vinaigre,4.5,cl
+,170,échalotes,0.3,
+,170,ail,0.1,gousse
+,170,laurier,,
+,170,vin blanc,0.15,l
+,171,poivre,,
+,171,fleur de sel,,
+,171,Foie gras,0.125,
+,172,poivre,,
+,172,beurre,10.0,g
+,172,sel,,
+,172,canard,0.25,
+,173,vinaigre de vin,,
+,173,fond de veau,,
+,173,poivre,,
+,173,sel,,
+,173,huile,,
+,173,foie de veau,1.0,belles tranches
+,173,échalotes,1.5,
+,175,vinaigre de framboise,,goutte
+,175,poivre,,
+,175,sel,,
+,175,muscade,,
+,175,Foie gras,2.0,tranches
+,175,pomme,1.0,
+,174,oignon,0.5,
+,174,poivron rouge,0.5,
+,174,crème fraîche épaisse,10.0,cl
+,174,lardons,0.5,barquette
+,174,cuisses de poulet,1.0,
+,174,champignons de Paris,5.0,
+,174,pommes de terre,2.5,
+,176,huile,0.25,cuillères à soupe
+,176,beurre,15.625,g
+,176,thym,0.25,branches
+,176,feuille de laurier,0.125,
+,176,cognac,0.625,cl
+,176,sel,,
+,176,poivre,,
+,176,bouillon,1.875,cl
+,176,dinde,0.125,
+,176,marrons,37.5,g
+,176,chair à saucisse,37.5,g
+,176,pain de mie,28.125,g
+,176,lait,1.875,cl
+,176,échalotes,0.5,
+,176,pomme de terre,0.1875,kg
+,177,oignon,0.25,
+,177,sel,,
+,177,poivre,,
+,177,foie,75.0,g
+,177,ail,0.25,
+,177,oeuf,0.25,
+,177,viande hachée,75.0,g
+,178,curcuma,0.3333333333333333,cuillères à soupe
+,178,cumin,0.3333333333333333,cuillères à soupe
+,178,curry,0.3333333333333333,cuillères à soupe
+,178,moutarde,0.3333333333333333,cuillères à soupe
+,178,huile d'olive,1.0,cuillères à soupe
+,178,côtes de porc,1.0,
+,179,miel,0.5,cuillères à soupe
+,179,beurre,1.6666666666666667,g
+,179,poivre,,
+,179,boudins blancs,1.0,
+,179,pommes,0.5,
+,180,huile d'olive,0.5,cuillères à soupe
+,180,vinaigre de xérès,0.5,cuillères à café
+,180,vinaigre de vin,0.5,cuillères à café
+,180,cognac,0.25,trait
+,180,crème fraîche épaisse,6.25,cl
+,180,moutarde,0.25,cuillère à café
+,180,poivre,,
+,180,sel,,
+,180,blancs de poulet,1.0,
+,180,échalote,0.25,
+,180,bouillon de volaille,3.75,cl
+,180,ciboulette,,
+,180,estragon,,
+,182,carottes,0.6666666666666666,
+,182,oignons,0.3333333333333333,
+,182,romarin,0.1666666666666666,branche
+,182,piment,,
+,182,huile d'olive,,
+,182,poivre,,
+,182,sel,,
+,182,gigot d'agneau,0.1666666666666666,
+,182,ail,0.5,gousses
+,182,échalotes,0.6666666666666666,
+,182,céleri,0.1666666666666666,branche
+,182,girofle,0.3333333333333333,
+,182,bouquet garni,0.1666666666666666,
+,182,vin blanc sec,,
+,183,vin rouge,0.3333333333333333,l
+,183,carottes,0.5,
+,183,oignons,0.3333333333333333,
+,183,lardons,33.333333333333336,g
+,183,tomates,0.3333333333333333,
+,183,huile d'olive,0.3333333333333333,cuillères à soupe
+,183,poivre,,
+,183,sel,,
+,183,sanglier,0.3333333333333333,kg
+,183,bouquet garni,0.1666666666666666,
+,183,ail,0.5,gousses
+,183,olives noires,0.1666666666666666,petite boîte
+,184,huile,,
+,184,sucre,5.0,g
+,184,vinaigre,0.5,cl
+,184,fond de veau,0.125,
+,184,oranges,0.625,
+,184,poivre,,
+,184,sel,,
+,184,fécule de maïs,,
+,184,canard,0.25,
+,184,grand-marnier,,
+,184,jus d'orange,0.125,
+,184,vin blanc,0.125,verre
+,185,pruneaux,10.0,
+,185,orange,0.25,zeste
+,185,fond de veau,0.5,cuillères à café
+,185,poivre,,
+,185,sel,,
+,185,rôti de porc,0.25,
+,185,ail,1.0,gousses
+,185,vin blanc,5.0,cl
+,185,crème,0.25,petit pot
+,185,margarine,,
+,186,oignon,0.25,
+,186,poivre,,
+,186,sel,,
+,186,farine,,
+,186,lieu noir,150.0,g
+,186,champignons de Paris,100.0,g
+,186,vin blanc,3.75,cl
+,186,crème fraîche liquide,3.75,cl
+,186,bouquet garni,,
+,187,moutarde de Dijon,0.25,cuillère à soupe
+,187,cube de bouillon,0.25,
+,187,huile d'olive,0.75,cuillères à soupe
+,187,poivre,,
+,187,sel,,
+,187,joue de porc,225.0,g
+,187,échalotes,1.0,
+,187,vin blanc,1.25,cl
+,187,eau,6.25,cl
+,187,crème fraîche allégée,2.5,cl
+,187,ciboulette,0.5,cuillères à soupe
+,188,carottes,0.75,
+,188,lardons,0.25,boîte
+,188,fond de veau,0.25,cuillère
+,188,huile d'olive,0.5,cuillères
+,188,paupiettes,1.0,
+,188,champignon,0.25,petite boîte
+,188,eau,0.5,verres
+,189,oignon,0.1666666666666666,
+,189,crème fraîche,8.333333333333334,cl
+,189,poivre,,
+,189,sel,,
+,189,filets mignons,0.3333333333333333,
+,189,vin blanc,1.6666666666666667,cl
+,189,maroilles,41.66666666666666,g
+,190,carotte,0.25,
+,190,crème fraîche,7.5,cl
+,190,beurre,2.5,g
+,190,moutarde de Dijon,0.25,cuillère à soupe
+,190,thym,0.25,branche
+,190,persil,0.25,cuillère à soupe
+,190,lapin,0.25,
+,190,échalotes,1.25,
+,190,ail,0.5,gousses
+,190,vin blanc sec,12.5,cl
+,190,laurier,0.75,feuilles
+,190,sel et poivre,,
+,191,pâte feuilletée,0.1666666666666666,
+,191,huile d'olive,0.3333333333333333,cuillères à soupe
+,191,moutarde,0.5,cuillères à café
+,191,persil,0.1666666666666666,bouquet
+,191,poivre,,
+,191,sel,,
+,191,filet mignon,0.1666666666666666,
+,191,crème épaisse,0.3333333333333333,cuillères à café
+,191,ail,0.6666666666666666,gousses
+,191,jaune d'oeuf,0.1666666666666666,
+,192,beurre,10.0,g
+,192,farine,10.0,g
+,192,poivre,,
+,192,sel,,
+,192,foie de veau,1.0,tranches
+,193,oignons,0.5,
+,193,bouillon,10.0,cl
+,193,thym,,
+,193,fleur de sel,,
+,193,jarrets de porc,0.5,
+,193,ail,0.25,gousse
+,193,bière brune,7.5,cl
+,193,baie de genévrier,,
+,193,sel et poivre,,
+,193,pomme de terre,,
+,194,carottes,0.3333333333333333,
+,194,oignons,0.3333333333333333,
+,194,poivre,,
+,194,langue,0.1666666666666666,
+,194,céleri,0.3333333333333333,branches
+,194,bouquet garni,0.1666666666666666,
+,194,beurre,8.333333333333334,g
+,194,oignons,0.3333333333333333,
+,194,farine,6.666666666666667,g
+,194,bouillon de boeuf,4.166666666666667,cl
+,194,madère,2.5,cl
+,194,concentré de tomates,0.3333333333333333,cuillères à soupe
+,194,tomates,1.0,
+,194,beurre,16.666666666666668,g
+,194,petits pois,50.0,g
+,194,haricots verts,100.0,g
+,194,échalotes,0.3333333333333333,
+,195,oignons,0.5,
+,195,miel liquide,1.25,cuillères à soupe
+,195,vinaigre balsamique,1.5,cl
+,195,purée de tomate,0.25,boîte moyenne
+,195,huile d'olive,0.25,cuillère à soupe
+,195,beurre,7.5,g
+,195,poivre,,
+,195,sel,,
+,195,filet mignon,150.0,g
+,195,sauce soja,0.5,cuillères à soupe
+,196,huile d'olive,1.0,cuillères à soupe
+,196,curry,0.1666666666666666,cuillère à café
+,196,gingembre,0.1666666666666666,
+,196,thym,0.1666666666666666,cuillère à café
+,196,sel,,
+,196,poivre,,
+,196,citron,,
+,196,carvi,0.0833333333333333,cuillère à café
+,196,ail,0.3333333333333333,gousses
+,196,sauce soja,,
+,196,blanc de poulet,83.33333333333333,g
+,197,moutarde de Dijon,0.5,cuillères à soupe
+,197,beurre,7.5,g
+,197,lapin,0.25,barquette
+,197,ail,0.25,gousse
+,197,pommes de terre,1.0,
+,197,eau,0.125,verre
+,197,vin blanc sec,0.125,verre
+,197,crème,0.25,briquette
+,198,oignon,0.25,
+,198,carotte,0.25,
+,198,vinaigre balsamique,0.5,cuillères à soupe
+,198,poivre,,
+,198,thym,,
+,198,romarin,,
+,198,rôti de boeuf,0.25,
+,198,margarine,0.5,
+,198,eau,0.125,l
+,198,laurier,,
+,198,sauceline,,
+,199,oignon,0.25,
+,199,carottes,0.75,
+,199,curry,0.25,cuillère à café
+,199,poivre,,
+,199,sel,,
+,199,beurre,2.5,g
+,199,butternut,0.25,
+,199,bouillon de volaille,0.25,cube
+,200,oignon,0.25,
+,200,cumin,0.25,cuillère à café
+,200,persil,0.5,cuillères à soupe
+,200,huile d'olive,1.5,cl
+,200,poivre,,
+,200,sel,,
+,200,gigot d'agneau,187.5,g
+,200,paprika,0.25,cuillère à café
+,201,bouillon,7.5,cl
+,201,farine,12.5,g
+,201,crème fraîche,0.25,cuillère à soupe
+,201,poivre,,
+,201,sel,,
+,201,paupiettes de veau,1.0,
+,201,champignons de Paris,0.25,boîte
+,201,échalotes,0.75,
+,202,huile,,
+,202,oignons,0.5,
+,202,poivre,,
+,202,sel,,
+,202,rôti de porc,0.25,
+,202,ail,1.5,gousses
+,202,vin blanc,0.125,verre
+,202,bouquet garni,0.25,
+,202,lait,0.25,l
+,203,escalopes de veau,1.0,
+,203,mozzarella,0.25,boule
+,203,Jambon de Parme,1.0,tranches
+,203,coulis de tomate,0.25,briquette
+,203,basilic frais,,feuille
+,203,échalotes,0.5,
+,203,Parmesan,0.25,sachet
+,205,sauce tomate,0.5,cuillères à soupe
+,205,harissa,0.75,gouttes
+,205,persil,0.125,bouquet
+,205,huile d'olive,,
+,205,sel,,
+,205,poivre,,
+,205,poulet,0.25,
+,205,ail,0.5,gousses
+,205,vin blanc,12.5,cl
+,205,laurier,1.0,feuilles
+,204,thym,1.0,feuilles
+,204,huile de tournesol,0.25,cuillère à soupe
+,204,poivre,,
+,204,blancs de poulet,1.0,
+,204,sauce soja,,
+,204,ail,0.25,gousse
+,206,oignon,0.25,
+,206,poivron rouge,0.125,
+,206,carotte,0.25,
+,206,poivre,,
+,206,sel,,
+,206,rôti de porc,0.25,
+,206,échalotes,0.5,
+,206,herbes de Provence,,
+,206,pommes de terre,2.0,
+,206,vin blanc,0.125,verre
+,207,poivron vert,0.25,
+,207,poivron rouge,0.25,
+,207,poivron jaune,0.25,
+,207,crème fraîche,0.5,cuillères à soupe
+,207,poivre,,
+,207,sel,,
+,207,blancs de poulet,1.0,
+,207,échalotes,0.5,
+,207,ail,0.25,gousse
+,207,margarine,0.5,cuillères à café
+,208,farine,0.25,cuillère à soupe
+,208,carottes,0.5,
+,208,oignons,0.5,
+,208,vinaigre balsamique,0.5,cuillères à soupe
+,208,vinaigre de cidre,0.5,cuillères à soupe
+,208,persil,,
+,208,poivre,,
+,208,sel,,
+,208,moutarde à l'ancienne,0.5,cuillères à soupe
+,208,cube de bouillon,0.25,
+,208,crème fraîche,0.75,cuillères à soupe
+,208,beurre,12.5,g
+,208,bourguignon,200.0,g
+,208,eau,0.25,verre
+,208,champignons de Paris,,
+,209,persil,1.25,brins
+,209,oignon,0.125,
+,209,feuilles de laurier,0.25,
+,209,thym,0.25,branches
+,209,vin,0.125,bouteille
+,209,farine,0.125,cuillère à soupe
+,209,crème fraîche,1.875,cl
+,209,huile d'olive,0.125,cuillère à soupe
+,209,poivre,,
+,209,sel,,
+,209,sanglier,0.125,
+,210,oignon,0.25,
+,210,huile d'olive,1.0,cuillères à soupe
+,210,vinaigre de framboise,0.5,cuillères à soupe
+,210,poivre,,
+,210,sel,,
+,210,origan,,
+,210,persil,,
+,210,cube de bouillon,0.25,
+,210,cuisses de canard,1.5,
+,210,pommes de terre,2.5,
+,210,huile de pépin de raisin,0.5,cuillères à soupe
+,210,eau,12.5,cl
+,211,oignon,0.25,
+,211,carotte,0.25,
+,211,huile d'olive,,
+,211,farine,,
+,211,poivre,,
+,211,sel,,
+,211,feuille de laurier,0.25,
+,211,tendron de veau,1.0,morceaux
+,211,céleri,0.25,branche
+,211,tomates pelées,0.25,boîte
+,211,concentré de tomates,0.25,petite boîte
+,211,vin blanc sec,5.0,cl
+,212,huile d'olive,,
+,212,poivre,,
+,212,sel,,
+,212,pintade,0.2,
+,212,chair à saucisse,20.0,g
+,212,porc,20.0,g
+,212,échalotes,0.4,
+,212,ail,0.2,gousse
+,212,pomme,0.2,
+,212,raisins secs,2.0,
+,212,oeuf,0.2,
+,214,oignon,0.1666666666666666,
+,214,sel,0.3333333333333333,cuillères à café
+,214,poivre,,
+,214,huile d'olive,,
+,214,beurre,,
+,214,poulet,0.1666666666666666,
+,214,ail,,
+,214,estragon,,
+,214,herbes de Provence,,
+,214,pommes de terre,0.8333333333333334,
+,213,sel,5.0,g
+,213,poivre blanc,0.8333333333333334,g
+,213,beurre,5.0,g
+,213,carottes,0.3333333333333333,
+,213,oignons,0.3333333333333333,
+,213,porto,0.8333333333333334,cl
+,213,muscade,0.3333333333333333,g
+,213,sucre,0.6666666666666666,g
+,213,quatre-épices,0.3333333333333333,g
+,213,pain,33.333333333333336,g
+,213,porc,125.0,g
+,213,porc,41.66666666666666,g
+,213,fécule,6.666666666666667,g
+,213,oeufs,0.8333333333333334,
+,213,échalotes,0.5,
+,213,bouquet garni,0.1666666666666666,
+,213,lait,0.1666666666666666,l
+,213,boyau,,
+,216,crème fraîche,0.25,gros pot
+,216,moutarde,0.25,cuillère à soupe
+,216,sel,,
+,216,persil,,
+,216,saucisse,,
+,216,pomme de terre,,
+,216,ail,,
+,217,miel,0.5,cuillère à soupe
+,217,huile d'olive,0.5,cuillère à soupe
+,217,moutarde à l'ancienne,0.5,cuillère à café
+,217,poivre,,
+,217,côte de porc,0.5,
+,217,concentré de tomates,0.5,cuillère à soupe
+,217,sauce soja,0.5,cuillère à soupe
+,217,vin blanc sec,5.0,cl
+,217,ail,1.0,gousses
+,217,herbes de Provence,,
+,218,jambon,16.666666666666668,g
+,218,oignon,0.1666666666666666,
+,218,pruneaux,1.6666666666666667,
+,218,cognac,,
+,218,persil,,
+,218,poivre,,
+,218,sel,,
+,218,chair à saucisse,33.333333333333336,g
+,218,foie,33.333333333333336,g
+,218,oeuf,0.1666666666666666,
+,218,raisins secs,0.3333333333333333,cuillères à soupe
+,218,pain,0.3333333333333333,tranches
+,218,poulet,0.1666666666666666,
+,220,tomate,0.5,
+,220,sel,,
+,220,poivre,,
+,220,huile d'olive,0.5,cuillère à soupe
+,220,pains pour hamburger,1.0,
+,220,blancs de poulet,1.0,
+,220,oignon rouge,0.5,
+,220,cheddar,1.0,tranches
+,220,laitue,1.0,feuilles
+,220,ketchup,1.0,cuillères à soupe
+,220,oeufs,1.0,
+,220,chapelure,50.0,g
+,219,tomates,2.0,
+,219,huile,1.0,cuillères à soupe
+,219,beurre,10.0,g
+,219,cube de bouillon,0.25,
+,219,poivre,,
+,219,sel,,
+,219,thym,,
+,219,cuisses de lapin,1.0,
+,219,champignon,75.0,g
+,219,eau,10.0,cl
+,221,beurre,12.5,g
+,221,moutarde,0.5,cuillères à soupe
+,221,poivre,,
+,221,sel,,
+,221,côtes de porc,1.0,
+,221,crème,0.6666666666666666,cuillères à soupe
+,221,eau,0.0833333333333333,verre
+,222,carotte,133.33333333333334,g
+,222,oignons,0.5,
+,222,curry,,
+,222,sel,,
+,222,huile,,
+,222,lentilles vertes,41.66666666666666,g
+,222,brique,0.1666666666666666,
+,223,oignon,0.25,
+,223,curry,0.25,cuillère à soupe
+,223,huile,0.25,cuillère à soupe
+,223,chou-fleur,0.25,
+,223,escalopes de dinde,1.0,
+,223,lait de coco,50.0,ml
+,223,coulis de tomate,62.5,ml
+,224,miel,0.5,cuillères à soupe
+,224,piment de Cayenne,0.25,pincée
+,224,sel,,
+,224,poivre,,
+,224,ailes de poulet,3.0,
+,224,jus de citron,0.75,cuillères à soupe
+,224,ail,0.5,
+,226,huile d'olive,0.3333333333333333,cuillères à soupe
+,226,persil,0.0833333333333333,bouquet
+,226,poivre,,
+,226,sel,,
+,226,cailles,1.0,
+,226,échalotes,0.3333333333333333,
+,226,vin blanc sec,1.6666666666666667,cl
+,226,bouillon de volaille,3.333333333333333,cl
+,226,raisins secs,25.0,g
+,226,graines de coriandre,,
+,225,tomate,162.5,g
+,225,poivron vert,112.5,g
+,225,oignons,0.5,
+,225,huile d'olive,0.5,cuillères à soupe
+,225,escalope de poulet,150.0,g
+,225,ail,0.5,gousses
+,225,vin blanc,3.125,cl
+,225,bouquet garni,0.25,
+,225,sel et poivre,,
+,227,cube de bouillon,0.1666666666666666,
+,227,curry,0.25,cuillère à soupe
+,227,curcuma,0.1666666666666666,cuillère à café
+,227,sel,,
+,227,cuisses de poulet,1.0,
+,227,concentré de tomates,0.1666666666666666,petite boîte
+,227,eau,8.333333333333334,cl
+,227,jus de citron,0.25,cuillère à soupe
+,227,basilic,0.3333333333333333,cuillères à soupe
+,228,oignons,0.75,
+,228,crème fraîche,0.25,pot
+,228,beurre,15.0,g
+,228,sel,,
+,228,filet mignon,0.25,
+,228,champignon,75.0,g
+,228,tomates confites à l’huile,0.25,bocal
+,228,cidre,0.125,bouteille
+,230,oignons,0.3333333333333333,
+,230,crème fraîche,0.1666666666666666,pot
+,230,beurre,13.333333333333334,g
+,230,huile,,
+,230,poivre,,
+,230,sel,,
+,230,escalopes,1.0,
+,230,riesling,5.0,cl
+,230,champignons de Paris,50.0,g
+,230,bouillon de volaille,3.333333333333333,cl
+,230,jaune d'oeuf,0.1666666666666666,
+,230,échalotes,0.3333333333333333,
+,231,beurre,10.0,g
+,231,feuille de laurier,0.25,
+,231,thym,0.25,
+,231,poivre,,
+,231,sel,,
+,231,moutarde,0.25,cuillère à soupe
+,231,beurre,0.25,cuillère à soupe
+,231,andouillette,1.0,
+,231,échalotes,1.0,
+,231,vin blanc sec,12.5,cl
+,229,carottes,0.5,
+,229,poireau,0.1666666666666666,
+,229,beurre,8.333333333333334,g
+,229,farine,8.333333333333334,g
+,229,oignon,0.1666666666666666,
+,229,poivre,,
+,229,sel,,
+,229,épaule de veau,0.1666666666666666,kg
+,229,queue,0.1666666666666666,
+,229,jaunes d'oeuf,0.5,
+,229,crème épaisse,1.6666666666666667,cl
+,229,bouquet garni,0.1666666666666666,
+,232,poivre,,
+,232,gros sel,,
+,232,cuisses de canard,1.0,
+,232,canard,,
+,233,huile,0.5,cuillères à soupe
+,233,gingembre,0.5,cuillères à soupe
+,233,oignons,0.5,
+,233,carotte,62.5,g
+,233,maïzena,0.5,cuillères à café
+,233,blancs de poulet,1.0,
+,233,brocoli,62.5,g
+,233,champignons de Paris,62.5,g
+,233,bouillon de poule,0.25,verre
+,233,Xérès,0.5,cuillères à soupe
+,233,sauce soja,0.5,cuillères à café
+,233,eau,0.5,cuillères à soupe
+,233,chou chinois,0.25,bol
+,234,Liqueur,0.1666666666666666,verre
+,234,thym,0.1666666666666666,pincée
+,234,poivre,,
+,234,sel,,
+,234,farine,,
+,234,foie,100.0,g
+,234,lard,58.333333333333336,g
+,234,crépine,0.1666666666666666,
+,234,échalotes,0.3333333333333333,
+,234,oeufs,0.3333333333333333,
+,234,cinq-épices,0.1666666666666666,cuillère à café
+,236,carotte,0.25,
+,236,oignon,0.25,
+,236,poivre blanc,,
+,236,thym,,
+,236,persil,,
+,236,paleron,0.375,kg
+,236,poitrine de porc,100.0,
+,236,pied de veau,0.25,
+,236,céleri,0.25,branche
+,236,girofle,0.75,
+,236,laurier,,
+,236,herbes de Provence,,
+,236,bourgogne,0.5,
+,235,courgettes,1.5,
+,235,oignon,0.25,
+,235,curry,,
+,235,huile d'olive,,
+,235,poivre,,
+,235,sel,,
+,235,escalopes de poulet,1.25,
+,235,crème fraîche liquide,7.5,cl
+,237,huile d'olive,0.6666666666666666,cuillères à soupe
+,237,crème fraîche,6.666666666666667,cl
+,237,bouillon,16.666666666666668,cl
+,237,carottes,1.0,
+,237,oignons,0.6666666666666666,
+,237,porto,1.0,cuillères à soupe
+,237,persil,0.3333333333333333,bouquet
+,237,joue de porc,2.0,
+,237,champignons,2.0,
+,237,ail,0.6666666666666666,gousses
+,237,bouquet garni,0.3333333333333333,

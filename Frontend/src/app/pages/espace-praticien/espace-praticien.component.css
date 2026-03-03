@@ -1,0 +1,165 @@
+.dashboard-container {
+  display: flex;
+}
+#logo-div {
+  text-align: center;
+}
+.logo {
+  width: 40%;
+}
+
+.main-content {
+  margin-left: 20%; /* même que la largeur de la sidebar */
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  min-width: 80%;
+  background-image: url("https://cdn.pixabay.com/photo/2017/06/01/18/27/ingredients-2364182_1280.jpg");
+  overflow-y: auto; /* ✅ active scrollbar */
+}
+
+.center {
+  text-align: center;
+  color: #ebebef;
+}
+
+.logout-btn {
+  position: fixed;
+  top: 10px;
+  right: 20px; /* centre de la zone 0–20% */
+  z-index: 2000;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.logout-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Sidebar par défaut sur desktop */
+.sidebar {
+  width: 20%;
+  background: linear-gradient(
+    146deg,
+    rgba(255, 69, 0, 1) 0%,
+    rgb(244, 163, 123) 100%,
+    rgb(247, 198, 99) 100%,
+    rgb(239, 156, 2) 100%
+  );
+  color: #ebebef;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transition: transform 0.3s ease;
+  box-shadow:
+    rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  z-index: 1000;
+
+  /* Scroll vertical mais invisible */
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+.sidebar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.sidebar h2,
+h4 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+.menu-item {
+  cursor: pointer;
+  padding: 1rem 0;
+  font-weight: bold;
+}
+
+.link-page {
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.link-page:hover {
+  background-color: rgba(255, 69, 0, 1);
+}
+
+.active {
+  font-weight: bold;
+  background-color: rgb(225, 2, 2);
+  border-radius: 5px;
+}
+
+/* Burger button */
+.burger-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  z-index: 1001;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Close button dans sidebar mobile */
+.close-btn {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 890px) {
+  .burger-btn {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    max-width: 300px;
+    transform: translateX(-100%);
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .close-btn {
+    display: block;
+  }
+  .main-content {
+    margin-left: 0 !important; /* supprimer le décalage du desktop */
+    width: 100% !important;
+  }
+
+  .main-content.overlay {
+    filter: blur(2px);
+    pointer-events: none;
+  }
+}

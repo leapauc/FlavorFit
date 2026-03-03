@@ -1,0 +1,570 @@
+id,alim_nom_fr,pluriel,img,animal,poids
+1,"Boeuf, entrecôte, partie maigre grillée/poêlée",,Boeuf,Boeuf,150
+2,"Boeuf, gîte à la noix cuit",,Boeuf,Boeuf,120
+3,"Boeuf, faux-filet rôti/cuit au four",,Boeuf,Boeuf,150
+4,"Boeuf, faux-filet grillé/poêlé",,Boeuf,Boeuf,150
+5,"Boeuf, plat de côtes braisé ou bouilli/cuit à l'eau",,Boeuf,Boeuf,130
+6,"Boeuf, hampe grillée/poêlée",,Boeuf,Boeuf,140
+7,"Boeuf, joue, braisée ou bouillie/cuite à l'eau",,Boeuf,Boeuf,120
+8,"Boeuf, jarret bouilli/cuit à l'eau",,Boeuf,Boeuf,120
+9,"Boeuf, tende de tranche grillée/poêlée",,Boeuf,Boeuf,150
+10,"Boeuf, tende de tranche rôtie/cuite au four",,Boeuf,Boeuf,150
+11,"Boeuf, steak ou bifteck grillé/poêlé",,Boeuf,Boeuf,125
+12,"Boeuf, onglet grillé/poêlé",,Boeuf,Boeuf,140
+13,"Boeuf, rumsteck grillé/poêlé",,Boeuf,Boeuf,150
+14,"Boeuf, boule de macreuse grillée/poêlée",,Boeuf,Boeuf,140
+15,"Boeuf, rosbif rôti/cuit au four",,Boeuf,Boeuf,150
+16,"Boeuf, bavette d'aloyau grillée/poêlée",,Boeuf,Boeuf,140
+17,"Boeuf, boule de macreuse rôtie/cuite au four",,Boeuf,Boeuf,140
+18,"Boeuf, collier braisé",,Boeuf,Boeuf,120
+19,"Boeuf, steak haché 5% MG cuit",,Boeuf,Boeuf,100
+20,"Boeuf, steak haché 10% MG cuit",,Boeuf,Boeuf,100
+21,"Boeuf, steak haché 15% MG cuit",,Boeuf,Boeuf,100
+22,"Boeuf, steak haché 20% MG cuit",,Boeuf,Boeuf,100
+23,"Boeuf, steak haché, cuit (aliment moyen)",,Boeuf,Boeuf,100
+24,"Boeuf, paleron, braisé ou bouilli/cuit à l'eau",,Boeuf,Boeuf,120
+25,"Boeuf, queue bouillie/cuite à l'eau",,Boeuf,Boeuf,90
+26,"Veau, côte grillée/poêlée",,Veau,Veau,150
+27,"Veau, carré grillé/poêlé",,Veau,Veau,160
+28,"Veau, escalope cuite",,Veau,Veau,130
+29,"Veau, noix grillée/poêlée",,Veau,Veau,140
+30,"Veau, noix rôtie/cuite au four",,Veau,Veau,140
+31,"Veau, filet rôti/cuit au four",,Veau,Veau,150
+32,"Veau, rôti cuit",,Veau,Veau,150
+33,"Veau, épaule grillée/poêlée",,Veau,Veau,140
+34,"Veau, épaule braisée ou bouillie",,Veau,Veau,120
+35,"Veau, jarret braisé ou bouilli",,Veau,Veau,110
+36,"Veau, tête, bouillie/cuite à l'eau",,Veau,Veau,100
+37,"Veau, collier braisé ou bouilli",,Veau,Veau,120
+38,"Porc, épaule cuite",,Porc,Porc,130
+39,"Porc, côte grillée/poêlée",,Porc,Porc,150
+40,"Porc, rouelle de jambon cuite",,Porc,Porc,140
+41,"Porc, carré cuit",,Porc,Porc,150
+42,"Porc, filet maigre, en rôti, cuit",,Porc,Porc,150
+43,"Porc, filet mignon cuit",,Porc,Porc,140
+44,"Porc, rôti cuit",,Porc,Porc,150
+45,"Porc, travers braisé",,Porc,Porc,120
+46,"Porc, échine rôtie/cuite au four",,Porc,Porc,140
+47,"Porc, escalope de jambon cuite",,Porc,Porc,130
+48,"Poulet, cuisse, viande et peau rôtie/cuite au four",,Poulet,Poulet,160
+49,"Poulet, viande et peau rôties/cuites au four",,Poulet,Poulet,1500
+50,"Poulet, cuisse, viande rôtie/cuite au four",,Poulet,Poulet,140
+51,"Poulet, filet sans peau grillé/poêlé",,Poulet,Poulet,120
+52,"Poulet, cuisse, viande bouillie/cuite à l'eau",,Poulet,Poulet,130
+53,"Poulet, cuisse, viande et peau bouillie/cuite à l'eau",,Poulet,Poulet,150
+54,"Poulet, poitrine, viande et peau rôties/cuites au four",,Poulet,Poulet,150
+55,"Poulet, aile, viande et peau rôties/cuites au four",,Poulet,Poulet,90
+56,"Poulet, filet sans peau grillé/poêlé, bio",,Poulet,Poulet,120
+57,"Dinde, escalope grillée/poêlée",,Dinde,Dinde,130
+58,"Dinde, escalope rôtie/cuite au four",,Dinde,Dinde,140
+59,"Mouton, gigot rôti/cuit au four",,Mouton,Mouton,2000
+60,"Agneau, côtelette grillée/poêlée",,Agneau,Agneau,80
+61,"Agneau, gigot rôti/cuit au four",,Agneau,Agneau,250
+62,"Agneau, épaule rôtie/cuite au four",,Agneau,Agneau,250
+63,"Agneau, épaule maigre rôtie/cuite au four",,Agneau,Agneau,150
+64,"Agneau, collier braisé ou bouilli",,Agneau,Agneau,800
+65,"Agneau, côte filet grillée/poêlée",,Agneau,Agneau,80
+66,"Agneau, côte première grillée/poêlée",,Agneau,Agneau,80
+67,"Agneau, selle, partie maigre rôtie/cuite au four",,Agneau,Agneau,250
+68,"Agneau, gigot grillé/poêlé",,Agneau,Agneau,300
+69,"Agneau, gigot braisé",,Agneau,Agneau,300
+70,"Agneau, selle, partie maigre grillée/poêlée",,Agneau,Agneau,250
+71,"Agneau, côte ou côtelette, cuite (aliment moyen)",,Agneau,Agneau,100
+72,"Agneau, côte ou côtelette, grillée/poêlée (aliment moyen)",,Agneau,Agneau,80
+73,"Cheval, tende de tranche grillée/poêlée",,Cheval,Cheval,180
+74,"Cheval, faux-filet grillé/poêlé",,Cheval,Cheval,180
+75,"Cheval, entrecôte grillée/poêlée",,Cheval,Cheval,180
+76,"Cheval, faux-filet rôti/cuit au four",,Cheval,Cheval,200
+77,"Cheval, tende de tranche rôtie/cuite au four",,Cheval,Cheval,200
+78,"Lapin, viande braisée",,Lapin,Lapin,200
+79,"Lapin, viande cuite",,Lapin,Lapin,200
+80,"Lapin de garenne, viande cuite",,Lapin,Lapin,200
+81,"Chapon, viande et peau rôties/cuites au four",,Chapon,Chapon,350
+82,"Caille, viande et peau cuites",,Caille,Caille,60
+83,"Canard, viande et peau rôties/cuites au four",,Canard,Canard,500
+84,"Canard, viande rôtie/cuite au four",,Canard,Canard,500
+85,"Canard, magret grillé/poêlé",,Canard,Canard,150
+86,"Oie, viande rôtie/cuite au four",,Oie,Oie,700
+87,"Oie, viande et peau rôties/cuites au four",,Oie,Oie,700
+88,"Pigeon, viande rôtie/cuite au four",,Pigeon,Pigeon,400
+89,"Cervelle, agneau, cuite",,Agneau,Agneau,100
+90,"Cervelle, porc, braisée",,Porc,Porc,100
+91,"Cervelle, veau, cuite",,Veau,Veau,130
+92,"Coeur, boeuf, cuit",,Boeuf,Boeuf,350
+93,"Coeur, poulet, cuit",,Poulet,Poulet,100
+94,"Coeur, dinde, cuit",,Dinde,Dinde,170
+95,"Coeur, agneau, cuit",,Agneau,Agneau,160
+96,"Foie, agneau, cuit",,Agneau,Agneau,100
+97,"Foie, génisse, cuit",,Génisse,Génisse,220
+98,"Foie, veau, cuit",,Veau,Veau,220
+99,"Foie, volaille, cuit",,Volaille,Volaille,80
+100,"Foie, porc, cuit",,Porc,Porc,220
+101,"Foie, poulet, cuit",,Poulet,Poulet,80
+102,"Foie, dinde, cuit",,Dinde,Dinde,170
+103,"Langue, veau, cuite",,Veau,Veau,250
+104,"Langue, boeuf, cuite",,Boeuf,Boeuf,320
+105,"Ris, agneau, cuit",,Agneau,Agneau,170
+106,"Ris, veau, braisé ou grillé/poêlé",,Veau,Veau,320
+107,"Rognon, boeuf, cuit",,Boeuf,Boeuf,170
+108,"Rognon, porc, cuit",,Porc,Porc,120
+109,"Rognon, agneau, braisé",,Agneau,Agneau,100
+110,"Rognon, veau, braisé ou grillé/poêlé",,Veau,Veau,170
+111,"Gésier, canard, confit, appertisé",,Boeuf,Boeuf,60
+112,"Boeuf, côte crue",,Boeuf,Boeuf,220
+113,"Boeuf, épaule crue",,Boeuf,Boeuf,250
+114,"Boeuf, basse-côte crue",,Boeuf,Boeuf,220
+115,"Boeuf, gîte à la noix cru",,Boeuf,Boeuf,220
+116,"Boeuf, entrecôte crue",,Boeuf,Boeuf,200
+117,"Boeuf, rond de gîte cru",,Boeuf,Boeuf,220
+118,"Boeuf, faux-filet cru",,Boeuf,Boeuf,200
+119,"Boeuf, filet cru",,Boeuf,Boeuf,200
+120,"Boeuf, plat de côtes cru",,Boeuf,Boeuf,250
+121,"Boeuf, hampe crue",,Boeuf,Boeuf,170
+122,"Boeuf, joue crue",,Boeuf,Boeuf,220
+123,"Boeuf, jarret cru",,Boeuf,Boeuf,250
+124,"Boeuf, tende de tranche crue",,Boeuf,Boeuf,200
+125,"Boeuf, steak ou bifteck cru",,Boeuf,Boeuf,170
+126,"Boeuf, boule de macreuse crue",,Boeuf,Boeuf,220
+127,"Boeuf, onglet cru",,Boeuf,Boeuf,160
+128,"Boeuf, rumsteck cru",,Boeuf,Boeuf,200
+129,"Boeuf, bavette d'aloyau crue",,Boeuf,Boeuf,160
+130,"Boeuf, collier cru",,Boeuf,Boeuf,220
+131,"Boeuf, steak haché 5% MG cru",,Boeuf,Boeuf,120
+132,"Boeuf, steak haché 10% MG cru",,Boeuf,Boeuf,120
+133,"Boeuf, steak haché 15% MG cru",,Boeuf,Boeuf,120
+134,"Boeuf, steak haché 20% MG cru",,Boeuf,Boeuf,120
+135,"Boeuf, paleron cru",,Boeuf,Boeuf,250
+136,"Boeuf, queue crue",,Boeuf,Boeuf,250
+137,"Veau, côte crue",,Veau,Veau,200
+138,"Veau, carré cru",,Veau,Veau,250
+139,"Veau, escalope crue",,Veau,Veau,140
+140,"Veau, noix,crue",,Veau,Veau,200
+141,"Veau, filet cru",,Veau,Veau,200
+142,"Veau, steak haché 20% MG cru",,Veau,Veau,120
+143,"Veau, steak haché 15% MG cru",,Veau,Veau,120
+144,"Veau, poitrine crue",,Veau,Veau,250
+145,"Veau, rôti cru",,Veau,Veau,250
+146,"Veau, épaule crue",,Veau,Veau,250
+147,"Veau, pied cru",,Veau,Veau,170
+148,"Veau, jarret cru",,Veau,Veau,220
+149,"Veau, collier cru",,Veau,Veau,220
+150,"Porc, épaule crue",,Porc,Porc,250
+151,"Porc, poitrine crue",,Porc,Porc,250
+152,"Porc, palette crue",,Porc,Porc,250
+153,"Porc, côte crue",,Porc,Porc,170
+154,"Porc, rouelle de jambon crue",,Porc,Porc,220
+155,"Porc, carré cru",,Porc,Porc,250
+156,"Porc, filet mignon cru",,Porc,Porc,200
+157,"Porc, rôti cru",,Porc,Porc,250
+158,"Porc, échine crue",,Porc,Porc,250
+159,"Porc, travers cru",,Porc,Porc,220
+160,"Porc, escalope de jambon crue",,Porc,Porc,120
+161,"Porc, bardière découennée crue",,Porc,Porc,250
+162,"Porc, gorge découennée crue",,Porc,Porc,200
+163,"Porc, hachage sans jarret, sans bateau, découenné, dégraissé, désossé, cru",,Porc,Porc,100
+164,"Porc, jambon sans jarret, sans bateau, découenné, dégraissé, désossé, cru",,Porc,Porc,250
+165,"Porc, jambonneau arrière, découenné, dégraisssé, désossé, cru",,Porc,Porc,200
+166,"Porc, maigre 90/10 cru",,Porc,Porc,100
+167,"Porc, maigre 80/20 cru",,Porc,Porc,100
+168,"Porc, palette, découennée, dégraissée, désossée, crue",,Porc,Porc,250
+169,"Porc, poitrine cutter, sans mouille, crue",,Porc,Porc,250
+170,"Porc, rôti filet avec chaînette, cru",,Porc,Porc,250
+171,"Poule, viande et peau crues",,Poulet,Poulet,1200
+172,"Poule, viande crue",,Poulet,Poulet,1000
+173,"Poulet, cuisse, viande et peau crue",,Poulet,Poulet,150
+174,"Poulet, viande crue",,Poulet,Poulet,1000
+175,"Poulet blanc, viande et peau crues",,Poulet,Poulet,1200
+176,"Poulet fermier, viande et peau crues",,Poulet,Poulet,1500
+177,"Poule, cuisse crue",,Poulet,Poulet,150
+178,"Poulet, viande et peau crues",,Poulet,Poulet,1200
+179,"Poulet, filet sans peau cru",,Poulet,Poulet,120
+180,"Poulet, haut de cuisse, viande crue",,Poulet,Poulet,120
+181,"Poulet éviscéré sans abats, cru",,Poulet,Poulet,1200
+182,"Poulet, pilon cru",,Poulet,Poulet,100
+183,"Poulet, aile, viande et peau crues",,Poulet,Poulet,80
+184,"Poulet, cuisse, viande crue",,Poulet,Poulet,120
+185,"Poulet, poitrine, viande et peau crues",,Poulet,Poulet,200
+186,"Poulet, cuisse, viande et peau crues bio",,Poulet,Poulet,150
+187,"Poulet, cuisse, viande et peau crues label rouge",,Poulet,Poulet,150
+188,"Poulet, filet sans peau cru, bio",,Poulet,Poulet,120
+189,"Poulet, filet sans peau cru, label rouge",,Poulet,Poulet,120
+190,"Dinde, viande et peau crues",,Dinde,Dinde,5000
+191,"Dinde, viande crue",,Dinde,Dinde,4500
+192,"Dinde, escalope crue",,Dinde,Dinde,150
+193,"Dinde, cuisse, viande et peau crues",,Dinde,Dinde,300
+194,"Dinde, cuisse, viande crue",,Dinde,Dinde,250
+195,"Dinde, aile crue",,Dinde,Dinde,100
+196,"Dinde, haut de cuisse cru",,Dinde,Dinde,150
+197,"Mouton, épaule crue",,Mouton,Mouton,250
+198,"Mouton, pied cru",,Mouton,Mouton,150
+199,"Mouton, tête crue",,Mouton,Mouton,600
+200,"Mouton, gigot cru",,Mouton,Mouton,2000
+201,"Agneau, côtelette crue",,Agneau,Agneau,80
+202,"Agneau, gigot cru",,Agneau,Agneau,1500
+203,"Agneau, épaule crue",,Agneau,Agneau,1200
+204,"Agneau, épaule maigre crue",,Agneau,Agneau,150
+205,"Agneau, collier cru",,Agneau,Agneau,800
+206,"Agneau, selle crue",,Agneau,Agneau,1500
+207,"Agneau, côte filet crue",,Agneau,Agneau,80
+208,"Agneau, côte première crue",,Agneau,Agneau,80
+209,"Agneau, côte ou côtelette, crue (aliment moyen)",,Agneau,Agneau,80
+210,"Agneau, côte découverte crue",,Agneau,Agneau,80
+211,"Lièvre, viande crue",,Lièvre,Lièvre,550
+212,"Faisan, viande crue",,Faisan,Faisan,450
+213,"Faisan, viande et peau crues",,Faisan,Faisan,450
+214,"Cheval, steak ou bifteck cru",,Cheval,Cheval,200
+215,"Cheval, tende de tranche crue",,Cheval,Cheval,200
+216,"Cheval, faux-filet cru",,Cheval,Cheval,200
+217,"Cheval, entrecôte crue",,Cheval,Cheval,200
+218,"Lapin, viande crue",,Lapin,Lapin,1000
+219,"Lapin de garenne, viande crue",,Lapin,Lapin,1000
+220,"Chapon, viande et peau crues",,Chapon,Chapon,2500
+221,"Caille, viande et peau crues",,Caille,Caille,150
+222,"Caille, viande crue",,Canard,Canard,120
+223,"Canard, viande crue",,Canard,Canard,1500
+224,"Canard, cuisse avec peau, sans os, crue",,Canard,Canard,200
+225,"Canard, viande et peau crues",,Canard,Canard,1500
+226,"Canard, magret cru",,Canard,Canard,150
+227,"Oie, viande crue",,Oie,Oie,3500
+228,"Oie, viande et peau crues",,Oie,Oie,3500
+229,"Pigeon, viande crue",,Pigeon,Pigeon,350
+230,"Pintade, viande crue",,Pintade,Pintade,1000
+231,"Pintade, poitrine crue",,Pintade,Pintade,120
+232,"Pintade, cuisse crue",,Pintade,Pintade,100
+233,"Cervelle, agneau, crue",,Agneau,Agneau,100
+234,"Cervelle, porc, crue",,Porc,Porc,100
+235,"Cervelle, veau, crue",,Veau,Veau,100
+236,"Coeur, boeuf, cru",,Boeuf,Boeuf,450
+237,"Coeur, poulet, cru",,Poulet,Poulet,100
+238,"Coeur, dinde, cru",,Dinde,Dinde,150
+239,"Coeur, agneau, cru",,Agneau,Agneau,150
+240,"Coeur, porc, cru",,Porc,Porc,200
+241,"Coeur, veau, cru",,Veau,Veau,300
+242,"Foie, agneau, cru",,Agneau,Agneau,100
+243,"Foie, génisse, cru",,Génisse,Génisse,200
+244,"Foie, veau, cru",,Veau,Veau,200
+245,"Foie, volaille, cru",,Volaille,Volaille,80
+246,"Foie, lapin, cru",,Lapin,Lapin,50
+247,"Foie, poulet, cru",,Poulet,Poulet,80
+248,"Foie, dinde, cru",,Dinde,Dinde,150
+249,"Foie, porc, cru",,Porc,Porc,200
+250,"Foie, oie, cru",,Oie,Oie,300
+251,"Foie, canard, cru",,Canard,Canard,200
+252,"Langue, boeuf, crue",,Boeuf,Boeuf,300
+253,"Langue, veau, crue",,Veau,Veau,250
+254,"Langue, porc, crue",,Porc,Porc,200
+255,"Langue, agneau, crue",,Agneau,Agneau,150
+256,"Ris, agneau, cru",,Agneau,Agneau,150
+257,"Ris, veau, cru",,Veau,Veau,300
+258,"Rognon, boeuf, cru",,Boeuf,Boeuf,150
+259,"Rognon, porc, cru",,Porc,Porc,100
+260,"Rognon, agneau, cru",,Agneau,Agneau,80
+261,"Rognon, veau, cru",,Veau,Veau,150
+262,"Gésier, poulet, cru",,Poulet,Poulet,50
+263,Filet de bacon,,Porc,Porc,100
+264,"Épaule de porc, cuite, choix, découennée dégraissée",,Porc,Porc,1200
+265,Rond de jambon cuit,,Porc,Porc,1200
+266,"Épaule de porc, cuite, standard, découennée dégraissée",,Porc,Porc,1200
+267,"Jambonneau, cuit",,Porc,Porc,250
+268,Saucisse sèche,,Porc,Porc,50
+269,Chipolata cuite,,Porc,Porc,40
+270,Saucisse de Toulouse cuite,,Porc,Porc,100
+271,Saucisse fumée à cuire,,Porc,Porc,100
+272,Saucisse de Morteau,,Porc,Porc,200
+273,"Saucisse de Montbéliard, à cuire",,Porc,Porc,150
+274,Saucisse de Morteau bouillie/cuite à l'eau,,Porc,Porc,200
+275,Saucisse de Toulouse crue,,Porc,Porc,100
+276,Chipolata crue,,Porc,Porc,40
+277,Saucisse alsacienne fumée ou gendarme,,Porc,Porc,100
+278,Saucisse de volaille façon charcutière,,Volaille,Volaille,60
+279,Saucisse de volaille type knack,,Volaille,Volaille,20
+280,Saucisse de Francfort,,Porc,Porc,50
+281,Merguez crue,,Boeuf,Boeuf,80
+282,Merguez crue (aliment moyen),,Boeuf,Boeuf,80
+283,"Merguez, pur boeuf, crue",,Boeuf,Boeuf,80
+284,"Merguez, boeuf et porc, crue",,Default,"Boeuf, Porc",80
+285,"Merguez, boeuf, mouton et porc, crue",,Default,"Boeuf, Mouton, Porc",80
+286,"Merguez, boeuf et mouton, cuite",,Default,"Boeuf, Mouton",80
+287,"Merguez, boeuf et mouton, crue",,Default,"Boeuf, Mouton",80
+288,Saucisse de foie,,Porc,Porc,100
+289,Diot cru,,Porc,Porc,60
+290,"Saucisse de Strasbourg ou knack, à cuire",,Porc,Porc,50
+291,"Saucisse de Strasbourg ou knack, à teneur réduite en sel, à cuire",,Porc,Porc,50
+292,Saucisse cocktail,,Porc,Porc,15
+293,Saucisse viennoise crue,,Porc,Porc,40
+294,Saucisse de jambon pur porc,,Porc,Porc,100
+295,Saucisse de bière,,Porc,Porc,120
+296,Saucisse de langue à la pistache,,Porc,Porc,120
+297,Saucisse (aliment moyen),,Porc,Porc,80
+298,"Quenelle de veau en sauce, appertisée",,Veau,Veau,120
+299,"Quenelle de volaille, à cuire",,Volaille,Volaille,100
+300,"Quenelle de volaille en sauce, appertisée",,Volaille,Volaille,120
+301,"Quenelle de poisson en sauce, appertisée",,Poisson,Poisson,120
+302,"Quenelle de poisson, à cuire",,Poisson,Poisson,100
+303,"Quenelle nature, à cuire",,Poisson,Poisson,100
+304,"Confit de canard, viande (cuisse), sans peau, appertisé, réchauffé",,Canard,Canard,200
+305,"Confit de canard, appertisé",,Canard,Canard,250
+306,"Canard, magret fumé",,Canard,Canard,300
+307,"Foie gras, canard, entier, cuit",,Canard,Canard,450
+308,"Foie gras, canard, bloc, sans morceaux",,Canard,Canard,150
+309,"Foie gras, canard, bloc, 30% de morceaux",,Canard,Canard,150
+310,"Foie gras, canard, bloc, 50% de morceaux",,Canard,Canard,150
+311,"Foie gras, canard, cru",,Canard,Canard,500
+312,"Foie gras, canard, bloc (aliment moyen)",,Canard,Canard,150
+313,Galantine,,Porc,Porc,150
+314,Oeuf au jambon en gelée,,Default,"Volaille, Porc",200
+315,Museau de boeuf,,Boeuf,Boeuf,300
+316,Andouille,,Porc,Porc,250
+317,Andouille de Guéméné,,Porc,Porc,400
+318,"Andouille, réchauffée à la poêle",,Porc,Porc,250
+319,Andouille de Vire,,Porc,Porc,250
+320,"Andouillette, à cuire",,Porc,Porc,200
+321,"Andouillette, grillée/poêlée",,Porc,Porc,200
+322,"Andouillette de Troyes, à cuire",,Porc,Porc,200
+323,"Boudin noir, à cuire",,Porc,Porc,150
+324,"Boudin noir, grillé/poêlé",,Porc,Porc,150
+325,"Boudin, grillé/poêlé (aliment moyen)",,Porc,Porc,150
+326,"Boudin antillais, à cuire",,Porc,Porc,120
+327,"Boudin blanc, grillé/poêlé",,Porc,Porc,150
+328,"Boudin blanc, à cuire",,Default,"Porc, Veau, Volaille",150
+329,"Boudin blanc truffé, à cuire",,Default,"Porc, Veau, Volaille",150
+330,Pied de porc demi-sel,,Porc,Porc,300
+331,Poitrine de porc demi-sel,,Porc,Porc,250
+332,Saucisson à l'ail,,Porc,Porc,200
+333,Saucisson pur porc cuit,,Porc,Porc,200
+334,"Saucisson brioché, cuit",,Porc,Porc,350
+335,Saucisson de cheval type cervelas,,Cheval,Cheval,150
+336,"Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée",,,,80
+337,"Quenelle au tofu (ne convient pas aux véganes ou végétaliens), préemballée",,,,100
+338,"Saucisse végétale au blé ou seitan, préemballé",,,,80
+339,"Saucisse de volaille type knack (contenant du soja), préemballée",,,,20
+340,"Églefin, cuit à la vapeur",,Églefin,Églefin,500
+341,"Hareng, frit",,Poisson,Hareng,200
+342,"Hareng, grillé/poêlé",,Poisson,Hareng,200
+343,"Lieu noir, cuit",,Lieu noir,Lieu noir,1500
+344,"Limande-sole, cuite à la vapeur",,Poisson,Limande-sole,350
+345,"Maquereau, rôti/cuit au four",,Poisson,Maquereau,400
+346,"Maquereau, frit",,Poisson,Maquereau,400
+347,"Merlan, frit",,Poisson,Merlan,300
+348,s,,Poisson,Merlan,300
+349,"Cabillaud, rôti/cuit au four",,Poisson,Cabillaud,3
+350,"Morue, salée, bouillie/cuite à l'eau",,Poisson,Morue,2.5
+351,"Cabillaud, cuit à la vapeur",,Poisson,Cabillaud,3
+352,"Mulet, rôti/cuit au four",,Poisson,Mulet,1000
+353,"Raie, rôtie/cuite au four",,Raie,Raie,4000
+354,"Roussette ou petite roussette ou saumonette, cuite",,Roussette,Roussette,1500
+355,"Saumon, cuit à la vapeur",,Saumon,Saumon,4500
+356,"Sole, cuite à la vapeur",,Poisson,Sole,300
+357,"Sole, rôtie/cuite au four",,Poisson,Sole,300
+358,"Sole, bouillie/cuite à l'eau",,Poisson,Sole,300
+359,"Sole, frite",,Poisson,Sole,300
+360,"Raie, cuite au court-bouillon",,Raie,Raie,4000
+361,"Lotte ou baudroie, grillée/poêlée",,Poisson,Lotte,2000
+362,"Turbot, rôti/cuit au four",,Turbot,Turbot,3500
+363,"Merlu, cuit à l'étouffée",,Poisson,Merlu,1000
+364,"Églefin, grillé/poêlé",,Églefin,Églefin,500
+365,"Sardine,  grillée/poêlée",,Poisson,Sardine,120
+366,"Vivaneau, cuit",,Poisson,Vivaneau,1500
+367,"Rascasse ou rascasse de profondeur, cuite à la vapeur",,Poisson,Rascasse,1000
+368,"Lieu jaune ou colin, cuit",,Lieu,Lieu,1500
+369,"Saumon, élevage, cuit au micro-onde",,Saumon,Saumon,4500
+370,"Saumon, élevage, bouilli/cuit à l'eau",,Saumon,Saumon,4500
+371,"Dorade grise ou daurade grise ou griset, rôtie/cuite au four",,Dorade,Dorade,400
+372,"Saumon, grillé/poêlé",,Saumon,Saumon,4000
+373,"Saumon, élevage, rôti/cuit au four",,Saumon,Saumon,4500
+374,"Julienne ou lingue, cuite",,Poisson,Julienne,1000
+375,"Sole, grillée/poêlée",,Poisson,Sole,300
+376,"Truite saumonée, sautée/poêlée",,Truite,Truite,1500
+377,"Anguille, cuite (aliment moyen)",,Anguille,Anguille,750
+378,"Anguille, rôtie/cuite au four",,Anguille,Anguille,750
+379,"Anguille, bouillie/cuite à l'eau",,Anguille,Anguille,750
+380,"Brochet, rôti/cuit au four",,Brochet,Brochet,3000
+381,"Carpe, rôtie/cuite au four",,Carpe,Carpe,3000
+382,"Perche ou perche européenne, rôtie/cuite au four",,Poisson,Perche,500
+383,"Truite, rôtie/cuite au four",,Truite,Truite,1000
+384,"Truite ou truite fario, cuite à la vapeur",,Truite,Truite,1000
+385,"Truite arc en ciel, élevage, rôtie/cuite au four",,Truite,Truite,1000
+386,"Truite arc en ciel, élevage, cuite à la vapeur",,Truite,Truite,1000
+387,"Pangas, poisson-chat, machoiron, cuit",,Poisson,Pangas,2000
+388,"Bar commun ou loup, rôti/cuit au four",,Bar,Bar,1500
+389,"Dorade royale ou daurade ou vraie daurade, rôtie/cuite au four",,Dorade,Dorade,500
+390,"Mahi-mahi, chair, cru",,Poisson,Mahi-mahi,4000
+391,"Bar rayé ou bar d'Amérique, cru",,Bar,Bar,2500
+392,"Lieu ou colin d'Alaska, cru",,Lieu,Lieu,2000
+393,"Hareng, cru",,Poisson,Hareng,100
+394,"Saumon, élevage, cru",,Saumon,Saumon,4000
+395,"Turbot, sauvage, cru",,Turbot,Turbot,2500
+396,"Cabillaud, cru",,Poisson,Cabillaud,2500
+397,"Merlu, cru",,Poisson,Merlu,2000
+398,"Lieu noir, surgelé, cru",,Lieu noir,Lieu noir,2000
+399,"Merlu, filet, surgelé, cru",,Poisson,Merlu,2000
+400,"Maquereau, cru",,Poisson,Maquereau,250
+401,"Raie, crue",,Raie,Raie,2500
+402,"Carrelet ou plie ou plie commune, cru",,Poisson,Carrelet,500
+403,"Limande, crue",,Poisson,Limande,400
+404,"Sole, crue",,Poisson,,300
+405,"Rascasse ou rascasse de profondeur, crue",,Poisson,,1000
+406,"Sardine, crue",,Poisson,,100
+407,"Thon listao ou bonite à ventre rayé, cru",,Thon,Thon,3000
+408,"Thon rouge, cru",,Thon,Thon,200
+409,"Bar commun ou loup, cru",,Bar,Bar,1000
+410,"Roussette ou petite roussette ou saumonette, crue",,Roussette,Roussette,2000
+411,"Anchois, cru",,Poisson,,30
+412,"Dorade royale ou daurade ou vraie daurade, sauvage, crue",,Dorade,Dorade,1000
+413,"Éperlan, cru",,Poisson,,30
+414,"Cardine franche, crue",,Poisson,,200
+415,"Rouget-barbet de roche, cru",,Poisson,,150
+416,"Dorade royale ou daurade ou vraie daurade, élevage, crue",,Dorade,Dorade,450
+417,"Mulet, cru",,Poisson,,2000
+418,"Truite de mer, crue",,Truite,Truite,3000
+419,"Merlan, cru",,Poisson,,400
+420,"Dorade grise ou daurade grise, ou griset, crue",,Dorade,Dorade,400
+421,"Bogue, crue",,Poisson,,200
+422,"Bonite ou bonite à dos rayé, crue",,Poisson,,3000
+423,"Maquereau espagnol ou maquereau blanc ou billard, cru",,Poisson,,500
+424,"Denté ou denté commun, cru",,Poisson,,3000
+425,"Saint-Pierre, cru",,Poisson,,2000
+426,"Grondin, cru",,Poisson,,500
+427,"Corb, cru",,Poisson,,2500
+428,"Dorade rose ou daurade rose ou pageot rose, crue",,Dorade,Dorade,750
+429,"Rouget-barbet de roche, vapeur",,Poisson,,150
+430,"Saupe, crue",,Poisson,,400
+431,"Chinchard, cru",,Poisson,,250
+432,"Églefin, cru",,Églefin,Églefin,1500
+433,"Cabillaud ou morue du Pacifique, cru",,Poisson,,2000
+434,"Grenadier (de roche), cru",,Poisson,,1500
+435,"Lieu jaune ou colin, cru",,Lieu,Lieu,2500
+436,"Tacaud, cru",,Poisson,,200
+437,"Lieu noir, cru",,Lieu noir,Lieu noir,1500
+438,"Limande-sole, crue",,Poisson,,300
+439,"Foie de morue, cru",,Poisson,,400
+440,"Vivaneau, cru",,Poisson,,2000
+441,"Sabre, cru",,Poisson,,1500
+442,"Flétan du Groënland ou flétan noir ou flétan commun, cru",,Poisson,,1500
+443,"Carangue, cru",,Poisson,,2500
+444,"Coulirou, cru",,Poisson,,1500
+445,"Saumon, sauvage, cru",,Saumon,Saumon,5000
+446,"Orphie commune, crue",,Poisson,,500
+447,"Lompe, crue",,Poisson,,2500
+448,"Brème, cru",,Poisson,,1500
+449,"Omble chevalier, cru",,Poisson,,1500
+450,"Loup tacheté, cru",,Poisson,,1500
+451,"Turbot, cru",,Turbot,Turbot,5000
+452,"Corégone lavaret ou lavaret, cru",,Poisson,,1000
+453,"Sole tropicale ou sole-langue, crue",,Poisson,,200
+454,"Turbot, élevage, cru",,Turbot,Turbot,1500
+455,"Bar commun ou loup (Méditerranée), sauvage, cru",,Bar,Bar,1000
+456,"Bar commun ou loup (Méditerranée), élevage, cru",,Bar,Bar,400
+457,"Sébaste du nord ou grand sébaste, ou dorade sébaste, ou daurade sébaste, crue",,Sébaste,Sébaste,1500
+458,"Hoki, tout lieu de pêche, cru",,Poisson,,1000
+459,"Hoki de Nouvelle-Zélande, cru",,Poisson,,1000
+460,"Grondin perlon, cru",,Poisson,,300
+461,"Saumon argenté du Pacifique (coho), cru",,Saumon,Saumon,3500
+462,"Merlu blanc du Cap, surgelé, cru",,Poisson,,1000
+463,"Chinchard maigre, cru",,Poisson,,250
+464,"Chinchard gras, cru",,Poisson,,300
+465,"Hareng maigre, cru",,Poisson,,120
+466,"Hareng gras, cru",,Poisson,,150
+467,"Joëls (petits poissons entiers) pour friture, crus",,Poisson,,20
+468,"Empereur, filet, sans peau, cru",,Poisson,,120
+469,"Rouget-barbet, filet avec peau, surgelé, cru (Thaïlande,Vietnam, Sénégal…)",,Poisson,,80
+470,"Carpe,  élevage, crue",,Carpe,Carpe,25000
+471,"Truite ou truite fario, élevage, crue",,Truite,Truite,400
+472,"Truite arc en ciel, élevage, crue",,Truite,Truite,500
+473,"Perche ou perche européenne, crue",,Poisson,,1000
+474,"Brochet, cru",,Brochet,Brochet,3000
+475,"Anguille, crue",,Anguille,Anguille,1000
+476,"Pangas, poisson-chat, machoiron, cru",,Poisson,,1000
+477,"Tilapia, cru",,Poisson,,1000
+478,"Truite saumonée, crue",,Truite,Truite,1500
+479,"Lotte de rivière, crue",,Poisson,,1500
+480,"Sandre, cru",,Poisson,,1500
+481,"Perche du Nil, crue",,Poisson,,3000
+482,"Bigorneau, cuit",,,,10
+483,"Coquille Saint-Jacques, noix et corail, cuite",,Coquille saint jacques,Coquille saint jacques,40
+484,"Crevette grise, cuite",,Crevette,Crevette,5
+485,"Crevette, cuite",,Crevette,Crevette,20
+486,"Homard, bouilli/cuit à l'eau",,Homard,Homard,250
+487,"Moule, bouillie/cuite à l'eau",,,,10
+488,"Bulot ou buccin, cuit",,,,40
+489,"Langouste, bouillie/cuite à l'eau",,,,300
+490,"Crabe ou tourteau, bouilli/cuit à l'eau",,Crabe,Crabe,250
+491,"Clam, praire ou palourde, bouilli/cuit à l'eau",,,,10
+492,"Écrevisse, cuite",,Écrevisse,Écrevisse,20
+493,"Crevette bouquet, sauvage, cuite",,Crevette,Crevette,25
+494,"Coque, cuite",,,,8
+495,"Calmar ou calamar ou encornet, bouilli/cuit à l'eau",,,,150
+496,"Langoustine, bouillie/cuite à l'eau",,,,20
+497,"Araignée de mer, bouillie/cuite à l'eau",,,,200
+498,"Crevette blanche ou crevette tropicale (rose), élevage, cuite",,Crevette,Crevette,25
+499,"Crevette tropicale (tigrée), élevage, cuite",,Crevette,Crevette,35
+500,"Crevette tropicale (rose), cuite (Penaeus brasiliensis)",,,,25
+501,"Poulpe, cuit",,,,200
+502,"Calmar ou calamar ou encornet, frit ou poêlé avec matière grasse",,,,100
+503,"Crevettes, décortiquées, cuites, réfrigérées, préemballées",,Crevette,Crevette,100
+504,"Ecrevisses, décortiquées, cuites, réfrigérées, préemballées",,Écrevisse,Écrevisse,100
+505,"Crevettes grises, décortiquées, cuites, réfrigérées, préemballées",,Crevette,Crevette,100
+506,"Escargot, cuit",,,,10
+507,"Crevette sauvage, cuite",,Crevette,Crevette,25
+508,"Crevette, élevage, cuite (aliment moyen)",,Crevette,Crevette,25
+509,"Grenouille, cuisse, grillée/poêlée",,,,120
+510,"Calmar ou calamar ou encornet, cru",,,,100
+511,"Coquille Saint-Jacques, noix et corail, crue",,Coquille saint jacques,Coquille saint jacques,30
+512,"Escargot, cru",,,,10
+513,"Homard, cru",,Homard,Homard,200
+514,"Huître, sans précision, crue",,,,45
+515,"Langouste, crue",,,,200
+516,"Seiche, crue",,,,120
+517,"Clam, praire ou palourde, cru",,,,15
+518,"Poulpe, cru",,,,200
+519,"Bulot ou buccin, cru",,,,15
+520,"Crevette, crue",,Crevette,Crevette,12
+521,"Langoustine, crue",,,,15
+522,"Écrevisse, crue",,Écrevisse,Écrevisse,12
+523,"Huître creuse, crue",,,,40
+524,"Huître plate, crue",,,,45
+525,"Crevette, surgelée, crue",,Crevette,Crevette,12
+526,"Crabe, cru",,Crabe,Crabe,70
+527,"Ormeau, cru",,,,35
+528,"Coquille Saint-Jacques, noix, crue",,Coquille saint jacques,Coquille saint jacques,30
+529,"Pecten d'Amérique ou peigne du Canada, noix, crue",,,,30
+530,"Pétoncle ou peigne du Pérou, noix, crue",,,,30
+531,"Bigorneau, cru",,,,5
+532,"Grenouille, cuisse, crue",,,,40
+533,"Calmar ou calamar ou encornet, à la romaine (beignet), préemballé",,,,55
+534,"Crabe, miettes et ou pattes décortiquées, appertisé, égoutté",,Crabe,Crabe,45
+535,"Langoustine, panée, frite",,,,20
+536,Beignet de crevette,,Crevette,Crevette,20
+537,"Escargot en sauce au beurre persillé, préemballé, cuit",,,,20
+538,"Maquereau, filet grillé, appertisé, en sauce, égoutté",,Poisson,,100
+539,"Anchois, filets, roulés aux câpres, salés, à l'huile, semi-conserve, égouttés",,Poisson,,10
+540,"Anchois, filets, marinés à l'huile, semi-conserve, égouttés",,Poisson,,100
+541,"Carrelet ou plie ou plie commune, pané, frit",,Poisson,,100
+542,"Limande-sole, panée, frite",,Poisson,,100
+543,"Nuggets ou croquette panée de poisson, préemballé",,Poisson,Poisson,40
+544,"Poisson pané, surgelé, cru",,Poisson,Poisson,80
+545,"Poisson pané, frit",,Poisson,Poisson,80
+546,"Maquereau, filet sauce tomate, appertisé, égoutté",,Poisson,,100
+547,"Maquereau, filet sauce moutarde, appertisé, égoutté",,Poisson,,100
+548,"Maquereau, filet au vin blanc, appertisé, égoutté",,Poisson,,100
+549,"Maquereau, filet (grillé ou non), au naturel, appertisé, égoutté",,Poisson,,100
+550,"Merlan, pané",,Poisson,,100
+551,"Sardine, filets sans arêtes à l'huile d'olive, appertisés, égouttés",,Poisson,,40
+552,"Anchois, filets, marinés à l'orientale (huile, piments…), semi-conserve, égouttés",,Poisson,,10
+553,"Anchois, filets, salés, à l'huile de tournesol, semi-conserve, égouttés",,Poisson,,10
+554,"Anchois, filets, salés, à l'huile d'olive, semi-conserve, égouttés",,Poisson,,10
+555,"Anchois, filets, marinés, semi-conserve, égouttés (aliment moyen)",,Poisson,,10
+556,"Oeuf, blanc (blanc d'oeuf), cuit",,Oeuf,Oeuf,30
+557,"Oeuf, jaune (jaune d'oeuf), cuit",,Oeuf,Oeuf,20
+558,Oeuf dur,,Oeuf,Oeuf,55
+559,Oeuf poché,,Oeuf,Oeuf,55
+560,Oeuf à la coque,,Oeuf,Oeuf,55
+561,"Oeuf brouillé, avec matière grasse",,Oeuf,Oeuf,60
+562,"Oeuf au plat, sans matière grasse",,Oeuf,Oeuf,55
+563,Oeuf cru,,Oeuf,Oeuf,55
+564,"Oeuf, blanc (blanc d'oeuf), cru",,Oeuf,Oeuf,33
+565,"Oeuf, jaune (jaune d'oeuf), cru",,Oeuf,Oeuf,22
+566,"Oeuf de caille, cru",,Oeuf,Oeuf,10
+567,"Oeuf de cane, cru",,Oeuf,Oeuf,65
+568,"Oeuf d'oie, cru",,Oeuf,Oeuf,130
+569,"Oeuf de dinde, cru",,Oeuf,Oeuf,80

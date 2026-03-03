@@ -1,0 +1,188 @@
+<h1 class="mb-4 text-center">Gestion RDV</h1>
+<br />
+<br />
+<div class="week-navigation">
+  <button class="btn btn-outline-primary" (click)="previousWeek()">
+    <i class="bi bi-chevron-left"></i>
+  </button>
+
+  <h2 class="m-0">Semaine du {{ currentWeekStart | date: "d MMMM yyyy" }}</h2>
+
+  <button class="btn btn-outline-primary" (click)="nextWeek()">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+</div>
+<br />
+<div class="week-grid">
+  <div class="day-column" *ngFor="let day of weekDays">
+    <div class="day-header">
+      {{ day | date: "EEEE" | titlecase }}
+      <br />
+      {{ day | date: "dd/MM" }}
+    </div>
+
+    <div class="rdv-card" *ngFor="let rdv of getAppointmentsForDay(day)">
+      <div class="rdv-time">
+        {{ rdv.date_appointment | date: "HH:mm" }}
+      </div>
+
+      <div class="rdv-info">
+        <strong>
+          {{ rdv.lastname | uppercase }}
+          {{ rdv.firstname ? (rdv.firstname.charAt(0) | uppercase) + "." : "" }}
+        </strong>
+      </div>
+
+      <div class="rdv-actions d-flex gap-2">
+        <button
+          type="button"
+          class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center"
+          style="width: 25px; height: 25px"
+          (click)="openModal(rdv)"
+          title="Modifier"
+        >
+          <i class="bi bi-pencil"></i>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-danger rounded-circle d-flex align-items-center justify-content-center"
+          style="width: 25px; height: 25px"
+          (click)="openDeleteModal(rdv)"
+          title="Supprimer"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="fab" (click)="openModal()">＋</button>
+
+<!-- MODAL RDV -->
+<div class="modal fade show d-block" tabindex="-1" *ngIf="showModal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h3 class="modal-title fw-bold">
+          {{ editingId ? "Modifier RDV" : "Ajouter RDV" }}
+        </h3>
+
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body">
+        <form [formGroup]="rdvForm" (ngSubmit)="save()">
+          <!-- PATIENT -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Patient</label>
+            <select formControlName="id_patient" class="form-select" required>
+              <option value="">-- Choisir un patient --</option>
+              <option *ngFor="let p of patients" [value]="p.id_patient">
+                {{ p.lastname | uppercase }} {{ p.firstname }}
+              </option>
+            </select>
+          </div>
+
+          <!-- DATE -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Date et heure</label>
+            <!-- DATE -->
+            <input
+              type="date"
+              formControlName="date"
+              class="form-control mb-2"
+            />
+
+            <!-- HEURE -->
+            <select formControlName="time" class="form-select">
+              <option *ngFor="let slot of timeSlots" [value]="slot">
+                {{ slot }}
+              </option>
+            </select>
+          </div>
+
+          <!-- DURÉE -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Durée</label>
+            <select formControlName="duration" class="form-select">
+              <option [value]="30">30 min</option>
+              <option [value]="45">45 min</option>
+              <option [value]="60">60 min</option>
+            </select>
+          </div>
+
+          <!-- NOTES -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Notes</label>
+            <textarea
+              formControlName="notes"
+              class="form-control"
+              rows="3"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="modal-footer">
+        <button class="btn reinit" (click)="closeModal()">Annuler</button>
+
+        <button
+          class="btn success"
+          (click)="save()"
+          [disabled]="!rdvForm.valid"
+        >
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SUPPRESSION RDV -->
+<div class="modal fade show d-block" *ngIf="showDeleteConfirm" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h3 class="modal-title fw-bold">Supprimer le rendez-vous ?</h3>
+
+        <button
+          type="button"
+          class="btn-close"
+          (click)="cancelDelete()"
+        ></button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body text-center">
+        <p>Voulez-vous vraiment supprimer ce rendez-vous ?</p>
+
+        <h5 class="text-danger fw-bold">Cette action est irréversible !</h5>
+
+        <br />
+        <p>
+          {{ appointmentToDelete!.lastname | uppercase }}
+          {{ appointmentToDelete!.firstname }}
+        </p>
+        <p *ngIf="appointmentToDelete">
+          📅
+          {{ appointmentToDelete.date_appointment | date: "dd/MM/yyyy HH:mm" }}
+        </p>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="modal-footer">
+        <button class="btn reinit" (click)="cancelDelete()">Annuler</button>
+
+        <button class="btn danger" (click)="confirmDelete()">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-global-notification></app-global-notification>

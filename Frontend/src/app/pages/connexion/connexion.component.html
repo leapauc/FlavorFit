@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="left">
+    <img
+      class="img-background"
+      src="background/connexion.jpg"
+      alt="Image côté gauche"
+    />
+  </div>
+  <div class="right">
+    <img class="logo" src="img/logo_flavorFit.webp" alt="Logo" />
+
+    <h1>Bonjour, bienvenue !</h1>
+    <br />
+    <p>Entrer l'identifiant et le mot de passe.</p>
+    <br /><br />
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="name">Identifiant :</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="mon_identifiant"
+        formControlName="name"
+      />
+      <br />
+      <label for="password">Mot de passe :</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="**********"
+        formControlName="password"
+      />
+      <br />
+      <button type="submit" [disabled]="loginForm.invalid" class="reinit">
+        Se connecter
+      </button>
+    </form>
+  </div>
+</div>
+<!-- MODALS -->
+<div
+  class="modal fade"
+  id="failedModal"
+  tabindex="-1"
+  aria-labelledby="failedModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <div class="modal-body">
+        <div class="mb-3">
+          <span style="font-size: 3rem; color: red">❌</span>
+        </div>
+        <h5 class="modal-title mb-3" id="failedModalLabel">
+          Echec lors de la tentative de connection !
+        </h5>
+        <p>Mot de passe et/ou identifiant incorrect.</p>
+        <button type="button" class="danger" data-bs-dismiss="modal">
+          Fermer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,127 @@
+h1 {
+  color: whitesmoke;
+  font-weight: bold;
+  text-align: center;
+}
+
+.text_content {
+  border-radius: 20px;
+  padding: 2%;
+  background-color: #fff3e0;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* Par défaut : desktop */
+.day-short {
+  display: none;
+}
+
+/* Mobile / tablette */
+@media (max-width: 768px) {
+  .day-full {
+    display: none;
+  }
+
+  .day-short {
+    display: inline;
+    font-weight: bold;
+  }
+}
+
+.mode-card {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.mode-card h5 {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.mode-card.active {
+  border-color: #fd810d; /* couleur bootstrap primary */
+  background-color: #f5c783;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row.align-items-center .col-auto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*DRAP AND DROP AREA*/
+.recipe-list {
+  min-height: 200px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.recipe-item {
+  padding: 8px;
+  margin-bottom: 6px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: grab;
+}
+.recipe-token {
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.drop-zone {
+  min-height: 60px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #fff;
+  pointer-events: auto;
+}
+
+.drop-zone.cdk-drop-list-dragging {
+  background-color: #e9f5ff;
+}
+
+.planned-meal {
+  background: #d4edda;
+  padding: 6px 10px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.remove-btn {
+  margin-left: 8px;
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+.placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+.recipe-token {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #e9f5ff;
+  border: 1px solid #b6d4fe;
+  border-radius: 20px;
+  cursor: grab;
+  font-weight: 500;
+}

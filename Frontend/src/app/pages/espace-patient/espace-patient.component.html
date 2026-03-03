@@ -1,0 +1,82 @@
+<div class="patient">
+  <br /><br />
+  <h1 class="text-center">Espace patient</h1>
+  <br />
+  <h3 class="text-center">
+    {{ selectedPatient?.lastname }} {{ selectedPatient?.firstname }}
+  </h3>
+  > <br /><br />
+  <div style="position: absolute; top: 20px; right: 20px">
+    <button class="btn exit-btn" routerLink="/praticien/gestion_patients">
+      <i class="bi bi-x-circle text-danger fs-1"></i>
+    </button>
+  </div>
+  <div class="full_content">
+    <!-- tabs.component.html -->
+    <div class="nav-align-top">
+      <ul class="nav nav-tabs nav-fill" role="tablist">
+        <li class="nav-item">
+          <button
+            class="nav-link"
+            [class.active]="activeTab === 'Contact'"
+            (click)="setActiveTab('Contact')"
+            routerLink="contact"
+          >
+            <i class="tf-icons bx bx-folder"></i> <strong>Contact</strong>
+            <span
+              class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger"
+            ></span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="nav-link"
+            [class.active]="activeTab === 'Contrainte'"
+            (click)="setActiveTab('Contrainte')"
+            routerLink="contrainte"
+          >
+            <i class="tf-icons bx bx-cog"></i> <strong>Contrainte</strong>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="nav-link"
+            [class.active]="activeTab === 'Planning passés'"
+            (click)="setActiveTab('Planning passés')"
+            routerLink="planning_passe"
+          >
+            <i class="bx bx-palette"></i> <strong>Planning passés</strong>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="nav-link"
+            [class.active]="activeTab === 'HebMealGenerator'"
+            (click)="setActiveTab('HebMealGenerator')"
+            routerLink="generator"
+          >
+            <i class="bx bx-history"></i> <strong>HebMealGenerator</strong>
+            <span
+              class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger"
+            ></span>
+          </button>
+        </li>
+        <!-- <li class="nav-item">
+      <button
+        class="nav-link"
+        [class.active]="activeTab === 'favoris'"
+        (click)="setActiveTab('favoris')"
+        routerLink="favoris"
+      >
+        <i class="bx bx-current-location"></i> <strong>Favoris</strong>
+      </button>
+    </li> -->
+      </ul>
+    </div>
+    <div class="main_content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <br />
+  <br />
+</div>

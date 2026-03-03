@@ -1,0 +1,36 @@
+.notification-popup {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  min-width: 250px;
+  padding: 10px;
+  border-radius: 50px 0 0 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  z-index: 2500;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+/* SUCCESS */
+.notification-popup.success {
+  background: radial-gradient(circle at center, #c7edd0 0%, #78cf7b 100%);
+  border: 0px solid;
+  color: #155724;
+}
+
+/* ERROR */
+.notification-popup.error {
+  background: radial-gradient(circle at center, #f8d7da 0%, #e36870 100%);
+  border: 0px solid;
+  color: #721c24;
+}
+
+/* SLIDE OUT */
+.notification-popup.slide-out {
+  transform: translateX(150%);
+  opacity: 0;
+}

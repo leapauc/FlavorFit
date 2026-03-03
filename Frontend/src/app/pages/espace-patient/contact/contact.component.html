@@ -1,0 +1,267 @@
+<div class="unactiv-form position-relative p-3 rounded">
+  <!-- Bouton crayon en haut à droite -->
+  <button
+    class="position-absolute p-0"
+    style="
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+      border: none;
+      background: transparent;
+    "
+    (click)="toggleEdit()"
+  >
+    <i
+      class="fs-1"
+      [class.text-primary]="!isEditMode"
+      [class.text-danger]="isEditMode"
+      [ngClass]="isEditMode ? null : 'bi bi-pencil-square'"
+    ></i>
+  </button>
+
+  <br />
+  <h4 class="text-center">Contact</h4>
+
+  <form #contactForm="ngForm">
+    <div class="unactiv-form">
+      <div class="row">
+        <!--Nom-->
+        <div class="col-4 mb-3">
+          <label for="lastname" class="form-label">Nom</label>
+
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            class="form-control"
+            [(ngModel)]="formData.lastname"
+            [readonly]="!isEditMode"
+            required
+            minlength="2"
+            #lastname="ngModel"
+          />
+
+          <!-- Erreurs -->
+          <div
+            *ngIf="
+              isEditMode &&
+              lastname.invalid &&
+              (lastname.dirty || lastname.touched)
+            "
+            class="text-danger small"
+          >
+            <div *ngIf="lastname.errors?.['required']">
+              Le nom est obligatoire
+            </div>
+            <div *ngIf="lastname.errors?.['minlength']">
+              Le nom doit contenir au moins 2 caractères
+            </div>
+          </div>
+        </div>
+        <!--Prénom-->
+        <div class="col-4 mb-3">
+          <label for="firstname" class="form-label">Prénom</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            class="form-control"
+            [(ngModel)]="formData.firstname"
+            [readonly]="!isEditMode"
+            required
+            #firstname="ngModel"
+          />
+
+          <div
+            *ngIf="
+              isEditMode &&
+              firstname.invalid &&
+              (firstname.dirty || firstname.touched)
+            "
+            class="text-danger small"
+          >
+            Le prénom est obligatoire
+          </div>
+        </div>
+        <!--Age-->
+        <div class="col-4 mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            class="form-control"
+            [(ngModel)]="formData.age"
+            [readonly]="!isEditMode"
+            min="0"
+            max="120"
+            #age="ngModel"
+          />
+
+          <div
+            *ngIf="isEditMode && age.invalid && (age.dirty || age.touched)"
+            class="text-danger small"
+          >
+            <div *ngIf="age.errors?.['min']">L’âge doit être positif</div>
+            <div *ngIf="age.errors?.['max']">
+              L’âge ne peut pas dépasser 120 ans
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Email-->
+        <div class="col-7 mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            [(ngModel)]="formData.email"
+            [readonly]="!isEditMode"
+            required
+            email
+            #email="ngModel"
+          />
+
+          <div
+            *ngIf="
+              isEditMode && email.invalid && (email.dirty || email.touched)
+            "
+            class="text-danger small"
+          >
+            <div *ngIf="email.errors?.['required']">
+              L’email est obligatoire
+            </div>
+            <div *ngIf="email.errors?.['email']">Format d’email invalide</div>
+          </div>
+        </div>
+        <!--Phone-->
+        <div class="col-5 mb-3">
+          <label for="phone" class="form-label">Téléphone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            class="form-control"
+            [(ngModel)]="formData.phone"
+            [readonly]="!isEditMode"
+            pattern="^[0-9]{10}$"
+            #phone="ngModel"
+          />
+
+          <div
+            *ngIf="
+              isEditMode && phone.invalid && (phone.dirty || phone.touched)
+            "
+            class="text-danger small"
+          >
+            Le numéro doit contenir 10 chiffres
+          </div>
+        </div>
+      </div>
+
+      <h5 class="text-center">Adresse</h5>
+      <div class="row">
+        <!--Rue-->
+        <div class="col-6 mb-3">
+          <label for="rue" class="form-label">Rue</label>
+          <input
+            type="text"
+            id="rue"
+            name="rue"
+            class="form-control"
+            [(ngModel)]="formData.rue"
+            [readonly]="!isEditMode"
+          />
+        </div>
+        <!--Complément adresse-->
+        <div class="col-6 mb-3">
+          <label for="complement" class="form-label"
+            >Complément (optionnel)</label
+          >
+          <input
+            type="text"
+            id="complement"
+            name="complement"
+            class="form-control"
+            [(ngModel)]="formData.complement"
+            [readonly]="!isEditMode"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Code postal-->
+        <div class="col-2 mb-3">
+          <label for="code_postal" class="form-label">Code postal</label>
+          <input
+            type="text"
+            id="code_postal"
+            name="code_postal"
+            class="form-control"
+            [(ngModel)]="formData.code_postal"
+            [readonly]="!isEditMode"
+            pattern="^[0-9]{5}$"
+            #codePostal="ngModel"
+          />
+
+          <div
+            *ngIf="
+              isEditMode &&
+              codePostal.invalid &&
+              (codePostal.dirty || codePostal.touched)
+            "
+            class="text-danger small"
+          >
+            Code postal invalide (5 chiffres)
+          </div>
+        </div>
+        <!--Ville-->
+        <div class="col-5 mb-3">
+          <label for="ville" class="form-label">Ville</label>
+          <input
+            type="text"
+            id="ville"
+            name="ville"
+            class="form-control"
+            [(ngModel)]="formData.ville"
+            [readonly]="!isEditMode"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Boutons bas page visibles seulement en mode édition -->
+    <div *ngIf="isEditMode" class="mt-3 d-flex justify-content-end gap-2">
+      <div class="d-flex gap-3 justify-content-end mt-3">
+        <!-- Annuler -->
+        <button
+          class="danger square-btn d-flex justify-content-center align-items-center"
+          (click)="cancelEdit()"
+        >
+          <i class="bi bi-x-circle fs-4"></i>
+        </button>
+
+        <!-- Réinitialiser -->
+        <button
+          class="reinit square-btn d-flex justify-content-center align-items-center"
+          (click)="resetForm()"
+        >
+          <i class="bi bi-arrow-counterclockwise fs-4"></i>
+        </button>
+
+        <!-- Valider -->
+        <button
+          class="success square-btn d-flex justify-content-center align-items-center"
+          (click)="saveEdit()"
+          [disabled]="contactForm.invalid"
+        >
+          <i class="bi bi-check-circle fs-4"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

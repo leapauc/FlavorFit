@@ -1,0 +1,493 @@
+<h1>HebMealGenerator</h1>
+<br />
+<br />
+<div class="container">
+  <form class="mx-auto" style="max-width: 900px">
+    <!-- 👥 Nombre de personnes et 📅 Date de début côte à côte -->
+    <div class="text_content mb-4 shadow-sm">
+      <div class="card-body">
+        <div class="row g-3">
+          <!-- g-3 = gap entre colonnes -->
+          <!-- Nombre de parts -->
+          <div class="col-6">
+            <label for="nbPersonnes" class="form-label fw-bold">
+              Nombre de parts / personnes
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="nbPersonnes"
+              min="1"
+              value="2"
+            />
+          </div>
+
+          <!-- Date de début -->
+          <div class="col-6">
+            <label for="dateDebut" class="form-label fw-bold">
+              Date de début du planning
+            </label>
+            <input
+              type="text"
+              id="dateDebut"
+              class="form-control"
+              placeholder="Choisir une date"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🚫 Pathologies, Allergènes & convictions -->
+    <div class="text_content mb-4 shadow-sm">
+      <div class="card-body" [class.opacity-50]="filtersValidated">
+        <div class="row mb-2">
+          <p class="fw-bold mb-2">Contraintes alimentaires :</p>
+
+          <div class="col-5 mb-3">
+            <label class="form-label">Pathologie(s)</label>
+
+            <!-- Faux select -->
+            <div
+              class="form-control d-flex flex-wrap gap-2"
+              (click)="toggleDropdown()"
+            >
+              <span *ngIf="!selectedPathologies.length" class="text-muted">
+                Sélectionner des pathologies
+              </span>
+
+              <!-- Chips -->
+              <div
+                *ngFor="let pathology of selectedPathologies"
+                class="badge bg-danger d-flex align-items-center gap-1"
+                (click)="$event.stopPropagation()"
+              >
+                {{ pathology }}
+                <i
+                  class="bi bi-x ms-1"
+                  role="button"
+                  (click)="removePathology(pathology)"
+                ></i>
+              </div>
+            </div>
+            <!-- Dropdown -->
+            <div *ngIf="dropdownOpen" class="dropdown-menu show w-100 p-2">
+              <div *ngFor="let group of pathologyGroups">
+                <strong class="d-block mb-1">{{ group.type }}</strong>
+
+                <div *ngFor="let item of group.items" class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [id]="sanitizeId(item)"
+                    (change)="togglePathology(item)"
+                    [checked]="selectedPathologies.includes(item)"
+                  />
+                  <label class="form-check-label" [for]="sanitizeId(item)">
+                    {{ item }}
+                  </label>
+                </div>
+
+                <hr />
+              </div>
+            </div>
+          </div>
+          <!-- Conviction -->
+          <div class="col-3 mb-3">
+            <label for="conviction" class="form-label">Conviction</label>
+            <select class="form-control" id="conviction">
+              <option value="">Aucune conviction alimentaire</option>
+              <option
+                *ngFor="let conviction of convictionGroups"
+                [value]="conviction"
+              >
+                {{ conviction }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Restrictions alimentaires -->
+          <div class="col-4 mb-3 position-relative">
+            <label class="form-label">Restrictions alimentaires</label>
+
+            <!-- Faux select -->
+            <div
+              class="form-control d-flex flex-wrap gap-2"
+              (click)="toggleDietaryDropdown()"
+            >
+              <span *ngIf="!selectedDietaryOptions.length" class="text-muted">
+                Sélectionner des restrictions
+              </span>
+
+              <!-- Chips -->
+              <div
+                *ngFor="let option of selectedDietaryOptions"
+                class="badge bg-secondary d-flex align-items-center gap-1"
+                (click)="$event.stopPropagation()"
+              >
+                {{ option }}
+                <i
+                  class="bi bi-x ms-1"
+                  role="button"
+                  (click)="removeDietaryOption(option)"
+                ></i>
+              </div>
+            </div>
+
+            <!-- Dropdown -->
+            <div
+              *ngIf="dietaryDropdownOpen"
+              class="dropdown-menu show w-100 p-2"
+              (click)="$event.stopPropagation()"
+            >
+              <div *ngFor="let option of dietaryOptions" class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [id]="sanitizeId(option)"
+                  [checked]="selectedDietaryOptions.includes(option)"
+                  (change)="toggleDietaryOption(option)"
+                />
+                <label class="form-check-label" [for]="sanitizeId(option)">
+                  {{ option }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-12 mb-3 position-relative">
+            <label class="form-label">Ingrédient(s) à exclure</label>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span
+                *ngFor="let ingredient of selectedIngredients"
+                class="badge bg-warning text-dark"
+              >
+                {{ ingredient }}
+                <i
+                  class="bi bi-x ms-1"
+                  (click)="removeIngredient(ingredient)"
+                ></i>
+              </span>
+            </div>
+
+            <input
+              type="text"
+              class="form-control mb-2"
+              placeholder="Ajouter un ingrédient..."
+              [(ngModel)]="ingredientSearch"
+              name="ingredientSearch"
+              (input)="filterIngredientAutocomplete()"
+            />
+            <ul
+              class="list-group position-absolute w-100"
+              style="z-index: 1000"
+            >
+              <li
+                *ngFor="let ingredient of filteredIngredients"
+                class="list-group-item list-group-item-action"
+                (click)="toggleIngredient(ingredient)"
+              >
+                {{ ingredient }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mb-4">
+        <button
+          (click)="resetFilters()"
+          *ngIf="filtersValidated"
+          class="reinit mb-2 me-4"
+        >
+          Réinitialiser les filtres
+        </button>
+        <button
+          type="button"
+          class="success px-4 mb-2 me-4"
+          (click)="validateFilters()"
+          [disabled]="filtersValidated"
+        >
+          ✔ Valider les filtres
+        </button>
+
+        <p *ngIf="filtersSavedMessage" class="text-success mt-2 fw-bold">
+          Filtres enregistrés avec succès ✔
+        </p>
+      </div>
+    </div>
+    <div [class.opacity-50]="!filtersValidated">
+      <!-- Choix du mode avec style -->
+      <div class="d-flex gap-1 mb-4">
+        <!-- Mode automatique -->
+        <div
+          class="mode-card"
+          [class.active]="mode === 'auto'"
+          (click)="mode = 'auto'"
+        >
+          <h5>Automatique</h5>
+          <p>Le planning sera généré automatiquement</p>
+        </div>
+
+        <!-- Mode manuel -->
+        <div
+          class="mode-card"
+          [class.active]="mode === 'manuel'"
+          (click)="mode = 'manuel'"
+        >
+          <h5>Manuel</h5>
+          <p>Choisissez vos recettes pour chaque jour et chaque repas</p>
+        </div>
+      </div>
+
+      <!-- AUTO -->
+      <div *ngIf="mode === 'auto'" (click)="setMode('auto')">
+        <div class="text_content mb-4 shadow-sm">
+          <div class="card-body">
+            <p class="fw-bold mb-3">Repas à inclure</p>
+
+            <div class="row mb-2">
+              <div class="col d-flex flex-wrap gap-4">
+                <ng-container *ngFor="let meal of meals">
+                  <div class="form-check d-flex align-items-center">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      [checked]="isMealRowChecked(meal)"
+                      (change)="onToggleMealRow($event, meal)"
+                      [id]="'selectAll-' + meal"
+                    />
+                    <label
+                      class="form-check-label ms-1"
+                      [for]="'selectAll-' + meal"
+                    >
+                      Tous {{ meal }}
+                    </label>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <!-- HEADER -->
+            <div class="row text-center fw-bold mb-2">
+              <div class="col">Repas</div>
+              <div class="col" *ngFor="let day of days">
+                <span class="day-full">{{ day }}</span>
+                <span class="day-short">{{ day[0] }}</span>
+              </div>
+            </div>
+
+            <!-- LIGNES MIDI / DINER -->
+            <div class="row align-items-center mb-2" *ngFor="let meal of meals">
+              <div class="col fw-bold">{{ meal }}</div>
+
+              <div class="col text-center" *ngFor="let day of days">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="mealsToPlan[day][meal]"
+                  [name]="day + '-' + meal + '-auto'"
+                  class="form-check-input"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ Bouton -->
+        <div class="text-end">
+          <button
+            class="success"
+            (click)="generateAutoPlanning()"
+            [disabled]="!filtersValidated || loadingRecipes"
+          >
+            Générer le planning de repas
+          </button>
+        </div>
+      </div>
+      <!-- MANUEL -->
+      <div
+        *ngIf="mode === 'manuel'"
+        (click)="setMode('manuel')"
+        class="text_content mb-4 shadow-sm"
+      >
+        <div class="card-body">
+          <p class="fw-bold mb-3">Planification manuelle des repas</p>
+          <div class="row">
+            <!-- COL GAUCHE : SELECT -->
+            <div class="col-4">
+              <label class="form-label fw-bold">Choisir une recette</label>
+
+              <select
+                class="form-control"
+                [(ngModel)]="selectedRecipe"
+                [compareWith]="compareRecipes"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option [ngValue]="null">— Choisir une recette —</option>
+                <option
+                  *ngFor="let recipe of filteredRecipes"
+                  [ngValue]="recipe"
+                >
+                  {{ recipe.title }}
+                </option>
+              </select>
+
+              <!-- DROP LIST SOURCE -->
+              <div
+                cdkDropList
+                id="source-list"
+                [cdkDropListData]="selectedRecipe ? [selectedRecipe] : []"
+                [cdkDropListConnectedTo]="dropListsIds"
+                class="mt-3"
+              >
+                <div
+                  *ngIf="selectedRecipe"
+                  class="recipe-token"
+                  cdkDrag
+                  [cdkDragData]="selectedRecipe"
+                >
+                  🍽️ {{ selectedRecipe.title }}
+                </div>
+              </div>
+            </div>
+
+            <!-- COL DROITE : PLANNING -->
+            <div class="col-8" id="planning-pdf">
+              <!-- HEADER -->
+              <div class="row fw-bold mb-2 text-center">
+                <div class="col-4 text-start">Jour</div>
+                <div class="col" *ngFor="let meal of meals">
+                  {{ meal }}
+                </div>
+              </div>
+
+              <!-- LIGNES JOUR / REPAS -->
+              <div class="row align-items-center mb-2" *ngFor="let day of days">
+                <div class="col-4 fw-bold">{{ day }}</div>
+
+                <div class="col" *ngFor="let meal of meals">
+                  <div
+                    class="drop-zone"
+                    cdkDropList
+                    [id]="day + '-' + meal"
+                    [cdkDropListData]="
+                      manualPlanning[day][meal]
+                        ? [manualPlanning[day][meal]]
+                        : []
+                    "
+                    [cdkDropListConnectedTo]="dropListsIds"
+                    (cdkDropListDropped)="onDrop($event, day, meal)"
+                  >
+                    <!-- Recette planifiée -->
+                    <div *ngIf="manualPlanning[day][meal]" class="planned-meal">
+                      {{ manualPlanning[day][meal]?.title }}
+                      <span class="remove-btn" (click)="removeMeal(day, meal)"
+                        >✖</span
+                      >
+                    </div>
+
+                    <!-- Placeholder si vide -->
+                    <span
+                      *ngIf="!manualPlanning[day][meal]"
+                      class="placeholder"
+                    >
+                      Déposer ici
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Boutons -->
+          <div class="text-end mt-4">
+            <button
+              class="success me-2"
+              [disabled]="!filteredRecipes.length"
+              (click)="generatePdf()"
+            >
+              Télécharger le planning
+            </button>
+            <button class="reinit me-2" (click)="generateShoppingList()">
+              Générer la liste de course
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<br />
+<!-- PLANNING AUTOMATIQUE -->
+<div
+  *ngIf="mode === 'auto' && filtersValidated && planningGenerated"
+  class="text_content mb-4 shadow-sm"
+>
+  <div class="card-body" id="planning-pdf">
+    <p class="fw-bold mb-3">Planning automatique généré</p>
+
+    <!-- Table Header -->
+    <table class="table table-bordered text-center">
+      <thead class="table-light">
+        <tr>
+          <th>Jour</th>
+          <th *ngFor="let meal of meals">{{ meal }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let day of days">
+          <td class="fw-bold">{{ day }}</td>
+          <td *ngFor="let meal of meals">
+            {{ manualPlanning[day][meal]?.title || "—" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Boutons -->
+  <div class="text-end mt-4">
+    <button
+      class="success me-2"
+      [disabled]="!filteredRecipes.length"
+      (click)="generatePdf()"
+    >
+      Télécharger le planning
+    </button>
+    <button
+      class="reinit me-2"
+      (click)="generateShoppingList()"
+      [disabled]="!planningGenerated && mode === 'auto'"
+    >
+      Générer la liste de course
+    </button>
+  </div>
+</div>
+
+<!-- LISTE DE COURSE GLOBALE -->
+<div
+  *ngIf="showShoppingList && shoppingListMode === mode"
+  class="shopping-container"
+>
+  <h1>Liste de course</h1>
+
+  <div *ngFor="let group of getSortedShoppingGroups()" class="shopping-card">
+    <div class="shopping-card-header" [ngClass]="getGroupClass(group.key)">
+      {{ group.key }}
+    </div>
+
+    <div class="shopping-card-body">
+      <div class="shopping-grid">
+        <div class="shopping-item" *ngFor="let item of group.value">
+          <input type="checkbox" class="shopping-checkbox" />
+
+          <div class="shopping-text">
+            <span class="shopping-name">
+              {{ item.name }}
+            </span>
+
+            <span class="shopping-quantity"> {{ item.quantity_g }} g </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

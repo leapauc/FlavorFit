@@ -1,0 +1,98 @@
+<div class="dashboard-container">
+  <!-- Bouton burger visible uniquement sur mobile -->
+  <button class="burger-btn" (click)="toggleSidebar()">☰</button>
+  <button class="btn logout-btn" routerLink="../connexion">
+    <i class="bi bi-box-arrow-right text-danger fs-1"></i>
+  </button>
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.open]="isSidebarOpen">
+    <div class="menu">
+      <br />
+      <br />
+      <div id="logo-div">
+        <img class="logo" src="favicon.ico" alt="Logo" />
+      </div>
+      <br />
+      <br />
+      <h2 *ngIf="authUser">{{ authUser.lastname }} {{ authUser.firstname }}</h2>
+      <br />
+      <hr />
+      <br />
+      <ul>
+        <li
+          routerLink="table"
+          routerLinkActive="active"
+          (click)="closeSidebar()"
+          class="link-page"
+        >
+          <i class="bi bi-house-door"></i> Tableau de bord
+        </li>
+        <!-- Gestion des QCM -->
+
+        <li
+          routerLink="gestion_patients"
+          routerLinkActive="active"
+          (click)="closeSidebar()"
+          class="link-page"
+        >
+          <i class="bi bi-person-fill"></i>
+          Gestion patients
+        </li>
+        <li
+          routerLink="gestion_rdv"
+          routerLinkActive="active"
+          (click)="closeSidebar()"
+          class="link-page"
+        >
+          <i class="bi bi-calendar-event"></i>
+          Gestion RDV
+        </li>
+        <li
+          routerLink="gestion_recettes"
+          routerLinkActive="active"
+          (click)="closeSidebar()"
+          class="link-page"
+        >
+          <i class="bi bi-journal-richtext"></i> Gestion recettes
+        </li>
+        <hr />
+        <li
+          routerLink="hebmealgenerator"
+          routerLinkActive="active"
+          (click)="closeSidebar()"
+          class="link-page"
+        >
+          <i class="bi bi-basket me-2"></i>
+          HebMealGenerator
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <ul>
+      <li>Poids</li>
+      <li
+        routerLink="fruit_legume"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        class="link-page"
+      >
+        <i class="bi bi-apple me-2"></i>
+        fruit / légumes
+      </li>
+      <li
+        routerLink="viande_poisson_oeuf"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        class="link-page"
+      >
+        <i class="bi bi-egg-fried me-2"></i>
+        viande / poisson / œuf
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Zone principale -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

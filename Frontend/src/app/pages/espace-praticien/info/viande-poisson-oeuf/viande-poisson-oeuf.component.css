@@ -1,0 +1,90 @@
+/* Card container */
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image container */
+.card-image-container {
+  flex: 0 0 40%; /* prend 40% de la card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Image */
+.card-image {
+  width: 80%; /* 80% de la largeur du container */
+  height: auto; /* garde les proportions */
+  display: block;
+}
+
+/* Texte à côté de l'image */
+.card-info {
+  flex: 1; /* prend le reste de la card */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Nom de la pièce */
+.card-info .name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Source / animal */
+.card-info .source {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Poids */
+.card-info .weight {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-image-container {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 8px 0;
+  }
+
+  .card-image {
+    width: 50%; /* ajuste pour mobile */
+    height: auto;
+  }
+
+  .card-info {
+    padding: 12px;
+  }
+}

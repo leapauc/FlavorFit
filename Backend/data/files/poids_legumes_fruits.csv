@@ -1,0 +1,212 @@
+id,nom,plurial,g_weight
+1,Chayote ou christophine ou chouchou à peau verte,Chayotes ou christophines ou chouchous à peau verte,400
+2,Betterave rouge,Betteraves rouges,300
+3,Kaki,Kakis,200
+4,Feijoa,Feijoas,60
+5,Chou vert,Choux verts,1000
+6,Maïs doux,Maïs doux,160
+7,Orange amère,Oranges amères,150
+8,Mangue moussache,Mangues moussaches,350
+9,Abricot,Abricots,35
+10,Pomme Gala,Pommes Gala,150
+11,Rutabaga,Rutabagas,400
+12,Poivron,Poivrons,150
+13,Haricot vert,Haricots verts,10
+14,Mesclun ou salade,Mescluns ou salades,220
+15,Kamanioc,Kamanioc,400
+16,Pomme Golden,Pommes Golden,150
+17,Raisin Chasselas,Raisins Chasselas,5
+18,Grenade,Grenades,250
+19,Pruneau,Pruneaux,9
+20,Myrtille,Myrtille,1
+21,Clémentine ou mandarine,Clémentines ou mandarines,110
+22,Salade verte,Salades vertes,220
+23,Giraumon (variété locale),Giraumons (variété locale),2000
+24,Pêche jaune,Pèches jaunes,150
+25,Salade feuille de chêne,Salades feuille de chêne,200
+26,Mangue,Mangues,250
+27,Fruit de la passion ou maracudja,Fruits de la passion ou maracudjas,15
+28,Melon cantaloup (par ex.: Charentais),Melons cantaloup (par ex.: Charentais),1000
+29,Scarole,Scaroles,300
+30,Groseille,Groseilles,0.5
+31,Igname cousse-couche,Ignames cousses-couches,400
+32,Tétragone cornue,Tétragones cornues,325
+33,Échalote,Échalotes,15
+34,Melon,Melons,1000
+35,Raisin sec,Raisins secs,1
+36,Papaye Colombo (fruit mûr),Papayes Colombo (fruit mûr),700
+37,Haricot plat,Haricots plats,17
+38,Prune Reine-Claude,Prunes Reine-Claude,35
+39,Bette ou blette,Bettes ou Blettes,400
+40,Caïmite (ou pomme étoile ou pomme de lait),Caïmites (ou pommes étoiles ou pommes de lait),300
+41,Laitue iceberg,Laitues iceberg,220
+42,Oignon nouveau ou oignon frais ou cébette,Oignons nouveaux ou oignons frais ou cébettes,35
+43,Céleri rave,Céleris raves,800
+44,Igname jaune,Ignames jaunes,400
+45,Mangue verte,Mangues vertes,225
+46,Mangue José,Mangues José,225
+47,Potimarron,Potimarrons,1000
+48,Chou de Bruxelles,Choux de Bruxelles,15
+49,Papaye,Papayes,700
+50,Chou blanc,Choux blanc,800
+51,Topinambour,Topinambours,50
+52,Patate douce,Patate douce,200
+53,Massissi,Massissis,200
+54,Poire Williams,Poires Williams,140
+55,Avocat,Avocats,150
+56,Pastèque,Pastèques,2500
+57,Tomate sans précision,Tomates sans précision,120
+58,Courge,Courges,1000
+59,Pêche,Pèches,120
+60,Petits pois,Petits pois,1
+61,Chou dur ou chou caraïbe ou macabo,Choux durs ou choux caraïbes ou macabos,800
+62,Ananas au jus d'ananas,Ananas au jus d'ananas,1050
+63,Raisin noir,Raisins noirs,5
+64,Citrouille,Citrouilles,2000
+65,Datte,Dattes,7
+66,Tomate allongée,Tomates allongées,120
+67,Pomme Canada,Pommes Canada,130
+68,Figue,Figues,45
+69,Chou chinois pak choï ou pak choy (feuilles vertes ressemblant à des blettes),Choux chinois pak choï ou pak choy (feuilles vertes ressemblant à des blettes),800
+70,Cardon,Cardons,250
+71,Panais,Panais,120
+72,Fenouil,Fenouils,250
+73,Courgette,Courgettes,200
+74,Salade sucrine,Salades sucrines,200
+75,Chou chinois pé-tsaï,Choux chinois pé-tsaï,800
+76,Courge hokkaïdo,Courges hokkaïdo,700
+77,Tomate verte,Tomates vertes,120
+78,Cerise acérola,Cerise acérola,4
+79,Carotte,Carottes,65
+80,Artichaut,Artichauts,150
+81,Fruit du jacquier ou jacque,Fruits du jacquier ou jacques,5000
+82,Asperge,Asperges,20
+83,Dourian ou durian,Dourians ou durians,1500
+84,Anone ou chérimole,Anones ou chérimoles,250
+85,Pomme cajou,Pommes cajou,100
+86,Tomate côtelée ou coeur de boeuf,Tomates côtelées ou coeurs de boeuf,180
+87,Raisin noir Muscat,Raisins noirs Muscat,5
+88,Poire Conférence,Poires Conférence,140
+89,Laitue,Laitues,220
+90,Chou-fleur,Choux-fleur,600
+91,Chadèque,Chadèques,250
+92,Framboise,Framboises,4
+93,Poivron jaune,Poivrons jaunes,150
+94,Potiron,Potirons,2000
+95,Citron vert ou lime,Citrons verts ou limes,70
+96,Chicorée verte,Chicorées vertes,200
+97,Céleri-rave,Céleris-raves,800
+98,Pomme liane,Pommes lianes,130
+99,Ananas,Ananas,1050
+100,Laitue romaine,Laitues romaines,200
+101,Chou rouge,Choux rouge,800
+102,Gombo,Gombos,10
+103,Coing,Coings,140
+104,Tomate marmande,Tomates marmandes,180
+105,Prune,Prunes,25
+106,Goyave,Goyaves,100
+107,Radis noir,Radis noirs,90
+108,Tamarin,Tamarins,25
+109,Carambole,Caramboles,120
+110,Giraumon (variété phoenix),Giraumons (variété phoenix),2100
+111,Navet,Navets,90
+112,Kumquat,Kumquats,20
+113,Figue de Barbarie,Figues de Barbarie,120
+114,Champignon de Paris ou champignon de couche,Champignons de Paris ou champignons de couche,20
+115,Tomate noire de Crimée,Tomates noires de Crimée,150
+116,Raisin cru (aliment moyen),Raisins cru (aliment moyen),5
+117,Chou kale,Choux kales,25
+118,Ramboutan ou rambutan,Ramboutans ou rambutans,15
+119,Pomme Pink lady,Pommes Pink lady,130
+120,Ananas Victoria ou Queen Victoria,Ananas Victoria ou Queen Victoria,1050
+121,Ceriser,Ceriser,4
+122,Haricot beurre,Haricots beurres,17
+123,Piment,Piments,7
+124,Courge butternut (doubeurre),Courges butternuts (doubeurres),700
+125,Igname saint martin,Ignames saint martin,400
+126,Oignon jaune,Oignons jaunes,120
+127,Oignon,Oignons,120
+128,Orange (variété locale),Oranges (variété locale),120
+129,Mango bassignac,Mangos bassignac,400
+130,Chou frisé,Choux frisé,250
+131,Banane jaune,Bananes jaunes,100
+132,Céleri branche,Céleris branches,350
+133,Longan,Longans,15
+134,Salsifis noir,Salsifis noirs,80
+135,Asperge verte,Asperges vertes,20
+136,Pomme d'eau ou pomme malaca,Pommes d'eau ou pommes malaca,150
+137,Mûre noire (du mûrier),Mûres noires (du mûrier),5
+138,Banane plantain,Bananes plantains,150
+139,Prune de cythère,Prunes de cythère,250
+140,Asperge blanche,Asperges blanches,25
+141,Oignon rouge,Oignons rouges,150
+142,Pêche blanche,Pêches blanches,150
+143,Ti nain,Ti nain,90
+144,Coeur de palmier,Coeurs de palmier,250
+145,Pamplemousse chinois,Pamplemousses chinois,600
+146,Fruit à pain,Fruits à pain,850
+147,Poivron rouge,Poivrons rouges,150
+148,Pomme Granny Smith,Pommes Granny Smith,140
+149,Courge melonnette,Courges melonnettes,850
+150,Cassis,Cassis,0.5
+151,Dachine,Dachines,500
+152,Baie de goji,Baies de goji,1
+153,Fraise,Fraises,12
+154,Crosne,Crosnes,6
+155,Pomelo (dit Pamplemousse),Pomelos (dit Pamplemousses),300
+156,Tomate,Tomates ,140
+157,Sureau,Sureaux,1
+158,Nèfle du Japon,Nèfles du Japon,30
+159,Banane,Bananes ,110
+160,Datte du désert,Dattes du désert,22
+161,Griotte,Griottes,4
+162,Champignon,Champignons,20
+163,Citron,Citrons,70
+164,Rhubarbe,Rhubarbes,150
+165,Bambou,Bambou,200
+166,Canneberge ou cranberry,Canneberges ou cranberry,1
+167,Fruits rouges,Fruits rouges,3
+168,Chou-rave,Choux-raves,350
+169,Melon miel ou melon honeydew,Melons miel ou melons honeydew,700
+170,Tomate ronde,Tomates rondes,130
+171,Moringa,Moringas,1
+172,Groseille à maquereau,Groseilles à maquereau,4
+173,Poireau,Poireaux,170
+174,Nectarine ou brugnon,Nectarines ou brugnons,140
+175,Endive,Endives,150
+176,Champignon noir,Champignons noirs,12
+177,Kaki de brousse,Kakis de brousse,250
+178,Tomate cerise,Tomates cerises,15
+179,Orange,Oranges ,150
+180,Aubergine,Aubergines,250
+181,Courge musquée,Courges musquées,900
+182,Brèdes chou de Chine ou bok choy ou pak choï,Brèdes chou de Chine ou bok choy ou pak choï,30
+183,Brocoli,Brocolis,250
+184,Tomate grappe,Tomates grappes,130
+185,Prune mirabelle,Prunes mirabelles,10
+186,Chicorée rouge,Chicorées rouges,225
+187,Concombre,Concombres,270
+188,Prune violette,Prunes violettes,35
+189,Pomme Chantecler,Pommes Chantecler,170
+190,Batavia,Batavias,225
+191,Pomme,Pommes,150
+192,Papaye verte,Papayes vertes,500
+193,Abricot pays,Abricots pays,30
+194,Salsifis,Salsifis,150
+195,Litchi,Litchis,10
+196,Radis rouge,Radis rouges,10
+197,Mandarine commune,Mandarines communes,90
+198,Raisin blanc,Raisins blancs,4
+199,Mangue julie,Mangues julie,220
+200,Chayote ou christophine ou chouchou,Chayotes ou christophines ou chouchoux,270
+201,Kiwi,Kiwis,70
+202,Poire,Poires,140
+203,Pomme cannelle,Pommes cannelles,300
+204,Pomelo (dit Pamplemousse) jaune,Pomelos (dit Pamplemousses) jaunes,600
+205,Chou romanesco ou brocoli à pomme,Choux romanesco ou brocolis à pomme,350
+206,Salade ou chicorée frisée,Salades ou chicorées frisées,170
+207,Oignon blanc ou jaune,Oignons blancs ou jaunes,140
+208,Pomelo (dit Pamplemousse) rose,Pomelos (dit Pamplemousses) roses,600
+209,Courge spaghetti,Courges spaghettis,900
+210,Mûre (de ronce),Mûres (de ronce),1
+211,Poivron vert,Poivrons verts,150
