@@ -419,9 +419,7 @@ export class HebmealgeneratorPatientComponent {
     };
 
     this.mailService.sendPlanningEmail(emailPayload).subscribe({
-      next: () => {
-        alert('Email envoyé avec succès ✅');
-      },
+      next: () => {},
       error: (err) => {
         console.error('Erreur envoi email :', err);
       },
