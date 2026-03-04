@@ -43,7 +43,7 @@ exports.getAllPatientByPraticien = async (req, res) => {
   try {
     const result = await pool.query(
       `SELECT   
-        id_patient,p.lastname,p.firstname,
+        id_patient,p.lastname,p.firstname,p.email,
           ARRAY_REMOVE(ARRAY_AGG(DISTINCT pa.name), NULL) AS pathologies,
           p.allergies,
           ARRAY_REMOVE(ARRAY_AGG(DISTINCT c.name), NULL) AS convictions,

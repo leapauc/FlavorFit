@@ -15,6 +15,7 @@ const admin = require("./routes/admin.routes");
 const bdd_info = require("./routes/infobdd.routes");
 const rdv = require("./routes/rdv.routes");
 const pdf = require("./routes/pdf.routes");
+const mails = require("./routes/mails.routes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,6 +41,7 @@ app.use("/admin", admin);
 app.use("/bdd_info", bdd_info);
 app.use("/rdv", rdv);
 app.use("/pdf", pdf);
+app.use("/mail", mails);
 
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur http://localhost:${PORT}`);

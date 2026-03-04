@@ -13,6 +13,7 @@ body {
   background-size: cover; /* couvre tout l’écran, pas de répétition */
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh; /* minimum hauteur = écran */
   width: 100%; /* largeur = écran */
   box-sizing: border-box; /* padding inclus dans la largeur */

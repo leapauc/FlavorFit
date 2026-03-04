@@ -1,6 +1,8 @@
 {
   "name": "frontend",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "npm install flatpickr\r npm install @types/flatpickr --save-dev\r npm install @ng-select/ng-select\r npm install @angular/cdk@19\r npm install date-fns\r npm install jspdf html2canvas",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,41 +10,22 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@angular/animations": "^19.1.0",
-    "@angular/cdk": "^19.2.19",
-    "@angular/common": "^19.1.0",
-    "@angular/compiler": "^19.1.0",
-    "@angular/core": "^19.1.0",
-    "@angular/forms": "^19.1.0",
-    "@angular/platform-browser": "^19.1.0",
-    "@angular/platform-browser-dynamic": "^19.1.0",
-    "@angular/router": "^19.1.0",
+    "@angular/cdk": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@ng-select/ng-select": "^21.5.2",
     "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.10.5",
+    "bootstrap-icons": "^1.13.1",
     "date-fns": "^4.1.0",
     "flatpickr": "^4.6.13",
-    "html2canvas": "^1.4.1",
-    "jspdf": "^4.1.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "^0.16.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.1.5",
-    "@angular/cli": "^19.1.5",
-    "@angular/compiler-cli": "^19.1.0",
-    "@compodoc/compodoc": "^1.1.32",
+    "@angular-devkit/build-angular": "^21.2.0",
     "@types/bootstrap": "^5.2.10",
-    "@types/flatpickr": "^3.0.2",
-    "@types/jasmine": "~5.1.0",
-    "jasmine-core": "~5.5.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "@types/flatpickr": "^3.0.2"
   }
 }

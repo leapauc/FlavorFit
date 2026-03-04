@@ -12,7 +12,7 @@ import { EspacePatientComponent } from './pages/espace-patient/espace-patient.co
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { FruitLegumeComponent } from './pages/espace-praticien/info/fruit-legume/fruit-legume.component';
 import { ViandePoissonOeufComponent } from './pages/espace-praticien/info/viande-poisson-oeuf/viande-poisson-oeuf.component';
-import { HebmealgeneratorComponent } from './pages/espace-praticien/generator/hebmealgenerator/hebmealgenerator.component';
+import { HebmealgeneratorComponent } from './pages/espace-praticien/generator/hebmealgenerator.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'connexion', pathMatch: 'full' },

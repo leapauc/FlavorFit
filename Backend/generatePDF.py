@@ -25,3 +25,4 @@ pdf = HTML(string=html_content).write_pdf()
 
 # Envoyer PDF vers Node
 sys.stdout.buffer.write(pdf)
+sys.stdout.buffer.flush()

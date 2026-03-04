@@ -125,3 +125,161 @@ h1 {
   cursor: grab;
   font-weight: 500;
 }
+
+/*Liste de course*/
+/* =========================
+   CONTAINER GLOBAL
+========================= */
+
+.shopping-container {
+  margin-top: 30px;
+}
+
+.shopping-container h1 {
+  color: #fd810d;
+}
+
+.shopping-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   CARTE GROUPE
+========================= */
+.shopping-title {
+  color: #fd810d;
+}
+.shopping-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  margin-bottom: 25px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.shopping-card:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   HEADER BASE
+========================= */
+
+.shopping-card-header {
+  color: white;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(90deg, #fd810d, #ffb347);
+}
+
+/* =========================
+   COULEURS PAR GROUPE
+========================= */
+
+.group-red {
+  background: linear-gradient(90deg, #e53935, #ff6b6b);
+}
+
+.group-green {
+  background: linear-gradient(90deg, #2e7d32, #66bb6a);
+}
+
+.group-blue {
+  background: linear-gradient(90deg, #1565c0, #42a5f5);
+}
+
+.group-orange {
+  background: linear-gradient(90deg, #fd810d, #ffb347);
+}
+
+.group-brown {
+  background: linear-gradient(90deg, #6d4c41, #a1887f);
+}
+
+.group-black {
+  background: linear-gradient(90deg, #212121, #616161);
+}
+
+.group-pink {
+  background: linear-gradient(90deg, #d81b60, #f06292);
+}
+
+.group-purple {
+  background: linear-gradient(90deg, #6a1b9a, #ab47bc);
+}
+
+.group-default {
+  background: linear-gradient(90deg, #607d8b, #90a4ae);
+}
+.shopping-card-body {
+  padding: 14px 16px;
+}
+
+/* =========================
+   GRILLE PRINCIPALE
+========================= */
+
+.shopping-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .shopping-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .shopping-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   ITEM
+========================= */
+
+.shopping-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+/* Checkbox */
+.shopping-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #fd810d;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+/* Texte */
+.shopping-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left; /* 🔥 FORCER ALIGNEMENT */
+}
+
+/* Nom ingrédient */
+.shopping-name {
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Quantité */
+.shopping-quantity {
+  font-size: 12px;
+  color: #777;
+  white-space: nowrap;
+  margin-left: 10px;
+}

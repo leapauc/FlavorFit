@@ -6,10 +6,9 @@ import { French } from 'flatpickr/dist/l10n/fr.js';
 import { RecipeService } from '../../../services/recipe.services';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { PatientService } from '../../../services/patient.services';
 import { PlanningService } from '../../../services/planning.services';
+import { MailService } from '../../../services/mails.services';
 @Component({
   selector: 'app-hebmealgenerator',
   standalone: true,
@@ -26,17 +25,6 @@ export class HebmealgeneratorPatientComponent {
   ingredientDropdownOpen = false;
   @ViewChild('dateLabel') dateLabel!: ElementRef<HTMLLabelElement>;
 
-  dietaryOptions: string[] = [
-    'Sans gluten',
-    'Sans lactose',
-    'Sans oléagineux',
-    'Sans œuf',
-    'Sans poisson',
-    'Sans fruits de mer',
-    'Sans légumineuses',
-    'Sans ail / oignon',
-  ];
-  selectedDietaryOptions: string[] = [];
   dietaryDropdownOpen = false;
 
   days = [
@@ -70,11 +58,19 @@ export class HebmealgeneratorPatientComponent {
 
   patientAllergies: string[] = [];
   selectedPatientId!: number;
+  selectedPatientEmail!: string;
+  selectedPatientLastname!: string;
+  selectedPatientFirstname!: string;
+
+  shoppingList: any = {};
+  showShoppingList = false;
+  shoppingListMode: 'auto' | 'manuel' | null = null;
 
   constructor(
     private recipeService: RecipeService,
     private patientService: PatientService,
     private planningService: PlanningService,
+    private mailService: MailService,
   ) {}
 
   ngOnInit() {
@@ -96,6 +92,10 @@ export class HebmealgeneratorPatientComponent {
     const patient = this.patientService.getSelectedPatient();
     if (patient) {
       this.selectedPatientId = patient.id_patient;
+      this.selectedPatientEmail = patient.email;
+      this.selectedPatientLastname = patient.lastname;
+      this.selectedPatientFirstname = patient.firstname;
+
       this.loadPatientAllergies(this.selectedPatientId);
     }
     console.log('Patient sélectionné:', patient);
@@ -259,6 +259,125 @@ export class HebmealgeneratorPatientComponent {
     return r1 && r2 ? r1.id === r2.id : r1 === r2;
   }
 
+  /* ===============================
+     GÉNÉRATION LISTE DE COURSE
+  =============================== */
+  private getRecipeIdsFromPlanning(): number[] {
+    const ids: number[] = [];
+
+    Object.values(this.manualPlanning).forEach((day: any) => {
+      Object.values(day).forEach((meal: any) => {
+        if (meal?.id) {
+          ids.push(meal.id);
+        }
+      });
+    });
+
+    return [...new Set(ids)];
+  }
+
+  generateShoppingList() {
+    const recipeIds = this.getRecipeIdsFromPlanning();
+
+    if (!recipeIds.length) {
+      alert('Aucune recette sélectionnée');
+      return;
+    }
+
+    this.planningService.generateShoppingList(recipeIds).subscribe({
+      next: (data) => {
+        this.shoppingList = data;
+        this.showShoppingList = true;
+
+        this.shoppingListMode = this.mode;
+      },
+      error: (err) => console.error('ERREUR:', err),
+    });
+  }
+
+  getSortedShoppingGroups(): { key: string; value: any[] }[] {
+    if (!this.shoppingList) return [];
+
+    const firstGroup1 = 'viandes, oeufs, poissons';
+    const firstGroup2 = 'fruits, légumes, légumineuses et oléagineux';
+    const lastGroup = 'aides culinaires et ingrédients divers';
+
+    const groups = Object.keys(this.shoppingList).map((key) => ({
+      key,
+      value: this.shoppingList[key],
+    }));
+
+    return groups.sort((a, b) => {
+      const aKey = a.key.toLowerCase().trim();
+      const bKey = b.key.toLowerCase().trim();
+
+      // 🥇 Les 2 premiers groupes
+      if (aKey === firstGroup1) return -1;
+      if (bKey === firstGroup1) return 1;
+
+      if (aKey === firstGroup2) return -1;
+      if (bKey === firstGroup2) return 1;
+
+      // 🥉 Dernier groupe
+      if (aKey === lastGroup) return 1;
+      if (bKey === lastGroup) return -1;
+
+      // 📚 Sinon ordre alphabétique
+      return a.key.localeCompare(b.key);
+    });
+  }
+
+  getGroupClass(groupName: string): string {
+    const name = groupName.toLowerCase();
+
+    if (
+      name.includes('viandes') ||
+      name.includes('oeufs') ||
+      name.includes('poisson')
+    ) {
+      return 'group-red';
+    }
+
+    if (
+      name.includes('fruits') ||
+      name.includes('légumes') ||
+      name.includes('legumes') ||
+      name.includes('oléagineux') ||
+      name.includes('legumineuses')
+    ) {
+      return 'group-green';
+    }
+
+    if (name.includes('eau') || name.includes('boisson')) {
+      return 'group-blue';
+    }
+
+    if (
+      name.includes('matières grasses') ||
+      name.includes('matieres grasses')
+    ) {
+      return 'group-orange';
+    }
+
+    if (name.includes('céréaliers') || name.includes('cerealiers')) {
+      return 'group-brown';
+    }
+
+    if (name.includes('laitiers')) {
+      return 'group-black';
+    }
+
+    if (name.includes('sucrés') || name.includes('sucres')) {
+      return 'group-pink';
+    }
+
+    if (name.includes('aides culinaires')) {
+      return 'group-purple';
+    }
+
+    return 'group-default';
+  }
+
   // GENERATE PLANNING PDF
   savePlanning() {
     if (!this.dateDebut) {
@@ -283,5 +402,29 @@ export class HebmealgeneratorPatientComponent {
         next: () => alert('Planning enregistré ✅'),
         error: (err: any) => console.error(err),
       });
+
+    const emailPayload = {
+      email: this.selectedPatientEmail,
+      firstName: this.selectedPatientFirstname,
+      lastName: this.selectedPatientLastname,
+      startDate: this.dateDebut,
+
+      payload: {
+        constraints: {
+          startDate: this.dateDebut,
+        },
+        planning: this.manualPlanning,
+        shoppingList: this.shoppingList,
+      },
+    };
+
+    this.mailService.sendPlanningEmail(emailPayload).subscribe({
+      next: () => {
+        alert('Email envoyé avec succès ✅');
+      },
+      error: (err) => {
+        console.error('Erreur envoi email :', err);
+      },
+    });
   }
 }

@@ -1,13 +1,23 @@
+# Backend
+
+npm install nodemailer
+
 # Frontend
+
+npm install --save-dev @angular-devkit/build-angular
+npm install @angular/router
+npm install zone.js
+
+npm install bootstrap
+npm install bootstrap-icons
+npm install --save-dev @types/bootstrap
 
 npm install flatpickr
 npm install @types/flatpickr --save-dev
 npm install @ng-select/ng-select
-npm install @angular/cdk@19
+npm install @angular/cdk@21
 npm install date-fns
 npm install jspdf html2canvas
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
 ## Development server
 

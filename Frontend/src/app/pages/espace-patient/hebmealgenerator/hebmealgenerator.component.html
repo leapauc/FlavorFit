@@ -219,7 +219,9 @@
             <button class="success me-2" (click)="savePlanning()">
               Valider le planning
             </button>
-            <button class="reinit me-2">Générer la liste de course</button>
+            <button class="reinit me-2" (click)="generateShoppingList()">
+              Générer la liste de course
+            </button>
           </div>
         </div>
       </div>
@@ -258,6 +260,38 @@
     <button class="success me-2" (click)="savePlanning()">
       Valider le planning
     </button>
-    <button class="reinit me-2">Générer la liste de course</button>
+    <button class="reinit me-2" (click)="generateShoppingList()">
+      Générer la liste de course
+    </button>
+  </div>
+</div>
+
+<!-- LISTE DE COURSE GLOBALE -->
+<div
+  *ngIf="showShoppingList && shoppingListMode === mode"
+  class="shopping-container"
+>
+  <h1>Liste de course</h1>
+
+  <div *ngFor="let group of getSortedShoppingGroups()" class="shopping-card">
+    <div class="shopping-card-header" [ngClass]="getGroupClass(group.key)">
+      {{ group.key }}
+    </div>
+
+    <div class="shopping-card-body">
+      <div class="shopping-grid">
+        <div class="shopping-item" *ngFor="let item of group.value">
+          <input type="checkbox" class="shopping-checkbox" />
+
+          <div class="shopping-text">
+            <span class="shopping-name">
+              {{ item.name }}
+            </span>
+
+            <span class="shopping-quantity"> {{ item.quantity_g }} g </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
