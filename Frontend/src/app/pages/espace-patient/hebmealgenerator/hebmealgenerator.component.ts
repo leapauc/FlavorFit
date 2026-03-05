@@ -61,6 +61,8 @@ export class HebmealgeneratorPatientComponent {
   selectedPatientEmail!: string;
   selectedPatientLastname!: string;
   selectedPatientFirstname!: string;
+  selectedPatientPathologies: string[] | null = null;
+  selectedPatientConvictions: string[] | null = null;
 
   shoppingList: any = {};
   showShoppingList = false;
@@ -95,7 +97,8 @@ export class HebmealgeneratorPatientComponent {
       this.selectedPatientEmail = patient.email;
       this.selectedPatientLastname = patient.lastname;
       this.selectedPatientFirstname = patient.firstname;
-
+      this.selectedPatientPathologies = patient.pathologies ?? [];
+      this.selectedPatientConvictions = patient.convictions ?? [];
       this.loadPatientAllergies(this.selectedPatientId);
     }
     console.log('Patient sélectionné:', patient);
@@ -411,7 +414,11 @@ export class HebmealgeneratorPatientComponent {
 
       payload: {
         constraints: {
+          nbPersons: 2,
           startDate: this.dateDebut,
+          pathologies: this.selectedPatientPathologies,
+          restrictions: this.selectedPatientConvictions,
+          ingredientsExcluded: this.patientAllergies,
         },
         planning: this.manualPlanning,
         shoppingList: this.shoppingList,

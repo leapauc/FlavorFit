@@ -8,9 +8,9 @@ export interface PatientInfo {
   phone: string;
   address: string[];
   date_creation: string;
-  pathologies: string | null;
+  pathologies: string[] | null;
   allergies: string[] | null;
-  conviction: string[] | null;
+  convictions: string[] | null;
   history: string | null;
   other: string | null;
 }
