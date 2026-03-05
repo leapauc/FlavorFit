@@ -284,18 +284,21 @@ export class HebmealgeneratorPatientComponent {
 
     if (!recipeIds.length) {
       alert('Aucune recette sélectionnée');
-      return;
+      return null;
     }
 
-    this.planningService.generateShoppingList(recipeIds).subscribe({
+    const request$ = this.planningService.generateShoppingList(recipeIds);
+
+    request$.subscribe({
       next: (data) => {
         this.shoppingList = data;
         this.showShoppingList = true;
-
         this.shoppingListMode = this.mode;
       },
       error: (err) => console.error('ERREUR:', err),
     });
+
+    return request$;
   }
 
   getSortedShoppingGroups(): { key: string; value: any[] }[] {
@@ -399,37 +402,48 @@ export class HebmealgeneratorPatientComponent {
       planning: this.manualPlanning,
     };
 
-    this.planningService
-      .savePlanning(this.selectedPatientId, payload)
-      .subscribe({
-        next: () => alert('Planning enregistré ✅'),
-        error: (err: any) => console.error(err),
-      });
+    const sendData = () => {
+      this.planningService
+        .savePlanning(this.selectedPatientId, payload)
+        .subscribe({
+          next: () => alert('Planning enregistré ✅'),
+          error: (err: any) => console.error(err),
+        });
 
-    const emailPayload = {
-      email: this.selectedPatientEmail,
-      firstName: this.selectedPatientFirstname,
-      lastName: this.selectedPatientLastname,
-      startDate: this.dateDebut,
-
-      payload: {
-        constraints: {
-          nbPersons: 2,
-          startDate: this.dateDebut,
-          pathologies: this.selectedPatientPathologies,
-          restrictions: this.selectedPatientConvictions,
-          ingredientsExcluded: this.patientAllergies,
+      const emailPayload = {
+        email: this.selectedPatientEmail,
+        firstName: this.selectedPatientFirstname,
+        lastName: this.selectedPatientLastname,
+        startDate: this.dateDebut,
+        payload: {
+          constraints: {
+            nbPersons: nbPeople,
+            startDate: this.dateDebut,
+            pathologies: this.selectedPatientPathologies,
+            restrictions: this.selectedPatientConvictions,
+            ingredientsExcluded: this.patientAllergies,
+          },
+          planning: this.manualPlanning,
+          shoppingList: this.shoppingList,
         },
-        planning: this.manualPlanning,
-        shoppingList: this.shoppingList,
-      },
+      };
+
+      this.mailService.sendPlanningEmail(emailPayload).subscribe();
     };
 
-    this.mailService.sendPlanningEmail(emailPayload).subscribe({
-      next: () => {},
-      error: (err) => {
-        console.error('Erreur envoi email :', err);
-      },
-    });
+    // Si la shopping list existe déjà
+    if (this.shoppingList && Object.keys(this.shoppingList).length) {
+      sendData();
+    }
+    // Sinon on la génère avant
+    else {
+      this.generateShoppingList()?.subscribe({
+        next: (data) => {
+          this.shoppingList = data;
+          sendData();
+        },
+        error: (err) => console.error(err),
+      });
+    }
   }
 }
