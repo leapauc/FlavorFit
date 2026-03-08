@@ -63,3 +63,58 @@ BEGIN
     WHERE i.id_ingredient = p_id_ingredient;
 END;
 $$;
+
+
+CREATE OR REPLACE FUNCTION update_recipe_nutrition(p_recipe_id INTEGER)
+RETURNS VOID AS $$
+DECLARE
+    v_servings NUMERIC;
+    v_kcal NUMERIC DEFAULT 0;
+    v_kj NUMERIC DEFAULT 0;
+    v_proteine NUMERIC DEFAULT 0;
+    v_lipide NUMERIC DEFAULT 0;
+    v_glucide NUMERIC DEFAULT 0;
+    v_sugar NUMERIC DEFAULT 0;
+    v_fiber NUMERIC DEFAULT 0;
+    v_salt NUMERIC DEFAULT 0;
+    v_ag NUMERIC DEFAULT 0;
+    v_cholesterol NUMERIC DEFAULT 0;
+BEGIN
+    -- Récupérer le nombre de portions
+    SELECT proportion INTO v_servings FROM recipes WHERE id_recipe = p_recipe_id;
+
+    -- Calculer la nutrition totale à partir des ingrédients
+    SELECT
+        SUM((i.energie_kcal * ri.unit_g) / (100 * v_servings)),
+        SUM((i.energie_kj * ri.unit_g) / (100 * v_servings)),
+        SUM((i.proteines_g * ri.unit_g) / (100 * v_servings)),
+        SUM((i.lipides_g * ri.unit_g) / (100 * v_servings)),
+        SUM((i.glucides_g * ri.unit_g) / (100 * v_servings)),
+        SUM((i.sucres_g * ri.unit_g) / (100 * v_servings)),
+        SUM((i.fibres_g * ri.unit_g) / (100 * v_servings)),
+        SUM((i.sel_g * ri.unit_g) / (100 * v_servings)),
+        SUM((i.ag_satures_g * ri.unit_g) / (100 * v_servings)),
+        SUM((i.cholesterol_g * ri.unit_g) / (100 * v_servings))
+    INTO
+        v_kcal, v_kj, v_proteine, v_lipide, v_glucide, v_sugar, v_fiber, v_salt, v_ag, v_cholesterol
+    FROM recipe_ingredients ri
+    JOIN ingredients i ON ri.id_ingredient = i.id_ingredient
+    WHERE ri.id_recipe = p_recipe_id;
+
+    -- Mettre à jour la recette avec les valeurs calculées
+    UPDATE recipes SET
+        kcal = COALESCE(ROUND(v_kcal::numeric, 2), 0),
+        kj = COALESCE(ROUND(v_kj::numeric, 2), 0),
+        proteine = COALESCE(ROUND(v_proteine::numeric, 2), 0),
+        lipide = COALESCE(ROUND(v_lipide::numeric, 2), 0),
+        glucide = COALESCE(ROUND(v_glucide::numeric, 2), 0),
+        sugar = COALESCE(ROUND(v_sugar::numeric, 2), 0),
+        fiber = COALESCE(ROUND(v_fiber::numeric, 2), 0),
+        salt = COALESCE(ROUND(v_salt::numeric, 2), 0),
+        ag = COALESCE(ROUND(v_ag::numeric, 2), 0),
+        cholesterol = COALESCE(ROUND(v_cholesterol::numeric, 2), 0)
+    WHERE id_recipe = p_recipe_id;
+END;
+$$ LANGUAGE plpgsql;
+
+

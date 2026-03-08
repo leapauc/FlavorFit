@@ -42,3 +42,13 @@ SELECT
 FROM recipe_ingredients_wk ri
 INNER JOIN recipes r
     ON r.id_recipe = ri.id_recipe;
+
+DO $$
+DECLARE
+    r RECORD;
+BEGIN
+    FOR r IN SELECT id_recipe FROM recipes LOOP
+        PERFORM update_recipe_nutrition(r.id_recipe);
+    END LOOP;
+END;
+$$;

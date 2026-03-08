@@ -233,6 +233,33 @@ export class AddRecetteModalComponent implements OnInit {
     return value ? 'is-valid' : 'is-invalid';
   }
 
+  onDescriptionChange(event: Event): void {
+    const textarea = event.target as HTMLTextAreaElement;
+    this.recipe.description = textarea.value;
+  }
+
+  formatDescriptionToArray(description: string): string[] {
+    // Séparer par les sauts de ligne
+    const lines = description.split('\n');
+
+    // Filtrer les lignes vides et nettoyer
+    const cleanedLines = lines
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0);
+
+    // Si les lignes commencent par '- ', les nettoyer
+    return cleanedLines.map((line) => {
+      if (
+        line.startsWith('- ') ||
+        line.startsWith('– ') ||
+        line.startsWith('— ')
+      ) {
+        return line.substring(2).trim();
+      }
+      return line;
+    });
+  }
+
   /** SUBMIT */
   submit(): void {
     if (!this.authUser) return;
@@ -257,6 +284,17 @@ export class AddRecetteModalComponent implements OnInit {
     // Vérifie les ingrédients
     if (!this.ingredients.some((i) => this.isIngredientComplete(i))) {
       incomplete = true;
+    }
+
+    let formattedDescription: string[] = [];
+    if (this.recipeMode === 'text') {
+      if (typeof this.recipe.description === 'string') {
+        formattedDescription = this.formatDescriptionToArray(
+          this.recipe.description,
+        );
+      } else if (Array.isArray(this.recipe.description)) {
+        formattedDescription = this.recipe.description;
+      }
     }
 
     const payload = {
@@ -296,7 +334,7 @@ export class AddRecetteModalComponent implements OnInit {
             unit_g: quantityInGrams,
           };
         }),
-      description: this.recipeMode === 'text' ? [this.recipe.description] : [],
+      description: formattedDescription,
     };
 
     this.recipeService.createRecipe(payload).subscribe({

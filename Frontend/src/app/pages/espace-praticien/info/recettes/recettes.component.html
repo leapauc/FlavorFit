@@ -14,7 +14,7 @@
       <div class="card-image-container">
         <img
           class="card-image"
-          [src]="recipe.url || 'assets/recipe-placeholder.png'"
+          [src]="recipe.img_url || 'assets/recipe-placeholder.png'"
         />
       </div>
 
@@ -25,7 +25,7 @@
 
         <div class="meta">{{ recipe.difficulty }} • {{ recipe.price }}</div>
 
-        <button (click)="viewRecipe(recipe.id_recipe)" class="success">
+        <button (click)="viewRecipe(recipe.id_recipe)" class="ajouter">
           Voir la recette
         </button>
       </div>
@@ -36,44 +36,244 @@
 <!-- MODAL -->
 <div class="recipe-modal-overlay" *ngIf="showModal">
   <div class="recipe-modal">
+    <!-- Bouton de fermeture -->
     <button class="close-btn" (click)="closeModal()">✖</button>
 
     <div *ngIf="selectedRecipe">
-      <h2>{{ selectedRecipe.title }}</h2>
+      <!-- En-tête avec titre -->
+      <div class="modal-header">
+        <h2 class="modal-title">{{ selectedRecipe.title }}</h2>
+      </div>
+      <h5>information par portion</h5>
 
-      <p>
-        {{ selectedRecipe.categorie }} | {{ selectedRecipe.difficulty }} |
-        {{ selectedRecipe.price }}
-      </p>
+      <!-- Métadonnées (catégorie, difficulté, etc.) -->
+      <div class="modal-meta">
+        <span class="meta-tag">{{ selectedRecipe.categorie }}</span>
+        <span class="meta-tag">{{ selectedRecipe.difficulty }}</span>
+        <span class="meta-tag">{{ selectedRecipe.price }}</span>
+        <span class="meta-tag">⏱ {{ selectedRecipe.prepTime }} min</span>
+      </div>
 
-      <p>Temps : {{ selectedRecipe.prepTime }} min</p>
+      <!-- Section Ingrédients -->
+      <div class="modal-section">
+        <h3>Ingrédients</h3>
+        <ul class="ingredients-list">
+          <li *ngFor="let ing of selectedRecipe.ingredients">
+            <span class="ingredient-quantity"
+              >{{ ing.quantity | customNumber }} {{ ing.unit }}</span
+            >
+            <span class="ingredient-name">{{ ing.name }}</span>
+          </li>
+        </ul>
+      </div>
 
-      <h3>Ingrédients</h3>
+      <!-- Section Préparation -->
+      <div class="modal-section">
+        <h3>Préparation</h3>
+        <ng-container *ngIf="hasValidSteps(); else showUrl">
+          <ol class="preparation-steps">
+            <li *ngFor="let step of selectedRecipe.description">
+              <p>{{ step }}</p>
+            </li>
+          </ol>
+        </ng-container>
+        <ng-template #showUrl>
+          <div class="empty-steps-container">
+            <p class="empty-steps-message">
+              La description complète des étapes est disponible à l'adresse
+              suivante :
+              <a [href]="selectedRecipe.url" target="_blank" class="recipe-url">
+                https://www.marmiton.org{{ selectedRecipe.url }}
+              </a>
+            </p>
+          </div>
+        </ng-template>
+      </div>
 
-      <ul>
-        <li *ngFor="let ing of selectedRecipe.ingredients">
-          {{ ing.quantity }} {{ ing.unit }} - {{ ing.name }}
-        </li>
-      </ul>
+      <!-- Section Nutrition -->
+      <div class="modal-section">
+        <h3 class="mb-4">Valeurs nutritionnelles</h3>
 
-      <h3>Préparation</h3>
+        <!-- Énergie -->
+        <div class="card mb-4 shadow-sm border-0" *ngIf="selectedRecipe">
+          <div class="card-body text-center py-4">
+            <div class="d-flex align-items-center justify-content-center mb-3">
+              <fa-icon [icon]="faFire" class="fs-3 text-danger"></fa-icon>
+              <span class="fw-bold ms-2">Énergie</span>
+            </div>
+            <div class="display-4 fw-bold text-danger">
+              {{ getValue(selectedRecipe.kcal) }}
+            </div>
+            <div class="text-muted small">
+              kcal ({{ getKj(selectedRecipe.kcal) }} kJ)
+            </div>
+          </div>
+        </div>
 
-      <ol>
-        <li *ngFor="let step of selectedRecipe.description">
-          {{ step }}
-        </li>
-      </ol>
+        <!-- Macronutriments principaux -->
+        <div class="row g-3 mb-4" *ngIf="selectedRecipe">
+          <!-- Protéines -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body text-center py-3">
+                <div
+                  class="bg-success bg-opacity-10 rounded-circle d-inline-flex p-3 mb-2"
+                >
+                  <fa-icon
+                    [icon]="faProtein"
+                    class="fs-4 text-success"
+                  ></fa-icon>
+                </div>
+                <div class="h5 fw-bold text-success">
+                  {{ getValue(selectedRecipe.proteine) }}
+                </div>
+                <div class="text-muted small">Protéines (g)</div>
+              </div>
+            </div>
+          </div>
 
-      <h3>Valeurs nutritionnelles</h3>
+          <!-- Glucides -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body text-center py-3">
+                <div
+                  class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-3 mb-2"
+                >
+                  <fa-icon [icon]="faCarbs" class="fs-4 text-primary"></fa-icon>
+                </div>
+                <div class="h5 fw-bold text-primary">
+                  {{ getValue(selectedRecipe.glucide) }}
+                </div>
+                <div class="text-muted small">Glucides (g)</div>
+              </div>
+            </div>
+          </div>
 
-      <p>
-        Kcal : {{ selectedRecipe.kcal }} | Protéines :
-        {{ selectedRecipe.proteine }} g | Glucides :
-        {{ selectedRecipe.glucide }} g | Lipides : {{ selectedRecipe.lipide }} g
-      </p>
+          <!-- Lipides -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body text-center py-3">
+                <div
+                  class="bg-warning bg-opacity-10 rounded-circle d-inline-flex p-3 mb-2"
+                >
+                  <fa-icon [icon]="faFat" class="fs-4 text-warning"></fa-icon>
+                </div>
+                <div class="h5 fw-bold text-warning">
+                  {{ getValue(selectedRecipe.lipide) }}
+                </div>
+                <div class="text-muted small">Lipides (g)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Détails nutritionnels -->
+        <div class="card shadow-sm border-0" *ngIf="selectedRecipe">
+          <h5 class="mb-2 p-2">Détails nutritionnels</h5>
+          <div class="card-body">
+            <div class="row g-3">
+              <!-- Fibres -->
+              <div class="col-sm-6 col-md-4">
+                <div
+                  class="d-flex align-items-center p-3 bg-success bg-opacity-10 rounded"
+                >
+                  <fa-icon
+                    [icon]="faFiber"
+                    class="fs-4 me-3 text-success"
+                  ></fa-icon>
+                  <div>
+                    <div class="fw-bold">
+                      {{ getValue(selectedRecipe.fiber) }} g
+                    </div>
+                    <div class="text-muted small">Fibres</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sucres -->
+              <div class="col-sm-6 col-md-4">
+                <div
+                  class="d-flex align-items-center p-3 bg-primary bg-opacity-10 rounded"
+                >
+                  <fa-icon
+                    [icon]="faSugar"
+                    class="fs-4 me-3 text-primary"
+                  ></fa-icon>
+                  <div>
+                    <div class="fw-bold">
+                      {{ getValue(selectedRecipe.sugar) }} g
+                    </div>
+                    <div class="text-muted small">Dont sucres</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sel -->
+              <div class="col-sm-6 col-md-4">
+                <div
+                  class="d-flex align-items-center p-3 bg-info bg-opacity-10 rounded"
+                >
+                  <fa-icon
+                    [icon]="faSalt"
+                    class="fs-4 me-3 text-info"
+                  ></fa-icon>
+                  <div>
+                    <div class="fw-bold">
+                      {{ getValue(selectedRecipe.salt) }} g
+                    </div>
+                    <div class="text-muted small">Sel</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Acides gras saturés -->
+              <div class="col-sm-6 col-md-4">
+                <div
+                  class="d-flex align-items-center p-3 bg-danger bg-opacity-10 rounded"
+                >
+                  <fa-icon
+                    [icon]="faSaturatedFat"
+                    class="fs-4 me-3 text-danger"
+                  ></fa-icon>
+                  <div>
+                    <div class="fw-bold">
+                      {{ getValue(selectedRecipe.ag) }} g
+                    </div>
+                    <div class="text-muted small">Acides gras saturés</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cholestérol -->
+              <div class="col-sm-6 col-md-4">
+                <div
+                  class="d-flex align-items-center p-3 bg-dark bg-opacity-10 rounded"
+                >
+                  <fa-icon
+                    [icon]="faCholesterol"
+                    class="fs-4 me-3 text-dark"
+                  ></fa-icon>
+                  <div>
+                    <div class="fw-bold">
+                      {{ getValue(selectedRecipe.cholesterol) }} mg
+                    </div>
+                    <div class="text-muted small">Cholestérol</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton d'impression (optionnel)
+      <div class="modal-actions">
+        <button class="print-btn" (click)="printRecipe()">Imprimer</button>
+      </div> -->
     </div>
   </div>
 </div>
+
 <!-- <div *ngIf="showModal" class="modal-overlay">
   <div class="modal">TEST MODAL</div>
 </div> -->

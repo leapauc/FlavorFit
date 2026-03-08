@@ -11,6 +11,9 @@ npm install zone.js
 npm install bootstrap
 npm install bootstrap-icons
 npm install --save-dev @types/bootstrap
+npm install @fortawesome/angular-fontawesome
+npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/fontawesome-svg-core
 
 npm install flatpickr
 npm install @types/flatpickr --save-dev

@@ -110,89 +110,379 @@ h1 {
 .card-info button {
   align-self: flex-start;
   margin-top: 6px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  font-size: 13px;
   cursor: pointer;
-}
-
-.card-info button:hover {
-  background: #1d4ed8;
 }
 
 /* ---------------- MODAL ---------------- */
+/* ---------------- MODAL MODERNE ORANGÉ ---------------- */
 .recipe-modal-overlay {
   position: fixed;
   inset: 0;
-
-  background: rgba(0, 0, 0, 0.6);
-
+  background: rgba(45, 27, 10, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 100000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .recipe-modal {
-  background: #fff3e0;
-  padding: 24px;
-  border-radius: 12px;
-
+  background: linear-gradient(145deg, #fff8f0 0%, #ffebd2 100%);
   width: 90%;
-  max-width: 650px;
-
-  max-height: 85vh;
+  max-width: 700px;
+  max-height: 90vh;
+  border-radius: 16px;
   overflow-y: auto;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 140, 0, 0.1);
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.modal h2 {
-  margin-top: 0;
-}
-
+/* Bouton de fermeture */
 .close-btn {
-  float: right;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
-  background: transparent;
-  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all 0.2s;
+  color: #d35400;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Titre */
+.modal-title {
+  color: #d35400;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-title::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffa500, #d35400);
+  border-radius: 2px;
+}
+
+/* Métadonnées */
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.meta-tag {
+  background: rgba(255, 140, 0, 0.1);
+  color: #d35400;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Sections */
+.modal-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+}
+
+.modal-section h3 {
+  color: #d35400;
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-section h3::before {
+  content: "";
+  width: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffa500, #d35400);
+  border-radius: 2px;
+}
+
+/* Liste d'ingrédients */
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ingredients-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+
+.ingredient-quantity {
+  color: #d35400;
+  font-weight: 500;
+}
+
+/* Étapes de préparation */
+.preparation-steps {
+  counter-reset: step;
+  padding-left: 0;
+  margin: 0;
+}
+
+.preparation-steps li {
+  position: relative;
+  padding: 8px 0 8px 30px;
+  margin-bottom: 8px;
+  background: rgba(255, 140, 0, 0.03);
+  border-left: 3px solid #ffa500;
+  border-radius: 0 6px 6px 0;
+  list-style: none;
+}
+
+.preparation-steps li::before {
+  content: counter(step);
+  counter-increment: step;
+  position: absolute;
+  left: -15px;
+  top: 0;
+  background: #ffa500;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.preparation-steps p {
+  margin: 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+.step-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.step-number {
+  background-color: #ffa500;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-text {
+  margin: 0;
+  color: #333;
+  line-height: 1.4;
 }
 
 /* Nutrition */
-.nutrition {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  color: #374151;
+/* Section nutritionnelle */
+.nutrition-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+.nutrition-section h3 {
+  color: #2d3748;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-@media (max-width: 640px) {
-  .card {
-    flex-direction: column;
-    text-align: center;
-  }
+.nutrition-percentage {
+  background: #ffa500;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
 
-  .card-image-container {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-  }
+.nutrition-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  .card-image {
-    width: 50%;
-  }
+/* Cartes principales */
+.main-nutrition-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-  .card-info {
-    align-items: center;
-  }
+.nutrition-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
 
-  .card-info button {
-    align-self: center;
-  }
+.kcal-card {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+}
+
+.proteine-card {
+  background: linear-gradient(135deg, #f0fff4 0%, #a0fdb8 100%);
+}
+
+.glucide-card {
+  background: linear-gradient(135deg, #f0ffff 0%, #81e6d9 100%);
+}
+
+.lipide-card {
+  background: linear-gradient(135deg, #fffaf0 0%, #fbbf24 100%);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.card-title {
+  font-size: 0.9rem;
+}
+
+.card-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 4px;
+}
+
+.card-unit {
+  color: #718096;
+  font-size: 0.8rem;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ffa500;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.daily-percentage {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.card,
+.rounded:hover {
+  transition: all 0.2s ease;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Correction des labels erronés dans votre code original */
+.nutrition-label {
+  text-transform: capitalize;
+}
+
+/* CSS pour le message d'URL */
+.empty-steps-container {
+  padding: 16px;
+  background-color: rgba(255, 140, 0, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #ffa500;
+}
+
+.empty-steps-message {
+  margin: 0;
+  color: #666;
+  font-style: italic;
+}
+
+.recipe-url {
+  color: #d35400;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  word-break: break-all;
+  margin-top: 8px;
+}
+
+.recipe-url:hover {
+  text-decoration: underline;
 }
