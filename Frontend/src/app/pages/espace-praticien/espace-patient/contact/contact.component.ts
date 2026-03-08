@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PatientService } from '../../../services/patient.services';
+import { PatientService } from '../../../../services/patient.services';
 import {
   PatientContact,
   PatientContactForm,
-} from '../../../models/patientContact';
+} from '../../../../models/patientContact';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -34,7 +34,7 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private patientService: PatientService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {

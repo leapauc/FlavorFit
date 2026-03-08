@@ -44,7 +44,7 @@ CREATE TABLE pathologies (
     name TEXT,
     id_type INTEGER,
     specificity TEXT[],
-    FOREIGN KEY (id_type) REFERENCES pathologies_type(id_pathology_type)
+    FOREIGN KEY (id_type) REFERENCES pathologies_type(id_pathology_type) ON DELETE CASCADE
 );
 INSERT INTO pathologies (name,id_type,specificity)
 VALUES ('diabète de type 1',1,ARRAY['pauvre en glucide']::text[]),
@@ -121,7 +121,7 @@ CREATE TABLE patients (
     conviction INTEGER[],
     history TEXT,
     other TEXT,
-    FOREIGN KEY (id_praticien) REFERENCES praticiens(id_praticien)
+    FOREIGN KEY (id_praticien) REFERENCES praticiens(id_praticien) ON DELETE CASCADE
 );
 INSERT INTO patients (id_praticien,lastname,firstname,age,email,phone,address,pathologies,allergies,conviction,history,other)
 VALUES (2,'RICHARD','Léonie',21,'leonie124@yahoo.fr','0645125478',ARRAY['45 rue de la Lyre','','45125','Châlette-sur-Loing'],null,ARRAY['cacahuète', 'noix'],null,null,null),
@@ -230,7 +230,7 @@ CREATE TABLE recipe_ingredients_wk (
     ingredient VARCHAR,
     quantity FLOAT,
     unit TEXT,
-    FOREIGN KEY (id_recipe) REFERENCES recipes_wk(id_recipe)
+    FOREIGN KEY (id_recipe) REFERENCES recipes_wk(id_recipe) ON DELETE CASCADE
     -- FOREIGN KEY (id_ingredient) REFERENCES ingredients(id_ingredient),
 );
 
@@ -445,8 +445,11 @@ CREATE TABLE planning (
     start_day DATE,
     nb_repas INT,
     nb_people INT,
-    FOREIGN KEY (id_patient) REFERENCES patients(id_patient)
+    FOREIGN KEY (id_patient) REFERENCES patients(id_patient) ON DELETE CASCADE
 );
+
+CREATE UNIQUE INDEX idx_planning_patient_startday
+ON planning (id_patient, start_day);
 
 
 DROP TABLE IF EXISTS planning_recipes;
@@ -455,8 +458,8 @@ CREATE TABLE planning_recipes (
     id_recipe INT,
     meal_day VARCHAR(20),
     meal_time VARCHAR,
-    FOREIGN KEY (id_planning) REFERENCES planning(id_planning),
-    FOREIGN KEY (id_recipe) REFERENCES recipes_wk(id_recipe)
+    FOREIGN KEY (id_planning) REFERENCES planning(id_planning) ON DELETE CASCADE,
+    FOREIGN KEY (id_recipe) REFERENCES recipes_wk(id_recipe) ON DELETE CASCADE
 );
 
 ----------------------------------------------------------------------------------------------
@@ -545,10 +548,10 @@ CREATE TABLE appointments (
 );
 
 -- Index utile pour planning
-CREATE INDEX idx_appointments_praticien_date
+CREATE UNIQUE INDEX idx_appointments_praticien_date
 ON appointments (id_praticien, date_appointment);
 
-CREATE INDEX idx_appointments_patient_date
+CREATE UNIQUE INDEX idx_appointments_patient_date
 ON appointments (id_patient, date_appointment);
 
 INSERT INTO appointments (id_praticien, id_patient, date_appointment, duration, notes)

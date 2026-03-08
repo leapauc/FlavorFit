@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ControlContainer, FormsModule } from '@angular/forms';
 
 // import { ContainteComponent } from '../../espace-patient/containte/containte.component';
-import { ContactComponent } from '../../espace-patient/contact/contact.component';
+import { ContactComponent } from '../espace-patient/contact/contact.component';
 import {
   PathologyGroup,
   PathologyGroupUi,

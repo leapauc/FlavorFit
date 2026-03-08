@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PlanningService } from '../../../services/planning.services';
-import { PatientService } from '../../../services/patient.services';
+import { PlanningService } from '../../../../services/planning.services';
+import { PatientService } from '../../../../services/patient.services';
 import { CommonModule } from '@angular/common';
 
 interface Planning {

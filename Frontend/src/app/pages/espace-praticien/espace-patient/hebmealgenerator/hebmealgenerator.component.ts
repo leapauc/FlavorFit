@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import flatpickr from 'flatpickr';
 import { French } from 'flatpickr/dist/l10n/fr.js';
-import { RecipeService } from '../../../services/recipe.services';
+import { RecipeService } from '../../../../services/recipe.services';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { PatientService } from '../../../services/patient.services';
-import { PlanningService } from '../../../services/planning.services';
-import { MailService } from '../../../services/mails.services';
+import { PatientService } from '../../../../services/patient.services';
+import { PlanningService } from '../../../../services/planning.services';
+import { MailService } from '../../../../services/mails.services';
 @Component({
   selector: 'app-hebmealgenerator',
   standalone: true,

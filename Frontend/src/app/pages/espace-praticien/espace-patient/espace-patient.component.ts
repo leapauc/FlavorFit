@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { PatientService } from '../../services/patient.services';
-import { PatientInfo } from '../../models/patientInfo';
+import { PatientService } from '../../../services/patient.services';
+import { PatientInfo } from '../../../models/patientInfo';
 
 @Component({
   selector: 'app-espace-patient',
@@ -17,7 +17,7 @@ export class EspacePatientComponent implements OnInit {
 
   ngOnInit() {
     this.patientService.selectedPatient$.subscribe(
-      (patient) => (this.selectedPatient = patient)
+      (patient) => (this.selectedPatient = patient),
     );
   }
 

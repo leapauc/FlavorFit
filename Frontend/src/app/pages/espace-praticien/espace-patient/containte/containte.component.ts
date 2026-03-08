@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PatientConstraint } from '../../../models/patientConstraint';
-import { PatientService } from '../../../services/patient.services';
+import { PatientConstraint } from '../../../../models/patientConstraint';
+import { PatientService } from '../../../../services/patient.services';
 import { ActivatedRoute } from '@angular/router';
-import { GetInfoFromDBService } from '../../../services/getInfoFromDB';
+import { GetInfoFromDBService } from '../../../../services/getInfoFromDB';
 import {
   PathologyGroup,
   PathologyGroupUi,
-} from '../../../models/pathologyGroup';
-import { Conviction } from '../../../models/infoDB';
-import { IngredientService } from '../../../services/ingredient.services';
+} from '../../../../models/pathologyGroup';
+import { Conviction } from '../../../../models/infoDB';
+import { IngredientService } from '../../../../services/ingredient.services';
 
 @Component({
   selector: 'app-containte',
