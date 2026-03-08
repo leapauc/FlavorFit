@@ -13,6 +13,7 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { FruitLegumeComponent } from './pages/espace-praticien/info/fruit-legume/fruit-legume.component';
 import { ViandePoissonOeufComponent } from './pages/espace-praticien/info/viande-poisson-oeuf/viande-poisson-oeuf.component';
 import { HebmealgeneratorComponent } from './pages/espace-praticien/generator/hebmealgenerator.component';
+import { RecettesComponent } from './pages/espace-praticien/info/recettes/recettes.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'connexion', pathMatch: 'full' },
@@ -25,6 +26,7 @@ export const routes: Routes = [
       { path: 'hebmealgenerator', component: HebmealgeneratorComponent },
       { path: 'fruit_legume', component: FruitLegumeComponent },
       { path: 'viande_poisson_oeuf', component: ViandePoissonOeufComponent },
+      { path: 'recette', component: RecettesComponent },
       {
         path: 'gestion_patients',
         component: GestionPatientsComponent,

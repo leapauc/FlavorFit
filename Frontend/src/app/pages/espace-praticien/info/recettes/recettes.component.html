@@ -1,0 +1,79 @@
+<div class="recipe-container">
+  <h1>Nos recettes</h1>
+  <br />
+  <input
+    class="search-input"
+    type="text"
+    [(ngModel)]="search"
+    (input)="filterRecipes()"
+    placeholder="Rechercher une recette..."
+  />
+
+  <div class="recipe-list">
+    <div class="card" *ngFor="let recipe of filteredRecipes">
+      <div class="card-image-container">
+        <img
+          class="card-image"
+          [src]="recipe.url || 'assets/recipe-placeholder.png'"
+        />
+      </div>
+
+      <div class="card-info">
+        <div class="title">{{ recipe.title }}</div>
+
+        <div class="category">{{ recipe.categorie }}</div>
+
+        <div class="meta">{{ recipe.difficulty }} • {{ recipe.price }}</div>
+
+        <button (click)="viewRecipe(recipe.id_recipe)" class="success">
+          Voir la recette
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="recipe-modal-overlay" *ngIf="showModal">
+  <div class="recipe-modal">
+    <button class="close-btn" (click)="closeModal()">✖</button>
+
+    <div *ngIf="selectedRecipe">
+      <h2>{{ selectedRecipe.title }}</h2>
+
+      <p>
+        {{ selectedRecipe.categorie }} | {{ selectedRecipe.difficulty }} |
+        {{ selectedRecipe.price }}
+      </p>
+
+      <p>Temps : {{ selectedRecipe.prepTime }} min</p>
+
+      <h3>Ingrédients</h3>
+
+      <ul>
+        <li *ngFor="let ing of selectedRecipe.ingredients">
+          {{ ing.quantity }} {{ ing.unit }} - {{ ing.name }}
+        </li>
+      </ul>
+
+      <h3>Préparation</h3>
+
+      <ol>
+        <li *ngFor="let step of selectedRecipe.description">
+          {{ step }}
+        </li>
+      </ol>
+
+      <h3>Valeurs nutritionnelles</h3>
+
+      <p>
+        Kcal : {{ selectedRecipe.kcal }} | Protéines :
+        {{ selectedRecipe.proteine }} g | Glucides :
+        {{ selectedRecipe.glucide }} g | Lipides : {{ selectedRecipe.lipide }} g
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="showModal" class="modal-overlay">
+  <div class="modal">TEST MODAL</div>
+</div> -->

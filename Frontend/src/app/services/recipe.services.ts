@@ -43,6 +43,9 @@ export class RecipeService {
       recipe,
     );
   }
+  getAllRecipes(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}`);
+  }
 
   /** 🔹 NOUVEAU - RECUPÉRER LES RECETTES D’UN PRATICIEN */
   getRecipesByPraticien(id_praticien: number): Observable<any[]> {

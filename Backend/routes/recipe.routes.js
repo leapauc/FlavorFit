@@ -26,6 +26,7 @@ router.post("/filtered", getFilteredRecipe);
 router.post("/auto_planning", generateAutoRecipePlanning);
 
 // ROUTES DYNAMIQUES
+router.get("/", getAllRecipe);
 router.get("/:id_recipe", getRecipeById);
 router.get("/:id_recipe/all_info_recipe", getAllInfoRecipeById);
 router.get("/by_praticien/:id_praticien", getRecipeByPraticien);
