@@ -5,10 +5,7 @@ const {
   getPatientById,
   getContactPatientById,
   getConstraintPatientById,
-  getAllPlanningPatientById,
-  getPlanningByIdPatientById,
   createPatient,
-  createPlanningPatientById,
   updateContactPatient,
   updateConstraintPatient,
   deletePatient,
@@ -21,12 +18,103 @@ const router = express.Router();
  * /patient:
  *   get:
  *     summary: Récupère tous les patients
- *     description: Renvoie toutes les informations des patients enregistrés dans la base.
+ *     description: Renvoie toutes les informations des patients enregistrés dans la base de données.
  *     tags:
  *       - Patients
  *     responses:
  *       200:
- *         description: Liste des patients récupérée avec succès
+ *         description: Liste complète des patients
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id_patient:
+ *                     type: integer
+ *                     description: Identifiant unique du patient
+ *                     example: 1
+ *                   id_praticien:
+ *                     type: integer
+ *                     description: Identifiant du praticien associé
+ *                     example: 1
+ *                   lastname:
+ *                     type: string
+ *                     description: Nom du patient
+ *                     example: "RICHARD"
+ *                   firstname:
+ *                     type: string
+ *                     description: Prénom du patient
+ *                     example: "Léonie"
+ *                   age:
+ *                     type: integer
+ *                     description: Age du patient
+ *                     example: 21
+ *                   email:
+ *                     type: string
+ *                     description: Adresse email
+ *                     example: "leonie124@yahoo.fr"
+ *                   phone:
+ *                     type: string
+ *                     description: Numéro de téléphone
+ *                     example: "0645125478"
+ *                   address:
+ *                     type: array
+ *                     description: Adresse complète
+ *                     items:
+ *                       type: string
+ *                     example: ["45 rue de la Lyre","","45125","Châlette-sur-Loing"]
+ *                   pathologies:
+ *                     type: array
+ *                     description: Liste des identifiants de pathologies
+ *                     items:
+ *                       type: integer
+ *                     example: [1,3]
+ *                   allergies:
+ *                     type: array
+ *                     description: Liste des allergies du patient
+ *                     items:
+ *                       type: string
+ *                     example: ["cacahuète","noix"]
+ *                   conviction:
+ *                     type: array
+ *                     description: Liste des identifiants de convictions
+ *                     items:
+ *                       type: integer
+ *                     example: [2]
+ *                   history:
+ *                     type: string
+ *                     description: Historique médical du patient
+ *                     example: "infractus à 41 ans"
+ *                   other:
+ *                     type: string
+ *                     description: Informations complémentaires
+ *                     example: "nombreux antécédents familiaux"
+ *       500:
+ *         description: Erreur serveur
+ */
+router.get("/", getAllPatient);
+
+/**
+ * @swagger
+ * /patient/all/{id_praticien}:
+ *   get:
+ *     summary: Récupère tous les patients d'un praticien
+ *     description: Retourne la liste des patients associés à un praticien spécifique. Les pathologies et convictions sont retournées sous forme de noms.
+ *     tags:
+ *       - Patients
+ *     parameters:
+ *       - in: path
+ *         name: id_praticien
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Identifiant du praticien
+ *         example: 1
+ *     responses:
+ *       200:
+ *         description: Liste des patients du praticien
  *         content:
  *           application/json:
  *             schema:
@@ -37,33 +125,15 @@ const router = express.Router();
  *                   id_patient:
  *                     type: integer
  *                     example: 1
- *                   id_praticien:
- *                     type: integer
- *                     example: 1
  *                   lastname:
  *                     type: string
  *                     example: "RICHARD"
  *                   firstname:
  *                     type: string
  *                     example: "Léonie"
- *                   age:
- *                     type: integer
- *                     example: 21
  *                   email:
  *                     type: string
  *                     example: "leonie124@yahoo.fr"
- *                   phone:
- *                     type: string
- *                     example: "0645125478"
- *                   address:
- *                     type: array
- *                     items:
- *                       type: string
- *                     example: ["45 rue de la Lyre","","45125","Châlette-sur-Loing"]
- *                   date_creation:
- *                     type: string
- *                     format: date-time
- *                     example: "2025-12-01T10:00:00Z"
  *                   pathologies:
  *                     type: array
  *                     items:
@@ -73,63 +143,20 @@ const router = express.Router();
  *                     type: array
  *                     items:
  *                       type: string
- *                     example: ["cacahuète", "noix"]
- *                   conviction:
- *                     type: string
- *                     example: "végétarien"
+ *                     example: ["cacahuète"]
+ *                   convictions:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                     example: ["végétarien"]
  *                   history:
  *                     type: string
  *                     example: "infractus à 41 ans"
  *                   other:
  *                     type: string
- *                     example: "nombreux antécédents familiaux"
+ *                     example: "antécédents familiaux"
  *       500:
  *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erreur serveur"
- */
-router.get("/", getAllPatient);
-
-/**
- * @swagger
- * /patient/{id_praticien}:
- *   get:
- *     summary: Récupère tous les patients d'un praticien
- *     description: Renvoie la liste des patients liés à un praticien donné.
- *     tags:
- *       - Patients
- *     parameters:
- *       - in: path
- *         name: id_praticien
- *         required: true
- *         schema:
- *           type: integer
- *         description: ID du praticien
- *     responses:
- *       200:
- *         description: Liste des patients récupérée avec succès
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Patient'
- *       500:
- *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erreur serveur"
  */
 router.get("/all/:id_praticien", getAllPatientByPraticien);
 
@@ -138,7 +165,7 @@ router.get("/all/:id_praticien", getAllPatientByPraticien);
  * /patient/{id_patient}:
  *   get:
  *     summary: Récupère un patient par ID
- *     description: Renvoie toutes les informations d'un patient spécifique.
+ *     description: Retourne toutes les informations d'un patient spécifique.
  *     tags:
  *       - Patients
  *     parameters:
@@ -147,34 +174,23 @@ router.get("/all/:id_praticien", getAllPatientByPraticien);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID du patient
+ *         description: Identifiant du patient
+ *         example: 5
  *     responses:
  *       200:
- *         description: Patient récupéré avec succès
+ *         description: Patient trouvé
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Patient'
+ *               type: object
  *       404:
  *         description: Patient non trouvé
  *         content:
  *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Patient non trouvé"
+ *             example:
+ *               message: "Patient non trouvé"
  *       500:
  *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erreur serveur"
  */
 router.get("/:id_patient", getPatientById);
 
@@ -183,7 +199,7 @@ router.get("/:id_patient", getPatientById);
  * /patient/{id_patient}/contact:
  *   get:
  *     summary: Récupère les informations de contact d'un patient
- *     description: Renvoie uniquement les colonnes lastname, firstname, age, email, phone, address.
+ *     description: Retourne uniquement les informations de contact (nom, prénom, age, email, téléphone et adresse).
  *     tags:
  *       - Patients
  *     parameters:
@@ -192,35 +208,19 @@ router.get("/:id_patient", getPatientById);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID du patient
+ *         example: 1
  *     responses:
  *       200:
- *         description: Contact du patient récupéré avec succès
+ *         description: Informations de contact du patient
  *         content:
  *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 lastname:
- *                   type: string
- *                   example: "RICHARD"
- *                 firstname:
- *                   type: string
- *                   example: "Léonie"
- *                 age:
- *                   type: integer
- *                   example: 21
- *                 email:
- *                   type: string
- *                   example: "leonie124@yahoo.fr"
- *                 phone:
- *                   type: string
- *                   example: "0645125478"
- *                 address:
- *                   type: array
- *                   items:
- *                     type: string
- *                   example: ["45 rue de la Lyre","","45125","Châlette-sur-Loing"]
+ *             example:
+ *               lastname: "RICHARD"
+ *               firstname: "Léonie"
+ *               age: 21
+ *               email: "leonie124@yahoo.fr"
+ *               phone: "0645125478"
+ *               address: ["45 rue de la Lyre","","45125","Châlette-sur-Loing"]
  *       404:
  *         description: Patient non trouvé
  *       500:
@@ -232,8 +232,8 @@ router.get("/:id_patient/contact", getContactPatientById);
  * @swagger
  * /patient/{id_patient}/constraint:
  *   get:
- *     summary: Récupère les contraintes d'un patient
- *     description: Renvoie uniquement les colonnes pathologies, allergies, conviction, history et other.
+ *     summary: Récupère les contraintes médicales d'un patient
+ *     description: Retourne les pathologies, allergies, convictions et informations médicales d'un patient.
  *     tags:
  *       - Patients
  *     parameters:
@@ -242,34 +242,18 @@ router.get("/:id_patient/contact", getContactPatientById);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID du patient
+ *         example: 1
  *     responses:
  *       200:
- *         description: Contraintes du patient récupérées avec succès
+ *         description: Contraintes du patient
  *         content:
  *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 pathologies:
- *                   type: array
- *                   items:
- *                     type: string
- *                   example: ["diabétique"]
- *                 allergies:
- *                   type: array
- *                   items:
- *                     type: string
- *                   example: ["cacahuète", "noix"]
- *                 conviction:
- *                   type: string
- *                   example: "végétarien"
- *                 history:
- *                   type: string
- *                   example: "infractus à 41 ans"
- *                 other:
- *                   type: string
- *                   example: "nombreux antécédents familiaux"
+ *             example:
+ *               pathologies: ["diabétique"]
+ *               allergies: ["cacahuète"]
+ *               convictions: ["végétarien"]
+ *               history: "infractus à 41 ans"
+ *               other: "antécédents familiaux"
  *       404:
  *         description: Patient non trouvé
  *       500:
@@ -281,82 +265,32 @@ router.get("/:id_patient/constraint", getConstraintPatientById);
  * @swagger
  * /patient:
  *   post:
- *     summary: Crée un nouveau patient
- *     description: Ajoute un patient dans la base de données avec toutes ses informations.
+ *     summary: Créer un nouveau patient
+ *     description: Ajoute un patient dans la base de données. Les pathologies et convictions envoyées sous forme de texte sont converties en identifiants dans la base.
  *     tags:
  *       - Patients
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - id_praticien
- *               - lastname
- *               - firstname
- *               - email
- *               - phone
- *             properties:
- *               id_praticien:
- *                 type: integer
- *                 example: 1
- *               lastname:
- *                 type: string
- *                 example: "RICHARD"
- *               firstname:
- *                 type: string
- *                 example: "Léonie"
- *               age:
- *                 type: integer
- *                 example: 21
- *               email:
- *                 type: string
- *                 example: "leonie124@yahoo.fr"
- *               phone:
- *                 type: string
- *                 example: "0645125478"
- *               address:
- *                 type: array
- *                 items:
- *                   type: string
- *                 example: ["45 rue de la Lyre","","45125","Châlette-sur-Loing"]
- *               pathologies:
- *                 type: array
- *                 items:
- *                   type: string
- *                 example: ["diabétique"]
- *               allergies:
- *                 type: array
- *                 items:
- *                   type: string
- *                 example: ["cacahuète", "noix"]
- *               conviction:
- *                 type: string
- *                 example: "végétarien"
- *               history:
- *                 type: string
- *                 example: "infractus à 41 ans"
- *               other:
- *                 type: string
- *                 example: "nombreux antécédents familiaux"
+ *           example:
+ *             id_praticien: 1
+ *             lastname: "RICHARD"
+ *             firstname: "Léonie"
+ *             age: 21
+ *             email: "leonie124@yahoo.fr"
+ *             phone: "0645125478"
+ *             address: ["45 rue de la Lyre","","45125","Châlette-sur-Loing"]
+ *             pathologies: ["diabète"]
+ *             allergies: ["cacahuète"]
+ *             conviction: ["végétarien"]
+ *             history: "infractus à 41 ans"
+ *             other: "antécédents familiaux"
  *     responses:
  *       201:
  *         description: Patient créé avec succès
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Patient'
  *       500:
  *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erreur serveur"
  */
 router.post("", createPatient);
 
@@ -365,7 +299,7 @@ router.post("", createPatient);
  * /patient/{id_patient}/contact:
  *   put:
  *     summary: Met à jour les informations de contact d'un patient
- *     description: Modifie lastname, firstname, age, email, phone et address d'un patient spécifique.
+ *     description: Modifie les informations personnelles d'un patient.
  *     tags:
  *       - Patients
  *     parameters:
@@ -374,61 +308,22 @@ router.post("", createPatient);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID du patient à mettre à jour
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               lastname:
- *                 type: string
- *                 example: "RICHARD"
- *               firstname:
- *                 type: string
- *                 example: "Léonie"
- *               age:
- *                 type: integer
- *                 example: 21
- *               email:
- *                 type: string
- *                 example: "leonie124@yahoo.fr"
- *               phone:
- *                 type: string
- *                 example: "0645125478"
- *               address:
- *                 type: array
- *                 items:
- *                   type: string
- *                 example: ["45 rue de la Lyre","","45125","Châlette-sur-Loing"]
+ *           example:
+ *             lastname: "DUPONT"
+ *             firstname: "Jean"
+ *             age: 53
+ *             email: "jean.dupont@email.fr"
+ *             phone: "0600000000"
+ *             address: ["12 rue Victor Hugo","","75000","Paris"]
  *     responses:
  *       200:
- *         description: Informations de contact mises à jour avec succès
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Patient'
+ *         description: Contact mis à jour
  *       404:
  *         description: Patient non trouvé
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Patient non trouvé"
- *       500:
- *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erreur serveur"
  */
 router.put("/:id_patient/contact", updateContactPatient);
 
@@ -437,7 +332,7 @@ router.put("/:id_patient/contact", updateContactPatient);
  * /patient/{id_patient}/constraint:
  *   put:
  *     summary: Met à jour les contraintes médicales d'un patient
- *     description: Modifie pathologies, allergies, conviction, history et other d'un patient spécifique.
+ *     description: Modifie les pathologies, allergies, convictions et historique médical.
  *     tags:
  *       - Patients
  *     parameters:
@@ -446,60 +341,21 @@ router.put("/:id_patient/contact", updateContactPatient);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID du patient à mettre à jour
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               pathologies:
- *                 type: array
- *                 items:
- *                   type: string
- *                 example: ["diabétique"]
- *               allergies:
- *                 type: array
- *                 items:
- *                   type: string
- *                 example: ["cacahuète", "noix"]
- *               conviction:
- *                 type: string
- *                 example: "végétarien"
- *               history:
- *                 type: string
- *                 example: "infractus à 41 ans"
- *               other:
- *                 type: string
- *                 example: "nombreux antécédents familiaux"
+ *           example:
+ *             pathologies: ["diabète"]
+ *             allergies: ["pollen"]
+ *             conviction: ["végétarien"]
+ *             history: "opération du genou"
+ *             other: "suivi annuel"
  *     responses:
  *       200:
- *         description: Contraintes du patient mises à jour avec succès
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Patient'
+ *         description: Contraintes mises à jour
  *       404:
  *         description: Patient non trouvé
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Patient non trouvé"
- *       500:
- *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erreur serveur"
  */
 router.put("/:id_patient/constraint", updateConstraintPatient);
 
@@ -508,7 +364,7 @@ router.put("/:id_patient/constraint", updateConstraintPatient);
  * /patient/{id_patient}:
  *   delete:
  *     summary: Supprime un patient
- *     description: Supprime un patient spécifique de la base de données.
+ *     description: Supprime définitivement un patient de la base de données.
  *     tags:
  *       - Patients
  *     parameters:
@@ -517,40 +373,18 @@ router.put("/:id_patient/constraint", updateConstraintPatient);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID du patient à supprimer
+ *         example: 5
  *     responses:
  *       200:
- *         description: Patient supprimé avec succès
+ *         description: Patient supprimé
  *         content:
  *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Patient supprimé"
- *                 patient:
- *                   $ref: '#/components/schemas/Patient'
+ *             example:
+ *               message: "Patient supprimé"
  *       404:
  *         description: Patient non trouvé
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "Patient non trouvé"
  *       500:
  *         description: Erreur serveur
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                   example: "Erreur serveur"
  */
 router.delete("/:id_patient", deletePatient);
 
