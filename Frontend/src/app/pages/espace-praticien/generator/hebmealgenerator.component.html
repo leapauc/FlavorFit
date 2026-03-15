@@ -44,18 +44,16 @@
         <div class="row mb-2">
           <p class="fw-bold mb-2">Contraintes alimentaires :</p>
 
+          <!-- Pathologies -->
           <div class="col-5 mb-3">
             <label class="form-label">Pathologie(s)</label>
-
-            <!-- Faux select -->
             <div
               class="form-control d-flex flex-wrap gap-2"
-              (click)="toggleDropdown()"
+              (click)="toggleDropdown($event)"
             >
               <span *ngIf="!selectedPathologies.length" class="text-muted">
                 Sélectionner des pathologies
               </span>
-
               <!-- Chips -->
               <div
                 *ngFor="let pathology of selectedPathologies"
@@ -66,28 +64,30 @@
                 <i
                   class="bi bi-x ms-1"
                   role="button"
-                  (click)="removePathology(pathology)"
+                  (click)="removePathology(pathology); $event.stopPropagation()"
                 ></i>
               </div>
             </div>
-            <!-- Dropdown -->
             <div *ngIf="dropdownOpen" class="dropdown-menu show w-100 p-2">
+              <!-- Contenu du dropdown -->
               <div *ngFor="let group of pathologyGroups">
                 <strong class="d-block mb-1">{{ group.type }}</strong>
-
                 <div *ngFor="let item of group.items" class="form-check">
                   <input
                     class="form-check-input"
                     type="checkbox"
                     [id]="sanitizeId(item)"
-                    (change)="togglePathology(item)"
+                    (change)="togglePathology(item); $event.stopPropagation()"
                     [checked]="selectedPathologies.includes(item)"
                   />
-                  <label class="form-check-label" [for]="sanitizeId(item)">
+                  <label
+                    class="form-check-label"
+                    [for]="sanitizeId(item)"
+                    (click)="$event.stopPropagation()"
+                  >
                     {{ item }}
                   </label>
                 </div>
-
                 <hr />
               </div>
             </div>
@@ -95,13 +95,16 @@
           <!-- Conviction -->
           <div class="col-3 mb-3">
             <label for="conviction" class="form-label">Conviction</label>
-            <select class="form-control" id="conviction">
+            <select
+              class="form-control"
+              id="conviction"
+              [(ngModel)]="selectedConviction"
+              name="conviction"
+              (change)="onConvictionChange()"
+            >
               <option value="">Aucune conviction alimentaire</option>
-              <option
-                *ngFor="let conviction of convictionGroups"
-                [value]="conviction"
-              >
-                {{ conviction }}
+              <option *ngFor="let option of convictionGroups" [value]="option">
+                {{ option }}
               </option>
             </select>
           </div>
@@ -109,19 +112,15 @@
           <!-- Restrictions alimentaires -->
           <div class="col-4 mb-3 position-relative">
             <label class="form-label">Restrictions alimentaires</label>
-
-            <!-- Faux select -->
             <div
               class="form-control d-flex flex-wrap gap-2"
-              (click)="toggleDietaryDropdown()"
+              (click)="toggleRestrictionsDropdown($event)"
             >
-              <span *ngIf="!selectedDietaryOptions.length" class="text-muted">
+              <span *ngIf="!selectedRestrictions.length" class="text-muted">
                 Sélectionner des restrictions
               </span>
-
-              <!-- Chips -->
               <div
-                *ngFor="let option of selectedDietaryOptions"
+                *ngFor="let option of selectedRestrictions"
                 class="badge bg-secondary d-flex align-items-center gap-1"
                 (click)="$event.stopPropagation()"
               >
@@ -129,26 +128,31 @@
                 <i
                   class="bi bi-x ms-1"
                   role="button"
-                  (click)="removeDietaryOption(option)"
+                  (click)="
+                    removeRestrictionsOption(option); $event.stopPropagation()
+                  "
                 ></i>
               </div>
             </div>
-
-            <!-- Dropdown -->
             <div
-              *ngIf="dietaryDropdownOpen"
+              *ngIf="restrictionsDropdownOpen"
               class="dropdown-menu show w-100 p-2"
-              (click)="$event.stopPropagation()"
             >
-              <div *ngFor="let option of dietaryOptions" class="form-check">
+              <div *ngFor="let option of Restrictions" class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   [id]="sanitizeId(option)"
-                  [checked]="selectedDietaryOptions.includes(option)"
-                  (change)="toggleDietaryOption(option)"
+                  (change)="
+                    toggleRestrictionsOption(option); $event.stopPropagation()
+                  "
+                  [checked]="selectedRestrictions.includes(option)"
                 />
-                <label class="form-check-label" [for]="sanitizeId(option)">
+                <label
+                  class="form-check-label"
+                  [for]="sanitizeId(option)"
+                  (click)="$event.stopPropagation()"
+                >
                   {{ option }}
                 </label>
               </div>

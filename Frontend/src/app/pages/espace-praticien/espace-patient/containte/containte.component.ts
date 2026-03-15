@@ -9,7 +9,7 @@ import {
   PathologyGroup,
   PathologyGroupUi,
 } from '../../../../models/pathologyGroup';
-import { Conviction } from '../../../../models/infoDB';
+import { Conviction, Restriction } from '../../../../models/infoDB';
 import { IngredientService } from '../../../../services/ingredient.services';
 
 @Component({
@@ -48,6 +48,10 @@ export class ContainteComponent {
   ingredientSearch: string = '';
   selectedAllergies: string[] = [];
 
+  Restrictions: string[] = [];
+  selectedRestrictions: string[] = [];
+  restrictionsDropdownOpen = false;
+
   constructor(
     private patientService: PatientService,
     private getIngredient: IngredientService,
@@ -64,6 +68,7 @@ export class ContainteComponent {
       this.loadPatientConstraint(this.patientId);
     }
     this.loadIngredients();
+    this.loadRestrictions();
   }
 
   loadPathologies() {
@@ -73,6 +78,15 @@ export class ContainteComponent {
           type: group.type,
           items: group.string_agg.split(',').map((item) => item.trim()),
         }));
+      },
+      error: (err) => console.error(err),
+    });
+  }
+
+  loadRestrictions() {
+    this.getInfoFromDB.getRestrictions().subscribe({
+      next: (data: Restriction[]) => {
+        this.Restrictions = data.map((c) => c.name);
       },
       error: (err) => console.error(err),
     });
@@ -184,6 +198,34 @@ export class ContainteComponent {
       this.backupData = { ...this.formData };
       this.backupSelectedPathologies = [...this.selectedPathologies];
     }
+  }
+
+  toggleRestrictionsDropdown(): void {
+    this.restrictionsDropdownOpen = !this.restrictionsDropdownOpen;
+  }
+
+  toggleRestrictionsOption(option: string): void {
+    if (this.selectedRestrictions.includes(option)) {
+      this.selectedRestrictions = this.selectedRestrictions.filter(
+        (o) => o !== option,
+      );
+    } else {
+      this.selectedRestrictions.push(option);
+    }
+  }
+
+  removeRestrictionsOption(option: string): void {
+    this.selectedRestrictions = this.selectedRestrictions.filter(
+      (o) => o !== option,
+    );
+  }
+
+  // ------------------ Utilitaires ------------------
+  sanitizeId(str: string): string {
+    return str
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-_]/g, '');
   }
 
   resetForm() {

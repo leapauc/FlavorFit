@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { GetInfoFromDBService } from '../../../services/getInfoFromDB';
 import {
   PathologyGroup,
@@ -34,6 +34,26 @@ interface ShoppingList {
   styleUrls: ['./hebmealgenerator.component.css'],
 })
 export class HebmealgeneratorComponent {
+  @HostListener('document:click', ['$event'])
+  clickOutside(event: MouseEvent) {
+    // Vérifie si le clic est en dehors de tous les dropdowns
+    const dropdownElements = this.eRef.nativeElement.querySelectorAll(
+      '.dropdown-menu, .form-control',
+    );
+    let clickedInsideDropdown = false;
+
+    dropdownElements.forEach((el: HTMLElement) => {
+      if (el.contains(event.target as Node)) {
+        clickedInsideDropdown = true;
+      }
+    });
+
+    if (!clickedInsideDropdown) {
+      this.dropdownOpen = false;
+      this.restrictionsDropdownOpen = false;
+    }
+  }
+
   dropListsIds: string[] = [];
   selectedRecipe: { id: string; title: string } | null = null;
 
@@ -44,10 +64,10 @@ export class HebmealgeneratorComponent {
   selectedIngredients: string[] = [];
   ingredientDropdownOpen = false;
   @ViewChild('dateLabel') dateLabel!: ElementRef<HTMLLabelElement>;
-
-  dietaryOptions: string[] = [];
-  selectedDietaryOptions: string[] = [];
-  dietaryDropdownOpen = false;
+  selectedConviction: string = '';
+  Restrictions: string[] = [];
+  selectedRestrictions: string[] = [];
+  restrictionsDropdownOpen = false;
 
   days = [
     'Lundi',
@@ -93,6 +113,7 @@ export class HebmealgeneratorComponent {
     private recipeService: RecipeService,
     private planningService: PlanningService,
     private pdfService: PdfService,
+    private eRef: ElementRef,
   ) {}
 
   ngOnInit() {
@@ -157,7 +178,7 @@ export class HebmealgeneratorComponent {
   loadRestrictions() {
     this.getInfoFromDB.getRestrictions().subscribe({
       next: (data: Restriction[]) => {
-        this.dietaryOptions = data.map((c) => c.name);
+        this.Restrictions = data.map((c) => c.name);
       },
       error: (err) => console.error(err),
     });
@@ -245,7 +266,7 @@ export class HebmealgeneratorComponent {
   resetFilters(): void {
     this.selectedPathologies = [];
     this.selectedIngredients = [];
-    this.selectedDietaryOptions = [];
+    this.selectedRestrictions = [];
     this.dateDebut = '';
 
     this.filtersValidated = false;
@@ -260,41 +281,76 @@ export class HebmealgeneratorComponent {
     });
   }
 
+  // generateAutoPlanning() {
+  //   if (!this.filtersValidated) {
+  //     alert(
+  //       'Veuillez valider les filtres avant de générer le planning automatique.',
+  //     );
+  //     return;
+  //   }
+
+  //   this.loadingRecipes = true;
+
+  //   // Préparer la structure pour indiquer les repas à prévoir
+  //   // Exemple : { Lundi: { Midi: true, Dîner: false }, ... }
+  //   const mealsToPlan: Record<string, Record<string, boolean>> = {};
+  //   this.days.forEach((day) => {
+  //     mealsToPlan[day] = {};
+  //     this.meals.forEach((meal) => {
+  //       // Ici tu peux ajouter une checkbox dans le HTML pour chaque repas à inclure
+  //       // Par défaut, on met true pour générer tous les repas
+  //       mealsToPlan[day][meal] = true;
+  //     });
+  //   });
+
+  //   const payload = {
+  //     excludedIngredients: this.selectedIngredients,
+  //     mealsToPlan: this.mealsToPlan, // <-- maintenant c'est dynamique
+  //   };
+
+  //   // console.log('Payload auto:', payload);
+
+  //   this.recipeService.generateAutoRecipes(payload).subscribe({
+  //     next: (res: any) => {
+  //       this.manualPlanning = res;
+  //       // console.log('Planning automatique généré:', this.manualPlanning);
+  //       this.loadingRecipes = false;
+  //       this.planningGenerated = true; // <-- planning prêt à afficher
+  //     },
+  //     error: (err) => {
+  //       console.error(err);
+  //       this.loadingRecipes = false;
+  //     },
+  //   });
+  // }
+
   generateAutoPlanning() {
     if (!this.filtersValidated) {
-      alert(
-        'Veuillez valider les filtres avant de générer le planning automatique.',
-      );
+      alert('Veuillez valider les filtres.');
       return;
     }
 
     this.loadingRecipes = true;
 
-    // Préparer la structure pour indiquer les repas à prévoir
-    // Exemple : { Lundi: { Midi: true, Dîner: false }, ... }
-    const mealsToPlan: Record<string, Record<string, boolean>> = {};
-    this.days.forEach((day) => {
-      mealsToPlan[day] = {};
-      this.meals.forEach((meal) => {
-        // Ici tu peux ajouter une checkbox dans le HTML pour chaque repas à inclure
-        // Par défaut, on met true pour générer tous les repas
-        mealsToPlan[day][meal] = true;
-      });
-    });
+    // Récupérer les noms des convictions/restrictions sélectionnées
+    const selectedConvictionNames = this.selectedConviction
+      ? [this.selectedConviction]
+      : [];
+    const selectedRestrictionNames = this.selectedRestrictions;
 
+    // Préparer le payload
     const payload = {
       excludedIngredients: this.selectedIngredients,
-      mealsToPlan: this.mealsToPlan, // <-- maintenant c'est dynamique
+      mealsToPlan: this.mealsToPlan,
+      convictions: selectedConvictionNames, // Envoyer les noms des convictions
+      restrictions: selectedRestrictionNames, // Envoyer les noms des restrictions
     };
 
-    // console.log('Payload auto:', payload);
-
     this.recipeService.generateAutoRecipes(payload).subscribe({
-      next: (res: any) => {
+      next: (res) => {
         this.manualPlanning = res;
-        // console.log('Planning automatique généré:', this.manualPlanning);
         this.loadingRecipes = false;
-        this.planningGenerated = true; // <-- planning prêt à afficher
+        this.planningGenerated = true;
       },
       error: (err) => {
         console.error(err);
@@ -302,6 +358,24 @@ export class HebmealgeneratorComponent {
       },
     });
   }
+
+  // Mettre à jour resetFilters
+  // resetFilters(): void {
+  //   this.selectedPathologies = [];
+  //   this.selectedIngredients = [];
+  //   this.selectedRestrictions = [];
+  //   this.selectedConviction = '';
+  //   this.dateDebut = '';
+  //   this.filtersValidated = false;
+  //   this.filtersSavedMessage = false;
+  //   this.loadingRecipes = false;
+  //   this.filteredRecipes = [];
+  //   this.days.forEach((day) => {
+  //     this.meals.forEach((meal) => {
+  //       this.manualPlanning[day][meal] = null;
+  //     });
+  //   });
+  // }
 
   toggleMealRow(meal: string, checked: boolean) {
     this.days.forEach((day) => {
@@ -320,8 +394,10 @@ export class HebmealgeneratorComponent {
     return this.days.every((day) => this.mealsToPlan[day][meal]);
   }
   // ------------------ Toggle & Sélections ------------------
-  toggleDropdown() {
+  toggleDropdown(event: MouseEvent) {
+    event.stopPropagation();
     this.dropdownOpen = !this.dropdownOpen;
+    this.restrictionsDropdownOpen = false;
   }
 
   togglePathology(item: string) {
@@ -344,6 +420,8 @@ export class HebmealgeneratorComponent {
 
   toggleIngredientDropdown(): void {
     this.ingredientDropdownOpen = !this.ingredientDropdownOpen;
+    this.dropdownOpen = false; // Ferme les autres dropdowns
+    this.restrictionsDropdownOpen = false;
   }
 
   toggleIngredient(item: string): void {
@@ -364,24 +442,32 @@ export class HebmealgeneratorComponent {
     );
   }
 
-  toggleDietaryDropdown(): void {
-    this.dietaryDropdownOpen = !this.dietaryDropdownOpen;
+  onConvictionChange(): void {
+    if (this.filtersValidated) return;
   }
 
-  toggleDietaryOption(option: string): void {
+  toggleRestrictionsDropdown(event: MouseEvent) {
+    event.stopPropagation();
+    this.restrictionsDropdownOpen = !this.restrictionsDropdownOpen;
+    this.dropdownOpen = false;
+  }
+
+  // Méthode appelée lors du changement de restrictions
+  toggleRestrictionsOption(option: string): void {
     if (this.filtersValidated) return;
-    if (this.selectedDietaryOptions.includes(option)) {
-      this.selectedDietaryOptions = this.selectedDietaryOptions.filter(
+    if (this.selectedRestrictions.includes(option)) {
+      this.selectedRestrictions = this.selectedRestrictions.filter(
         (o) => o !== option,
       );
     } else {
-      this.selectedDietaryOptions.push(option);
+      this.selectedRestrictions.push(option);
     }
   }
 
-  removeDietaryOption(option: string): void {
+  // Méthode pour supprimer une restriction
+  removeRestrictionsOption(option: string): void {
     if (this.filtersValidated) return;
-    this.selectedDietaryOptions = this.selectedDietaryOptions.filter(
+    this.selectedRestrictions = this.selectedRestrictions.filter(
       (o) => o !== option,
     );
   }
@@ -605,7 +691,7 @@ export class HebmealgeneratorComponent {
         nbPersons: 2,
         startDate: this.dateDebut,
         pathologies: this.selectedPathologies,
-        restrictions: this.selectedDietaryOptions,
+        restrictions: this.selectedRestrictions,
         ingredientsExcluded: this.selectedIngredients,
       },
       planning: this.manualPlanning,

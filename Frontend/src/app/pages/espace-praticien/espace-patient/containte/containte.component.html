@@ -152,18 +152,53 @@
         </div>
       </div>
 
-      <div class="col-5 mb-3 offset-1">
-        <label for="autres_info" class="form-label"
-          >Autres informations :</label
+      <!-- Restrictions alimentaires -->
+      <div class="col-5 offset-1 mb-3 position-relative">
+        <label class="form-label">Restrictions alimentaires</label>
+
+        <!-- Faux select -->
+        <div
+          class="form-control d-flex flex-wrap gap-2"
+          (click)="toggleRestrictionsDropdown()"
         >
-        <textarea
-          id="autres_info"
-          name="autres_info"
-          class="form-control"
-          [(ngModel)]="formData.autres_info"
-          [readonly]="!isEditMode"
-          rows="3"
-        ></textarea>
+          <span *ngIf="!selectedRestrictions.length" class="text-muted">
+            Sélectionner des restrictions
+          </span>
+
+          <!-- Chips -->
+          <div
+            *ngFor="let option of selectedRestrictions"
+            class="badge bg-secondary d-flex align-items-center gap-1"
+            (click)="$event.stopPropagation()"
+          >
+            {{ option }}
+            <i
+              class="bi bi-x ms-1"
+              role="button"
+              (click)="removeRestrictionsOption(option)"
+            ></i>
+          </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div
+          *ngIf="restrictionsDropdownOpen"
+          class="dropdown-menu show w-100 p-2"
+          (click)="$event.stopPropagation()"
+        >
+          <div *ngFor="let option of Restrictions" class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [id]="sanitizeId(option)"
+              [checked]="selectedRestrictions.includes(option)"
+              (change)="toggleRestrictionsOption(option)"
+            />
+            <label class="form-check-label" [for]="sanitizeId(option)">
+              {{ option }}
+            </label>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -190,6 +225,19 @@
             {{ conviction }}
           </option>
         </select>
+      </div>
+      <div class="col-5 mb-3 offset-1">
+        <label for="autres_info" class="form-label"
+          >Autres informations :</label
+        >
+        <textarea
+          id="autres_info"
+          name="autres_info"
+          class="form-control"
+          [(ngModel)]="formData.autres_info"
+          [readonly]="!isEditMode"
+          rows="3"
+        ></textarea>
       </div>
     </div>
 

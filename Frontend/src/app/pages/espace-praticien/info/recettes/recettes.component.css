@@ -1,6 +1,6 @@
 /* Container général */
 .recipe-container {
-  max-width: 900px;
+  max-width: 90%;
   margin: auto;
   padding: 20px;
 }

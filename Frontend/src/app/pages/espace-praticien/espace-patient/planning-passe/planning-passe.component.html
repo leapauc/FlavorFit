@@ -20,6 +20,7 @@
         <thead class="table-dark">
           <tr>
             <th></th>
+            <th></th>
             <th>Semaine du</th>
             <th>au</th>
             <th>Spécification(s) supplémentaire(s)</th>
@@ -32,6 +33,12 @@
                 class="bi bi-eye text-success fs-5"
                 style="cursor: pointer"
                 (click)="openPlanningModal(planning.id_planning)"
+              ></i>
+            </td>
+            <td class="text-center">
+              <i
+                class="bi bi-trash text-danger fs-5"
+                style="cursor: pointer"
               ></i>
             </td>
             <td>{{ planning.start_day | date: "dd/MM/yyyy" }}</td>
