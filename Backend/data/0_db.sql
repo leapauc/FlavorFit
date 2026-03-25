@@ -99,10 +99,112 @@ VALUES ('diabète de type 1',1,ARRAY['pauvre en glucide']::text[]),
 DROP TABLE IF EXISTS convictions;
 CREATE TABLE convictions (
     id_conviction SERIAL PRIMARY KEY,
-    name TEXT
+    name TEXT,
+    ingredients_toavoid INTEGER[]
 );
 INSERT INTO convictions(name)
 VALUES ('végan'),('végétarien'),('cétogène'),('pesco-végétarien');
+
+UPDATE convictions c
+SET ingredients_toavoid = ARRAY(
+    SELECT DISTINCT i.id_ingredient FROM ingredients i
+    WHERE i.alim_nom_fr ILIKE '%oeuf%' or (i.alim_ssgrp_nom_fr ilike 'pâtes à tarte' and alim_nom_fr ilike '%beurre%')
+        or (i.alim_grp_nom_fr ilike 'viandes, oeufs, poissons' and alim_ssssgrp_nom_fr not in ('alternatives végétales aux charcuteries'))
+        or (i.alim_grp_nom_fr ilike 'produits laitiers' and i.alim_ssssgrp_nom_fr in ('desserts végétaux','alternatives végétales aux fromages')
+        or i.alim_ssgrp_nom_fr in ('viennoiseries','beurres','autres matières grasses','huiles de poissons'))
+)
+WHERE c.name ILIKE 'végan';
+UPDATE convictions c
+SET ingredients_toavoid = ARRAY(
+    SELECT DISTINCT i.id_ingredient FROM ingredients i
+    WHERE (i.alim_grp_nom_fr ilike 'viandes, oeufs, poissons' and alim_ssssgrp_nom_fr not in ('alternatives végétales aux charcuteries'))
+        or i.alim_ssgrp_nom_fr in ('autres matières grasses','huiles de poissons'))
+WHERE c.name ILIKE 'végétarien';
+UPDATE convictions c
+SET ingredients_toavoid = ARRAY(
+    SELECT DISTINCT i.id_ingredient FROM ingredients i
+    WHERE (i.alim_grp_nom_fr ilike 'viandes, oeufs, poissons' and i.alim_ssgrp_code in ('viandes crues','viandes cuites','charcuteries et alternatives végétales') and i.alim_ssssgrp_nom_fr not in ('alternatives végétales aux charcuteries'))
+        or i.alim_ssgrp_nom_fr in ('autres matières grasses'))
+WHERE c.name ILIKE 'pesco-végétarien';
+
+
+DROP TABLE IF EXISTS restrictions;
+CREATE TABLE restrictions (
+    id_restriction SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    ingredients_toavoid INTEGER[]
+);
+
+INSERT INTO restrictions(name)
+VALUES ('Sans gluten'),
+    ('Sans lactose'),
+    ('Sans porc'),
+    ('Sans oléagineux'),
+    ('Sans oeuf'),
+    ('Sans poisson'),
+    ('Sans fruits de mer'),
+    ('Sans légumineuses'),
+    ('Sans ail / oignon');
+
+--sans porc
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(
+    SELECT DISTINCT i.id_ingredient FROM ingredients i
+    JOIN weight_meat_fish_egg w 
+        ON w.name ILIKE i.alim_nom_fr
+    WHERE i.alim_nom_fr ILIKE '%porc%' OR i.alim_ssssgrp_nom_fr ILIKE '%porc%' OR w.animal ILIKE '%porc%'
+)
+WHERE r.name ILIKE 'sans porc';
+--sans ail / oignon
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(
+    select id_ingredient from ingredients i
+    where i.alim_nom_fr ~* '^(ail),?\s' or i.alim_nom_fr ~* '\s(ail),?\s'
+        or i.alim_nom_fr ~* '^(oignon),?\s' or i.alim_nom_fr ~* '\s(oignon),?\s'
+)
+WHERE r.name ILIKE 'sans ail / oignon';
+--sans gluten
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
+where i.alim_nom_fr ~* '(de)?(blé),?\s' or i.alim_nom_fr ~* '(d'')?(orge),?\s'
+	or i.alim_nom_fr ~* '(de)?(seigle),?\s' or i.alim_nom_fr ~* '(d'')?(épeautre),?\s'
+	or i.alim_nom_fr ~* '(de)?(triticale),?\s' or i.alim_nom_fr ~* '(de)?(kamut),?\s'
+	or i.alim_nom_fr ~* '(boulgour de blé),?\s' or i.alim_nom_fr ~* '(semoule de blé),?\s'
+	or (i.alim_ssgrp_nom_fr in ('pains et assimilés', 'biscuits apéritifs', 'pâtes à tarte') and i.alim_nom_fr !~* 'sans gluten'))
+WHERE r.name ILIKE 'sans gluten';
+--sans oléagineux
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
+where i.alim_ssgrp_nom_fr ilike 'fruits à coque et graines oléagineuses') -- + huile d'oléagineux
+WHERE r.name ILIKE 'sans oléagineux';
+--sans lactose
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
+where i.alim_ssssgrp_nom_fr in ('laits','crèmes et spécialités à base de crème',
+    'fromages à pâte molle','fromages à pâte persillée','autres fromages et spécialités') 
+    or i.alim_ssgrp_nom_fr in ('glaces','desserts glacés','beurres'))
+WHERE r.name ILIKE 'sans lactose';
+--sans oeuf
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
+where i.alim_ssgrp_nom_fr ilike 'oeufs')
+WHERE r.name ILIKE 'sans oeuf';
+--sans poisson
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
+where i.alim_ssgrp_nom_fr in ('poissons cuits','produits à base de poissons et produits de la mer'))
+WHERE r.name ILIKE 'sans poisson';
+--sans fruits de mer
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
+where i.alim_ssgrp_nom_fr ilike 'mollusques et crustacés crus' or
+    (i.alim_ssgrp_nom_fr in ('produits à base de poissons et produits de la mer')))
+WHERE r.name ILIKE 'sans fruits de mer';
+--sans légumineuse
+UPDATE restrictions r
+SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
+where i.alim_ssgrp_nom_fr ilike 'légumineuses')
+WHERE r.name ILIKE 'sans légumineuses';
 
 
 -- PATIENTS
@@ -119,20 +221,21 @@ CREATE TABLE patients (
     pathologies INTEGER[],
     allergies TEXT[],
     conviction INTEGER[],
+    restriction INTEGER[],
     history TEXT,
     other TEXT,
     FOREIGN KEY (id_praticien) REFERENCES praticiens(id_praticien) ON DELETE CASCADE
 );
-INSERT INTO patients (id_praticien,lastname,firstname,age,email,phone,address,pathologies,allergies,conviction,history,other)
-VALUES (2,'RICHARD','Léonie',21,'leonie124@yahoo.fr','0645125478',ARRAY['45 rue de la Lyre','','45125','Châlette-sur-Loing'],null,ARRAY['cacahuète', 'noix'],null,null,null),
-       (2,'DEVELAY','Lucas',45,'develay.lucas@gmail.com','0648125348',ARRAY['26 rue de la Croix Biche','','93160','Noisy-le-Grand'],ARRAY[1],null,ARRAY[2],null,null),
-       (2,'ALLALOU','Hanane',75,'hanane.allalou@orange.fr','0740325648',ARRAY['35 rue Pierre Brosolette','','93160','Noisy-le-Grand'],null,ARRAY['concombre','morue','huître'],null,'problèmes cardiaques',null),
-       (3,'BEN','Dominique',31,'dominique-ben@orange.fr','0785641520',ARRAY['2 rue du Docteur Sureau','','93160','Noisy-le-Grand'],ARRAY[4],ARRAY['pollen'],null,null,null),
-       (2,'PAUCHOT','Léa',35,'lea.pauchot@yahoo.fr','0632501538',ARRAY['6 avenue de Victor Hugo','','93250','Villemomble'],ARRAY[27],null,ARRAY[4],null,null),
-       (3,'MANOUKIAN','Yvette',45,'yvette.manou@gmail.com','0678542368',ARRAY['29 rue de la Croix Biche','','93160','Noisy-le-Grand'],null,null,ARRAY[2],'infractus à 41 ans',null),
-       (2,'AKHENAT','Amed',76,'amed_akhenat3@yahoo.fr','012546385',ARRAY['6 boulevard Souchet','','93160','Noisy-le-Grand'],ARRAY[36],null,null,null,'nombreux antécédents familiaux de problèmes de coagulation'),
-       (3,'BENIFIO','Carla',31,'benifio-manakia.carla@orange.fr','0625431850',ARRAY['7 rue minerve','','95050','Cergy-Pontoise'],null,ARRAY['carotte','framboise','sans gluten'],null,null,null),
-       (2,'PAUCHET','Amina',35,'amina.pauchoet@gmail.com','0665897523',ARRAY['48 avenue des garches','7ème étage','77480','Grisy sur Seine'],ARRAY[31],ARRAY['noisette','amande','cacahuète'],null,null,null);
+INSERT INTO patients (id_praticien,lastname,firstname,age,email,phone,address,pathologies,allergies,conviction,restriction,history,other)
+VALUES (2,'RICHARD','Léonie',21,'leonie124@yahoo.fr','0645125478',ARRAY['45 rue de la Lyre','','45125','Châlette-sur-Loing'],null,ARRAY['cacahuète', 'noix'],null,null,null,null),
+       (2,'DEVELAY','Lucas',45,'develay.lucas@gmail.com','0648125348',ARRAY['26 rue de la Croix Biche','','93160','Noisy-le-Grand'],ARRAY[1],null,ARRAY[2],null,null,null),
+       (2,'ALLALOU','Hanane',75,'hanane.allalou@orange.fr','0740325648',ARRAY['35 rue Pierre Brosolette','','93160','Noisy-le-Grand'],null,ARRAY['concombre','morue','huître'],null,null,'problèmes cardiaques',null),
+       (3,'BEN','Dominique',31,'dominique-ben@orange.fr','0785641520',ARRAY['2 rue du Docteur Sureau','','93160','Noisy-le-Grand'],ARRAY[4],ARRAY['pollen'],null,null,null,null),
+       (2,'PAUCHOT','Léa',35,'lea.pauchot@yahoo.fr','0632501538',ARRAY['6 avenue de Victor Hugo','','93250','Villemomble'],ARRAY[27],null,ARRAY[4],null,null,null),
+       (3,'MANOUKIAN','Yvette',45,'yvette.manou@gmail.com','0678542368',ARRAY['29 rue de la Croix Biche','','93160','Noisy-le-Grand'],null,null,ARRAY[2],null,'infractus à 41 ans',null),
+       (2,'AKHENAT','Amed',76,'amed_akhenat3@yahoo.fr','012546385',ARRAY['6 boulevard Souchet','','93160','Noisy-le-Grand'],ARRAY[36],null,null,null,null,'nombreux antécédents familiaux de problèmes de coagulation'),
+       (3,'BENIFIO','Carla',31,'benifio-manakia.carla@orange.fr','0625431850',ARRAY['7 rue minerve','','95050','Cergy-Pontoise'],null,ARRAY['carotte','framboise','sans gluten'],null,null,null,null),
+       (2,'PAUCHET','Amina',35,'amina.pauchoet@gmail.com','0665897523',ARRAY['48 avenue des garches','7ème étage','77480','Grisy sur Seine'],ARRAY[31],ARRAY['noisette','amande','cacahuète'],null,null,null,null);
 
 
 ----------------------------------------------------------------------------------------------
@@ -463,73 +566,7 @@ CREATE TABLE planning_recipes (
 );
 
 ----------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS restrictions;
 
-CREATE TABLE restrictions (
-    id_restriction SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    ingredients_toavoid INTEGER[]
-);
-
-INSERT INTO restrictions(name)
-VALUES ('Sans gluten'),
-    ('Sans lactose'),
-    ('Sans porc'),
-    ('Sans oléagineux'),
-    ('Sans oeuf'),
-    ('Sans poisson'),
-    ('Sans fruits de mer'),
-    ('Sans légumineuses'),
-    ('Sans ail / oignon');
-
---sans porc
-UPDATE restrictions r
-SET ingredients_toavoid = ARRAY(
-    SELECT DISTINCT i.id_ingredient FROM ingredients i
-    JOIN weight_meat_fish_egg w 
-        ON w.name ILIKE i.alim_nom_fr
-    WHERE i.alim_nom_fr ILIKE '%porc%' OR i.alim_ssssgrp_nom_fr ILIKE '%porc%' OR w.animal ILIKE '%porc%'
-)
-WHERE r.name ILIKE 'sans porc';
---sans ail / oignon
-UPDATE restrictions r
-SET ingredients_toavoid = ARRAY(
-    select id_ingredient from ingredients i
-    where i.alim_nom_fr ~* '^(ail),?\s' or i.alim_nom_fr ~* '\s(ail),?\s'
-        or i.alim_nom_fr ~* '^(oignon),?\s' or i.alim_nom_fr ~* '\s(oignon),?\s'
-)
-WHERE r.name ILIKE 'sans ail / oignon';
---sans gluten
-UPDATE restrictions r
-SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
-where i.alim_nom_fr ~* '(de)?(blé),?\s' or i.alim_nom_fr ~* '(d'')?(orge),?\s'
-	or i.alim_nom_fr ~* '(de)?(seigle),?\s' or i.alim_nom_fr ~* '(d'')?(épeautre),?\s'
-	or i.alim_nom_fr ~* '(de)?(triticale),?\s' or i.alim_nom_fr ~* '(de)?(kamut),?\s'
-	or i.alim_nom_fr ~* '(boulgour de blé),?\s' or i.alim_nom_fr ~* '(semoule de blé),?\s'
-	or (i.alim_ssgrp_nom_fr in ('pains et assimilés', 'biscuits apéritifs', 'pâtes à tarte') and i.alim_nom_fr !~* 'sans gluten'))
-WHERE r.name ILIKE 'sans gluten';
---sans oléagineux
-
---sans lactose
-
---sans oeuf
-UPDATE restrictions r
-SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
-where i.alim_ssgrp_nom_fr ilike 'oeufs')
-WHERE r.name ILIKE 'sans oeuf';
---sans poisson
-
---sans fruits de mer
--- UPDATE restrictions r
--- SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
--- where i.alim_ssgrp_nom_fr ilike 'mollusques et crustacés crus' or
---     (i.alim_ssgrp_nom_fr in ('produits à base de poissons et produits de la mer') and ))
--- WHERE r.name ILIKE 'sans fruits de mer';
---sans légumineuse
-UPDATE restrictions r
-SET ingredients_toavoid = ARRAY(select id_ingredient from ingredients i
-where i.alim_ssgrp_nom_fr ilike 'légumineuses')
-WHERE r.name ILIKE 'sans légumineuses';
 
 ----------------------------------------------------------------------------------------------
 DROP TABLE IF EXISTS appointments;

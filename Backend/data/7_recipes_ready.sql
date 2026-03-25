@@ -52,3 +52,6 @@ BEGIN
     END LOOP;
 END;
 $$;
+
+DELETE FROM recipes
+WHERE title = 'Faire stériliser un foie gras';
