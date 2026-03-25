@@ -524,10 +524,61 @@ exports.getFilteredRecipe = async (req, res) => {
   }
 };
 
+// exports.generateAutoRecipePlanning = async (req, res) => {
+//   try {
+//     // Récupère le payload envoyé depuis le frontend
+//     const { excludedIngredients, mealsToPlan } = req.body;
+
+//     if (!mealsToPlan || typeof mealsToPlan !== "object") {
+//       return res
+//         .status(400)
+//         .json({ error: "Paramètre mealsToPlan manquant ou invalide" });
+//     }
+
+//     const planning = {};
+
+//     // Parcours chaque jour
+//     for (const day of Object.keys(mealsToPlan)) {
+//       planning[day] = {};
+
+//       // Parcours chaque repas
+//       for (const meal of Object.keys(mealsToPlan[day])) {
+//         if (mealsToPlan[day][meal]) {
+//           // Requête pour récupérer 1 recette aléatoire qui respecte les exclusions
+//           const query = `
+//             SELECT r.id_recipe, r.title
+//             FROM recipes r
+//             WHERE NOT EXISTS (
+//               SELECT 1
+//               FROM recipe_ingredients ri, unnest($1::varchar[]) AS excl
+//               WHERE ri.id_recipe = r.id_recipe
+//                 AND unaccent(upper(ri.ingredient)) ILIKE '%' || unaccent(upper(excl)) || '%'
+//             )
+//             ORDER BY random()
+//             LIMIT 1
+//           `;
+//           const result = await pool.query(query, [excludedIngredients || []]);
+
+//           planning[day][meal] = result.rows[0]
+//             ? { id: result.rows[0].id_recipe, title: result.rows[0].title }
+//             : null; // pas de recette disponible
+//         } else {
+//           planning[day][meal] = null; // repas non prévu
+//         }
+//       }
+//     }
+
+//     res.json(planning);
+//   } catch (err) {
+//     console.error("Erreur generateAutoRecipePlanning:", err.message);
+//     res.status(500).json({ error: "Erreur serveur" });
+//   }
+// };
+
 exports.generateAutoRecipePlanning = async (req, res) => {
   try {
-    // Récupère le payload envoyé depuis le frontend
-    const { excludedIngredients, mealsToPlan } = req.body;
+    const { excludedIngredients, mealsToPlan, convictions, restrictions } =
+      req.body;
 
     if (!mealsToPlan || typeof mealsToPlan !== "object") {
       return res
@@ -535,35 +586,72 @@ exports.generateAutoRecipePlanning = async (req, res) => {
         .json({ error: "Paramètre mealsToPlan manquant ou invalide" });
     }
 
-    const planning = {};
+    // 1️⃣ Récupérer les ingrédients à exclure depuis les convictions et restrictions
+    let allExcludedIngredients = [...(excludedIngredients || [])];
 
-    // Parcours chaque jour
+    // Récupérer les ingrédients à exclure pour les convictions
+    if (convictions && convictions.length > 0) {
+      const convictionQuery = `
+        SELECT unnest(ingredients_toavoid) AS ingredient_id
+        FROM convictions
+        WHERE name = ANY($1)
+      `;
+      const convictionResult = await pool.query(convictionQuery, [convictions]);
+      const convictionExclusions = convictionResult.rows.map(
+        (row) => row.ingredient_id,
+      );
+      allExcludedIngredients = [
+        ...allExcludedIngredients,
+        ...convictionExclusions,
+      ];
+    }
+
+    // Récupérer les ingrédients à exclure pour les restrictions
+    if (restrictions && restrictions.length > 0) {
+      const restrictionQuery = `
+        SELECT unnest(ingredients_toavoid) AS ingredient_id
+        FROM restrictions
+        WHERE name = ANY($1)
+      `;
+      const restrictionResult = await pool.query(restrictionQuery, [
+        restrictions,
+      ]);
+      const restrictionExclusions = restrictionResult.rows.map(
+        (row) => row.ingredient_id,
+      );
+      allExcludedIngredients = [
+        ...allExcludedIngredients,
+        ...restrictionExclusions,
+      ];
+    }
+
+    // Supprimer les doublons
+    allExcludedIngredients = [...new Set(allExcludedIngredients)];
+
+    // 2️⃣ Générer le planning
+    const planning = {};
     for (const day of Object.keys(mealsToPlan)) {
       planning[day] = {};
-
-      // Parcours chaque repas
       for (const meal of Object.keys(mealsToPlan[day])) {
         if (mealsToPlan[day][meal]) {
-          // Requête pour récupérer 1 recette aléatoire qui respecte les exclusions
           const query = `
             SELECT r.id_recipe, r.title
             FROM recipes r
             WHERE NOT EXISTS (
               SELECT 1
-              FROM recipe_ingredients ri, unnest($1::varchar[]) AS excl
+              FROM recipe_ingredients ri
               WHERE ri.id_recipe = r.id_recipe
-                AND unaccent(upper(ri.ingredient)) ILIKE '%' || unaccent(upper(excl)) || '%'
+                AND ri.id_ingredient = ANY($1)
             )
             ORDER BY random()
             LIMIT 1
           `;
-          const result = await pool.query(query, [excludedIngredients || []]);
-
+          const result = await pool.query(query, [allExcludedIngredients]);
           planning[day][meal] = result.rows[0]
             ? { id: result.rows[0].id_recipe, title: result.rows[0].title }
-            : null; // pas de recette disponible
+            : null;
         } else {
-          planning[day][meal] = null; // repas non prévu
+          planning[day][meal] = null;
         }
       }
     }

@@ -22,6 +22,17 @@ const getConvictionIds = async (names = []) => {
   return rows.map((r) => r.id_conviction);
 };
 
+const getRestrictionIds = async (names = []) => {
+  if (!names.length) return [];
+
+  const { rows } = await pool.query(
+    `SELECT id_restriction FROM restrictions WHERE name = $1`,
+    [names],
+  );
+
+  return rows.map((r) => r.id_restriction);
+};
+
 // -------------------------
 // GET Tous les patients
 // -------------------------
