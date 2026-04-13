@@ -38,6 +38,7 @@ export interface IngredientUI {
 }
 
 export interface DistinctIngredient {
+  id_ingredient: number;
   alim_grp_nom_fr: string;
   alim_ssgrp_nom_fr: string;
   alim_ssssgrp_nom_fr: string;

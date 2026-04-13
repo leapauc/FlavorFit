@@ -1,4 +1,6 @@
 <div class="unactiv-form position-relative p-3 rounded">
+  <app-global-notification></app-global-notification>
+
   <!-- Bouton crayon en haut à droite -->
   <button
     class="position-absolute p-0"
@@ -10,12 +12,17 @@
       background: transparent;
     "
     (click)="toggleEdit()"
+    [attr.aria-label]="
+      isEditMode ? 'Fermer l\'édition' : 'Modifier les contraintes'
+    "
+    title="{{ isEditMode ? 'Fermer l\'édition' : 'Modifier les contraintes' }}"
   >
     <i
       class="fs-1"
       [class.text-primary]="!isEditMode"
       [class.text-danger]="isEditMode"
-      [ngClass]="isEditMode ? 'null' : 'bi bi-pencil-square'"
+      [ngClass]="isEditMode ? 'bi bi-x-square' : 'bi bi-pencil-square'"
+      aria-hidden="true"
     ></i>
   </button>
 
@@ -25,54 +32,109 @@
   <div class="unactiv-form">
     <div class="row">
       <div class="col-6 mb-3">
-        <label class="form-label">Pathologie(s)</label>
+        <label class="form-label" for="pathologies-select">Pathologie(s)</label>
 
-        <!-- Faux select -->
+        <!-- Mode lecture -->
         <div
-          class="form-control d-flex flex-wrap gap-2"
-          [class.disabled]="!isEditMode"
-          (click)="isEditMode && toggleDropdown()"
+          *ngIf="!isEditMode"
+          class="form-control bg-light w-100"
+          role="status"
+          [attr.aria-label]="
+            'Pathologies: ' +
+            (selectedPathologies.length
+              ? selectedPathologies.join(', ')
+              : 'Aucune pathologie')
+          "
         >
-          <span *ngIf="!selectedPathologies.length" class="text-muted">
-            Sélectionner des pathologies
-          </span>
+          {{
+            selectedPathologies.length
+              ? selectedPathologies.join(", ")
+              : "Aucune pathologie"
+          }}
+        </div>
 
+        <!-- Mode édition -->
+        <div
+          *ngIf="isEditMode"
+          class="w-100 position-relative pathology-dropdown"
+        >
           <!-- Chips -->
+          <div class="d-flex flex-wrap gap-2 mb-2 w-100 mb-3">
+            <span
+              *ngFor="
+                let pathology of selectedPathologies;
+                trackBy: trackByString
+              "
+              class="badge bg-danger text-white"
+              role="status"
+            >
+              {{ pathology }}
+              <i
+                class="bi bi-x ms-1"
+                role="button"
+                tabindex="0"
+                (click)="removePathology(pathology)"
+                (keydown.enter)="removePathology(pathology)"
+                [attr.aria-label]="'Supprimer ' + pathology"
+              ></i>
+            </span>
+          </div>
+
+          <!-- Button pour ouvrir/fermer le dropdown -->
+          <button
+            type="button"
+            class="form-control w-100 text-start d-flex align-items-center"
+            (click)="toggleDropdown()"
+            [attr.aria-expanded]="dropdownOpen"
+            [attr.aria-haspopup]="true"
+          >
+            <span class="flex-grow-1">{{
+              dropdownOpen ? "Masquer les options" : "Ajouter une pathologie..."
+            }}</span>
+            <i
+              class="bi"
+              [ngClass]="dropdownOpen ? 'bi-chevron-up' : 'bi-chevron-down'"
+            ></i>
+          </button>
+
+          <!-- Dropdown -->
           <div
-            *ngFor="let pathology of selectedPathologies"
-            class="badge bg-danger d-flex align-items-center gap-1"
+            *ngIf="dropdownOpen"
+            class="dropdown-menu show w-100 p-2"
+            role="menu"
             (click)="$event.stopPropagation()"
           >
-            {{ pathology }}
-            <i
-              class="bi bi-x ms-1"
-              role="button"
-              (click)="removePathology(pathology)"
-            ></i>
-          </div>
-        </div>
-        <!-- Dropdown -->
-        <div
-          *ngIf="dropdownOpen && isEditMode"
-          class="dropdown-menu show w-100 p-2"
-        >
-          <div *ngFor="let group of pathologyGroups">
-            <strong class="d-block mb-1">{{ group.type }}</strong>
+            <div
+              *ngFor="
+                let group of pathologyGroups;
+                trackBy: trackByPathologyGroup
+              "
+            >
+              <strong class="d-block mb-1" role="presentation">{{
+                group.type
+              }}</strong>
 
-            <div *ngFor="let item of group.items" class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                [checked]="selectedPathologies.includes(item)"
-                (change)="togglePathology(item)"
-                id="{{ item }}"
-              />
-              <label class="form-check-label" for="{{ item }}">
-                {{ item }}
-              </label>
+              <div
+                *ngFor="let item of group.items; trackBy: trackByString"
+                class="form-check"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [checked]="selectedPathologies.includes(item)"
+                  (change)="togglePathology(item)"
+                  [id]="'pathology-' + sanitizeId(item)"
+                />
+                <label
+                  class="form-check-label"
+                  [for]="'pathology-' + sanitizeId(item)"
+                >
+                  {{ item }}
+                </label>
+              </div>
+
+              <hr />
             </div>
-
-            <hr />
           </div>
         </div>
       </div>
@@ -85,6 +147,7 @@
           [(ngModel)]="formData.antecedents"
           [readonly]="!isEditMode"
           rows="3"
+          [attr.aria-label]="'Antécédents médicaux'"
         ></textarea>
       </div>
     </div>
@@ -94,7 +157,17 @@
         <label class="form-label">Allergies</label>
 
         <!-- Mode lecture -->
-        <div *ngIf="!isEditMode" class="form-control bg-light w-100">
+        <div
+          *ngIf="!isEditMode"
+          class="form-control bg-light w-100"
+          role="status"
+          [attr.aria-label]="
+            'Allergies: ' +
+            (selectedAllergies.length
+              ? selectedAllergies.join(', ')
+              : 'Aucune allergie')
+          "
+        >
           {{
             selectedAllergies.length
               ? selectedAllergies.join(", ")
@@ -103,18 +176,25 @@
         </div>
 
         <!-- Mode édition -->
-        <div *ngIf="isEditMode" class="w-100 position-relative">
+        <div
+          *ngIf="isEditMode"
+          class="w-100 position-relative allergies-autocomplete"
+        >
           <!-- Chips -->
-          <div class="d-flex flex-wrap gap-2 mb-2 w-100">
+          <div class="d-flex flex-wrap gap-2 mb-2 w-100 mb-3">
             <span
-              *ngFor="let allergy of selectedAllergies"
+              *ngFor="let allergy of selectedAllergies; trackBy: trackByString"
               class="badge bg-warning text-dark"
+              role="status"
             >
               {{ allergy }}
               <i
                 class="bi bi-x ms-1"
                 role="button"
+                tabindex="0"
                 (click)="removeAllergy(allergy)"
+                (keydown.enter)="removeAllergy(allergy)"
+                [attr.aria-label]="'Supprimer ' + allergy"
               ></i>
             </span>
           </div>
@@ -127,6 +207,9 @@
             [(ngModel)]="ingredientSearch"
             name="ingredientSearch"
             (input)="filterIngredientAutocomplete()"
+            [attr.aria-label]="'Rechercher une allergie'"
+            [attr.aria-autocomplete]="'list'"
+            [attr.aria-expanded]="filteredIngredients.length > 0"
           />
 
           <!-- Suggestions -->
@@ -140,11 +223,18 @@
               max-height: 250px;
               overflow-y: auto;
             "
+            role="listbox"
           >
             <li
-              *ngFor="let ingredient of filteredIngredients"
+              *ngFor="
+                let ingredient of filteredIngredients;
+                trackBy: trackByString
+              "
               class="list-group-item list-group-item-action"
               (click)="toggleAllergy(ingredient)"
+              role="option"
+              tabindex="0"
+              (keydown.enter)="toggleAllergy(ingredient)"
             >
               {{ ingredient }}
             </li>
@@ -153,13 +243,23 @@
       </div>
 
       <!-- Restrictions alimentaires -->
-      <div class="col-5 offset-1 mb-3 position-relative">
-        <label class="form-label">Restrictions alimentaires</label>
+      <div class="col-5 offset-1 mb-3 position-relative restrictions-dropdown">
+        <label class="form-label" for="restrictions-select"
+          >Restrictions alimentaires</label
+        >
 
         <!-- Faux select -->
         <div
+          id="restrictions-select"
           class="form-control d-flex flex-wrap gap-2"
-          (click)="toggleRestrictionsDropdown()"
+          (click)="isEditMode && toggleRestrictionsDropdown()"
+          role="button"
+          [attr.aria-expanded]="restrictionsDropdownOpen"
+          [attr.aria-haspopup]="true"
+          tabindex="0"
+          (keydown.space)="isEditMode && toggleRestrictionsDropdown()"
+          (keydown.enter)="isEditMode && toggleRestrictionsDropdown()"
+          [class.disabled]="!isEditMode"
         >
           <span *ngIf="!selectedRestrictions.length" class="text-muted">
             Sélectionner des restrictions
@@ -167,34 +267,45 @@
 
           <!-- Chips -->
           <div
-            *ngFor="let option of selectedRestrictions"
+            *ngFor="let option of selectedRestrictions; trackBy: trackByString"
             class="badge bg-secondary d-flex align-items-center gap-1"
+            role="status"
             (click)="$event.stopPropagation()"
           >
             {{ option }}
             <i
               class="bi bi-x ms-1"
               role="button"
+              tabindex="0"
               (click)="removeRestrictionsOption(option)"
+              (keydown.enter)="removeRestrictionsOption(option)"
+              [attr.aria-label]="'Supprimer ' + option"
             ></i>
           </div>
         </div>
 
         <!-- Dropdown -->
         <div
-          *ngIf="restrictionsDropdownOpen"
+          *ngIf="restrictionsDropdownOpen && isEditMode"
           class="dropdown-menu show w-100 p-2"
           (click)="$event.stopPropagation()"
+          role="menu"
         >
-          <div *ngFor="let option of Restrictions" class="form-check">
+          <div
+            *ngFor="let option of Restrictions; trackBy: trackByString"
+            class="form-check"
+          >
             <input
               class="form-check-input"
               type="checkbox"
-              [id]="sanitizeId(option)"
+              [id]="'restriction-' + sanitizeId(option)"
               [checked]="selectedRestrictions.includes(option)"
               (change)="toggleRestrictionsOption(option)"
             />
-            <label class="form-check-label" [for]="sanitizeId(option)">
+            <label
+              class="form-check-label"
+              [for]="'restriction-' + sanitizeId(option)"
+            >
               {{ option }}
             </label>
           </div>
@@ -207,19 +318,29 @@
         <label for="conviction" class="form-label">Conviction</label>
 
         <!-- Mode lecture -->
-        <div *ngIf="!isEditMode" class="form-control bg-light">
+        <div
+          *ngIf="!isEditMode"
+          class="form-control bg-light"
+          role="status"
+          [attr.aria-label]="
+            'Conviction alimentaire: ' +
+            (formData.conviction || 'Aucune conviction alimentaire')
+          "
+        >
           {{ formData.conviction || "Aucune conviction alimentaire" }}
         </div>
 
         <!-- Mode édition -->
         <select
           *ngIf="isEditMode"
+          id="conviction"
           class="form-control"
           [(ngModel)]="formData.conviction"
+          [attr.aria-label]="'Sélectionner une conviction alimentaire'"
         >
           <option value="">Aucune conviction alimentaire</option>
           <option
-            *ngFor="let conviction of convictionGroups"
+            *ngFor="let conviction of convictionGroups; trackBy: trackByString"
             [value]="conviction"
           >
             {{ conviction }}
@@ -237,6 +358,7 @@
           [(ngModel)]="formData.autres_info"
           [readonly]="!isEditMode"
           rows="3"
+          [attr.aria-label]="'Autres informations'"
         ></textarea>
       </div>
     </div>
@@ -248,24 +370,47 @@
         <button
           class="danger square-btn d-flex justify-content-center align-items-center"
           (click)="cancelEdit()"
+          [disabled]="isSaving"
+          title="Annuler les modifications"
+          [attr.aria-label]="'Annuler les modifications'"
+          type="button"
         >
-          <i class="bi bi-x-circle fs-4"></i>
+          <i class="bi bi-x-circle fs-4" aria-hidden="true"></i>
         </button>
 
         <!-- Réinitialiser -->
         <button
           class="reinit square-btn d-flex justify-content-center align-items-center"
           (click)="resetForm()"
+          [disabled]="isSaving"
+          title="Réinitialiser les données"
+          [attr.aria-label]="'Réinitialiser les données'"
+          type="button"
         >
-          <i class="bi bi-arrow-counterclockwise fs-4"></i>
+          <i class="bi bi-arrow-counterclockwise fs-4" aria-hidden="true"></i>
         </button>
 
         <!-- Valider -->
         <button
           class="success square-btn d-flex justify-content-center align-items-center"
+          [class.loading-spinner]="isSaving"
           (click)="saveEdit()"
+          [disabled]="isSaving"
+          title="Enregistrer les modifications"
+          [attr.aria-label]="
+            isSaving
+              ? 'Enregistrement en cours...'
+              : 'Enregistrer les modifications'
+          "
+          type="button"
         >
-          <i class="bi bi-check-circle fs-4"></i>
+          <i
+            class="fs-4"
+            [ngClass]="
+              isSaving ? 'bi bi-hourglass-split' : 'bi bi-check-circle'
+            "
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </div>

@@ -35,7 +35,7 @@ exports.getAllDistinctIngredient = async (req, res) => {
   try {
     const result = await pool.query(
       `
-      SELECT distinct alim_grp_nom_fr,alim_ssgrp_nom_fr,alim_ssssgrp_nom_fr,
+      SELECT distinct id_ingredient, alim_grp_nom_fr,alim_ssgrp_nom_fr,alim_ssssgrp_nom_fr,
       split_part(alim_nom_fr,',',1) as alim_nom_fr
       FROM ingredients
       `,

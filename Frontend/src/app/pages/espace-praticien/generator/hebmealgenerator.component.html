@@ -47,48 +47,84 @@
           <!-- Pathologies -->
           <div class="col-5 mb-3">
             <label class="form-label">Pathologie(s)</label>
-            <div
-              class="form-control d-flex flex-wrap gap-2"
-              (click)="toggleDropdown($event)"
-            >
-              <span *ngIf="!selectedPathologies.length" class="text-muted">
-                Sélectionner des pathologies
-              </span>
-              <!-- Chips -->
+            <div class="w-100 position-relative generator-dropdown">
               <div
-                *ngFor="let pathology of selectedPathologies"
-                class="badge bg-danger d-flex align-items-center gap-1"
+                class="form-control d-flex flex-wrap gap-2 align-items-center dropdown-toggle-field"
+                role="button"
+                tabindex="0"
+                [attr.aria-expanded]="dropdownOpen"
+                [attr.aria-haspopup]="true"
+                (click)="toggleDropdown($event)"
+                (keydown.enter)="toggleDropdown($event)"
+                (keydown.space)="toggleDropdown($event)"
+              >
+                <span *ngIf="!selectedPathologies.length" class="text-muted">
+                  Sélectionner des pathologies
+                </span>
+                <span
+                  *ngFor="
+                    let pathology of selectedPathologies;
+                    trackBy: trackByString
+                  "
+                  class="badge bg-danger text-white d-flex align-items-center gap-1"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ pathology }}
+                  <i
+                    class="bi bi-x"
+                    role="button"
+                    tabindex="0"
+                    (click)="
+                      removePathology(pathology); $event.stopPropagation()
+                    "
+                    (keydown.enter)="
+                      removePathology(pathology); $event.stopPropagation()
+                    "
+                    [attr.aria-label]="'Supprimer ' + pathology"
+                  ></i>
+                </span>
+                <span class="ms-auto text-muted small">
+                  {{
+                    selectedPathologies.length
+                      ? selectedPathologies.length + " sélectionnée(s)"
+                      : "Cliquer pour ouvrir"
+                  }}
+                </span>
+              </div>
+
+              <div
+                *ngIf="dropdownOpen"
+                class="dropdown-menu show w-100 p-2"
+                role="menu"
                 (click)="$event.stopPropagation()"
               >
-                {{ pathology }}
-                <i
-                  class="bi bi-x ms-1"
-                  role="button"
-                  (click)="removePathology(pathology); $event.stopPropagation()"
-                ></i>
-              </div>
-            </div>
-            <div *ngIf="dropdownOpen" class="dropdown-menu show w-100 p-2">
-              <!-- Contenu du dropdown -->
-              <div *ngFor="let group of pathologyGroups">
-                <strong class="d-block mb-1">{{ group.type }}</strong>
-                <div *ngFor="let item of group.items" class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    [id]="sanitizeId(item)"
-                    (change)="togglePathology(item); $event.stopPropagation()"
-                    [checked]="selectedPathologies.includes(item)"
-                  />
-                  <label
-                    class="form-check-label"
-                    [for]="sanitizeId(item)"
-                    (click)="$event.stopPropagation()"
+                <div
+                  *ngFor="
+                    let group of pathologyGroups;
+                    trackBy: trackByPathologyGroup
+                  "
+                >
+                  <strong class="d-block mb-1">{{ group.type }}</strong>
+                  <div
+                    *ngFor="let item of group.items; trackBy: trackByString"
+                    class="form-check"
                   >
-                    {{ item }}
-                  </label>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      [id]="'pathology-' + sanitizeId(item)"
+                      (change)="togglePathology(item)"
+                      [checked]="selectedPathologies.includes(item)"
+                    />
+                    <label
+                      class="form-check-label"
+                      [for]="'pathology-' + sanitizeId(item)"
+                    >
+                      {{ item }}
+                    </label>
+                  </div>
+                  <hr />
                 </div>
-                <hr />
               </div>
             </div>
           </div>
@@ -110,51 +146,76 @@
           </div>
 
           <!-- Restrictions alimentaires -->
-          <div class="col-4 mb-3 position-relative">
+          <div class="col-4 mb-3">
             <label class="form-label">Restrictions alimentaires</label>
-            <div
-              class="form-control d-flex flex-wrap gap-2"
-              (click)="toggleRestrictionsDropdown($event)"
-            >
-              <span *ngIf="!selectedRestrictions.length" class="text-muted">
-                Sélectionner des restrictions
-              </span>
+            <div class="w-100 position-relative generator-dropdown">
               <div
-                *ngFor="let option of selectedRestrictions"
-                class="badge bg-secondary d-flex align-items-center gap-1"
-                (click)="$event.stopPropagation()"
+                class="form-control d-flex flex-wrap gap-2 align-items-center dropdown-toggle-field"
+                role="button"
+                tabindex="0"
+                [attr.aria-expanded]="restrictionsDropdownOpen"
+                [attr.aria-haspopup]="true"
+                (click)="toggleRestrictionsDropdown($event)"
+                (keydown.enter)="toggleRestrictionsDropdown($event)"
+                (keydown.space)="toggleRestrictionsDropdown($event)"
               >
-                {{ option }}
-                <i
-                  class="bi bi-x ms-1"
-                  role="button"
-                  (click)="
-                    removeRestrictionsOption(option); $event.stopPropagation()
+                <span *ngIf="!selectedRestrictions.length" class="text-muted">
+                  Sélectionner des restrictions
+                </span>
+                <span
+                  *ngFor="
+                    let option of selectedRestrictions;
+                    trackBy: trackByString
                   "
-                ></i>
-              </div>
-            </div>
-            <div
-              *ngIf="restrictionsDropdownOpen"
-              class="dropdown-menu show w-100 p-2"
-            >
-              <div *ngFor="let option of Restrictions" class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  [id]="sanitizeId(option)"
-                  (change)="
-                    toggleRestrictionsOption(option); $event.stopPropagation()
-                  "
-                  [checked]="selectedRestrictions.includes(option)"
-                />
-                <label
-                  class="form-check-label"
-                  [for]="sanitizeId(option)"
+                  class="badge bg-secondary d-flex align-items-center gap-1"
                   (click)="$event.stopPropagation()"
                 >
                   {{ option }}
-                </label>
+                  <i
+                    class="bi bi-x"
+                    role="button"
+                    tabindex="0"
+                    (click)="
+                      removeRestrictionsOption(option); $event.stopPropagation()
+                    "
+                    (keydown.enter)="
+                      removeRestrictionsOption(option); $event.stopPropagation()
+                    "
+                    [attr.aria-label]="'Supprimer ' + option"
+                  ></i>
+                </span>
+                <span class="ms-auto text-muted small">
+                  {{
+                    selectedRestrictions.length
+                      ? selectedRestrictions.length + " sélectionnée(s)"
+                      : "Cliquer pour ouvrir"
+                  }}
+                </span>
+              </div>
+              <div
+                *ngIf="restrictionsDropdownOpen"
+                class="dropdown-menu show w-100 p-2"
+                role="menu"
+                (click)="$event.stopPropagation()"
+              >
+                <div
+                  *ngFor="let option of Restrictions; trackBy: trackByString"
+                  class="form-check"
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [id]="'restriction-' + sanitizeId(option)"
+                    (change)="toggleRestrictionsOption(option)"
+                    [checked]="selectedRestrictions.includes(option)"
+                  />
+                  <label
+                    class="form-check-label"
+                    [for]="'restriction-' + sanitizeId(option)"
+                  >
+                    {{ option }}
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -164,37 +225,56 @@
             <label class="form-label">Ingrédient(s) à exclure</label>
             <div class="d-flex flex-wrap gap-2 mb-2">
               <span
-                *ngFor="let ingredient of selectedIngredients"
-                class="badge bg-warning text-dark"
+                *ngFor="
+                  let ingredient of selectedIngredients;
+                  trackBy: trackByString
+                "
+                class="badge bg-warning text-dark d-flex align-items-center gap-1"
               >
-                {{ ingredient }}
+                {{ ingredient.name }}
                 <i
-                  class="bi bi-x ms-1"
+                  class="bi bi-x"
+                  role="button"
+                  tabindex="0"
                   (click)="removeIngredient(ingredient)"
+                  (keydown.enter)="removeIngredient(ingredient)"
+                  [attr.aria-label]="'Supprimer ' + ingredient.name"
                 ></i>
               </span>
             </div>
 
-            <input
-              type="text"
-              class="form-control mb-2"
-              placeholder="Ajouter un ingrédient..."
-              [(ngModel)]="ingredientSearch"
-              name="ingredientSearch"
-              (input)="filterIngredientAutocomplete()"
-            />
-            <ul
-              class="list-group position-absolute w-100"
-              style="z-index: 1000"
-            >
-              <li
-                *ngFor="let ingredient of filteredIngredients"
-                class="list-group-item list-group-item-action"
-                (click)="toggleIngredient(ingredient)"
+            <div class="autocomplete-container position-relative">
+              <input
+                type="text"
+                class="form-control mb-2"
+                placeholder="Ajouter un ingrédient..."
+                [(ngModel)]="ingredientSearch"
+                name="ingredientSearch"
+                (input)="filterIngredientAutocomplete()"
+                [attr.aria-label]="'Rechercher un ingrédient à exclure'"
+                [attr.aria-autocomplete]="'list'"
+                [attr.aria-expanded]="filteredIngredients.length > 0"
+              />
+              <ul
+                *ngIf="filteredIngredients.length"
+                class="list-group position-absolute w-100 autocomplete-suggestions"
+                role="listbox"
               >
-                {{ ingredient }}
-              </li>
-            </ul>
+                <li
+                  *ngFor="
+                    let ingredient of filteredIngredients;
+                    trackBy: trackByString
+                  "
+                  class="list-group-item list-group-item-action"
+                  (click)="toggleIngredient(ingredient)"
+                  role="option"
+                  tabindex="0"
+                  (keydown.enter)="toggleIngredient(ingredient)"
+                >
+                  {{ ingredient.name }}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

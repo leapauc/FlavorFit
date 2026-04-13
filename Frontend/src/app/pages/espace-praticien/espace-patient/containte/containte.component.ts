@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PatientConstraint } from '../../../../models/patientConstraint';
 import { PatientService } from '../../../../services/patient.services';
@@ -11,11 +11,13 @@ import {
 } from '../../../../models/pathologyGroup';
 import { Conviction, Restriction } from '../../../../models/infoDB';
 import { IngredientService } from '../../../../services/ingredient.services';
+import { GlobalNotificationComponent } from '../../../../components/global-notification/global-notification.component';
+import { NotificationService } from '../../../../services/notification.services';
 
 @Component({
   selector: 'app-containte',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, GlobalNotificationComponent],
   templateUrl: './containte.component.html',
   styleUrl: './containte.component.css',
 })
@@ -52,12 +54,36 @@ export class ContainteComponent {
   selectedRestrictions: string[] = [];
   restrictionsDropdownOpen = false;
 
+  isSaving = false;
+
   constructor(
     private patientService: PatientService,
     private getIngredient: IngredientService,
     private getInfoFromDB: GetInfoFromDBService,
     private route: ActivatedRoute,
+    private notificationService: NotificationService,
   ) {}
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    // Ferme les dropdowns si on clique en dehors
+    if (!target.closest('.pathology-dropdown') && this.dropdownOpen) {
+      this.dropdownOpen = false;
+    }
+    if (
+      !target.closest('.restrictions-dropdown') &&
+      this.restrictionsDropdownOpen
+    ) {
+      this.restrictionsDropdownOpen = false;
+    }
+    if (
+      !target.closest('.allergies-autocomplete') &&
+      this.filteredIngredients.length
+    ) {
+      this.filteredIngredients = [];
+    }
+  }
 
   ngOnInit() {
     const selectedPatient = this.patientService.getSelectedPatient();
@@ -184,6 +210,10 @@ export class ContainteComponent {
     }
   }
 
+  closePathologyDropdown() {
+    this.dropdownOpen = false;
+  }
+
   removePathology(item: string) {
     this.selectedPathologies = this.selectedPathologies.filter(
       (p) => p !== item,
@@ -214,6 +244,10 @@ export class ContainteComponent {
     }
   }
 
+  closeRestrictionsDropdown(): void {
+    this.restrictionsDropdownOpen = false;
+  }
+
   removeRestrictionsOption(option: string): void {
     this.selectedRestrictions = this.selectedRestrictions.filter(
       (o) => o !== option,
@@ -226,6 +260,14 @@ export class ContainteComponent {
       .toLowerCase()
       .replace(/\s+/g, '-')
       .replace(/[^a-z0-9-_]/g, '');
+  }
+
+  trackByString(index: number, item: string): string {
+    return item;
+  }
+
+  trackByPathologyGroup(index: number, item: PathologyGroupUi): string {
+    return item.type;
   }
 
   resetForm() {
@@ -244,6 +286,7 @@ export class ContainteComponent {
   saveEdit() {
     if (!this.patientId) return;
 
+    this.isSaving = true;
     const constraint: PatientConstraint = {
       id_patient: this.patientId,
       pathologies: this.selectedPathologies,
@@ -256,8 +299,22 @@ export class ContainteComponent {
     this.patientService
       .updatePatientConstraint(this.patientId, constraint)
       .subscribe({
-        next: () => (this.isEditMode = false),
-        error: (err) => console.error(err),
+        next: () => {
+          this.isSaving = false;
+          this.notificationService.show(
+            'Contraintes sauvegardées avec succès',
+            'success',
+          );
+          this.isEditMode = false;
+        },
+        error: (err) => {
+          this.isSaving = false;
+          this.notificationService.show(
+            'Erreur lors de la sauvegarde',
+            'error',
+          );
+          console.error(err);
+        },
       });
   }
 }

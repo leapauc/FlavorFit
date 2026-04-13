@@ -36,14 +36,16 @@ interface ShoppingList {
 export class HebmealgeneratorComponent {
   @HostListener('document:click', ['$event'])
   clickOutside(event: MouseEvent) {
-    // Vérifie si le clic est en dehors de tous les dropdowns
+    const target = event.target as Node;
+
+    // Vérifie si le clic est en dehors des menus déroulants et du champ autocomplete
     const dropdownElements = this.eRef.nativeElement.querySelectorAll(
-      '.dropdown-menu, .form-control',
+      '.dropdown-menu, .autocomplete-container, .generator-dropdown',
     );
     let clickedInsideDropdown = false;
 
     dropdownElements.forEach((el: HTMLElement) => {
-      if (el.contains(event.target as Node)) {
+      if (el.contains(target)) {
         clickedInsideDropdown = true;
       }
     });
@@ -51,6 +53,7 @@ export class HebmealgeneratorComponent {
     if (!clickedInsideDropdown) {
       this.dropdownOpen = false;
       this.restrictionsDropdownOpen = false;
+      this.resetIngredientSearch();
     }
   }
 
@@ -61,7 +64,7 @@ export class HebmealgeneratorComponent {
   selectedPathologies: string[] = [];
   pathologyGroups: PathologyGroupUi[] = [];
   convictionGroups: string[] = [];
-  selectedIngredients: string[] = [];
+  selectedIngredients: { id: number; name: string }[] = [];
   ingredientDropdownOpen = false;
   @ViewChild('dateLabel') dateLabel!: ElementRef<HTMLLabelElement>;
   selectedConviction: string = '';
@@ -99,8 +102,8 @@ export class HebmealgeneratorComponent {
 
   mealsToPlan: Record<string, Record<string, boolean>> = {};
 
-  allIngredients: string[] = [];
-  filteredIngredients: string[] = [];
+  allIngredients: { id: number; name: string }[] = [];
+  filteredIngredients: { id: number; name: string }[] = [];
   ingredientSearch: string = '';
 
   shoppingList: ShoppingList = {};
@@ -197,10 +200,17 @@ export class HebmealgeneratorComponent {
     this.getIngredient.getDistinctIngredient().subscribe({
       next: (data: DistinctIngredient[]) => {
         /* ------------------ 1️⃣ LISTE PLATE (AUTOCOMPLETE) ------------------ */
-        this.allIngredients = data.map((i) => i.alim_nom_fr);
+        this.allIngredients = data.map((i) => ({
+          id: i.id_ingredient,
+          name: i.alim_nom_fr,
+        }));
 
         // Optionnel : supprimer doublons + trier
-        this.allIngredients = Array.from(new Set(this.allIngredients)).sort();
+        this.allIngredients = Array.from(
+          new Set(this.allIngredients.map((i) => JSON.stringify(i))),
+        )
+          .map((s) => JSON.parse(s))
+          .sort((a, b) => a.name.localeCompare(b.name));
 
         this.filteredIngredients = [];
 
@@ -232,7 +242,7 @@ export class HebmealgeneratorComponent {
     const term = this.ingredientSearch.toLowerCase();
 
     this.filteredIngredients = this.allIngredients
-      .filter((i) => i.toLowerCase().includes(term))
+      .filter((i) => i.name.toLowerCase().includes(term))
       .slice(0, 20);
   }
 
@@ -245,7 +255,7 @@ export class HebmealgeneratorComponent {
     // Récupération des recettes filtrées
     this.recipeService
       .getFilteredRecipes({
-        excludedIngredients: this.selectedIngredients,
+        excludedIngredients: this.selectedIngredients.map((i) => i.name),
       })
       .subscribe({
         next: (recipes: any[]) => {
@@ -340,7 +350,7 @@ export class HebmealgeneratorComponent {
 
     // Préparer le payload
     const payload = {
-      excludedIngredients: this.selectedIngredients,
+      excludedIngredients: this.selectedIngredients.map((i) => i.name),
       mealsToPlan: this.mealsToPlan,
       convictions: selectedConvictionNames, // Envoyer les noms des convictions
       restrictions: selectedRestrictionNames, // Envoyer les noms des restrictions
@@ -394,7 +404,7 @@ export class HebmealgeneratorComponent {
     return this.days.every((day) => this.mealsToPlan[day][meal]);
   }
   // ------------------ Toggle & Sélections ------------------
-  toggleDropdown(event: MouseEvent) {
+  toggleDropdown(event: Event) {
     event.stopPropagation();
     this.dropdownOpen = !this.dropdownOpen;
     this.restrictionsDropdownOpen = false;
@@ -424,29 +434,38 @@ export class HebmealgeneratorComponent {
     this.restrictionsDropdownOpen = false;
   }
 
-  toggleIngredient(item: string): void {
+  toggleIngredient(ingredient: { id: number; name: string }): void {
     if (this.filtersValidated) return;
-    if (this.selectedIngredients.includes(item)) {
+    const existing = this.selectedIngredients.find(
+      (i) => i.id === ingredient.id,
+    );
+    if (existing) {
       this.selectedIngredients = this.selectedIngredients.filter(
-        (i) => i !== item,
+        (i) => i.id !== ingredient.id,
       );
     } else {
-      this.selectedIngredients.push(item);
+      this.selectedIngredients.push(ingredient);
     }
+    this.resetIngredientSearch();
   }
 
-  removeIngredient(item: string): void {
+  removeIngredient(item: { id: number; name: string }): void {
     if (this.filtersValidated) return;
     this.selectedIngredients = this.selectedIngredients.filter(
-      (i) => i !== item,
+      (i) => i.id !== item.id,
     );
+  }
+
+  resetIngredientSearch(): void {
+    this.ingredientSearch = '';
+    this.filteredIngredients = [];
   }
 
   onConvictionChange(): void {
     if (this.filtersValidated) return;
   }
 
-  toggleRestrictionsDropdown(event: MouseEvent) {
+  toggleRestrictionsDropdown(event: Event) {
     event.stopPropagation();
     this.restrictionsDropdownOpen = !this.restrictionsDropdownOpen;
     this.dropdownOpen = false;
@@ -644,6 +663,14 @@ export class HebmealgeneratorComponent {
   /* ===============================
      AFFICHAGE UTILISABLE
   =============================== */
+
+  trackByString(index: number, item: any) {
+    return item;
+  }
+
+  trackByPathologyGroup(index: number, item: PathologyGroupUi) {
+    return item.type;
+  }
 
   trackByGroup(index: number, item: any) {
     return item.key;

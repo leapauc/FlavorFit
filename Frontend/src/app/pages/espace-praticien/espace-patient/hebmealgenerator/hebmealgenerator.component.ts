@@ -182,7 +182,7 @@ export class HebmealgeneratorPatientComponent {
 
     const payload = {
       excludedIngredients: this.patientAllergies,
-      mealsToPlan: this.mealsToPlan, // <-- maintenant c'est dynamique
+      mealsToPlan: this.mealsToPlan,
     };
 
     // console.log('Payload auto:', payload);

@@ -586,47 +586,47 @@ exports.generateAutoRecipePlanning = async (req, res) => {
         .json({ error: "Paramètre mealsToPlan manquant ou invalide" });
     }
 
-    // 1️⃣ Récupérer les ingrédients à exclure depuis les convictions et restrictions
-    let allExcludedIngredients = [...(excludedIngredients || [])];
+    // 1️⃣ Récupérer tous les ingrédients à exclure (noms)
+    let allExcludedIngredientNames = [...(excludedIngredients || [])];
 
-    // Récupérer les ingrédients à exclure pour les convictions
+    // Ajouter les ingrédients des convictions
     if (convictions && convictions.length > 0) {
       const convictionQuery = `
-        SELECT unnest(ingredients_toavoid) AS ingredient_id
+        SELECT unnest(ingredients_toavoid) AS ingredient_name
         FROM convictions
         WHERE name = ANY($1)
       `;
       const convictionResult = await pool.query(convictionQuery, [convictions]);
-      const convictionExclusions = convictionResult.rows.map(
-        (row) => row.ingredient_id,
+      const convictionNames = convictionResult.rows.map(
+        (row) => row.ingredient_name,
       );
-      allExcludedIngredients = [
-        ...allExcludedIngredients,
-        ...convictionExclusions,
+      allExcludedIngredientNames = [
+        ...allExcludedIngredientNames,
+        ...convictionNames,
       ];
     }
 
-    // Récupérer les ingrédients à exclure pour les restrictions
+    // Ajouter les ingrédients des restrictions
     if (restrictions && restrictions.length > 0) {
       const restrictionQuery = `
-        SELECT unnest(ingredients_toavoid) AS ingredient_id
+        SELECT unnest(ingredients_toavoid) AS ingredient_name
         FROM restrictions
         WHERE name = ANY($1)
       `;
       const restrictionResult = await pool.query(restrictionQuery, [
         restrictions,
       ]);
-      const restrictionExclusions = restrictionResult.rows.map(
-        (row) => row.ingredient_id,
+      const restrictionNames = restrictionResult.rows.map(
+        (row) => row.ingredient_name,
       );
-      allExcludedIngredients = [
-        ...allExcludedIngredients,
-        ...restrictionExclusions,
+      allExcludedIngredientNames = [
+        ...allExcludedIngredientNames,
+        ...restrictionNames,
       ];
     }
 
     // Supprimer les doublons
-    allExcludedIngredients = [...new Set(allExcludedIngredients)];
+    allExcludedIngredientNames = [...new Set(allExcludedIngredientNames)];
 
     // 2️⃣ Générer le planning
     const planning = {};
@@ -641,12 +641,17 @@ exports.generateAutoRecipePlanning = async (req, res) => {
               SELECT 1
               FROM recipe_ingredients ri
               WHERE ri.id_recipe = r.id_recipe
-                AND ri.id_ingredient = ANY($1)
+                AND EXISTS (
+                  SELECT 1
+                  FROM unnest($1::varchar[]) AS excl
+                  WHERE unaccent(lower(ri.ingredient))
+                        LIKE '%' || unaccent(lower(excl)) || '%'
+                )
             )
             ORDER BY random()
             LIMIT 1
           `;
-          const result = await pool.query(query, [allExcludedIngredients]);
+          const result = await pool.query(query, [allExcludedIngredientNames]);
           planning[day][meal] = result.rows[0]
             ? { id: result.rows[0].id_recipe, title: result.rows[0].title }
             : null;

@@ -14,6 +14,91 @@ h1 {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+.generator-dropdown {
+  position: relative;
+}
+
+.generator-dropdown .form-control {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+}
+
+.generator-dropdown .form-control .text-muted {
+  flex: 1 1 auto;
+}
+
+.generator-dropdown .dropdown-menu {
+  max-height: 320px;
+  overflow-y: auto;
+  animation: slideDown 0.2s ease;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+  background: #fff;
+}
+
+.generator-dropdown .form-check {
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.45rem;
+  margin: 0;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.generator-dropdown .form-check:hover {
+  background-color: #f8f9fa;
+}
+
+.generator-dropdown .form-check-input {
+  cursor: pointer;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.generator-dropdown .form-check-label {
+  cursor: pointer;
+  margin-left: 0.75rem;
+}
+
+.autocomplete-container {
+  position: relative;
+}
+
+.autocomplete-suggestions {
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  max-height: 260px;
+  overflow-y: auto;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.list-group-item-action:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.list-group-item-action:active {
+  background-color: #0b5ed7;
+}
+
+.generator-dropdown .badge {
+  border-radius: 1rem;
+}
+
+.generator-dropdown .badge .bi {
+  cursor: pointer;
+}
+
 /* Par défaut : desktop */
 .day-short {
   display: none;

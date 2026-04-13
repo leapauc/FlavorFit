@@ -7,11 +7,13 @@ import {
   PatientContactForm,
 } from '../../../../models/patientContact';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalNotificationComponent } from '../../../../components/global-notification/global-notification.component';
+import { NotificationService } from '../../../../services/notification.services';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, GlobalNotificationComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
@@ -35,6 +37,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private patientService: PatientService,
     private route: ActivatedRoute,
+    private notificationService: NotificationService,
   ) {}
 
   ngOnInit() {
@@ -107,8 +110,18 @@ export class ContactComponent implements OnInit {
         next: (res) => {
           console.log('Contact mis à jour :', res);
           this.isEditMode = false;
+          this.notificationService.show(
+            'Modification bien prise en compte',
+            'success',
+          );
         },
-        error: (err) => console.error(err),
+        error: (err) => {
+          console.error(err);
+          this.notificationService.show(
+            'Erreur lors de la modification',
+            'error',
+          );
+        },
       });
   }
 }
