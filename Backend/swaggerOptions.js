@@ -10,7 +10,7 @@ const options = {
     },
     servers: [{ url: "http://localhost:3000", description: "Serveur local" }],
   },
-  apis: ["./routes/*.js", "./controllers/*.js"], // Chemins vers tes fichiers avec commentaires
+  apis: ["./routes/*.js", "./controllers/*.js"],
 };
 
 const specs = swaggerJsdoc(options);
