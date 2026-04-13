@@ -118,3 +118,73 @@ END;
 $$ LANGUAGE plpgsql;
 
 
+CREATE OR REPLACE FUNCTION generer_recettes(nb_recettes INT)
+RETURNS TABLE (
+    legume TEXT,
+    feculent TEXT,
+    proteine TEXT,
+    mat_grasse TEXT
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    WITH legumes AS (
+        SELECT alim_nom_fr || '|' || id_ingredient AS val,
+               ROW_NUMBER() OVER () AS rn
+        FROM (
+            SELECT *
+            FROM ingredients
+            WHERE alim_ssgrp_nom_fr = 'légumes'
+            ORDER BY RANDOM()
+            LIMIT nb_recettes
+        ) t
+    ),
+    feculents AS (
+        SELECT alim_nom_fr || '|' || id_ingredient AS val,
+               ROW_NUMBER() OVER () AS rn
+        FROM (
+            SELECT *
+            FROM ingredients
+            WHERE alim_ssgrp_nom_fr IN (
+                'légumineuses',
+                'pommes de terre et autres tubercules',
+                'pâtes, riz et céréales',
+                'pains et assimilés'
+            )
+            ORDER BY RANDOM()
+            LIMIT nb_recettes
+        ) t
+    ),
+    proteines AS (
+        SELECT alim_nom_fr || '|' || id_ingredient AS val,
+               ROW_NUMBER() OVER () AS rn
+        FROM (
+            SELECT *
+            FROM ingredients
+            WHERE alim_grp_nom_fr = 'viandes, oeufs, poissons'
+            ORDER BY RANDOM()
+            LIMIT nb_recettes
+        ) t
+    ),
+    mat_grasses AS (
+        SELECT alim_nom_fr || '|' || id_ingredient AS val,
+               ROW_NUMBER() OVER () AS rn
+        FROM (
+            SELECT *
+            FROM ingredients
+            WHERE alim_grp_nom_fr = 'matières grasses'
+            ORDER BY RANDOM()
+            LIMIT nb_recettes
+        ) t
+    )
+    SELECT
+        l.val,
+        f.val,
+        p.val,
+        m.val
+    FROM legumes l
+    JOIN feculents f USING (rn)
+    JOIN proteines p USING (rn)
+    JOIN mat_grasses m USING (rn);
+END;
+$$ LANGUAGE plpgsql;
