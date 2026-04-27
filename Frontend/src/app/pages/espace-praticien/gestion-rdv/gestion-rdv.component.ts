@@ -22,18 +22,20 @@ import { AuthUser } from '../../../models/authUser';
 })
 export class GestionRdvComponent implements OnInit {
   appointments: Appointment[] = [];
+  patients: any[] = [];
+
   showModal = false;
+  showDetailsModal = false;
+  showDeleteConfirm = false;
+
   editingId: number | null = null;
+  selectedAppointment: Appointment | null = null;
+  appointmentToDelete: Appointment | null = null;
 
   rdvForm!: FormGroup;
 
   currentWeekStart!: Date;
   weekDays: Date[] = [];
-
-  patients: any[] = [];
-
-  showDeleteConfirm = false;
-  appointmentToDelete: Appointment | null = null;
 
   authUser: AuthUser | null = null;
 
@@ -50,11 +52,7 @@ export class GestionRdvComponent implements OnInit {
 
   ngOnInit() {
     this.authUser = this.authService.getUser();
-
-    if (!this.authUser) {
-      console.error('Utilisateur non connecté');
-      return;
-    }
+    if (!this.authUser) return;
 
     this.initForm();
     this.initWeek();
@@ -63,21 +61,17 @@ export class GestionRdvComponent implements OnInit {
     this.loadAppointments();
 
     this.rdvForm.get('date')?.valueChanges.subscribe(() => {
-      // reset heure sélectionnée
       this.rdvForm.patchValue({ time: '' }, { emitEvent: false });
-
-      // recalcul avec la durée actuelle (60 par défaut)
       this.generateAvailableSlots();
     });
 
     this.rdvForm.get('duration')?.valueChanges.subscribe(() => {
-      // reset heure si la durée change
       this.rdvForm.patchValue({ time: '' }, { emitEvent: false });
-
       this.generateAvailableSlots();
     });
   }
 
+  // ---------------- FORM ----------------
   initForm() {
     this.rdvForm = this.fb.group({
       id_patient: [''],
@@ -88,12 +82,13 @@ export class GestionRdvComponent implements OnInit {
     });
   }
 
+  // ---------------- DURATIONS ----------------
   generateDurations() {
-    for (let i = 15; i <= 240; i += 15) {
-      this.durations.push(i);
-    }
+    this.durations = [];
+    for (let i = 15; i <= 240; i += 15) this.durations.push(i);
   }
 
+  // ---------------- WEEK ----------------
   initWeek() {
     this.currentWeekStart = startOfWeek(new Date(), { weekStartsOn: 1 });
     this.generateWeek();
@@ -101,8 +96,6 @@ export class GestionRdvComponent implements OnInit {
 
   generateWeek() {
     this.weekDays = [];
-
-    // Afficher seulement du lundi au vendredi (5 jours)
     for (let i = 0; i < 6; i++) {
       this.weekDays.push(addDays(this.currentWeekStart, i));
     }
@@ -118,12 +111,12 @@ export class GestionRdvComponent implements OnInit {
     this.generateWeek();
   }
 
+  // ---------------- DATA ----------------
   loadAppointments() {
     this.appointmentService
       .getByPraticien(this.authUser!.id_praticien)
       .subscribe((data) => {
         this.appointments = data;
-
         this.generateAvailableSlots();
       });
   }
@@ -136,135 +129,94 @@ export class GestionRdvComponent implements OnInit {
       });
   }
 
-  selectedAppointment: Appointment | null = null;
-  showDetailsModal = false;
-  openDetailsModal(rdv: Appointment) {
-    this.selectedAppointment = rdv;
-    this.showDetailsModal = true;
-  }
-  closeDetailsModal() {
-    this.showDetailsModal = false;
-    this.selectedAppointment = null;
-  }
-  /*--------------------------*/
-
+  // ---------------- SLOTS ----------------
   pad(n: number) {
     return n < 10 ? '0' + n : n;
   }
 
   generateAvailableSlots() {
-    const date = this.rdvForm.get('date')?.value;
-    const duration = Number(this.rdvForm.get('duration')?.value);
+    const date = this.rdvForm.value.date;
+    const duration = Number(this.rdvForm.value.duration);
 
     if (!date) {
       this.availableSlots = [];
       return;
     }
 
-    const slots: string[] = [];
+    const dayAppointments = this.appointments.filter((r) => {
+      const rdvDate = new Date(r.date_appointment).toISOString().slice(0, 10);
 
-    const dayAppointments = this.appointments.filter((rdv) => {
-      const d = new Date(rdv.date_appointment);
-      return d.toISOString().slice(0, 10) === date;
+      const isSameDay = rdvDate === date;
+
+      // 🔥 EXCLURE le RDV en cours d'édition
+      const isCurrentEdit = this.editingId === r.id_appointment;
+
+      return isSameDay && !isCurrentEdit;
     });
 
-    for (let hour = 8; hour < 18; hour++) {
-      for (let minute of [0, 15, 30, 45]) {
-        const start = new Date(
-          `${date}T${this.pad(hour)}:${this.pad(minute)}:00`,
-        );
+    const slots: string[] = [];
+
+    for (let h = 8; h < 18; h++) {
+      for (let m of [0, 15, 30, 45]) {
+        const start = new Date(`${date}T${this.pad(h)}:${this.pad(m)}:00`);
         const end = new Date(start.getTime() + duration * 60000);
 
-        // stop si dépasse 18h
-        if (
-          end.getHours() > 18 ||
-          (end.getHours() === 18 && end.getMinutes() > 0)
-        ) {
-          continue;
-        }
+        if (end.getHours() > 18) continue;
 
-        let conflict = false;
+        const conflict = dayAppointments.some((rdv) => {
+          const rs = new Date(rdv.date_appointment);
+          const re = new Date(rs.getTime() + rdv.duration * 60000);
+          return start < re && end > rs;
+        });
 
-        for (const rdv of dayAppointments) {
-          const rdvStart = new Date(rdv.date_appointment);
-          const rdvEnd = new Date(rdvStart.getTime() + rdv.duration * 60000);
-
-          if (start < rdvEnd && end > rdvStart) {
-            conflict = true;
-            break;
-          }
-        }
-
-        if (!conflict) {
-          slots.push(`${this.pad(hour)}:${this.pad(minute)}`);
-        }
+        if (!conflict) slots.push(`${this.pad(h)}:${this.pad(m)}`);
       }
     }
 
     this.availableSlots = slots;
   }
 
-  isSlotFree(start: Date, end: Date): boolean {
-    const sameDayAppointments = this.appointments.filter((rdv) => {
-      const d = new Date(rdv.date_appointment);
-      return d.toDateString() === start.toDateString();
-    });
-
-    for (const rdv of sameDayAppointments) {
-      const rdvStart = new Date(rdv.date_appointment);
-      const rdvEnd = new Date(rdvStart.getTime() + rdv.duration * 60000);
-
-      const overlap = start < rdvEnd && end > rdvStart;
-
-      if (overlap) return false;
-    }
-
-    return true;
-  }
-
-  getAppointmentsForDay(day: Date) {
-    return this.appointments
-      .filter((rdv) => {
-        const rdvDate = new Date(rdv.date_appointment);
-        return rdvDate.toDateString() === day.toDateString();
-      })
-      .sort(
-        (a, b) =>
-          new Date(a.date_appointment).getTime() -
-          new Date(b.date_appointment).getTime(),
-      );
-  }
-  getAppointmentTop(dateAppointment: string): number {
-    const date = new Date(dateAppointment);
-
-    const startHour = 8;
-    const pixelsPerMinute = 2.2;
-
-    const minutesFromStart =
-      (date.getHours() - startHour) * 60 + date.getMinutes();
-
-    return minutesFromStart * pixelsPerMinute;
-  }
-
-  getAppointmentHeight(duration: number): number {
-    const pixelsPerMinute = 2.2;
-    return Math.max(duration * pixelsPerMinute - 4, 90);
-  }
-
+  // ---------------- MODAL ----------------
   openModal(rdv?: Appointment) {
     this.showModal = true;
+    this.editingId = rdv?.id_appointment ?? null;
 
-    if (rdv) {
-      this.editingId = rdv.id_appointment!;
-      this.rdvForm.patchValue(rdv);
-    } else {
-      this.editingId = null;
+    if (!rdv) {
       this.rdvForm.reset({ duration: 60 });
+      this.generateAvailableSlots();
+      return;
     }
 
-    // 🔥 recalcul des créneaux
+    const d = new Date(rdv.date_appointment);
+
+    // reconstruire en LOCAL propre
+    const localDate = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+
+    const time =
+      (d.getUTCHours() + 2).toString().padStart(2, '0') +
+      ':' +
+      d.getUTCMinutes().toString().padStart(2, '0');
+
+    const date = localDate.toISOString().split('T')[0];
+
+    // 1. reset propre
+    this.rdvForm.reset(
+      {
+        id_patient: rdv.id_patient,
+        date: date,
+        time: '',
+        duration: rdv.duration,
+        notes: rdv.notes,
+      },
+      { emitEvent: false },
+    );
+
+    // 2. générer slots AVANT sélection
+    this.generateAvailableSlots();
+
+    // 3. attendre Angular render select
     setTimeout(() => {
-      this.generateAvailableSlots();
+      this.rdvForm.patchValue({ time }, { emitEvent: false });
     });
   }
 
@@ -272,51 +224,92 @@ export class GestionRdvComponent implements OnInit {
     this.showModal = false;
   }
 
+  // ---------------- SAVE ----------------
   save() {
-    const date = this.rdvForm.value.date;
-    const time = this.rdvForm.value.time;
+    const { date, time, id_patient, duration, notes } = this.rdvForm.value;
 
-    if (!date || !time) {
-      this.notificationService.show(
-        'Veuillez sélectionner une date et une heure',
-        'error',
-      );
-      return;
-    }
+    if (!date || !time) return;
 
-    const dateValue = new Date(`${date}T${time}:00`);
+    const [hours, minutes] = time.split(':').map(Number);
 
-    const formValue: AppointmentEdit = {
-      id_praticien: Number(this.authUser!.id_praticien),
-      id_patient: Number(this.rdvForm.value.id_patient),
-      date_appointment: dateValue.toLocaleString('sv-SE').replace(' ', 'T'),
-      duration: Number(this.rdvForm.value.duration),
-      notes: this.rdvForm.value.notes ?? null,
+    const dateAppointment = new Date(date);
+    dateAppointment.setHours(hours, minutes, 0, 0);
+    const isoString =
+      dateAppointment.getFullYear() +
+      '-' +
+      String(dateAppointment.getMonth() + 1).padStart(2, '0') +
+      '-' +
+      String(dateAppointment.getDate()).padStart(2, '0') +
+      'T' +
+      String(dateAppointment.getHours()).padStart(2, '0') +
+      ':' +
+      String(dateAppointment.getMinutes()).padStart(2, '0') +
+      ':00';
+
+    const payload: AppointmentEdit = {
+      id_praticien: this.authUser!.id_praticien,
+      id_patient: Number(id_patient),
+      date_appointment: isoString,
+      duration: Number(duration),
+      notes: notes ?? null,
     };
 
-    if (this.editingId) {
-      this.appointmentService
-        .update(this.editingId, formValue)
-        .subscribe(() => {
-          this.loadAppointments();
-          this.notificationService.show(
-            'RDV mis à jour avec succès !',
-            'success',
-          );
-          this.closeModal();
-        });
-    } else {
-      this.appointmentService.create(formValue).subscribe(() => {
-        this.loadAppointments();
-        this.notificationService.show('RDV créé avec succès !', 'success');
-        this.closeModal();
-      });
-    }
+    const request =
+      this.editingId !== null
+        ? this.appointmentService.update(this.editingId, payload)
+        : this.appointmentService.create(payload);
+
+    request.subscribe(() => {
+      this.loadAppointments();
+      this.notificationService.show(
+        this.editingId ? 'RDV mis à jour' : 'RDV créé',
+        'success',
+      );
+      this.closeModal();
+    });
   }
 
+  // ---------------- LIST ----------------
+  getAppointmentsForDay(day: Date) {
+    return this.appointments
+      .filter(
+        (r) =>
+          new Date(r.date_appointment).toDateString() === day.toDateString(),
+      )
+      .sort(
+        (a, b) =>
+          new Date(a.date_appointment).getTime() -
+          new Date(b.date_appointment).getTime(),
+      );
+  }
+
+  getAppointmentTop(date: string) {
+    const d = new Date(date);
+    return ((d.getHours() - 8) * 60 + d.getMinutes()) * 2.2;
+  }
+
+  getAppointmentHeight(duration: number) {
+    return Math.max(duration * 2.2 - 4, 90);
+  }
+
+  // ---------------- DELETE ----------------
   openDeleteModal(rdv: Appointment) {
     this.appointmentToDelete = rdv;
     this.showDeleteConfirm = true;
+  }
+
+  confirmDelete() {
+    if (!this.appointmentToDelete?.id_appointment) return;
+
+    this.appointmentService
+      .delete(this.appointmentToDelete.id_appointment)
+      .subscribe(() => {
+        this.loadAppointments();
+        this.showDeleteConfirm = false;
+        this.appointmentToDelete = null;
+        this.notificationService.show('RDV supprimé avec succès !', 'success');
+        this.cancelDelete();
+      });
   }
 
   cancelDelete() {
@@ -324,16 +317,25 @@ export class GestionRdvComponent implements OnInit {
     this.appointmentToDelete = null;
   }
 
-  confirmDelete() {
-    if (!this.appointmentToDelete) return;
+  // ---------------- DETAILS ----------------
+  openDetailsModal(rdv: Appointment) {
+    this.selectedAppointment = rdv;
+    this.showDetailsModal = true;
+  }
 
-    this.appointmentService
-      .delete(this.appointmentToDelete.id_appointment!)
-      .subscribe(() => {
-        this.loadAppointments();
+  closeDetailsModal() {
+    this.showDetailsModal = false;
+    this.selectedAppointment = null;
+  }
 
-        this.notificationService.show('RDV supprimé avec succès !', 'success');
-        this.cancelDelete();
-      });
+  // ---------------- ACTIONS DETAILS ----------------
+  editFromDetails(rdv: Appointment) {
+    this.closeDetailsModal();
+    setTimeout(() => this.openModal(rdv));
+  }
+
+  deleteFromDetails(rdv: Appointment) {
+    this.closeDetailsModal();
+    setTimeout(() => this.openDeleteModal(rdv));
   }
 }

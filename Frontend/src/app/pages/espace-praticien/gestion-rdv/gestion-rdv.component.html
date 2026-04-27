@@ -69,6 +69,65 @@
 
 <button class="fab" (click)="openModal()">＋</button>
 
+<!-- MODAL DETAIL -->
+<div
+  *ngIf="showDetailsModal"
+  class="modal"
+  style="display: block; background: rgba(0, 0, 0, 0.5)"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title fw-bold">Détail du rendez-vous</h3>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="closeDetailsModal()"
+        ></button>
+      </div>
+
+      <div class="modal-body" *ngIf="selectedAppointment">
+        <p>
+          <strong>Patient :</strong><br />
+          {{ selectedAppointment.lastname | uppercase }}
+          {{ selectedAppointment.firstname }}
+        </p>
+
+        <p>
+          <strong>Date :</strong><br />
+          {{ selectedAppointment.date_appointment | date: "dd/MM/yyyy HH:mm" }}
+        </p>
+
+        <p>
+          <strong>Durée :</strong><br />
+          {{ selectedAppointment.duration }} min
+        </p>
+
+        <p *ngIf="selectedAppointment.notes">
+          <strong>Motif / Notes :</strong><br />
+          {{ selectedAppointment.notes }}
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          class="btn btn-outline-primary"
+          (click)="editFromDetails(selectedAppointment!)"
+        >
+          Modifier
+        </button>
+
+        <button
+          class="btn btn-danger"
+          (click)="deleteFromDetails(selectedAppointment!)"
+        >
+          Supprimer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL RDV -->
 <div class="modal fade show d-block" tabindex="-1" *ngIf="showModal">
   <div class="modal-dialog modal-lg modal-dialog-centered">
