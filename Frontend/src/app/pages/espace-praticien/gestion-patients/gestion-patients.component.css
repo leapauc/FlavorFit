@@ -41,6 +41,128 @@ h1 {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+.badge-soft.muted {
+  background: #f1f3f5;
+  color: #6c757d;
+}
+
+/* CARD PRINCIPALE */
+.patient-table-card {
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADER */
+.table-header {
+  background: #fff3e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.table-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* TABLE */
+.modern-table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+/* on applique le style "card" sur les cellules */
+.modern-table tbody tr td {
+  background: #fff3e0;
+  padding: 14px;
+  border: none;
+}
+
+/* arrondir la ligne entière */
+.modern-table tbody tr td:first-child {
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+.modern-table tbody tr td:last-child {
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+/* ombre sur toute la ligne */
+.modern-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.modern-table tbody tr:hover td {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: #fce5c0;
+}
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  font-size: 1.1rem;
+}
+
+.icon-btn.edit {
+  color: #ff9800;
+}
+
+.icon-btn.delete {
+  color: #e53935;
+}
+
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+/* BADGES */
+.badge-soft {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.badge-soft.danger {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+/* PAGINATION (améliorée légère) */
+.pagination .page-item.active .page-link {
+  background-color: #ff9800;
+  border-color: #ff9800;
+}
+
+.pagination .page-link {
+  border-radius: 10px;
+  margin: 0 3px;
+}
+
 /**/
 /* Pagination - couleur active */
 .pagination .page-item.active .page-link {

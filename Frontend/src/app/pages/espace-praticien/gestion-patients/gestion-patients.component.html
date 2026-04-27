@@ -24,65 +24,90 @@
   </div>
 </div>
 <br />
-<div>
+<div class="patient-table-card">
   <div class="table-responsive">
-    <table class="table table-striped table-bordered shadow-sm">
-      <thead class="table-dark">
+    <table class="table modern-table align-middle">
+      <thead>
         <tr>
-          <th></th>
-          <th></th>
+          <th class="text-center">Actions</th>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Pathologies</th>
           <th>Allergies</th>
         </tr>
       </thead>
+
       <tbody>
         <tr *ngFor="let patient of paginatedPatients">
-          <td class="text-center">
-            <i
-              class="bi bi-pencil-square text-primary"
+          <td class="text-center actions">
+            <button
+              class="icon-btn edit"
               [routerLink]="['/patient', patient.id_patient, 'contact']"
-              style="cursor: pointer"
               (click)="selectPatient(patient)"
-            ></i>
-          </td>
-          <td class="text-center">
-            <i
-              class="bi bi-trash text-danger fs-5"
-              style="cursor: pointer"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button
+              class="icon-btn delete"
               (click)="confirmDeletePatient(patient)"
-            ></i>
+            >
+              <i class="bi bi-trash"></i>
+            </button>
           </td>
-          <td>{{ patient.lastname }}</td>
+
+          <td class="fw-semibold">{{ patient.lastname }}</td>
           <td>{{ patient.firstname }}</td>
-          <td>{{ patient.pathologies }}</td>
-          <td>{{ patient.allergies }}</td>
+          <td>
+            <ng-container *ngIf="patient.pathologies?.length; else noPatho">
+              <span class="badge-soft">
+                {{ patient.pathologies!.join(", ") }}
+              </span>
+            </ng-container>
+
+            <ng-template #noPatho>
+              <span class="badge-soft muted">Aucune pathologie</span>
+            </ng-template>
+          </td>
+          <td>
+            <span
+              *ngIf="patient.allergies; else noAllergy"
+              class="badge-soft danger"
+            >
+              {{ patient.allergies }}
+            </span>
+
+            <ng-template #noAllergy>
+              <span class="badge-soft muted">Aucune allergie</span>
+            </ng-template>
+          </td>
         </tr>
       </tbody>
     </table>
-    <nav class="d-flex justify-content-center mt-3" *ngIf="totalPages > 1">
-      <ul class="pagination">
-        <li class="page-item" [class.disabled]="currentPage === 1">
-          <button class="page-link" (click)="previousPage()">Précédent</button>
-        </li>
-
-        <li
-          class="page-item"
-          *ngFor="let page of [].constructor(totalPages); let i = index"
-          [class.active]="currentPage === i + 1"
-        >
-          <button class="page-link" (click)="goToPage(i + 1)">
-            {{ i + 1 }}
-          </button>
-        </li>
-
-        <li class="page-item" [class.disabled]="currentPage === totalPages">
-          <button class="page-link" (click)="nextPage()">Suivant</button>
-        </li>
-      </ul>
-    </nav>
   </div>
+
+  <!-- Pagination inchangée -->
+  <nav class="d-flex justify-content-center mt-3" *ngIf="totalPages > 1">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="previousPage()">Précédent</button>
+      </li>
+
+      <li
+        class="page-item"
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        [class.active]="currentPage === i + 1"
+      >
+        <button class="page-link" (click)="goToPage(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </li>
+
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="nextPage()">Suivant</button>
+      </li>
+    </ul>
+  </nav>
 </div>
 
 <app-global-notification></app-global-notification>
