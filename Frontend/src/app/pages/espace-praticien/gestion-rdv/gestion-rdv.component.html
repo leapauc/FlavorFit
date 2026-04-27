@@ -111,14 +111,14 @@
 
       <div class="modal-footer">
         <button
-          class="btn btn-outline-primary"
+          class="btn reinit"
           (click)="editFromDetails(selectedAppointment!)"
         >
           Modifier
         </button>
 
         <button
-          class="btn btn-danger"
+          class="btn danger"
           (click)="deleteFromDetails(selectedAppointment!)"
         >
           Supprimer
@@ -207,11 +207,7 @@
       <div class="modal-footer">
         <button class="btn reinit" (click)="closeModal()">Annuler</button>
 
-        <button
-          class="btn success"
-          (click)="save()"
-          [disabled]="!rdvForm.valid"
-        >
+        <button class="btn danger" (click)="save()" [disabled]="!rdvForm.valid">
           Enregistrer
         </button>
       </div>
