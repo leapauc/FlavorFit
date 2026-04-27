@@ -72,15 +72,7 @@ export class HebmealgeneratorComponent {
   selectedRestrictions: string[] = [];
   restrictionsDropdownOpen = false;
 
-  days = [
-    'Lundi',
-    'Mardi',
-    'Mercredi',
-    'Jeudi',
-    'Vendredi',
-    'Samedi',
-    'Dimanche',
-  ];
+  days = ['Jour1', 'Jour2', 'Jour3', 'Jour4', 'Jour5', 'Jour6', 'Jour7'];
   meals = ['Midi', 'Dîner'];
 
   dateDebut: string = '';
