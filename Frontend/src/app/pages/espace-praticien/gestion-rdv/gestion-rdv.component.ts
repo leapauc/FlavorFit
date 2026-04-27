@@ -102,7 +102,8 @@ export class GestionRdvComponent implements OnInit {
   generateWeek() {
     this.weekDays = [];
 
-    for (let i = 0; i < 7; i++) {
+    // Afficher seulement du lundi au vendredi (5 jours)
+    for (let i = 0; i < 6; i++) {
       this.weekDays.push(addDays(this.currentWeekStart, i));
     }
   }
@@ -134,6 +135,18 @@ export class GestionRdvComponent implements OnInit {
         this.patients = data;
       });
   }
+
+  selectedAppointment: Appointment | null = null;
+  showDetailsModal = false;
+  openDetailsModal(rdv: Appointment) {
+    this.selectedAppointment = rdv;
+    this.showDetailsModal = true;
+  }
+  closeDetailsModal() {
+    this.showDetailsModal = false;
+    this.selectedAppointment = null;
+  }
+  /*--------------------------*/
 
   pad(n: number) {
     return n < 10 ? '0' + n : n;
@@ -220,6 +233,22 @@ export class GestionRdvComponent implements OnInit {
           new Date(a.date_appointment).getTime() -
           new Date(b.date_appointment).getTime(),
       );
+  }
+  getAppointmentTop(dateAppointment: string): number {
+    const date = new Date(dateAppointment);
+
+    const startHour = 8;
+    const pixelsPerMinute = 2.2;
+
+    const minutesFromStart =
+      (date.getHours() - startHour) * 60 + date.getMinutes();
+
+    return minutesFromStart * pixelsPerMinute;
+  }
+
+  getAppointmentHeight(duration: number): number {
+    const pixelsPerMinute = 2.2;
+    return Math.max(duration * pixelsPerMinute - 4, 90);
   }
 
   openModal(rdv?: Appointment) {

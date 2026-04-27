@@ -16,43 +16,52 @@
 <div class="week-grid">
   <div class="day-column" *ngFor="let day of weekDays">
     <div class="day-header">
-      {{ day | date: "EEEE" | titlecase }}
-      <br />
+      {{ day | date: "EEEE" | titlecase }}<br />
       {{ day | date: "dd/MM" }}
     </div>
 
-    <div class="rdv-card" *ngFor="let rdv of getAppointmentsForDay(day)">
-      <div class="rdv-time">
-        {{ rdv.date_appointment | date: "HH:mm" }}
-      </div>
+    <div class="day-timeline">
+      <div
+        class="rdv-card"
+        *ngFor="let rdv of getAppointmentsForDay(day)"
+        [style.top.px]="getAppointmentTop(rdv.date_appointment)"
+        [style.height.px]="getAppointmentHeight(rdv.duration)"
+        (click)="openDetailsModal(rdv)"
+      >
+        <div class="rdv-line rdv-time-line">
+          <span>{{ rdv.date_appointment | date: "HH:mm" }}</span> -
+          <span>{{ rdv.duration }} min</span>
+        </div>
 
-      <div class="rdv-info">
-        <strong>
-          {{ rdv.lastname | uppercase }}
-          {{ rdv.firstname ? (rdv.firstname.charAt(0) | uppercase) + "." : "" }}
-        </strong>
-      </div>
+        <div class="rdv-line rdv-patient">
+          {{ rdv.lastname | uppercase }} {{ rdv.firstname }}
+        </div>
 
-      <div class="rdv-actions d-flex gap-2">
-        <button
-          type="button"
-          class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center"
-          style="width: 25px; height: 25px"
-          (click)="openModal(rdv)"
-          title="Modifier"
-        >
-          <i class="bi bi-pencil"></i>
-        </button>
+        <div class="rdv-line rdv-motif">
+          {{ rdv.notes || "Sans motif" }}
+        </div>
 
-        <button
-          type="button"
-          class="btn btn-outline-danger rounded-circle d-flex align-items-center justify-content-center"
-          style="width: 25px; height: 25px"
-          (click)="openDeleteModal(rdv)"
-          title="Supprimer"
-        >
-          <i class="bi bi-trash"></i>
-        </button>
+        <!-- <div class="rdv-actions">
+          <button
+            type="button"
+            class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center"
+            style="width: 25px; height: 25px"
+            (click)="openModal(rdv)"
+            title="Modifier"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-outline-danger rounded-circle d-flex align-items-center justify-content-center"
+            style="width: 25px; height: 25px"
+            (click)="openDeleteModal(rdv)"
+            title="Supprimer"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </div> -->
       </div>
     </div>
   </div>
