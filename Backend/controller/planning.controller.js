@@ -70,13 +70,13 @@ exports.getPlanningDetailsById = async (req, res) => {
 
     // 3️⃣ Structure standard
     const daysOfWeek = [
-      "Lundi",
-      "Mardi",
-      "Mercredi",
-      "Jeudi",
-      "Vendredi",
-      "Samedi",
-      "Dimanche",
+      "Jour1",
+      "Jour2",
+      "Jour3",
+      "Jour4",
+      "Jour5",
+      "Jour6",
+      "Jour7",
     ];
 
     const meals = ["Midi", "Dîner"];

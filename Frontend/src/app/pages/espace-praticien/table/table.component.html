@@ -1,10 +1,90 @@
-<h1 class="mb-4 text-center">Tableau de bord</h1>
-<br /><br />
-<div class="text_content">
-  <h2>Bienvenue dans votre espace professionnel !</h2>
-  <h4>Profiter de ...</h4>
-  <br />
-  <br />
-  <h4>Tutoriel disponible : https:\\tuto.html</h4>
-  <h4>Démonstration vidéo disponible : https:\\démo_vidéo.html</h4>
+<div class="dashboard-page">
+  <section class="hero-panel glass-card">
+    <div class="hero-copy">
+      <h1 class="mb-4">Tableau de bord praticien</h1>
+      <p class="hero-intro">
+        Récapitulatif de votre compte praticien, avec vos prochains
+        rendez-vous et des indicateurs clés.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/praticien/gestion_rdv" class="btn primary">Voir l'agenda</a>
+        <a routerLink="/praticien/gestion_patients" class="btn secondary">Mes patients</a>
+      </div>
+    </div>
+
+    <div class="hero-summary">
+      <div class="summary-title">Votre compte</div>
+      <div class="summary-big">{{ authUser?.lastname }} {{ authUser?.firstname }}</div>
+      <div class="summary-tag">Praticien connecté</div>
+      <div class="summary-grid">
+        <div>
+          <span>{{ patientsCount }}</span>
+          <small>Patients actifs</small>
+        </div>
+        <div>
+          <span>{{ upcomingCount }}</span>
+          <small>RDV à venir</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kpis-grid">
+    <article class="stat-card glass-card">
+      <span class="stat-label">Prochains rendez-vous</span>
+      <strong>{{ upcomingCount }}</strong>
+      <p>Vos trois prochains rendez-vous sont affichés ci-dessous.</p>
+    </article>
+    <article class="stat-card glass-card">
+      <span class="stat-label">Patients suivis</span>
+      <strong>{{ patientsCount }}</strong>
+      <p>Nombre total de patients actuellement rattachés.</p>
+    </article>
+    <article class="stat-card glass-card">
+      <span class="stat-label">RDV cette semaine</span>
+      <strong>{{ weekCount }}</strong>
+      <p>Rendez-vous programmés dans les 7 prochains jours.</p>
+    </article>
+    <article class="stat-card glass-card">
+      <span class="stat-label">Durée moyenne</span>
+      <strong>{{ averageDuration }} min</strong>
+      <p>Durée moyenne des rendez-vous à venir.</p>
+    </article>
+  </section>
+
+  <section class="panel glass-card">
+    <div class="panel-header">
+      <div>
+        <h2>3 prochains rendez-vous</h2>
+        <p>Un aperçu clair de votre agenda et des patients à rencontrer.</p>
+      </div>
+    </div>
+
+    <ng-container *ngIf="!isLoading && nextAppointments.length; else emptyState">
+      <div class="appointment-list">
+        <article class="appointment-card" *ngFor="let appointment of nextAppointments">
+          <div class="appointment-meta">
+            <span class="appointment-date">
+              {{ appointment.date_appointment | date: 'EEEE d MMMM yyyy' }}
+            </span>
+            <strong class="appointment-time">
+              {{ appointment.date_appointment | date: 'HH:mm' }}
+            </strong>
+          </div>
+          <div class="appointment-details">
+            <h3>{{ appointment.firstname }} {{ appointment.lastname }}</h3>
+            <span>{{ appointment.duration }} min</span>
+            <span class="appointment-status">{{ appointment.status || 'Confirmé' }}</span>
+          </div>
+        </article>
+      </div>
+    </ng-container>
+
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <p>Aucun rendez-vous à venir pour le moment.</p>
+        <a routerLink="/praticien/gestion_rdv" class="btn ghost">Programmer un RDV</a>
+      </div>
+    </ng-template>
+  </section>
 </div>

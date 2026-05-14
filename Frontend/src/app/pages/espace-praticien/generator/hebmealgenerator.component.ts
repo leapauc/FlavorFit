@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { GetInfoFromDBService } from '../../../services/getInfoFromDB';
 import {
   PathologyGroup,
@@ -102,6 +103,9 @@ export class HebmealgeneratorComponent {
   showShoppingList = false;
   shoppingListMode: 'auto' | 'manuel' | null = null;
 
+  showPdfModal = false;
+  pdfUrl: SafeResourceUrl | null = null;
+
   constructor(
     private getInfoFromDB: GetInfoFromDBService,
     private getIngredient: IngredientService,
@@ -109,6 +113,7 @@ export class HebmealgeneratorComponent {
     private planningService: PlanningService,
     private pdfService: PdfService,
     private eRef: ElementRef,
+    private sanitizer: DomSanitizer,
   ) {}
 
   ngOnInit() {
@@ -719,10 +724,13 @@ export class HebmealgeneratorComponent {
 
     this.pdfService.generateReport(payload).subscribe((pdf: Blob) => {
       const url = window.URL.createObjectURL(pdf);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'rapport.pdf';
-      a.click();
+      this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+      this.showPdfModal = true;
     });
+  }
+
+  closePdfModal() {
+    this.showPdfModal = false;
+    this.pdfUrl = null;
   }
 }

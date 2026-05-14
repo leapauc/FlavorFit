@@ -1,4 +1,4 @@
-id,alim_nom_fr,pluriel,img,animal,poids
+id,name,pluriel,img,animal,g_weight
 1,"Boeuf, entrecôte, partie maigre grillée/poêlée",,Boeuf,Boeuf,150
 2,"Boeuf, gîte à la noix cuit",,Boeuf,Boeuf,120
 3,"Boeuf, faux-filet rôti/cuit au four",,Boeuf,Boeuf,150

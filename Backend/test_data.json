@@ -1,0 +1,115 @@
+{
+  "constraints": {
+    "pathologies": ["Diabète type 2"],
+    "restrictions": ["Végétarien", "Sans gluten"],
+    "ingredientsExcluded": ["Arachides", "Fruits de mer", "Lactose", "Champignons", "Olives"]
+  },
+  "planning": {
+    "Lundi": {
+      "petit_dejeuner": {
+        "title": "Oeufs brouillés + pain grillé"
+      },
+      "dejeuner": {
+        "title": "Poulet rôti + riz + brocoli"
+      },
+      "collation": {
+        "title": "Pomme + amande"
+      },
+      "diner": {
+        "title": "Soupe de légumes + pain"
+      }
+    },
+    "Mardi": {
+      "petit_dejeuner": {
+        "title": "Yaourt sans lactose + granola sans gluten"
+      },
+      "dejeuner": {
+        "title": "Pâtes complètes sauce tomate + salade"
+      },
+      "collation": {
+        "title": "Banane"
+      },
+      "diner": {
+        "title": "Poisson blanc + patate douce + épinards"
+      }
+    },
+    "Mercredi": {
+      "petit_dejeuner": {
+        "title": "Smoothie fruits + müesli"
+      },
+      "dejeuner": {
+        "title": "Steak haché + frites + courgettes"
+      },
+      "collation": {
+        "title": "Crackers sans gluten"
+      },
+      "diner": {
+        "title": "Omelette végétale + salade"
+      }
+    },
+    "Jeudi": {
+      "petit_dejeuner": {
+        "title": "Œufs à la coque + pain complet"
+      },
+      "dejeuner": {
+        "title": "Couscous végétal + légumes grillés"
+      },
+      "collation": {
+        "title": "Orange"
+      },
+      "diner": {
+        "title": "Poulet aux tomates + riz blanc"
+      }
+    },
+    "Vendredi": {
+      "petit_dejeuner": {
+        "title": "Crêpes sans gluten + compote"
+      },
+      "dejeuner": {
+        "title": "Pâtes sans gluten + pesto + tomate"
+      },
+      "collation": {
+        "title": "Barre protéinée"
+      },
+      "diner": {
+        "title": "Steak + patate au four + salade"
+      }
+    },
+    "Samedi": {
+      "petit_dejeuner": {
+        "title": "Pain grillé + œuf + avocat"
+      },
+      "dejeuner": {
+        "title": "Poulet mariné + légumes rôtis"
+      },
+      "collation": {
+        "title": "Noix + raisin"
+      },
+      "diner": {
+        "title": "Omelette + petit morceau de fromage"
+      }
+    },
+    "Dimanche": {
+      "petit_dejeuner": {
+        "title": "Œufs à la coque + pain complet"
+      },
+      "dejeuner": {
+        "title": "Poisson vapeur + riz + carottes"
+      },
+      "collation": {
+        "title": "Pomme + noix"
+      },
+      "diner": {
+        "title": "Soupe de légumes + croutons"
+      }
+    }
+  },
+  "shoppingList": {
+    "Légumes": ["Brocoli 1kg", "Épinards 500g", "Carottes 1kg", "Courgettes 750g", "Tomates 1kg", "Oignons 500g", "Ail 1 botte", "Salade 2 paquets", "Patates douces 500g", "Patates blanches 2kg"],
+    "Protéines": ["Œufs 12 pièces", "Poulet fermier 1.5kg", "Steak haché 500g", "Poisson blanc 600g", "Jambon blanc 200g"],
+    "Produits laitiers": ["Yaourt sans lactose 4 pots"],
+    "Féculents et pains": ["Riz blanc 1kg", "Riz complet 1kg", "Pâtes sans gluten 500g", "Pâtes complètes 500g", "Couscous 500g", "Pain complet 1 miche", "Pain sans gluten 1 paquet"],
+    "Fruits": ["Pommes 1kg", "Bananes 1kg", "Oranges 1kg", "Raisins 500g", "Avocat 2 pièces"],
+    "Autres": ["Amandes 200g", "Noix 200g", "Compote de pomme 1 pot", "Huile d'olive 1L", "Beurre 250g"]
+  }
+}

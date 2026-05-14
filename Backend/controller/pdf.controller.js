@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.generatedPDF = async (req, res) => {
   try {
-    const pythonPath = path.join(__dirname, "../../.venv/bin/python3");
+    const pythonPath = path.join(__dirname, "../.venv/bin/python3");
     const scriptPath = path.join(__dirname, "../generatePDF.py");
 
     const pythonProcess = spawn(pythonPath, [scriptPath]);

@@ -575,3 +575,15 @@
     </div>
   </div>
 </div>
+
+<!-- PDF MODAL -->
+<div *ngIf="showPdfModal" class="pdf-modal-overlay" (click)="closePdfModal()">
+  <div class="pdf-modal-content" (click)="$event.stopPropagation()">
+    <button class="pdf-modal-close" (click)="closePdfModal()">✕</button>
+    <iframe
+      *ngIf="pdfUrl"
+      [src]="pdfUrl"
+      class="pdf-iframe"
+    ></iframe>
+  </div>
+</div>

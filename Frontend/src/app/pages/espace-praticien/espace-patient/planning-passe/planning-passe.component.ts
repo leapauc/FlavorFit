@@ -41,13 +41,13 @@ export class PlanningPasseComponent implements OnInit {
   showModal = false;
 
   days: string[] = [
-    'Lundi',
-    'Mardi',
-    'Mercredi',
-    'Jeudi',
-    'Vendredi',
-    'Samedi',
-    'Dimanche',
+    'Jour1',
+    'Jour2',
+    'Jour3',
+    'Jour4',
+    'Jour5',
+    'Jour6',
+    'Jour7',
   ];
 
   meals: string[] = ['Midi', 'Dîner'];

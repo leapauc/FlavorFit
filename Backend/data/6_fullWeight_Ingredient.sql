@@ -21,4 +21,4 @@ WHERE LOWER(ri.ingredient_ciqual)
 --------------------
 update recipe_ingredients_wk
 set unit_g = quantity
-where unit = 'g' and quantity != unit_g
+where unit = 'g' and quantity != unit_g;

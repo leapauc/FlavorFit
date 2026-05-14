@@ -26,6 +26,86 @@ VALUES ('PAUCHOT','Léa','lea.pauchot@gmail.com',crypt('123456789', gen_salt('bf
        ('DUPOND','Monique','monique.dupond@gmail.com',crypt('123456789', gen_salt('bf')),'0645125478',False),
        ('NZENGUE','Amith','anzngue@gmail.com',crypt('password', gen_salt('bf')),'0754258038',False);
 
+-- INGREDIENTS
+DROP TABLE IF EXISTS ingredients;
+CREATE TABLE ingredients (
+    id_ingredient SERIAL PRIMARY KEY,
+    alim_grp_code varchar,alim_ssgrp_code varchar,alim_ssssgrp_code varchar,alim_grp_nom_fr varchar,	
+    alim_ssgrp_nom_fr varchar,alim_ssssgrp_nom_fr varchar,alim_code varchar,alim_nom_fr varchar,alim_nom_sci varchar,	
+    energie_kj float,energie_kcal float,energie_jones_kj float,energie_jones_kcal float,	
+    eau_g float,proteines_jones_g float,proteines_g float,glucides_g float,lipides_g float,
+    sucres_g float,fructose_g float,galactose_g float,glucose_g float,lactose_g float,maltose_g float,saccharose_g float,
+    amidon_g float,fibres_g float,polyols_totaux_g float,cendres_g float,alcool_g float,	
+    acides_organiques_g float,ag_satures_g float,ag_monoinsatures_g float,ag_polyinsatures_g float,	
+    ag_4_butyrique_g float,ag_6_caproique_g float,ag_8_caprylique_g float,ag_10_caprique_g float,ag_12_laurique_g float,	
+    ag_14_myristique_g float,ag_16_palmitique_g float,ag_18_stearique_g float,ag_18_1_oleique_g float,ag_18_2_linoleique_g float,	
+    ag_18_3_alpha_linolenique_g float,ag_20_4_arachidonique_g float,ag_20_5_epa_g float,ag_22_6_dha_g float,
+    cholesterol_g float,sel_g float,calcium_mg float,chlorure_mg float,cuivre_mg float,fer_mg float,iode_microg float,
+    magnesium_mg float,	manganese_mg float,phosphore_mg float,potassium_mg float,selenium_microg float,sodium_mg float,
+    zinc_mg float,vitamine_a_microg float,retinol_microg float,beta_carotene_microg float,vitamine_d_microg float,	
+    vitamine_d2_microg float,vitamine_d3_microg float,alpha_tocopherol_mg float,vitamine_e_mg float,vitamine_k1_microg float,
+    vitamine_k2_microg float,vitamine_c_mg float,vitamine_b1_mg float,vitamine_b2_mg float,vitamine_b3_mg float,
+    vitamine_b5_mg float,vitamine_b6_mg float,vitamine_b9_dfe_microg float,vitamine_b9_microg float,folates_intrinseques_microg float,
+    acide_folique_microg float,vitamine_b12_microg float,facteur_Jones float
+);
+
+COPY ingredients (alim_grp_code,alim_ssgrp_code,alim_ssssgrp_code,alim_grp_nom_fr,alim_ssgrp_nom_fr,	
+    alim_ssssgrp_nom_fr,alim_code,alim_nom_fr,alim_nom_sci,energie_kj,energie_kcal,energie_jones_kj,energie_jones_kcal,
+    eau,proteines_jones,proteines_g,glucides_g,lipides_g,sucres_g,fructose_g,galactose_g,glucose_g,lactose_g,maltose_g,
+    saccharose_g,amidon_g,fibres_g,polyols_totaux_g,cendres_g,alcool_g,	acides_organiques_g,ag_satures_g,ag_monoinsatures_g,
+    ag_polyinsatures_g,ag_4_butyrique_g,ag_6_caproique_g,ag_8_caprylique_g,ag_10_caprique_g,ag_12_laurique_g,	
+    ag_14_myristique_g,ag_16_palmitique_g,ag_18_stearique_g,ag_18_1_oleique_g,ag_18_2_linoleique_g,ag_18_3_alpha_linolenique_g,
+    ag_20_4_arachidonique_g,ag_20_5epa_g,ag_22_6_dha_g,cholesterol_g,sel_g,calcium_mg,chlorure_mg,cuivre_mg,fer_mg,iode_microg,
+    magnesium_mg,manganese_mg,phosphore_mg,potassium_mg,selenium_microg,sodium_mg,zinc_mg,vitamine_a_microg,retinol_microg,
+    beta_carotene_microg,vitamine_d_microg,vitamine_d2_microg,vitamine_d3_microg,alpha_tocopherol_mg,vitamine_e_mg,
+    vitamine_k1_microg,vitamine_k2_microg,vitamine_c_mg,vitamine_b1_mg,vitamine_b2_mg,vitamine_b3_mg,
+    vitamine_b5_mg,vitamine_b6_mg,vitamine_b9_dfe_microg,vitamine_b9_microg,folates_intrinseques_microg,
+    acide_folique_microg,vitamine_b12_microg,facteur_Jones)
+FROM '/files/Table_Ciqual_2025_clean.csv'
+DELIMITER ';'
+CSV HEADER;
+
+DROP TABLE IF EXISTS singu_pluriel;
+CREATE TABLE singu_pluriel (
+    ingredient VARCHAR,
+    singulier VARCHAR,
+    pluriel VARCHAR
+);
+
+COPY singu_pluriel (ingredient,singulier,pluriel)
+FROM '/files/ingredients_singu_pluriel.csv'
+DELIMITER ','
+CSV HEADER;
+----------------------------------------------------------------------------------------------
+DROP TABLE IF EXISTS weight_legume_fruit;
+CREATE TABLE weight_legume_fruit (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,
+    pluriel VARCHAR,
+    g_weight FLOAT
+);
+
+COPY weight_legume_fruit (name,pluriel,g_weight)
+FROM '/files/poids_legumes_fruits.csv'
+DELIMITER ','
+CSV HEADER;
+
+DROP TABLE IF EXISTS weight_meat_fish_egg;
+CREATE TABLE weight_meat_fish_egg (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,
+    pluriel VARCHAR,
+    img VARCHAR,
+    animal VARCHAR,
+    g_weight FLOAT
+);
+
+COPY weight_meat_fish_egg (name,pluriel,g_weight)
+FROM '/files/poids_meat_fish_egg.csv'
+DELIMITER ','
+CSV HEADER;
+
+
 -- PATHOLOGIES
 DROP TABLE IF EXISTS pathologies;
 DROP TABLE IF EXISTS pathologies_type;
@@ -239,7 +319,7 @@ VALUES (2,'RICHARD','Léonie',21,'leonie124@yahoo.fr','0645125478',ARRAY['45 rue
 
 
 ----------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS recipe_ingredients_wk_wk;
+DROP TABLE IF EXISTS recipe_ingredients_wk;
 -- RECETTES
 DROP TABLE IF EXISTS recipes_wk;
 CREATE TABLE recipes_wk (
@@ -273,57 +353,6 @@ CSV HEADER;
 
 ALTER TABLE recipes_wk
 ADD COLUMN description TEXT[];
-
--- INGREDIENTS
-DROP TABLE IF EXISTS ingredients;
-CREATE TABLE ingredients (
-    id_ingredient SERIAL PRIMARY KEY,
-    alim_grp_code varchar,alim_ssgrp_code varchar,alim_ssssgrp_code varchar,alim_grp_nom_fr varchar,	
-    alim_ssgrp_nom_fr varchar,alim_ssssgrp_nom_fr varchar,alim_code varchar,alim_nom_fr varchar,alim_nom_sci varchar,	
-    energie_kj float,energie_kcal float,energie_jones_kj float,energie_jones_kcal float,	
-    eau_g float,proteines_jones_g float,proteines_g float,glucides_g float,lipides_g float,
-    sucres_g float,fructose_g float,galactose_g float,glucose_g float,lactose_g float,maltose_g float,saccharose_g float,
-    amidon_g float,fibres_g float,polyols_totaux_g float,cendres_g float,alcool_g float,	
-    acides_organiques_g float,ag_satures_g float,ag_monoinsatures_g float,ag_polyinsatures_g float,	
-    ag_4_butyrique_g float,ag_6_caproique_g float,ag_8_caprylique_g float,ag_10_caprique_g float,ag_12_laurique_g float,	
-    ag_14_myristique_g float,ag_16_palmitique_g float,ag_18_stearique_g float,ag_18_1_oleique_g float,ag_18_2_linoleique_g float,	
-    ag_18_3_alpha_linolenique_g float,ag_20_4_arachidonique_g float,ag_20_5_epa_g float,ag_22_6_dha_g float,
-    cholesterol_g float,sel_g float,calcium_mg float,chlorure_mg float,cuivre_mg float,fer_mg float,iode_microg float,
-    magnesium_mg float,	manganese_mg float,phosphore_mg float,potassium_mg float,selenium_microg float,sodium_mg float,
-    zinc_mg float,vitamine_a_microg float,retinol_microg float,beta_carotene_microg float,vitamine_d_microg float,	
-    vitamine_d2_microg float,vitamine_d3_microg float,alpha_tocopherol_mg float,vitamine_e_mg float,vitamine_k1_microg float,
-    vitamine_k2_microg float,vitamine_c_mg float,vitamine_b1_mg float,vitamine_b2_mg float,vitamine_b3_mg float,
-    vitamine_b5_mg float,vitamine_b6_mg float,vitamine_b9_dfe_microg float,vitamine_b9_microg float,folates_intrinseques_microg float,
-    acide_folique_microg float,vitamine_b12_microg float,facteur_Jones float
-);
-
-COPY ingredients (alim_grp_code,alim_ssgrp_code,alim_ssssgrp_code,alim_grp_nom_fr,alim_ssgrp_nom_fr,	
-    alim_ssssgrp_nom_fr,alim_code,alim_nom_fr,alim_nom_sci,energie_kj,energie_kcal,energie_jones_kj,energie_jones_kcal,
-    eau,proteines_jones,proteines_g,glucides_g,lipides_g,sucres_g,fructose_g,galactose_g,glucose_g,lactose_g,maltose_g,
-    saccharose_g,amidon_g,fibres_g,polyols_totaux_g,cendres_g,alcool_g,	acides_organiques_g,ag_satures_g,ag_monoinsatures_g,
-    ag_polyinsatures_g,ag_4_butyrique_g,ag_6_caproique_g,ag_8_caprylique_g,ag_10_caprique_g,ag_12_laurique_g,	
-    ag_14_myristique_g,ag_16_palmitique_g,ag_18_stearique_g,ag_18_1_oleique_g,ag_18_2_linoleique_g,ag_18_3_alpha_linolenique_g,
-    ag_20_4_arachidonique_g,ag_20_5epa_g,ag_22_6_dha_g,cholesterol_g,sel_g,calcium_mg,chlorure_mg,cuivre_mg,fer_mg,iode_microg,
-    magnesium_mg,manganese_mg,phosphore_mg,potassium_mg,selenium_microg,sodium_mg,zinc_mg,vitamine_a_microg,retinol_microg,
-    beta_carotene_microg,vitamine_d_microg,vitamine_d2_microg,vitamine_d3_microg,alpha_tocopherol_mg,vitamine_e_mg,
-    vitamine_k1_microg,vitamine_k2_microg,vitamine_c_mg,vitamine_b1_mg,vitamine_b2_mg,vitamine_b3_mg,
-    vitamine_b5_mg,vitamine_b6_mg,vitamine_b9_dfe_microg,vitamine_b9_microg,folates_intrinseques_microg,
-    acide_folique_microg,vitamine_b12_microg,facteur_Jones)
-FROM '/files/Table_Ciqual_2025_clean.csv'
-DELIMITER ';'
-CSV HEADER;
-
-DROP TABLE IF EXISTS singu_pluriel;
-CREATE TABLE singu_pluriel (
-    ingredient VARCHAR,
-    singulier VARCHAR,
-    pluriel VARCHAR
-);
-
-COPY singu_pluriel (ingredient,singulier,pluriel)
-FROM '/files/ingredients_singu_pluriel.csv'
-DELIMITER ','
-CSV HEADER;
 
 -----------------------------------------------------------------------------------------------------------
 -- INGREDIENTS RECETTES
@@ -511,34 +540,6 @@ VALUES ('barquette',500),('botte',500),('botillon',250),('boîte moyenne',250),(
        ('pointes de couteau',0.2),('cube',10),('cubes',10),('tours de moulin',0.3),('épis',300),('zeste',120),('goutte',0.05),
        ('gouttes',0.05),('brique',1000),('briquette',200),('bûche',500),('bûchette',120),('dose',10),('dosette',5),('touffe',30),
        ('lampée',15),('trait',5),('tige',1);
-----------------------------------------------------------------------------------------------
-DROP TABLE IF EXISTS weight_legume_fruit;
-CREATE TABLE weight_legume_fruit (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR,
-    pluriel VARCHAR,
-    g_weight FLOAT
-);
-
-COPY weight_legume_fruit (name,pluriel,g_weight)
-FROM '/files/poids_legumes_fruits.csv'
-DELIMITER ','
-CSV HEADER;
-
-DROP TABLE IF EXISTS weight_meat_fish_egg;
-CREATE TABLE weight_meat_fish_egg (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR,
-    pluriel VARCHAR,
-    img VARCHAR,
-    animal VARCHAR,
-    g_weight FLOAT
-);
-
-COPY weight_meat_fish_egg (name,pluriel,g_weight)
-FROM '/files/poids_meat_fish_egg.csv'
-DELIMITER ','
-CSV HEADER;
 
 ----------------------------------------------------------------------------------------------
 DROP TABLE IF EXISTS planning;

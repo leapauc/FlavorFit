@@ -26,7 +26,7 @@ exports.sendPlanningEmail = async (req, res) => {
     // 2️⃣ LANCER PYTHON
     // ============================
 
-    const pythonPath = path.join(__dirname, "../../.venv/bin/python3");
+    const pythonPath = path.join(__dirname, "../.venv/bin/python3");
     const scriptPath = path.join(__dirname, "../generatePDF.py");
 
     const pythonProcess = spawn(pythonPath, [scriptPath]);

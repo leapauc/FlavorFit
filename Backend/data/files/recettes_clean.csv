@@ -1,4 +1,4 @@
-id_recette;titre;lien;category;kcal;kj;prot;lipide;glucide;sugar;fiber;salt;ag;cholesterol;proportion;temps_prepa;difficulty;prix;eco_score;created_by
+id_recipe;title;lien;categorie;kcal;kj;proteine;lipide;glucide;sugar;fiber;salt;ag;cholesterol;proportion;time_prepa;difficulty;price;ecoscore;created_by
 4;Poulet aux quatre C (citron, cumin, cannelle, coriandre);/recettes/recette_poulet-aux-quatre-c-citron-cumin-cannelle-coriandre_51826.aspx;viande;;;;;;;;;;;2;60;facile;bon marché;ecoscore c;1
 2;Terrine de foie gras au Sauternes;/recettes/recette_terrine-de-foie-gras-au-sauternes_33977.aspx;viande;;;;;;;;;;;10;60;facile;assez cher;ecoscore b;1
 3;Civet de Sanglier à la bourguignonne;/recettes/recette_civet-de-sanglier-a-la-bourguignonne_34042.aspx;viande;;;;;;;;;;;8;120;facile;moyen;ecoscore d;1
