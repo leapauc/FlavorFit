@@ -9,25 +9,18 @@ ALTER TABLE recipes
 ADD CONSTRAINT recipes_ready_pkey PRIMARY KEY (id_recipe);
 
 CREATE TABLE recipe_ingredients (
-  id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+    id_recipe INTEGER NOT NULL,
+    id_ingredient INTEGER NOT NULL,
+    ingredient TEXT NOT NULL,
+    quantity NUMERIC,
+    unit TEXT,
+    unit_g NUMERIC NOT NULL,
 
-  id_recipe INTEGER NOT NULL,
-  id_ingredient INTEGER NOT NULL,
-
-  ingredient TEXT NOT NULL,
-  quantity NUMERIC,
-  unit TEXT,
-  unit_g NUMERIC NOT NULL,
-
-  CONSTRAINT fk_recipe
-    FOREIGN KEY (id_recipe)
-    REFERENCES recipes(id_recipe)
-    ON DELETE CASCADE,
-
-  CONSTRAINT fk_ingredient
-    FOREIGN KEY (id_ingredient)
-    REFERENCES ingredients(id_ingredient)
-    ON DELETE RESTRICT
+    CONSTRAINT fk_recipe
+        FOREIGN KEY (id_recipe)
+        REFERENCES recipes(id_recipe)
+        ON DELETE CASCADE
 );
 
 INSERT INTO recipe_ingredients

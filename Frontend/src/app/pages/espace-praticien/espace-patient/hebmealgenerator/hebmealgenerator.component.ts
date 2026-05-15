@@ -60,6 +60,11 @@ export class HebmealgeneratorPatientComponent {
   showShoppingList = false;
   shoppingListMode: 'auto' | 'manuel' | null = null;
 
+  showPlanningModal = false;
+  planningModalTitle = '';
+  planningModalMessage = '';
+  planningModalType: 'success' | 'error' = 'success';
+
   constructor(
     private recipeService: RecipeService,
     private patientService: PatientService,
@@ -271,11 +276,26 @@ export class HebmealgeneratorPatientComponent {
     return [...new Set(ids)];
   }
 
+  openModal(title: string, message: string, type: 'success' | 'error' = 'success') {
+    this.planningModalTitle = title;
+    this.planningModalMessage = message;
+    this.planningModalType = type;
+    this.showPlanningModal = true;
+  }
+
+  closeModal() {
+    this.showPlanningModal = false;
+  }
+
   generateShoppingList() {
     const recipeIds = this.getRecipeIdsFromPlanning();
 
     if (!recipeIds.length) {
-      alert('Aucune recette sélectionnée');
+      this.openModal(
+        'Aucune recette sélectionnée',
+        'Veuillez sélectionner au moins une recette dans votre planning avant de générer la liste de course.',
+        'error',
+      );
       return null;
     }
 
@@ -287,7 +307,14 @@ export class HebmealgeneratorPatientComponent {
         this.showShoppingList = true;
         this.shoppingListMode = this.mode;
       },
-      error: (err) => console.error('ERREUR:', err),
+      error: (err) => {
+        console.error('ERREUR:', err);
+        this.openModal(
+          'Erreur de génération',
+          'Impossible de générer la liste de course. Vérifiez votre connexion et réessayez.',
+          'error',
+        );
+      },
     });
 
     return request$;
@@ -379,7 +406,11 @@ export class HebmealgeneratorPatientComponent {
   // GENERATE PLANNING PDF
   savePlanning() {
     if (!this.dateDebut) {
-      alert('Veuillez sélectionner une date de début pour le planning !');
+      this.openModal(
+        'Date manquante',
+        'Veuillez sélectionner une date de début pour le planning avant de valider.',
+        'error',
+      );
       return;
     }
 
@@ -398,8 +429,21 @@ export class HebmealgeneratorPatientComponent {
       this.planningService
         .savePlanning(this.selectedPatientId, payload)
         .subscribe({
-          next: () => alert('Planning enregistré ✅'),
-          error: (err: any) => console.error(err),
+          next: () => {
+            this.openModal(
+              'Planning enregistré ✅',
+              `Le planning a bien été sauvegardé et un e-mail de confirmation a été envoyé à ${this.selectedPatientFirstname} ${this.selectedPatientLastname}.`,
+              'success',
+            );
+          },
+          error: (err: any) => {
+            console.error(err);
+            this.openModal(
+              'Erreur d’enregistrement',
+              'Le planning n’a pas pu être sauvegardé. Veuillez réessayer.',
+              'error',
+            );
+          },
         });
 
       const emailPayload = {

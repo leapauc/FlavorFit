@@ -169,7 +169,29 @@ exports.createPlanningPatientById = async (req, res) => {
 
 exports.updatePlanningById = async (req, res) => {};
 
-exports.deletePlanningById = async (req, res) => {};
+exports.deletePlanningById = async (req, res) => {
+  try {
+    const { id_planning } = req.params;
+
+    if (!id_planning || isNaN(id_planning)) {
+      return res.status(400).json({ error: "ID planning invalide" });
+    }
+
+    const deleteResult = await pool.query(
+      "DELETE FROM planning WHERE id_planning = $1 RETURNING *",
+      [id_planning],
+    );
+
+    if (deleteResult.rowCount === 0) {
+      return res.status(404).json({ error: "Planning non trouvé" });
+    }
+
+    return res.json({ message: "Planning supprimé" });
+  } catch (err) {
+    console.error("❌ ERREUR SUPPRESSION PLANNING :", err);
+    return res.status(500).json({ error: "Erreur serveur" });
+  }
+};
 
 exports.generateShoppingList = async (req, res) => {
   try {

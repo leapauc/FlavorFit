@@ -266,6 +266,32 @@
   </div>
 </div>
 
+<div class="patient-modal" *ngIf="showPlanningModal">
+  <div class="patient-modal-card">
+    <div class="modal-header">
+      <h5>{{ planningModalTitle }}</h5>
+      <button class="close-btn" (click)="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p>{{ planningModalMessage }}</p>
+      <p *ngIf="planningModalType === 'error'" class="text-danger">
+        Veuillez vérifier vos informations et réessayer.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button
+        class="btn"
+        [ngClass]="planningModalType === 'success' ? 'success' : 'danger'"
+        (click)="closeModal()"
+      >
+        Fermer
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- LISTE DE COURSE GLOBALE -->
 <div
   *ngIf="showShoppingList && shoppingListMode === mode"

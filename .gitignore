@@ -12,3 +12,4 @@ Backend/node_modules
 Backend/files
 Frontend/public/img/*
 .venv
+*.env*

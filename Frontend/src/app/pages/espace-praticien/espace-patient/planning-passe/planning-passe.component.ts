@@ -36,9 +36,14 @@ export class PlanningPasseComponent implements OnInit {
   plannings: Planning[] = [];
   selectedPatientId!: number;
   loading = false;
+  deleteMessage = '';
+  deleteErrorMessage = '';
 
   selectedPlanningDetails: PlanningDetails | null = null;
   showModal = false;
+
+  planningToDelete: Planning | null = null;
+  showDeleteModal = false;
 
   days: string[] = [
     'Jour1',
@@ -101,6 +106,37 @@ export class PlanningPasseComponent implements OnInit {
       },
       error: (err) => {
         console.error('❌ Erreur détails planning :', err);
+      },
+    });
+  }
+
+  openDeleteModal(planning: Planning): void {
+    this.deleteMessage = '';
+    this.deleteErrorMessage = '';
+    this.planningToDelete = planning;
+    this.showDeleteModal = true;
+  }
+
+  closeDeleteModal(): void {
+    this.showDeleteModal = false;
+    this.planningToDelete = null;
+    this.deleteErrorMessage = '';
+  }
+
+  confirmDeletePlanning(): void {
+    if (!this.planningToDelete) {
+      return;
+    }
+
+    this.planningService.deletePlanning(this.planningToDelete.id_planning).subscribe({
+      next: () => {
+        this.closeDeleteModal();
+        this.deleteMessage = 'Planning supprimé avec succès.';
+        this.loadPlannings();
+      },
+      error: (err) => {
+        console.error('❌ Erreur suppression planning :', err);
+        this.deleteErrorMessage = 'Impossible de supprimer le planning. Réessayez plus tard.';
       },
     });
   }

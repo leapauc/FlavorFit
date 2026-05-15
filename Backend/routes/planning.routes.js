@@ -6,6 +6,7 @@ const {
   createPlanningPatientById,
   updatePlanningById,
   deletePlanningById,
+  deletePlanningByPatientById,
   generateShoppingList,
 } = require("../controller/planning.controller");
 

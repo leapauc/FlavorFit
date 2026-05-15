@@ -1,5 +1,5 @@
 /* ===== Overlay ===== */
-.custom-modal {
+.patient-modal {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
@@ -12,6 +12,31 @@
 }
 
 /* ===== Card ===== */
+.patient-modal-card {
+  background: #fefefe;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  animation: slideUp 0.35s ease;
+}
+
+.custom-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
 .modal-card {
   background: #fff3e0;
   width: 90%;
@@ -23,6 +48,78 @@
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   animation: slideUp 0.35s ease;
+}
+
+.patient-modal-card .modal-header {
+  background: linear-gradient(135deg, orange, orangered);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patient-modal-card .modal-header h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.patient-modal-card .close-btn {
+  background: white;
+  border: none;
+  color: orangered;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.patient-modal-card .close-btn:hover {
+  background: orangered;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.patient-modal-card .modal-body {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.patient-modal-card .modal-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.patient-modal-card .btn {
+  border-radius: 12px;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-modal-card .btn.success {
+  background: orange;
+  color: white;
+}
+
+.patient-modal-card .btn.success:hover {
+  background: orangered;
+}
+
+.patient-modal-card .btn.danger {
+  background: #f44336;
+  color: white;
+}
+
+.patient-modal-card .btn.danger:hover {
+  background: #d32f2f;
 }
 
 /* ===== Header ===== */
@@ -64,6 +161,11 @@
   padding: 1.5rem;
   max-height: 70vh;
   overflow-y: auto;
+}
+
+.custom-modal .modal-body {
+  max-height: none;
+  overflow-y: visible;
 }
 
 /* ===== Table ===== */
