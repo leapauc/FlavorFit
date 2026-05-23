@@ -1,6 +1,8 @@
 # Backend
 
 npm install nodemailer
+npm install puppeteer handlebars
+npm install nunjucks
 
 # Frontend
 

@@ -14,8 +14,11 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "handlebars": "^4.7.9",
     "nodemailer": "^8.0.1",
+    "nunjucks": "^3.2.4",
     "pg": "^8.16.3",
+    "puppeteer": "^25.0.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   }

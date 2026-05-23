@@ -1,4 +1,61 @@
 const nodemailer = require("nodemailer");
+const generatePDF = require("../generatePDF");
+
+exports.sendPlanningEmail = async (req, res) => {
+  try {
+    const { email, firstName, lastName, startDate, payload } = req.body;
+
+    if (!email || !startDate || !payload) {
+      return res.status(400).json({
+        message: "Données manquantes",
+      });
+    }
+
+    const pdfBuffer = await generatePDF({
+      ...payload,
+      firstName,
+      lastName,
+    });
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: `MealPlan - ${startDate}`,
+      html: `
+        <h2>Bonjour ${firstName} ${lastName}</h2>
+        <p>Votre planning du <b>${startDate}</b> est en pièce jointe.</p>
+      `,
+      attachments: [
+        {
+          filename: `MealPlan-${startDate}.pdf`,
+          content: pdfBuffer,
+        },
+      ],
+    });
+
+    return res.status(200).json({
+      message: "Email envoyé avec PDF",
+    });
+
+  } catch (err) {
+    console.error("MAIL ERROR:", err);
+
+    return res.status(500).json({
+      message: "Erreur serveur",
+    });
+  }
+};
+
+
+/*const nodemailer = require("nodemailer");
 const { spawn } = require("child_process");
 const path = require("path");
 
@@ -107,4 +164,5 @@ exports.sendPlanningEmail = async (req, res) => {
       message: "Erreur serveur",
     });
   }
-};
+};*/
+

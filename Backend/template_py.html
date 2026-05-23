@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <style>
+      @page {
+        size: A4;
+        margin: 22mm 14mm 22mm 14mm;
+
+        @bottom-center {
+          content: "FlavorFit • Rapport nutritionnel personnalisé";
+          font-size: 10px;
+          color: #777;
+        }
+
+        @bottom-right {
+          content: "Page " counter(page);
+          font-size: 10px;
+          color: #777;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        color: #2c2c2c;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      /* =========================
+         HEADER
+      ========================== */
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid #fd810d;
+        padding-bottom: 14px;
+        margin-bottom: 28px;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .logo {
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-size: 30px;
+        font-weight: bold;
+        color: #fd810d;
+        margin: 0;
+      }
+
+      .brand-subtitle {
+        color: #777;
+        font-size: 13px;
+        margin-top: 4px;
+      }
+
+      .report-date {
+        text-align: right;
+        font-size: 12px;
+        color: #777;
+      }
+
+      /* =========================
+         TITLES
+      ========================== */
+
+      .section-title {
+        font-size: 22px;
+        color: #fd810d;
+        margin-bottom: 16px;
+        margin-top: 30px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #eee;
+      }
+
+      /* =========================
+         CARDS
+      ========================== */
+
+      .card {
+        background: #fff;
+        border: 1px solid #ececec;
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 22px;
+      }
+
+      .card-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #fd810d;
+        margin-bottom: 14px;
+      }
+
+      .constraint-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 20px;
+      }
+
+      .constraint-item {
+        background: #fafafa;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .label {
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 4px;
+      }
+
+      /* =========================
+         TABLE
+      ========================== */
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 12px;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      thead {
+        background: #fd810d;
+        color: white;
+
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      th {
+        padding: 12px 8px;
+        font-weight: bold;
+      }
+
+      td {
+        padding: 10px 8px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+      }
+
+      tbody tr:nth-child(even) {
+        background: #fafafa;
+      }
+
+      td:first-child {
+        font-weight: bold;
+        color: #444;
+      }
+
+      /* =========================
+        SHOPPING
+      ========================== */
+
+      .shopping-card {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #e5e5e5;
+        margin-bottom: 12px;
+        page-break-inside: avoid;
+        /*break-inside: avoid;*/
+      }
+      
+      .shopping-card-header {
+        color: white;
+        padding: 8px 12px;
+        font-weight: bold;
+        font-size: 13px;
+
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .shopping-card-body {
+        padding: 10px;
+        background: white;
+      }
+
+      /* PLUS COMPACT */
+      .shopping-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px 12px;
+      }
+
+      /* ITEM ULTRA COMPACT */
+      .shopping-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        background: #fafafa;
+
+        padding: 5px 7px;
+
+        border-radius: 7px;
+
+        min-height: 32px;
+      }
+
+      /* GROSSE CHECKBOX */
+      .shopping-checkbox {
+        width: 18px;
+        height: 18px;
+
+        flex-shrink: 0;
+
+        margin: 0;
+      }
+
+      /* ALIGNEMENT */
+      .shopping-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        gap: 6px;
+      }
+
+      /* TEXTE PLUS COMPACT */
+      .shopping-name {
+        font-size: 11px;
+        line-height: 1.2;
+        word-break: break-word;
+      }
+
+      /* QUANTITÉ */
+      .shopping-quantity {
+        white-space: nowrap;
+        color: #666;
+        font-size: 10px;
+        font-weight: bold;
+      }
+
+      /* =========================
+         COLORS
+      ========================== */
+
+      .group-red {
+        background: linear-gradient(90deg, #e53935, #ff6b6b);
+      }
+
+      .group-green {
+        background: linear-gradient(90deg, #2e7d32, #66bb6a);
+      }
+
+      .group-blue {
+        background: linear-gradient(90deg, #1565c0, #42a5f5);
+      }
+
+      .group-orange {
+        background: linear-gradient(90deg, #fd810d, #ffb347);
+      }
+
+      .group-brown {
+        background: linear-gradient(90deg, #6d4c41, #a1887f);
+      }
+
+      .group-black {
+        background: linear-gradient(90deg, #212121, #616161);
+      }
+
+      .group-pink {
+        background: linear-gradient(90deg, #d81b60, #f06292);
+      }
+
+      .group-purple {
+        background: linear-gradient(90deg, #6a1b9a, #ab47bc);
+      }
+
+      .group-default {
+        background: linear-gradient(90deg, #607d8b, #90a4ae);
+      }
+
+      .page-break {
+        page-break-after: always;
+      }
+
+      /*PATIENT*/
+      .patient-card {
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        padding: 12px 14px;
+
+        background: #fff7ef;
+
+        border-left: 4px solid #fd810d;
+
+        border-radius: 8px;
+
+        font-size: 13px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+
+    <div class="header">
+      <div class="header-left">
+        <img src="file://{{ logo_path }}" class="logo" />
+
+        <div class="brand">
+          <div class="brand-title">FlavorFit</div>
+
+          <div class="brand-subtitle">
+            Votre plan alimentaire personnalisé
+          </div>
+        </div>
+      </div>
+
+      <div class="report-date">
+        Rapport nutritionnel<br />
+        Généré automatiquement
+      </div>
+    </div>
+
+    <!-- CONTRAINTES -->
+    <div class="patient-card">
+      <div>
+        <strong>Patient :</strong>
+        {{firstName}} {{lastName}}
+      </div>
+    </div>
+
+    <div class="section-title">Contraintes alimentaires</div>
+
+    <div class="card">
+      <div class="constraint-grid">
+        <div class="constraint-item">
+          <div class="label">Nombre de parts</div>
+          {{ constraints.nbPersons or "-" }}
+        </div>
+
+        <div class="constraint-item">
+          <div class="label">Date de début</div>
+          {{ constraints.startDate or "-" }}
+        </div>
+
+        <div class="constraint-item">
+          <div class="label">Pathologies</div>
+          {{ constraints.pathologies | join(", ") if constraints.pathologies else "-" }}
+        </div>
+
+        <div class="constraint-item">
+          <div class="label">Restrictions</div>
+          {{ constraints.restrictions | join(", ") if constraints.restrictions else "-" }}
+        </div>
+
+        <div class="constraint-item" style="grid-column: span 2">
+          <div class="label">Ingrédients exclus</div>
+          {{ constraints.ingredientsExcluded | join(", ") if constraints.ingredientsExcluded else "-" }}
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANNING -->
+
+    <div class="section-title">Planning des repas</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Jour</th>
+
+          {% set first_day = planning.values() | list | first %}
+          {% for meal in first_day.keys() %}
+          <th>{{ meal }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for day, meals in planning.items() %}
+        <tr>
+          <td>{{ day }}</td>
+
+          {% for meal, recipe in meals.items() %}
+          <td>
+            {% if recipe %}
+              {{ recipe.title }}
+            {% else %}
+              —
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- SHOPPING -->
+
+    <div class="section-title">Liste de courses</div>
+
+    {% macro get_group_class(name) %}
+      {% set n = name.lower() %}
+
+      {% if 'viandes' in n or 'oeufs' in n or 'poisson' in n %}
+        group-red
+      {% elif 'fruits' in n or 'légumes' in n or 'legumes' in n %}
+        group-green
+      {% elif 'eau' in n or 'boisson' in n %}
+        group-blue
+      {% elif 'matières grasses' in n %}
+        group-orange
+      {% elif 'céréaliers' in n %}
+        group-brown
+      {% elif 'laitiers' in n %}
+        group-black
+      {% elif 'sucrés' in n %}
+        group-pink
+      {% elif 'aides culinaires' in n %}
+        group-purple
+      {% else %}
+        group-default
+      {% endif %}
+    {% endmacro %}
+
+    {% for group, items in shopping.items() %}
+    <div class="shopping-card">
+      <div class="shopping-card-header {{ get_group_class(group) }}">
+        {{ group }}
+      </div>
+
+      <div class="shopping-card-body">
+        <div class="shopping-grid">
+          {% for item in items %}
+          <div class="shopping-item">
+            <input type="checkbox" class="shopping-checkbox" />
+
+            <div class="shopping-text">
+              <span class="shopping-name">{{ item.name }}</span>
+
+              <span class="shopping-quantity">
+                {{ item.quantity_g }} g
+              </span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </body>
+</html>
