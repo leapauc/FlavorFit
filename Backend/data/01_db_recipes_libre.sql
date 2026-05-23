@@ -5,6 +5,7 @@ SELECT
     id,
     portions,
     unnest(string_to_array(ingredients, ' | ')) AS ingredient,
+    NULL AS ing,
     NULL AS quantity,
     NULL AS unit,
     NULL AS ingredient_ciqual,
@@ -14,10 +15,10 @@ FROM recipes_libre;
 
 UPDATE recipe_ingredients_libre
 SET
-    quantity   = regexp_replace(ingredient, '^\s*((\d+[.,\/]?\d*)|½)\s*( g | boîte | poignées | poignée | pincée | càc | cc | càs | kg | ml | cl | verre | verres | gousse | gousses | bouquet | litres | litre | l | cuillerée à soupe | c\. à café | c\. à soupe | c\. café | c\. soupe | tasses | tasse | bol ).*$', '\1'),
-    unit       = regexp_replace(ingredient, '^\s*((\d+[.,\/]?\d*)|½)\s*( g | boîte | poignées | poignée | pincée | càc | cc | càs | kg | ml | cl | verre | verres | gousse | gousses | bouquet | litres | litre | l | cuillerée à soupe | c\. à café | c\. à soupe | c\. café | c\. soupe | tasses | tasse | bol ).*$', '\3'),
-    ingredient = regexp_replace(ingredient, '^\s*((\d+[.,\/]?\d*)|½)\s*( g | boîte | poignées | poignée | pincée | càc | cc | càs | kg | ml | cl | verre | verres | gousse | gousses | bouquet | litres | litre | l | cuillerée à soupe | c\. à café | c\. à soupe | c\. café | c\. soupe | tasses | tasse | bol )\s*(.*)$', '\4')
-WHERE ingredient ~ '^\s*((\d+[.,\/]?\d*)|½)\s*( g | boîte | poignées | poignée | pincée | càc | cc | càs | kg | ml | cl | verre | verres | gousse | gousses | bouquet | litres | litre | l | cuillerée à soupe | c\. à café | c\. à soupe | c\. café | c\. soupe | tasses | tasse | bol )';
+    quantity   = regexp_replace(ingredient, '^\s*((?:\/\d+)|(\d+[.,\/]?\d*)|½|\d+\sà\s\d+|\d+\s\(?ou\s\d+\)?)\s*(?:[-–]\s*)?\s*(g |boîte |poignées|poignée |pincée |càc|cc|càs|kg|ml |cl |verre|verres|gousse |gousses|bouquet|litre |litres|l|cuillerée à soupe|c\. à café|c\. à soupe|tasse |tasses|bol|c. café||c.café||c.à thé|c.soupe|petite boite|cube |bottes|botte|brins|branche |pointe |paquet |morceau |cuillères à soupe|cuillères à café)?\s*(.*)$', '\1'),
+    unit       = regexp_replace(ingredient, '^\s*((?:\/\d+)|(\d+[.,\/]?\d*)|½|\d+\sà\s\d+|\d+\s\(?ou\s\d+\)?)\s*(?:[-–]\s*)?\s*(g |boîte |poignées|poignée |pincée |càc|cc|càs|kg|ml |cl |verre|verres|gousse |gousses|bouquet|litre |litres|l|cuillerée à soupe|c\. à café|c\. à soupe|tasse |tasses|bol|c. café||c.café||c.à thé|c.soupe|petite boite|cube |bottes|botte|brins|branche |pointe |paquet |morceau |cuillères à soupe|cuillères à café)?\s*(.*)$', '\3'),
+    ing = regexp_replace(ingredient, '^\s*((?:\/\d+)|(\d+[.,\/]?\d*)|½|\d+\sà\s\d+|\d+\s\(?ou\s\d+\)?)\s*(?:[-–]\s*)?\s*(g |boîte |poignées|poignée |pincée |càc|cc|càs|kg|ml |cl |verre|verres|gousse |gousses|bouquet|litre |litres|l|cuillerée à soupe|c\. à café|c\. à soupe|tasse |tasses|bol|c. café||c.café||c.à thé|c.soupe|petite boite|cube |bottes|botte|brins|branche |pointe |paquet |morceau |cuillères à soupe|cuillères à café)?\s*(.*)$', '\4')
+where ingredient ~ '^\s*((?:\/\d+)|(\d+[.,\/]?\d*)|½|\d+\sà\s\d+|\d+\s\(?ou\s\d+\)?)\s*(?:[-–]\s*)?\s*(g |boîte |poignées|poignée |pincée |càc|cc|càs|kg|ml |cl |verre|verres|gousse |gousses|bouquet|litre |litres|l|cuillerée à soupe|c\. à café|c\. à soupe|tasse |tasses|bol|c. café||c.café||c.à thé|c.soupe|petite boite|cube |bottes|botte|brins|branche |pointe |paquet |morceau |cuillères à soupe|cuillères à café)?\s*(.*)$';
 
 
 
