@@ -51,7 +51,7 @@ router.get("/ecoscore", getEcoscoreLevel);
  * @swagger
  * /recipes/filtered:
  *   post:
- *     summary: Filtrer les recettes selon ingrédients exclus
+ *     summary: Filtrer les recettes selon ingrédients exclus, convictions et restrictions
  *     tags:
  *       - Recettes
  *     requestBody:
@@ -66,6 +66,16 @@ router.get("/ecoscore", getEcoscoreLevel);
  *                 items:
  *                   type: string
  *                 example: ["tomate", "lait"]
+ *               convictions:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 example: ["végétarien"]
+ *               restrictions:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 example: ["Sans lactose"]
  *     responses:
  *       200:
  *         description: Recettes filtrées

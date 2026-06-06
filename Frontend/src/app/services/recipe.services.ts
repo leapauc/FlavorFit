@@ -75,7 +75,8 @@ export class RecipeService {
 
   getFilteredRecipes(payload: {
     excludedIngredients: string[];
-    // plus tard tu pourras ajouter pathologies?, dietaryOptions? etc.
+    convictions?: string[];
+    restrictions?: string[];
   }): Observable<RecipePayload[]> {
     console.log('POST vers:', `${this.baseUrl}/filtered`);
     console.log('Payload envoyé:', payload);
@@ -84,6 +85,8 @@ export class RecipeService {
   generateAutoRecipes(payload: {
     excludedIngredients: string[];
     mealsToPlan: Record<string, Record<string, boolean>>;
+    convictions?: string[];
+    restrictions?: string[];
   }): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/auto_planning`, payload);
   }

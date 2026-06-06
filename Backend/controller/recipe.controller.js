@@ -487,14 +487,74 @@ exports.getEcoscoreLevel = async (req, res) => {
   }
 };
 
+const getExcludedIngredientIdsFromDietaryFilters = async (
+  convictions = [],
+  restrictions = [],
+) => {
+  const excludedIds = [];
+
+  const normalizeFilterArray = (values) =>
+    Array.isArray(values)
+      ? values
+          .filter((v) => typeof v === "string" && v.trim().length > 0)
+          .map((v) => v.trim())
+      : [];
+
+  const convictionNames = normalizeFilterArray(convictions);
+  const restrictionNames = normalizeFilterArray(restrictions);
+
+  if (convictionNames.length > 0) {
+    const convictionQuery = `
+      SELECT unnest(ingredients_toavoid) AS ingredient_id
+      FROM convictions
+      WHERE lower(name) = ANY(
+        ARRAY(SELECT lower(val) FROM unnest($1::text[]) AS val)
+      )
+    `;
+    const convictionResult = await pool.query(convictionQuery, [convictionNames]);
+    excludedIds.push(
+      ...convictionResult.rows.map((row) => row.ingredient_id),
+    );
+  }
+
+  if (restrictionNames.length > 0) {
+    const restrictionQuery = `
+      SELECT unnest(ingredients_toavoid) AS ingredient_id
+      FROM restrictions
+      WHERE lower(name) = ANY(
+        ARRAY(SELECT lower(val) FROM unnest($1::text[]) AS val)
+      )
+    `;
+    const restrictionResult = await pool.query(restrictionQuery, [
+      restrictionNames,
+    ]);
+    excludedIds.push(
+      ...restrictionResult.rows.map((row) => row.ingredient_id),
+    );
+  }
+
+  return [...new Set(excludedIds.filter((id) => Number.isInteger(id)))];
+};
+
 exports.getFilteredRecipe = async (req, res) => {
   try {
     const excludedIngredients = Array.isArray(req.body.excludedIngredients)
       ? req.body.excludedIngredients
       : [];
+    const convictions = Array.isArray(req.body.convictions)
+      ? req.body.convictions
+      : [];
+    const restrictions = Array.isArray(req.body.restrictions)
+      ? req.body.restrictions
+      : [];
 
-    // Si aucun ingrédient à exclure, retourne toutes les recettes
-    if (excludedIngredients.length === 0) {
+    const allExcludedIngredientIds = await getExcludedIngredientIdsFromDietaryFilters(
+      convictions,
+      restrictions,
+    );
+
+    // Si aucun filtre n’est défini, retourne toutes les recettes
+    if (excludedIngredients.length === 0 && allExcludedIngredientIds.length === 0) {
       const result = await pool.query("SELECT * FROM recipes order by title");
       return res.json(result.rows);
     }
@@ -506,16 +566,22 @@ exports.getFilteredRecipe = async (req, res) => {
         SELECT 1
         FROM recipe_ingredients ri
         WHERE ri.id_recipe = r.id_recipe
-          AND EXISTS (
-            SELECT 1
-            FROM unnest($1::varchar[]) AS excl
-            WHERE unaccent(lower(ri.ingredient))
-                  LIKE '%' || unaccent(lower(excl)) || '%'
+          AND (
+            ri.id_ingredient = ANY($1::int[])
+            OR EXISTS (
+              SELECT 1
+              FROM unnest($2::varchar[]) AS excl
+              WHERE unaccent(lower(ri.ingredient))
+                    LIKE '%' || unaccent(lower(excl)) || '%'
+            )
           )
       )
       ORDER BY r.title;`;
 
-    const result = await pool.query(query, [excludedIngredients]);
+    const result = await pool.query(query, [
+      allExcludedIngredientIds,
+      excludedIngredients,
+    ]);
 
     res.json(result.rows);
   } catch (err) {
@@ -586,47 +652,13 @@ exports.generateAutoRecipePlanning = async (req, res) => {
         .json({ error: "Paramètre mealsToPlan manquant ou invalide" });
     }
 
-    // 1️⃣ Récupérer tous les ingrédients à exclure (noms)
-    let allExcludedIngredientNames = [...(excludedIngredients || [])];
-
-    // Ajouter les ingrédients des convictions
-    if (convictions && convictions.length > 0) {
-      const convictionQuery = `
-        SELECT unnest(ingredients_toavoid) AS ingredient_name
-        FROM convictions
-        WHERE name = ANY($1)
-      `;
-      const convictionResult = await pool.query(convictionQuery, [convictions]);
-      const convictionNames = convictionResult.rows.map(
-        (row) => row.ingredient_name,
-      );
-      allExcludedIngredientNames = [
-        ...allExcludedIngredientNames,
-        ...convictionNames,
-      ];
-    }
-
-    // Ajouter les ingrédients des restrictions
-    if (restrictions && restrictions.length > 0) {
-      const restrictionQuery = `
-        SELECT unnest(ingredients_toavoid) AS ingredient_name
-        FROM restrictions
-        WHERE name = ANY($1)
-      `;
-      const restrictionResult = await pool.query(restrictionQuery, [
-        restrictions,
-      ]);
-      const restrictionNames = restrictionResult.rows.map(
-        (row) => row.ingredient_name,
-      );
-      allExcludedIngredientNames = [
-        ...allExcludedIngredientNames,
-        ...restrictionNames,
-      ];
-    }
-
-    // Supprimer les doublons
-    allExcludedIngredientNames = [...new Set(allExcludedIngredientNames)];
+    const allExcludedIngredientNames = [...(Array.isArray(excludedIngredients)
+      ? excludedIngredients
+      : [])];
+    const allExcludedIngredientIds = await getExcludedIngredientIdsFromDietaryFilters(
+      convictions,
+      restrictions,
+    );
 
     // 2️⃣ Générer le planning
     const planning = {};
@@ -641,17 +673,23 @@ exports.generateAutoRecipePlanning = async (req, res) => {
               SELECT 1
               FROM recipe_ingredients ri
               WHERE ri.id_recipe = r.id_recipe
-                AND EXISTS (
-                  SELECT 1
-                  FROM unnest($1::varchar[]) AS excl
-                  WHERE unaccent(lower(ri.ingredient))
-                        LIKE '%' || unaccent(lower(excl)) || '%'
+                AND (
+                  ri.id_ingredient = ANY($1::int[])
+                  OR EXISTS (
+                    SELECT 1
+                    FROM unnest($2::varchar[]) AS excl
+                    WHERE unaccent(lower(ri.ingredient))
+                          LIKE '%' || unaccent(lower(excl)) || '%'
+                  )
                 )
             )
             ORDER BY random()
             LIMIT 1
           `;
-          const result = await pool.query(query, [allExcludedIngredientNames]);
+          const result = await pool.query(query, [
+            allExcludedIngredientIds,
+            allExcludedIngredientNames,
+          ]);
           planning[day][meal] = result.rows[0]
             ? { id: result.rows[0].id_recipe, title: result.rows[0].title }
             : null;

@@ -14,7 +14,8 @@
       <div class="card-image-container">
         <img
           class="card-image"
-          [src]="recipe.img_url || 'assets/recipe-placeholder.png'"
+          [src]="getRecipeImageUrl(recipe.img_url)"
+          alt="Image de la recette"
         />
       </div>
 

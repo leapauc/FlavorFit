@@ -249,10 +249,16 @@ export class HebmealgeneratorComponent {
     this.filtersSavedMessage = true;
     this.loadingRecipes = true;
 
+    const selectedConvictionNames = this.selectedConviction
+      ? [this.selectedConviction]
+      : [];
+
     // Récupération des recettes filtrées
     this.recipeService
       .getFilteredRecipes({
         excludedIngredients: this.selectedIngredients.map((i) => i.name),
+        convictions: selectedConvictionNames,
+        restrictions: this.selectedRestrictions,
       })
       .subscribe({
         next: (recipes: any[]) => {

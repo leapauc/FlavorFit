@@ -126,6 +126,19 @@ export class RecettesComponent implements OnInit {
     return value !== undefined && value !== null ? value.toString() : '0';
   }
 
+  getRecipeImageUrl(imgUrl?: string): string {
+    if (!imgUrl || imgUrl.trim().length === 0) {
+      return 'assets/recipe-placeholder.png';
+    }
+
+    const trimmedUrl = imgUrl.trim();
+    if (trimmedUrl.startsWith('//')) {
+      return `https:${trimmedUrl}`;
+    }
+
+    return trimmedUrl;
+  }
+
   // Méthode pour convertir kcal en kJ
   getKj(kcal: number | undefined): string {
     return kcal ? (kcal * 4.184).toFixed(0) : '0';

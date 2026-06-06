@@ -9,29 +9,16 @@ ALTER TABLE recipes
 ADD CONSTRAINT recipes_ready_pkey PRIMARY KEY (id_recipe);
 
 CREATE TABLE recipe_ingredients (
-    id SERIAL PRIMARY KEY,
-    id_recipe INTEGER NOT NULL,
-    id_ingredient INTEGER NOT NULL,
-    ingredient TEXT NOT NULL,
-    quantity NUMERIC,
-    unit TEXT,
-    unit_g NUMERIC NOT NULL,
-
-    CONSTRAINT fk_recipe
-        FOREIGN KEY (id_recipe)
-        REFERENCES recipes(id_recipe)
-        ON DELETE CASCADE
+    id SERIAL PRIMARY KEY, id_recipe INTEGER NOT NULL,
+    id_ingredient INTEGER NOT NULL, ingredient TEXT NOT NULL,
+    quantity NUMERIC, unit TEXT, unit_g NUMERIC NOT NULL,
+    CONSTRAINT fk_recipe FOREIGN KEY (id_recipe) REFERENCES recipes(id_recipe) ON DELETE CASCADE
 );
 
 INSERT INTO recipe_ingredients
 (id_recipe, id_ingredient, ingredient, quantity, unit, unit_g)
-SELECT
-    ri.id_recipe,
-    ri.id_ingredient,
-    ri.ingredient,
-    ri.quantity,
-    ri.unit,
-    ri.unit_g
+SELECT ri.id_recipe, ri.id_ingredient, ri.ingredient, ri.quantity,
+    ri.unit, ri.unit_g
 FROM recipe_ingredients_wk ri
 INNER JOIN recipes r
     ON r.id_recipe = ri.id_recipe;

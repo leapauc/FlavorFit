@@ -65,6 +65,13 @@ FROM '/files/Table_Ciqual_2025_clean.csv'
 DELIMITER ';'
 CSV HEADER;
 
+CREATE INDEX idx_ingredients_alim_nom_fr_lower
+ON ingredients (LOWER(alim_nom_fr));
+
+CREATE INDEX idx_ingredients_alim_nom_fr_trgm
+ON ingredients
+USING gin (alim_nom_fr gin_trgm_ops);
+
 DROP TABLE IF EXISTS singu_pluriel;
 CREATE TABLE singu_pluriel (
     ingredient VARCHAR,
@@ -342,7 +349,8 @@ CREATE TABLE recipes_wk (
     difficulty TEXT,
     price TEXT,
     ecoscore TEXT, 
-    created_by INT
+    created_by INT,
+    img_url TEXT,
 );
 
 \COPY recipes_wk (title,lien,categorie,kcal,kj,proteine,lipide,glucide
@@ -472,13 +480,6 @@ SET
 WHERE unit ILIKE 'boîte de % g';
 
 -- V3
-CREATE INDEX idx_ingredients_alim_nom_fr_lower
-ON ingredients (LOWER(alim_nom_fr));
-
-CREATE INDEX idx_ingredients_alim_nom_fr_trgm
-ON ingredients
-USING gin (alim_nom_fr gin_trgm_ops);
-
 UPDATE recipe_ingredients_wk ri
 SET
     ingredient_ciqual = i.alim_nom_fr,

@@ -64,18 +64,20 @@ h1 {
 
 /* Image */
 .card-image-container {
-  flex: 0 0 35%;
+  flex: 0 0 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
   border-right: 1px solid #f1f1f1;
 }
 
 .card-image {
-  width: 90%;
-  max-height: 120px;
-  object-fit: contain;
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 /* Infos recette */
