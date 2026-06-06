@@ -288,49 +288,6 @@ export class HebmealgeneratorComponent {
     });
   }
 
-  // generateAutoPlanning() {
-  //   if (!this.filtersValidated) {
-  //     alert(
-  //       'Veuillez valider les filtres avant de générer le planning automatique.',
-  //     );
-  //     return;
-  //   }
-
-  //   this.loadingRecipes = true;
-
-  //   // Préparer la structure pour indiquer les repas à prévoir
-  //   // Exemple : { Lundi: { Midi: true, Dîner: false }, ... }
-  //   const mealsToPlan: Record<string, Record<string, boolean>> = {};
-  //   this.days.forEach((day) => {
-  //     mealsToPlan[day] = {};
-  //     this.meals.forEach((meal) => {
-  //       // Ici tu peux ajouter une checkbox dans le HTML pour chaque repas à inclure
-  //       // Par défaut, on met true pour générer tous les repas
-  //       mealsToPlan[day][meal] = true;
-  //     });
-  //   });
-
-  //   const payload = {
-  //     excludedIngredients: this.selectedIngredients,
-  //     mealsToPlan: this.mealsToPlan, // <-- maintenant c'est dynamique
-  //   };
-
-  //   // console.log('Payload auto:', payload);
-
-  //   this.recipeService.generateAutoRecipes(payload).subscribe({
-  //     next: (res: any) => {
-  //       this.manualPlanning = res;
-  //       // console.log('Planning automatique généré:', this.manualPlanning);
-  //       this.loadingRecipes = false;
-  //       this.planningGenerated = true; // <-- planning prêt à afficher
-  //     },
-  //     error: (err) => {
-  //       console.error(err);
-  //       this.loadingRecipes = false;
-  //     },
-  //   });
-  // }
-
   generateAutoPlanning() {
     if (!this.filtersValidated) {
       alert('Veuillez valider les filtres.');
