@@ -11,6 +11,7 @@ export interface PatientInfo {
   pathologies: string[] | null;
   allergies: string[] | null;
   convictions: string[] | null;
+  restriction?: number[] | null;
   history: string | null;
   other: string | null;
 }

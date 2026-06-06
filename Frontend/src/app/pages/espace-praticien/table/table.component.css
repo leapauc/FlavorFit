@@ -271,13 +271,13 @@ h1 {
 
 .empty-state p {
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(7, 7, 7, 0.35);
 }
 
 .ghost {
   border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  background: rgba(104, 104, 104, 0.25);
+  color: #555454;
 }
 
 @media (max-width: 1120px) {

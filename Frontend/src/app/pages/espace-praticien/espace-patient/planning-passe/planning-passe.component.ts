@@ -8,6 +8,7 @@ interface Planning {
   start_day: string;
   end_day?: string;
   notes?: string;
+  nb_people?: number;
 }
 
 interface PlanningDetails {
@@ -81,7 +82,23 @@ export class PlanningPasseComponent implements OnInit {
       .getPlanningByPatient(this.selectedPatientId)
       .subscribe({
         next: (res: Planning[]) => {
-          this.plannings = res
+          // Ensure each planning has an end_day computed client-side (start_day + 7 days)
+          const normalized = res.map((p) => {
+            const copy: Planning = { ...p };
+            try {
+              if (!copy.end_day && copy.start_day) {
+                const s = new Date(copy.start_day);
+                const e = new Date(s);
+                e.setDate(e.getDate() + 7);
+                copy.end_day = e.toISOString();
+              }
+            } catch (err) {
+              // leave as-is if parsing fails
+            }
+            return copy;
+          });
+
+          this.plannings = normalized
             .sort(
               (a, b) =>
                 new Date(b.start_day).getTime() -

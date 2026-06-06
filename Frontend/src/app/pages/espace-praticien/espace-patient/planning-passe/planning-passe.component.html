@@ -1,12 +1,16 @@
-<div class="unactiv-form position-relative p-3 rounded">
-  <br />
-  <h4 class="text-center">Plannings passés</h4>
-  <br />
-  <p>
-    Le tableau affiche la liste des 20 derniers plannings de repas proposés au
-    patient.
-  </p>
-  <br />
+<div class="planning-passe-card p-4">
+  <div class="planning-passe-header mb-4">
+    <div>
+      <h4 class="page-title">Plannings passés</h4>
+      <p class="page-subtitle">
+        Liste des 20 derniers plannings du patient avec date de début, date de
+        fin et nombre de parts.
+      </p>
+    </div>
+    <div class="summary-chip">
+      <span>{{ plannings.length }} planning(s)</span>
+    </div>
+  </div>
 
   <div *ngIf="loading" class="text-center">
     <div class="spinner-border text-primary" role="status">
@@ -20,42 +24,43 @@
       <button type="button" class="btn-close" aria-label="Close" (click)="deleteMessage = ''"></button>
     </div>
     <div class="table-responsive">
-      <table class="table table-striped table-bordered shadow-sm">
-        <thead class="table-dark">
+      <table class="planning-table">
+        <thead>
           <tr>
-            <th></th>
-            <th></th>
-            <th>Semaine du</th>
-            <th>au</th>
-            <th>Spécification(s) supplémentaire(s)</th>
+            <th class="text-center">Actions</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th class="text-center">Parts</th>
+            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let planning of plannings">
-            <td class="text-center">
+            <td class="action-cell">
               <i
-                class="bi bi-eye text-success fs-5"
-                style="cursor: pointer"
+                class="bi bi-eye view-icon"
+                title="Voir le planning"
                 (click)="openPlanningModal(planning.id_planning)"
               ></i>
-            </td>
-            <td class="text-center">
               <i
-                class="bi bi-trash text-danger fs-5"
-                style="cursor: pointer"
+                class="bi bi-trash delete-icon"
+                title="Supprimer le planning"
                 (click)="openDeleteModal(planning)"
               ></i>
             </td>
-            <td>{{ planning.start_day | date: "dd/MM/yyyy" }}</td>
+            <td>{{ planning.start_day | date: 'dd/MM/yyyy' }}</td>
             <td>
-              {{
-                planning.end_day ? (planning.end_day | date: "dd/MM/yyyy") : "-"
-              }}
+              {{ planning.end_day ? (planning.end_day | date: 'dd/MM/yyyy') : '-' }}
             </td>
-            <td>{{ planning.notes || "-" }}</td>
+            <td class="text-center">
+              {{ planning.nb_people ?? '-' }}
+            </td>
+            <td>
+              <span class="badge-note">{{ planning.notes || '-' }}</span>
+            </td>
           </tr>
           <tr *ngIf="plannings.length === 0">
-            <td colspan="5" class="text-center">Aucun planning disponible</td>
+            <td colspan="5" class="no-data">Aucun planning disponible</td>
           </tr>
         </tbody>
       </table>

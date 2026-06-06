@@ -212,7 +212,7 @@ h2 {
 
 .fab {
   position: fixed;
-  bottom: 2rem;
+  top: 10rem;
   right: 2rem;
   background: linear-gradient(135deg, #ff9800, #f57c00);
   color: white;

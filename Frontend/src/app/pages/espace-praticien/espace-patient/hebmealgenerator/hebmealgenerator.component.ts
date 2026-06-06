@@ -55,6 +55,7 @@ export class HebmealgeneratorPatientComponent {
   selectedPatientFirstname!: string;
   selectedPatientPathologies: string[] | null = null;
   selectedPatientConvictions: string[] | null = null;
+  selectedPatientRestrictions: string[] = [];
 
   shoppingList: any = {};
   showShoppingList = false;
@@ -97,6 +98,7 @@ export class HebmealgeneratorPatientComponent {
       this.selectedPatientPathologies = patient.pathologies ?? [];
       this.selectedPatientConvictions = patient.convictions ?? [];
       this.loadPatientAllergies(this.selectedPatientId);
+      this.loadPatientConstraints(this.selectedPatientId);
     }
     console.log('Patient sélectionné:', patient);
   }
@@ -136,29 +138,47 @@ export class HebmealgeneratorPatientComponent {
     });
   }
 
+  loadPatientConstraints(id_patient: number) {
+    this.patientService.getConstraintPatientById(id_patient).subscribe({
+      next: (constraint) => {
+        this.selectedPatientConvictions = constraint.convictions || [];
+        this.selectedPatientRestrictions = constraint.restrictions || [];
+        this.selectedPatientPathologies = constraint.pathologies || [];
+
+        this.validateFilters();
+      },
+      error: (err) => console.error(err),
+    });
+  }
+
   validateFilters() {
     this.loadingRecipes = true;
 
-    // Combiner les ingrédients exclus par l'utilisateur et les allergies du patient
     const excludedIngredients = [...this.patientAllergies];
+    const convictions = this.selectedPatientConvictions ?? [];
+    const restrictions = this.selectedPatientRestrictions ?? [];
 
-    // Récupération des recettes filtrées via le service
-    this.recipeService.getFilteredRecipes({ excludedIngredients }).subscribe({
-      next: (recipes: any[]) => {
-        // Normaliser pour {id, title} si nécessaire
-        this.filteredRecipes = recipes.map((r) => ({
-          id: r.id_recipe,
-          title: r.title,
-          ingredients: r.ingredients || [], // si tu veux garder la liste pour d'autres filtres
-        }));
+    this.recipeService
+      .getFilteredRecipes({
+        excludedIngredients,
+        convictions,
+        restrictions,
+      })
+      .subscribe({
+        next: (recipes: any[]) => {
+          this.filteredRecipes = recipes.map((r) => ({
+            id: r.id_recipe,
+            title: r.title,
+            ingredients: r.ingredients || [],
+          }));
 
-        this.loadingRecipes = false;
-      },
-      error: (err) => {
-        console.error('Erreur récupération recettes :', err);
-        this.loadingRecipes = false;
-      },
-    });
+          this.loadingRecipes = false;
+        },
+        error: (err) => {
+          console.error('Erreur récupération recettes :', err);
+          this.loadingRecipes = false;
+        },
+      });
   }
 
   /*GENERATE AUTO PLANNING*/
@@ -180,9 +200,9 @@ export class HebmealgeneratorPatientComponent {
     const payload = {
       excludedIngredients: this.patientAllergies,
       mealsToPlan: this.mealsToPlan,
+      convictions: this.selectedPatientConvictions ?? [],
+      restrictions: this.selectedPatientRestrictions ?? [],
     };
-
-    // console.log('Payload auto:', payload);
 
     this.recipeService.generateAutoRecipes(payload).subscribe({
       next: (res: any) => {
@@ -456,7 +476,8 @@ export class HebmealgeneratorPatientComponent {
             nbPersons: nbPeople,
             startDate: this.dateDebut,
             pathologies: this.selectedPatientPathologies,
-            restrictions: this.selectedPatientConvictions,
+            convictions: this.selectedPatientConvictions,
+            restrictions: this.selectedPatientRestrictions,
             ingredientsExcluded: this.patientAllergies,
           },
           planning: this.manualPlanning,

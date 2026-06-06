@@ -1,33 +1,47 @@
 const pool = require("../db");
 
+const normalizeNames = (names = []) => {
+  if (!names) return [];
+  if (typeof names === 'string') {
+    return names.trim() ? [names.trim()] : [];
+  }
+  if (Array.isArray(names)) {
+    return names.filter(Boolean).map((name) => String(name).trim()).filter(Boolean);
+  }
+  return [];
+};
+
 const getPathologyIds = async (names = []) => {
-  if (!names.length) return [];
+  const normalizedNames = normalizeNames(names);
+  if (!normalizedNames.length) return [];
 
   const { rows } = await pool.query(
-    `SELECT id_pathology FROM pathologies WHERE name = ANY($1)`,
-    [names],
+    `SELECT id_pathology FROM pathologies WHERE name = ANY($1::text[])`,
+    [normalizedNames],
   );
 
   return rows.map((r) => r.id_pathology);
 };
 
 const getConvictionIds = async (names = []) => {
-  if (!names.length) return [];
+  const normalizedNames = normalizeNames(names);
+  if (!normalizedNames.length) return [];
 
   const { rows } = await pool.query(
-    `SELECT id_conviction FROM convictions WHERE name = $1`,
-    [names],
+    `SELECT id_conviction FROM convictions WHERE name = ANY($1::text[])`,
+    [normalizedNames],
   );
 
   return rows.map((r) => r.id_conviction);
 };
 
 const getRestrictionIds = async (names = []) => {
-  if (!names.length) return [];
+  const normalizedNames = normalizeNames(names);
+  if (!normalizedNames.length) return [];
 
   const { rows } = await pool.query(
-    `SELECT id_restriction FROM restrictions WHERE name = $1`,
-    [names],
+    `SELECT id_restriction FROM restrictions WHERE name = ANY($1::text[])`,
+    [normalizedNames],
   );
 
   return rows.map((r) => r.id_restriction);
@@ -128,6 +142,7 @@ exports.getConstraintPatientById = async (req, res) => {
           ARRAY_REMOVE(ARRAY_AGG(DISTINCT pa.name), NULL) AS pathologies,
           p.allergies,
           ARRAY_REMOVE(ARRAY_AGG(DISTINCT c.name), NULL) AS convictions,
+          ARRAY_REMOVE(ARRAY_AGG(DISTINCT r.name), NULL) AS restrictions,
           p.history,
           p.other
       FROM patients p
@@ -135,6 +150,8 @@ exports.getConstraintPatientById = async (req, res) => {
       LEFT JOIN pathologies pa ON pa.id_pathology = ANY(p.pathologies)
       -- Jointure pour convictions
       LEFT JOIN convictions c ON c.id_conviction = ANY(p.conviction)
+      -- Jointure pour restrictions
+      LEFT JOIN restrictions r ON r.id_restriction = ANY(p.restriction)
       WHERE id_patient = $1
       GROUP BY p.id_patient, p.allergies, p.history, p.other
       ORDER BY p.lastname, p.firstname;`,
@@ -264,25 +281,28 @@ exports.updateContactPatient = async (req, res) => {
 // -------------------------
 exports.updateConstraintPatient = async (req, res) => {
   const { id_patient } = req.params;
-  const { pathologies, allergies, conviction, history, other } = req.body;
+  const { pathologies, allergies, conviction, history, other, restrictions } = req.body;
 
   try {
     const pathologyIds = await getPathologyIds(pathologies);
     const convictionIds = await getConvictionIds(conviction);
+    const restrictionIds = await getRestrictionIds(restrictions);
 
     const result = await pool.query(
       `UPDATE patients
        SET pathologies = $1,
            allergies = $2,
            conviction = $3,
-           history = $4,
-           other = $5
-       WHERE id_patient = $6
+           restriction = $4,
+           history = $5,
+           other = $6
+       WHERE id_patient = $7
        RETURNING *`,
       [
         pathologyIds.length ? pathologyIds : null,
         allergies?.length ? allergies : null,
         convictionIds.length ? convictionIds : null,
+        restrictionIds.length ? restrictionIds : null,
         history ?? null,
         other ?? null,
         id_patient,
