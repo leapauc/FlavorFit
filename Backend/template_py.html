@@ -142,14 +142,22 @@
         font-size: 12px;
         overflow: hidden;
         border-radius: 12px;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
 
       thead {
+        display: table-header-group;
         background: #fd810d;
         color: white;
 
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+      }
+
+      tbody tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
 
       th {
@@ -423,22 +431,23 @@
 
     {% macro get_group_class(name) %}
       {% set n = name.lower() %}
+      {% set n = n.replace('é', 'e').replace('è', 'e').replace('ê', 'e').replace('à', 'a').replace('ô', 'o').replace('î', 'i').replace('ù', 'u') %}
 
       {% if 'viandes' in n or 'oeufs' in n or 'poisson' in n %}
         group-red
-      {% elif 'fruits' in n or 'légumes' in n or 'legumes' in n %}
+      {% elif 'fruits' in n or 'legumes' in n or 'oleagineux' in n or 'legumineuse' in n %}
         group-green
       {% elif 'eau' in n or 'boisson' in n %}
         group-blue
-      {% elif 'matières grasses' in n %}
+      {% elif 'matiere grasse' in n or 'matieres grasses' in n or 'graisse' in n %}
         group-orange
-      {% elif 'céréaliers' in n %}
+      {% elif 'cerealiers' in n or 'cereale' in n %}
         group-brown
-      {% elif 'laitiers' in n %}
+      {% elif 'laitiers' in n or 'lait' in n %}
         group-black
-      {% elif 'sucrés' in n %}
+      {% elif 'sucres' in n or 'sucre' in n %}
         group-pink
-      {% elif 'aides culinaires' in n %}
+      {% elif 'aides culinaires' in n or 'culinaire' in n %}
         group-purple
       {% else %}
         group-default

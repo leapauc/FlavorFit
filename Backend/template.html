@@ -84,11 +84,19 @@ body {
 table {
   width:100%;
   border-collapse:collapse;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 thead {
+  display: table-header-group;
   background:#fd810d;
   color:white;
+}
+
+tbody tr {
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 th, td {
@@ -113,6 +121,8 @@ tbody tr:nth-child(even) {
   color:white;
   padding:8px 12px;
   font-weight:bold;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .shopping-grid {
@@ -129,6 +139,11 @@ tbody tr:nth-child(even) {
   background:#fafafa;
   padding:5px 7px;
   border-radius:7px;
+}
+
+.page-break {
+  page-break-after: always;
+  break-after: page;
 }
 
 /* COLORS */
@@ -197,7 +212,7 @@ tbody tr:nth-child(even) {
   {% set first_day = planning | dictsort | list | first %}
   {% set meals_header = first_day[1] if first_day else {} %}
 
-  {% for meal in meals_header %}
+  {% for meal, recipe in meals_header %}
     <th>{{ meal }}</th>
   {% endfor %}
 </tr>
@@ -230,7 +245,7 @@ tbody tr:nth-child(even) {
 {% for group, items in (shopping | dictsort) %}
 <div class="shopping-card">
 
-  <div class="shopping-card-header group-default">
+  <div class="shopping-card-header {{ getGroupClass(group) }}">
     {{ group }}
   </div>
 

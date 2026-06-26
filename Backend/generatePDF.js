@@ -6,14 +6,21 @@ const nunjucks = require("nunjucks");
 /**
  * SAFE GROUP CLASS
  */
+function normalizeText(value = "") {
+  return String(value)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+}
+
 function getGroupClass(name = "") {
-  const n = (name || "").toLowerCase();
+  const n = normalizeText(name);
 
   if (n.includes("viande") || n.includes("oeuf") || n.includes("poisson")) return "group-red";
-  if (n.includes("fruit") || n.includes("légume") || n.includes("legume") || n.includes("oléagineux") || n.includes("légumineuse")) return "group-green";
+  if (n.includes("fruit") || n.includes("legume") || n.includes("oleagineux") || n.includes("legumineuse")) return "group-green";
   if (n.includes("eau") || n.includes("boisson")) return "group-blue";
-  if (n.includes("matière grasse") || n.includes("matieres grasses")) return "group-orange";
-  if (n.includes("céréale")) return "group-brown";
+  if (n.includes("matiere grasse") || n.includes("matieres grasses") || n.includes("graisse")) return "group-orange";
+  if (n.includes("cereale") || n.includes("cereal")) return "group-brown";
   if (n.includes("lait")) return "group-black";
   if (n.includes("sucre")) return "group-pink";
   if (n.includes("culinaire")) return "group-purple";
@@ -74,11 +81,14 @@ async function generatePDF(data) {
    */
   const logoPathRaw = path.resolve(
     __dirname,
-    "../Frontend/public/img/logo_flavorFit.webp"
+    "./assets/logo_flavorFit.webp"
   );
 
-  // encode URI properly (IMPORTANT for Puppeteer/Linux)
-  const logoPath = "file://" + logoPathRaw.split(path.sep).join("/");
+  if (!fs.existsSync(logoPathRaw)) {
+    console.warn("Logo introuvable pour le PDF :", logoPathRaw);
+  }
+
+  const logoPath = logoPathRaw.split(path.sep).join("/");
 
   const planning = normalizePlanning(data.planning);
   const shopping = normalizeShopping(data.shoppingList);

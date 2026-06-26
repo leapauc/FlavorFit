@@ -47,7 +47,7 @@ exports.getPlanningDetailsById = async (req, res) => {
 
     // 1️⃣ Récupérer le planning
     const planningResult = await pool.query(
-      `SELECT id_planning, id_patient, start_day, end_day, nb_people
+      `SELECT id_planning, id_patient, start_day, nb_people
        FROM planning
        WHERE id_planning = $1`,
       [id_planning],
@@ -135,15 +135,15 @@ exports.createPlanningPatientById = async (req, res) => {
   const { startDate, nbPeople, planning } = req.body;
 
   try {
-    // 1️⃣ Calculer la date de fin (startDate + 7 jours)
     const start = new Date(startDate);
-    const end = new Date(start);
-    end.setDate(end.getDate() + 7);
+    if (Number.isNaN(start.getTime())) {
+      return res.status(400).json({ error: "Date de début invalide" });
+    }
 
-    // 2️⃣ Insérer dans la table planning avec end_day
+    // 2️⃣ Insérer dans la table planning
     const result = await pool.query(
-      `INSERT INTO planning (id_patient, start_day, end_day, nb_people) VALUES ($1, $2, $3, $4) RETURNING id_planning`,
-      [id_patient, start.toISOString(), end.toISOString(), nbPeople],
+      `INSERT INTO planning (id_patient, start_day, nb_people) VALUES ($1, $2, $3) RETURNING id_planning`,
+      [id_patient, start.toISOString(), nbPeople],
     );
 
     const id_planning = result.rows[0].id_planning;
